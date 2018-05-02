@@ -21,6 +21,8 @@ git push
 - [ ] Git ignore
 - [ ] Git with R Studio
 
+add some more stuff -change name to white.
+
 *Troubleshooting*  
 
 * [Line endings](https://help.github.com/articles/dealing-with-line-endings/#platform-all)
