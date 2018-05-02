@@ -1,4 +1,6 @@
 *.sublime*
 *.DS_Store
 .Rproj.user
-*.Rhistory
+*Rproj
+*Rhistory
+*Rapp.history
