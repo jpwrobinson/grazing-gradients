@@ -26,3 +26,9 @@ git push
 * [Line endings](https://help.github.com/articles/dealing-with-line-endings/#platform-all)
 * Configuration issues: check ```git config --list```
 * [Detached head](https://stackoverflow.com/questions/10228760/fix-a-git-detached-head?utm_medium=organic&utm_source=google_rich_qa&utm_campaign=google_rich_qa)
+
+*Who uses Github and why?*
+
+* [Canada/USA - hake fisheries assessment](https://github.com/andrew-edwards/hake-assessment)
+* [Reproducible ecology paper example](https://github.com/dbarneche/fishEggSize)
+* [Sharing model code - Aaron MacNeil fish recovery potential paper](https://github.com/mamacneil/Unfished)
