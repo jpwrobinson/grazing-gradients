@@ -1,5 +1,22 @@
 # grazing-gradients
 
+## Useful bash commands
+
+We won't be using bash for much more than git pull, add -A, commit -m 'message', and git push. Sometimes you will need to navigate around folders and check where you are. For that:
+
+``` 
+cd     ## this is the change directory command
+cd ..   ##  move 'up' your file structure
+cd Documents/git_repos   ##  move into Documents, and then git_repos
+
+pwd      ### 'print working directory'
+
+ls      ## list files in your working directory
+ls -a     ## list 'all' files, including hidden ones (like .gitignore)
+ls -l      ## list files and some metadata (when they were created, how large they are)
+```
+
+
 ## Herbivore metadata
 
 All cleaned herbivore data is at data/wio_gbr_herb_master.Rdata, with the full species list in data/herbivore_species_list.csv. 
