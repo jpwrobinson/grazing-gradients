@@ -12,7 +12,7 @@
 
 This thing you're reading is a markdown file. It's designed to encourage fast writing with neat formatting, but it functions like a simple text document. Github likes Markdown, so when we write stuff here it gets converted into a simple, well-structured readme file. 
 
-[Check here for all your Markdown tips](add link). All you really need are different numbers of hashtags, to separate out sections.
+[Check here for all your Markdown tips](https://github.com/adam-p/markdown-here/wiki/Markdown-Cheatsheet). All you really need are different numbers of hashtags, to separate out sections. We've been editing this file in a basic text editor, but you can get a free markdown viewer if you want to preview how things will get formatted online. I use [Typora](https://typora.io/)
 
 # Section 1
 
@@ -26,7 +26,7 @@ This thing you're reading is a markdown file. It's designed to encourage fast wr
 
 etc.
 
-R Studio has also developed an R - markdown hybrid. It's designed to write quick, readable reports that contain R code, data, figures and tables. [Some examples of what you can do with R markdown reports.](add link)
+R Studio has also developed an R - markdown hybrid. It's designed to write quick, readable reports that contain R code, data, figures and tables. [Some examples of what you can do with R markdown reports.](https://rmarkdown.rstudio.com/gallery.html)
 
 We're going to use R-markdown to explore the UVC data, so we can easily share our findings among the group. The document will serve as a lab notebook that keeps track of everything we're working on, growing over time as we figure out how herbivore functions vary across the Indian Ocean.
 
