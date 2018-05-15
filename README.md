@@ -1,5 +1,35 @@
 # grazing-gradients
 
+## Meeting 2 - 15th May 2018 - R markdown for reproducible notebooks and reports
+
+*Tasks*
+
+* Git problems?
+* Introduce R-markdown
+* Talk about UVC dataset structure
+* Species lists and bite rate literature
+* Referencing system. Mendeley?
+
+This thing you're reading is a markdown file. It's designed to encourage fast writing with neat formatting, but it functions like a simple text document. Github likes Markdown, so when we write stuff here it gets converted into a simple, well-structured readme file. 
+
+[Check here for all your Markdown tips](add link). All you really need are different numbers of hashtags, to separate out sections.
+
+# Section 1
+
+## Section 2
+
+### Section 3
+
+#### Section 4
+
+##### Section 5
+
+etc.
+
+R Studio has also developed an R - markdown hybrid. It's designed to write quick, readable reports that contain R code, data, figures and tables. [Some examples of what you can do with R markdown reports.](add link)
+
+We're going to use R-markdown to explore the UVC data, so we can easily share our findings among the group. The document will serve as a lab notebook that keeps track of everything we're working on, growing over time as we figure out how herbivore functions vary across the Indian Ocean.
+
 ## Useful bash commands
 
 We won't be using bash for much more than git pull, add -A, commit -m 'message', and git push. Sometimes you will need to navigate around folders and check where you are. For that:
