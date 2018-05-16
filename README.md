@@ -129,4 +129,4 @@ git push
 * [Canada/USA - hake fisheries assessment](https://github.com/andrew-edwards/hake-assessment)
 * [Reproducible ecology paper example](https://github.com/dbarneche/fishEggSize)
 * [Sharing model code - Aaron MacNeil fish recovery potential paper](https://github.com/mamacneil/Unfished)
-
+	

@@ -8,13 +8,13 @@ output: html_notebook
 setwd('/Users/robins64/Documents/git_repos/grazing-gradients')
 # Jan, Jeneen, Sam: add your working directories here
 
+
 load('data/wio_gbr_herb_master.Rdata')
 sey<-herb %>% filter(dataset=='Seychelles')
 
 # load tidy packages and set ggplot theme because the default is shite
 library(tidyverse); theme_set(theme_bw())
 ```
-
 
 
 #### Seychelles
