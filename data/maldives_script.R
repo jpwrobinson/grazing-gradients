@@ -31,6 +31,8 @@ dotchart(maldives$biomass.kgha[maldives$FG=="Herbivore Grazer"], main = "Grazers
 dotchart(maldives$biomass.kgha[maldives$FG=="Herbivore Scraper"],main = "Scrapers")
 dotchart(maldives$biomass.kgha[maldives$FG=="Herbivore Browser"], main = "Browsers")
 
+#identify common species, average number species per transect, biomass, etc.
+
 
 #fancy James coding
 hist(log2(maldives$biomass.kgha[maldives$FG=="Herbivore Grazer"]), main = "Grazers", axes =F)
