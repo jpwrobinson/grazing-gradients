@@ -6,7 +6,10 @@ output: html_notebook
 ```{r, echo=FALSE}
 # data loads and working directory stuff
 setwd('/Users/robins64/Documents/git_repos/grazing-gradients')
-# Jan, Jeneen, Sam: add your working directories here
+#jan here
+#jeneen here
+#sam here
+
 
 
 load('data/wio_gbr_herb_master.Rdata')
@@ -54,3 +57,14 @@ Grazer size distributions indicated high abundance of small-bodied individuals. 
 ggplot(sey, aes(log(mass.g, 2), fill=FG)) + geom_histogram(breaks=c(1:10)) + facet_wrap(management~FG) + theme(legend.position='none') + scale_x_continuous(breaks=c(1:10), labels=c(2^c(1:10))) + labs (x='Mass (g)')
 ```
 
+
+
+#### Maldives
+
+
+
+#### GBR
+
+
+
+#### Chagos

@@ -39,3 +39,4 @@ hist(log2(maldives$biomass.kgha[maldives$FG=="Herbivore Scraper"]), main = "Scra
 axis(1, at=c(-1:300), labels=2^(c(-1:300))); axis(2)
 hist(log2(maldives$biomass.kgha[maldives$FG=="Herbivore Browser"]), main = "Browsers", axes = F)
 axis(1, at=c(-1:30), labels=2^(c(-1:30))); axis(2)
+
