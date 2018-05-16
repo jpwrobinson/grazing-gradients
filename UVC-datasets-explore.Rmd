@@ -1,0 +1,56 @@
+---
+title: "UVC datasets - exploring monitoring structure and herbivore assemblages"
+output: html_notebook
+---
+
+```{r, echo=FALSE}
+# data loads and working directory stuff
+setwd('/Users/robins64/Documents/git_repos/grazing-gradients')
+# Jan, Jeneen, Sam: add your working directories here
+
+load('data/wio_gbr_herb_master.Rdata')
+sey<-herb %>% filter(dataset=='Seychelles')
+
+# load tidy packages and set ggplot theme because the default is shite
+library(tidyverse); theme_set(theme_bw())
+```
+
+
+
+#### Seychelles
+
+* Seychelles data are 7m radius point counts conducted at 21 reef sites in 1994, 2005, 2008, 2011, 2014, 2017. 
+* Sites were stratified according to habitat (granite = 7, patch = 7, carbonate = 7) and management status (12 = fished, 9 = MPAs)
+* Reefs are the inhabited Seychelles islands, Mahe and Praslin
+* Useful papers describing dataset methods: Graham et al. 2015 (Predicting climate-driven regime shifts..., Nature)
+
+Across all surveys, ```r length(unique(sey$species))``` herbivore species were recorded, which are composed of:
+
+```{r, echo=F} 
+# count number of unique species per functional group
+aggregate(species ~ FG, sey, function(x) length(unique(x)))
+```
+
+
+Scrapers dominated herbivore assemblages on both fished and protected reefs, and browser biomass was slightly higher than grazer biomass after 1994 (i.e. after bleaching). High variability in browser biomass suggests that strong spatial variation in browser presence. This was less true for scrapers, for which biomass may be high at all reef sites. There was a weak protection effect apparent, with slightly higher biomass of all feeding groups in protected sites.
+
+```{r, echo=F}
+
+## estimate biomass gradient across management status 
+biom<-sey %>%
+		group_by(site, date, transect, FG, management) %>% 
+		summarise(biom = sum(biomass.kgha)) %>%
+		group_by(site, date, FG, management) %>%
+		summarise(biom = mean (biom))
+
+ggplot(biom, aes(date, log10(biom+1), fill=management)) + geom_boxplot() + facet_wrap(~FG)
+
+```
+
+Grazer size distributions indicated high abundance of small-bodied individuals. Scraper and browser sizes were more equitably distributed across the size range. Scrapers had the largest body sizes, with some individuals between 0.5-2 kg. 
+
+```{r, echo=F, fig.caption = 'Herbivore size distribution at Seychelles'}
+## estimate size distribution by functional groups
+ggplot(sey, aes(log(mass.g, 2), fill=FG)) + geom_histogram(breaks=c(1:10)) + facet_wrap(management~FG) + theme(legend.position='none') + scale_x_continuous(breaks=c(1:10), labels=c(2^c(1:10))) + labs (x='Mass (g)')
+```
+

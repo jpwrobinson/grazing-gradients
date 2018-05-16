@@ -1,6 +1,11 @@
 *.sublime*
 *.DS_Store
 .Rproj.user
+
+
 *Rproj
 *Rhistory
 *Rapp.history
+
+*html
+
