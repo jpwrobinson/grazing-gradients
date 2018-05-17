@@ -6,9 +6,11 @@ output: html_notebook
 ```{r, echo=FALSE}
 # data loads and working directory stuff
 setwd('/Users/robins64/Documents/git_repos/grazing-gradients')
-#jan here
-#jeneen here
-#sam here
+
+## ** add working directories! **
+#jan
+#jeneen
+#sam
 
 
 
