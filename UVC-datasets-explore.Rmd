@@ -1,9 +1,11 @@
 ---
 title: "UVC datasets - exploring monitoring structure and herbivore assemblages"
-output: html_notebook
+output:
+  pdf_document: default
+  html_notebook: default
 ---
 
-```{r, echo=FALSE}
+```{r, echo=FALSE, include=FALSE, messages=FALSE}
 # data loads and working directory stuff
 setwd('/Users/robins64/Documents/git_repos/grazing-gradients')
 
@@ -12,8 +14,8 @@ setwd('/Users/robins64/Documents/git_repos/grazing-gradients')
 #jeneen
 #sam
 
-# load tidy packages and set ggplot theme because the default is shite
-library(tidyverse); theme_set(theme_bw())
+# load tidy packages and set ggplot theme
+library(tidyverse); theme_set(theme_bw()); library(gridExtra)
 
 load('data/wio_gbr_herb_master.Rdata')
 sey<-herb %>% filter(dataset=='Seychelles')
@@ -61,10 +63,7 @@ ggplot(sey, aes(log(mass.g, 2), fill=FG)) + geom_histogram(breaks=c(1:10)) + fac
 
 Considering common species as those that were observed frequently (i.e. high detection rate at replicate UVC level) and those that are high in abundance or biomass (i.e. mean biomass across UVC replicates at each site).
 
-```{r, echo=F, fig.caption = 'Common herbivores in Seychelles'}
-
-## not finished plots
-## need to order bars/boxes and label with species names
+```{r, echo=F, fig.caption = 'Common herbivores in Seychelles', fig.width=3, fig.height=10}
 
 ## estimate detection frequency by species
 detect <- sey %>% group_by(unique.id, species, FG) %>% 
@@ -75,18 +74,32 @@ detect <- sey %>% group_by(unique.id, species, FG) %>%
 ## estimate mean abundance at site level, by species
 abund <- sey %>% group_by(unique.id, site, species, FG) %>% 
         summarise(abund = sum(abundance.500m2)) %>% ## total abundance per UVC
-        group_by(site, species, FG) %>% 
+        group_by(species, FG) %>% 
         summarise(abund = mean(abund)) ## mean abundance per site
 
 ## estimate mean biomass at site level, by species
 biom <- sey %>% group_by(unique.id, site, species, FG) %>% 
         summarise(biom = sum(biomass.kgha)) %>% ## total biomass per UVC
-        group_by(site, species, FG) %>% 
+        group_by(species, FG) %>% 
         summarise(biom = mean(biom)) ## mean biomass per site
 
-g1<-ggplot(detect, aes(species, freq, fill=FG)) + geom_bar(stat='identity') + facet_wrap(~FG)
-g2<-ggplot(abund, aes(species, abund, fill=FG)) + geom_boxplot() + facet_wrap(~FG)
-g3<-ggplot(biom, aes(species, biom, fill=FG)) + geom_boxplot() + facet_wrap(~FG)
+g1<-ggplot(detect, aes(x=reorder(species,freq), y= freq, fill=FG)) +    geom_bar(stat='identity') +  
+  labs(y='Frequency of occurrence', x='', title='Seychelles: abundance/biomass distributions') +
+  coord_flip() + theme(legend.position='none')
+  
+g2<-ggplot(abund[abund$abund<100,], aes(reorder(species,abund), abund, fill=FG)) + 
+  geom_bar(stat='identity') + 
+  labs(y='Mean abundance per 500m2', x='') +
+  coord_flip() + theme(legend.position='none')
+
+g3<-ggplot(biom[biom$biom<300,], aes(reorder(species,biom), biom, fill=FG)) + 
+  geom_bar(stat='identity') + 
+  labs(y='Mean biomass kg ha-1', x='') +
+  coord_flip() + theme(legend.position=c(0.75, 0.25))
+  
+grid.arrange(g1, g2, g3)
+
+
 
 ```
 
