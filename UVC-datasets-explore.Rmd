@@ -12,13 +12,12 @@ setwd('/Users/robins64/Documents/git_repos/grazing-gradients')
 #jeneen
 #sam
 
-
+# load tidy packages and set ggplot theme because the default is shite
+library(tidyverse); theme_set(theme_bw())
 
 load('data/wio_gbr_herb_master.Rdata')
 sey<-herb %>% filter(dataset=='Seychelles')
 
-# load tidy packages and set ggplot theme because the default is shite
-library(tidyverse); theme_set(theme_bw())
 ```
 
 
@@ -35,7 +34,6 @@ Across all surveys, ```r length(unique(sey$species))``` herbivore species were r
 # count number of unique species per functional group
 aggregate(species ~ FG, sey, function(x) length(unique(x)))
 ```
-
 
 Scrapers dominated herbivore assemblages on both fished and protected reefs, and browser biomass was slightly higher than grazer biomass after 1994 (i.e. after bleaching). High variability in browser biomass suggests that strong spatial variation in browser presence. This was less true for scrapers, for which biomass may be high at all reef sites. There was a weak protection effect apparent, with slightly higher biomass of all feeding groups in protected sites.
 
@@ -59,6 +57,38 @@ Grazer size distributions indicated high abundance of small-bodied individuals. 
 ggplot(sey, aes(log(mass.g, 2), fill=FG)) + geom_histogram(breaks=c(1:10)) + facet_wrap(management~FG) + theme(legend.position='none') + scale_x_continuous(breaks=c(1:10), labels=c(2^c(1:10))) + labs (x='Mass (g)')
 ```
 
+**Common herbivore species**
+
+Considering common species as those that were observed frequently (i.e. high detection rate at replicate UVC level) and those that are high in abundance or biomass (i.e. mean biomass across UVC replicates at each site).
+
+```{r, echo=F, fig.caption = 'Common herbivores in Seychelles'}
+
+## not finished plots
+## need to order bars/boxes and label with species names
+
+## estimate detection frequency by species
+detect <- sey %>% group_by(unique.id, species, FG) %>% 
+          summarise(freq = n()) %>% ## total detections per UVC replicate
+          group_by(species, FG) %>%
+          summarise(freq = mean(freq))  ## mean detection by species
+
+## estimate mean abundance at site level, by species
+abund <- sey %>% group_by(unique.id, site, species, FG) %>% 
+        summarise(abund = sum(abundance.500m2)) %>% ## total abundance per UVC
+        group_by(site, species, FG) %>% 
+        summarise(abund = mean(abund)) ## mean abundance per site
+
+## estimate mean biomass at site level, by species
+biom <- sey %>% group_by(unique.id, site, species, FG) %>% 
+        summarise(biom = sum(biomass.kgha)) %>% ## total biomass per UVC
+        group_by(site, species, FG) %>% 
+        summarise(biom = mean(biom)) ## mean biomass per site
+
+g1<-ggplot(detect, aes(species, freq, fill=FG)) + geom_bar(stat='identity') + facet_wrap(~FG)
+g2<-ggplot(abund, aes(species, abund, fill=FG)) + geom_boxplot() + facet_wrap(~FG)
+g3<-ggplot(biom, aes(species, biom, fill=FG)) + geom_boxplot() + facet_wrap(~FG)
+
+```
 
 
 #### Maldives
