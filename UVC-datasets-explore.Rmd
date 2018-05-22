@@ -121,6 +121,7 @@ levels(chagos$FG)
 #Load packages
 library(tidyverse)
 library (ggplot2)
+library(gridExtra)
 ```
 
 *Exploring the data*
@@ -139,11 +140,63 @@ chagos %>% count(site, transect, sort =TRUE)
 #Number of sitings of each species
 chagos$species <- as.factor(chagos$species)
 chagos %>% count(species) # 52 species
+
+
+#From James
+# count number of unique species per functional group
+aggregate(species ~ FG, chagos, function(x) length(unique(x)))
 ```
 Total of 52 species, 5729 records, across 20 sites at 4 reefs, with between 1-4 transects at each site
+
+
+```{r}
+#From James script
+# count number of unique species per functional group
+aggregate(species ~ FG, chagos, function(x) length(unique(x)))
+```
+
+```{r}
+#From James script
+## estimate size distribution by functional groups
+ggplot(chagos, aes(log(mass.g, 2), fill=FG)) + geom_histogram(breaks=c(1:10)) + facet_wrap(management~FG) + theme(legend.position='none') + scale_x_continuous(breaks=c(1:10), labels=c(2^c(1:10))) + labs (x='Mass (g)')
+```
+
+
+
 Now need to look at abundance and biomass of species and functional groups across sites...
 
+
+
+
 #insert graphs on spp and FG abundance and biomass across sites, what are the common species?
+#From James
+```{r}
+## estimate mean abundance at site level, by species
+abund <- chagos %>% group_by(unique.id, site, species, FG) %>% 
+        summarise(abund = sum(abundance.500m2)) %>% ## total abundance per UVC
+        group_by(species, FG) %>% 
+        summarise(abund = mean(abund)) ## mean abundance per site
+
+## estimate mean biomass at site level, by species
+biom <- chagos %>% group_by(unique.id, site, species, FG) %>% 
+        summarise(biom = sum(biomass.kgha)) %>% ## total biomass per UVC
+        group_by(species, FG) %>% 
+        summarise(biom = mean(biom)) ## mean biomass per site
+
+g2<-ggplot(abund[abund$abund<100,], aes(reorder(species,abund), abund, fill=FG)) + 
+  geom_bar(stat='identity') + 
+  labs(y='Mean abundance per 500m2', x='',title='Chagos: abundance/biomass distributions') +
+  coord_flip() + theme(legend.position='none', axis.text.y=element_text(size=6))
+
+g3<-ggplot(biom[biom$biom<300,], aes(reorder(species,biom), biom, fill=FG)) + 
+  geom_bar(stat='identity') + 
+  labs(y='Mean biomass kg ha-1', x='') +
+  coord_flip() + theme(legend.position=c(0.75, 0.25), axis.text.y=element_text(size=6))
+
+grid.arrange(g2, g3)
+```
+
+
 ```{r}
 #log scale biomass gradient
 chagos$logbiomass <- log10(chagos$biomass.kgha)
@@ -151,14 +204,17 @@ ggplot(chagos, aes(x=logbiomass, fill=FG)) + geom_density(alpha=.3)
 ```
 
 There are no dates recorded for the Chagos dataset, so no time series analyses could be done. Additionally, all of Chagos is "unfished". Therefore, only "depth" and "habitat" gradients were explored further to biomass. If lat long values can be attached to site names, a spatial look at the data can be done as well. 
-
+```{r}
 ```{r}
 #Comparing sheltered and unsheltered functional groups
 #Grouped bar chart showing biomass of each FG at different habitats, blank is unrecorded habitat type
 ggplot(chagos, aes(fill=FG, y=biomass.kgha, x=habitat)) +
   geom_bar(position="dodge", stat="identity")
 
+```
 
+
+```{r}
 #Comaparing depth at 3m and 9m
 str(chagos) #change depth from numeric to character for graph
 chagos$depth <- as.character(chagos$depth)
