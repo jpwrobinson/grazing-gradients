@@ -141,9 +141,9 @@ chagos$species <- as.factor(chagos$species)
 chagos %>% count(species) # 52 species
 ```
 Total of 52 species, 5729 records, across 20 sites at 4 reefs, with between 1-4 transects at each site
+Now need to look at abundance and biomass of species and functional groups across sites...
 
-
-
+#insert graphs on spp and FG abundance and biomass across sites, what are the common species?
 ```{r}
 #log scale biomass gradient
 chagos$logbiomass <- log10(chagos$biomass.kgha)
