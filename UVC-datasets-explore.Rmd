@@ -6,18 +6,11 @@ output:
 ---
 
 ```{r, echo=FALSE, include=FALSE, messages=FALSE}
-# data loads and working directory stuff
-setwd('/Users/robins64/Documents/git_repos/grazing-gradients')
-
-## ** add working directories! **
-#jan
-#jeneen
-setwd('/Users/jenee/Documents/git_repos/grazing-gradients')
-#sam
 
 # load tidy packages and set ggplot theme
 library(tidyverse); theme_set(theme_bw()); library(gridExtra)
 
+# data loads
 load('data/wio_gbr_herb_master.Rdata')
 sey<-herb %>% filter(dataset=='Seychelles')
 
