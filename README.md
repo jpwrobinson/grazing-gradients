@@ -1,5 +1,15 @@
 # grazing-gradients
 
+## Meeting 3 - 23rd May 2018 - checking in with Rmd and data questions, and bite rate literature search
+
+*Tasks*
+
+* Rmd - troubleshooting, compiling, useful functions (include=F)
+* Data questions - check with Issue. Can we add any more?
+* Bite rate literature - propose keeping master sheet of bite rate studies by species
+
+It's pretty difficult to transition from R to Rmarkdown, and writing text next to code. R-markdown is very powerful (I only use the basics): here's [R Studio's Rmarkdown cheatsheet](https://www.rstudio.com/wp-content/uploads/2015/02/rmarkdown-cheatsheet.pdf)
+
 ## Meeting 2 - 15th May 2018 - R markdown for reproducible notebooks and reports
 
 *Tasks*
