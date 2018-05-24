@@ -19,8 +19,8 @@ unique(maldives$habitat) #only 1 level
 unique(maldives$management) #only 1 level
 unique(maldives$depth) #only 1 level
 unique(maldives$site) #11 sites
-unique(maldives$transect.area) #250 & 100 m^2 ?
-unique(maldives$abundance.500m2) #abundances 2 & 5?
+unique(maldives$transect.area) #250 & 100 m^2 
+unique(maldives$abundance.500m2) #abundances 2 & 5
 aggregate(species ~ FG, maldives, function(x) length(unique(x))) #3 browsers, 13 grazers, 14 scrapers
 barplot(prop.table(table(maldives$FG))) #Grazer dominated, then scrapers, few browsers
 
