@@ -1,5 +1,6 @@
-"0","# load tidy packages and set ggplot theme"
-"0","library(tidyverse); theme_set(theme_bw()); library(gridExtra)"
+"0","# load tidy packages and set ggplot theme
+library(tidyverse); theme_set(theme_bw()); library(gridExtra)
+"
 "2","package ‘tidyverse’ was built under R version 3.4.4"
 "2","[30m-- [1mAttaching packages[22m --------------------------------------- tidyverse 1.2.1 --[39m
 "
@@ -30,7 +31,3 @@ Attaching package: ‘gridExtra’
     combine
 
 "
-"0","# data loads"
-"0","load('data/wio_gbr_herb_master.Rdata')"
-"0","sey<-herb %>% filter(dataset=='Seychelles')"
-"2","package ‘bindrcpp’ was built under R version 3.4.4"
