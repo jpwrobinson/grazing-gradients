@@ -1,11 +1,4 @@
-*.sublime*
-*.DS_Store
 .Rproj.user
-
-
-*Rproj
-*Rhistory
-*Rapp.history
-
-*html
-*pdf
+.Rhistory
+.RData
+.Ruserdata

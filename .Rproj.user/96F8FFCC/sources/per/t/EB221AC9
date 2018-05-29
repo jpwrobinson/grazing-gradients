@@ -1,0 +1,24 @@
+{
+    "collab_server" : "",
+    "contents" : "",
+    "created" : 1527010591699.000,
+    "dirty" : false,
+    "encoding" : "UTF-8",
+    "folds" : "",
+    "hash" : "987263875",
+    "id" : "EB221AC9",
+    "lastKnownWriteTime" : 1527250121,
+    "last_content_update" : 1527250513933,
+    "path" : "~/Documents/git_repos/grazing-gradients/UVC-datasets-explore.Rmd",
+    "project_path" : "UVC-datasets-explore.Rmd",
+    "properties" : {
+        "chunk_output_type" : "inline",
+        "cursorPosition" : "171,0",
+        "docOutlineVisible" : "0",
+        "scrollLine" : "165"
+    },
+    "relative_order" : 4,
+    "source_on_save" : false,
+    "source_window" : "",
+    "type" : "r_markdown"
+}
