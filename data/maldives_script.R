@@ -7,6 +7,7 @@ unique(herb$dataset) ## check regions in herb
 maldives <- herb[herb$dataset == 'Maldives',]
 write.csv(maldives, file = 'data/maldives_master.csv')
 
+library(ggplot2)
 library(readr)
 maldives_master <- read_csv("data/maldives_master.csv")
 maldives <- maldives_master

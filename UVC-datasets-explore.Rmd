@@ -89,8 +89,65 @@ grid.arrange(g2, g3)
 
 
 #### Maldives
+* 11 sampled sites
+* 4 transects each site of 250 m^2 (most) or 100 m^2 area
+* 1 depth level (8m)
+* 1 management level (Fished)
+* 1 habitat level (Exposed)
+* 30 herbivore species (3 browser spp., 13 grazer spp., 14 scraper spp.)
+* 7 herbivore families
+* site, biomass, FG, species only variables of interest
+
+#package loads
+library(ggplot2)
+library(tidyverse)
+library(gridExtra)
+
+# data loads
+load('data/wio_gbr_herb_master.Rdata')
+maldives <- herb %>% filter(dataset=='Maldives')
+
+#biomass ditribution across functional groups
+```{r, echo=F, fig.caption = 'Herbivore size distribution in Maldives'}
+ggplot(maldives, aes(log(mass.g, 2), fill=FG)) + geom_histogram(breaks=c(1:10)) + 
+  facet_wrap(~FG) + theme(legend.position='none') + scale_x_continuous(breaks=c(1:10), 
+  labels=c(2^c(1:10))) + labs (x='Mass (g)')
+
+```
+*Browsers few but large, grazers smaller but many, scrapers more equally spread in both
+
+#common herbivore species
 
 
+```{r, echo=F, fig.caption = 'Common herbivores in Maldives', fig.width=6, fig.height=10}
+
+#cheeky James script steal - good deal 1
+abund.mal <- maldives %>% group_by(unique.id, site, species, FG) %>% 
+        summarise(abund.mal = sum(abundance.500m2)) %>%
+        group_by(species, FG) %>% 
+        summarise(abund.mal = mean(abund.mal))
+
+#good deal 2
+biom.mal <- maldives %>% group_by(unique.id, site, species, FG) %>% 
+        summarise(biom.mal = sum(biomass.kgha)) %>%
+        group_by(species, FG) %>% 
+        summarise(biom.mal = mean(biom.mal))
+
+gooddeal1<-ggplot(abund.mal[abund.mal$abund.mal<100,], aes(reorder(species,abund.mal), abund.mal, fill=FG)) + 
+  geom_bar(stat='identity') + 
+  labs(y='Mean abundance per 500m2', x='',title='Maldives: abundance/biomass distributions') +
+  coord_flip() + theme(legend.position='none', axis.text.y=element_text(size=6))
+
+gooddeal2<-ggplot(biom.mal[biom.mal$biom.mal<300,], aes(reorder(species,biom.mal), biom.mal, fill=FG)) + 
+  geom_bar(stat='identity') + 
+  labs(y='Mean biomass kg ha-1', x='') +
+  coord_flip() + theme(legend.position=c(0.75, 0.25), axis.text.y=element_text(size=6))
+  
+grid.arrange(gooddeal1, gooddeal2)
+
+
+
+```
 
 #### GBR
 
