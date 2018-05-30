@@ -3569,7 +3569,7 @@
 "18509",NA,"Chagos","Peros Banhos","Exposed site 3","6","Unfished","Exposed","PerosBanhos.Exposedsite3.1",9,1,100,"Pomacentridae","Pomacentrus indicus","Herbivore Grazer",8,117.0810334,11.70810334,5
 "18510",NA,"Chagos","Peros Banhos","Exposed site 3","6","Unfished","Exposed","PerosBanhos.Exposedsite3.1",9,1,100,"Pomacentridae","Pomacentrus indicus","Herbivore Grazer",8,117.0810334,11.70810334,5
 "18511",NA,"Chagos","Peros Banhos","Exposed site 3","6","Unfished","Exposed","PerosBanhos.Exposedsite3.3",9,3,100,"Pomacentridae","Pomacentrus indicus","Herbivore Grazer",8,117.0810334,11.70810334,5
-"18512",NA,"Chagos","Peros Banhos","Ile Poule","1","Unfished","Sheltered","PerosBanhos.IlePoule.4",3,4,100,"Pomacentridae","pomacentrus indicus","Herbivore Grazer",8,117.0810334,11.70810334,5
+"18512",NA,"Chagos","Peros Banhos","Ile Poule","1","Unfished","Sheltered","PerosBanhos.IlePoule.4",3,4,100,"Pomacentridae","Pomacentrus indicus","Herbivore Grazer",8,117.0810334,11.70810334,5
 "18513",NA,"Chagos","Peros Banhos","Ile Poule","1","Unfished","Sheltered","PerosBanhos.IlePoule.2",9,2,100,"Pomacentridae","Pomacentrus indicus","Herbivore Grazer",8,117.0810334,11.70810334,5
 "18514",NA,"Chagos","Peros Banhos","Ile Poule","1","Unfished","Sheltered","PerosBanhos.IlePoule.3",9,3,100,"Pomacentridae","Pomacentrus indicus","Herbivore Grazer",8,117.0810334,11.70810334,5
 "18515",NA,"Chagos","Peros Banhos","Ile Poule","1","Unfished","Sheltered","PerosBanhos.IlePoule.4",9,4,100,"Pomacentridae","Pomacentrus indicus","Herbivore Grazer",8,117.0810334,11.70810334,5
@@ -3580,7 +3580,7 @@
 "18520",NA,"Chagos","Peros Banhos","Sheltered site 2","2","Unfished","Sheltered","PerosBanhos.Shelteredsite2.4",9,4,100,"Pomacentridae","Pomacentrus indicus","Herbivore Grazer",8,117.0810334,11.70810334,5
 "18521",NA,"Chagos","Peros Banhos","Sheltered site 2","2","Unfished","Sheltered","PerosBanhos.Shelteredsite2.4",9,4,100,"Pomacentridae","Pomacentrus indicus","Herbivore Grazer",8,117.0810334,11.70810334,5
 "18522",NA,"Chagos","Peros Banhos","Sheltered site 2","2","Unfished","Sheltered","PerosBanhos.Shelteredsite2.4",9,4,100,"Pomacentridae","Pomacentrus indicus","Herbivore Grazer",8,117.0810334,11.70810334,5
-"18523",NA,"Chagos","Peros Banhos","Sheltered site 3","3","Unfished","Sheltered","PerosBanhos.Shelteredsite3.1",9,1,100,"Pomacentridae","pomacentrus indicus","Herbivore Grazer",8,117.0810334,11.70810334,5
+"18523",NA,"Chagos","Peros Banhos","Sheltered site 3","3","Unfished","Sheltered","PerosBanhos.Shelteredsite3.1",9,1,100,"Pomacentridae","Pomacentrus indicus","Herbivore Grazer",8,117.0810334,11.70810334,5
 "18524",NA,"Chagos","Peros Banhos","Sheltered site 3","3","Unfished","Sheltered","PerosBanhos.Shelteredsite3.4",9,4,100,"Pomacentridae","Pomacentrus indicus","Herbivore Grazer",8,117.0810334,11.70810334,5
 "18525",NA,"Chagos","Salamon","Ile Anglais","2","Unfished","Sheltered","Salamon.IleAnglais.3",3,3,100,"Pomacentridae","Pomacentrus indicus","Herbivore Grazer",8,117.0810334,11.70810334,5
 "18526",NA,"Chagos","Salamon","Ile Anglais","2","Unfished","Sheltered","Salamon.IleAnglais.3",3,3,100,"Pomacentridae","Pomacentrus indicus","Herbivore Grazer",8,117.0810334,11.70810334,5
@@ -4043,10 +4043,10 @@
 "20517",NA,"Chagos","Great Chagos Bank","South Brother","1","Unfished","Exposed","GreatChagosBank.SouthBrother.3",9,3,250,"Scaridae","Scarus caudofasciatus","Herbivore Scraper",48,2289.888544,91.59554174,2
 "20518",NA,"Chagos","Salamon","Ile Anglais","1","Unfished","Sheltered","Salamon.IleAnglais.1",9,1,100,"Scaridae","Scarus caudofasciatus","Herbivore Scraper",11,28.29996912,2.829996912,5
 "20519",NA,"Chagos","Salamon","Ile Anglais","1","Unfished","Sheltered","Salamon.IleAnglais.1",9,1,250,"Scaridae","Scarus caudofasciatus","Herbivore Scraper",38,1140.95275,45.63811001,2
-"20520",NA,"Chagos","Peros Banhos","Exposed site 1","4","Unfished","Exposed","PerosBanhos.Exposedsite1.1",9,1,250,"Scaridae","Scarus falcippinis","Herbivore Scraper",38,1904.329122,76.17316488,2
-"20521",NA,"Chagos","Salamon","Ile Anglais","2","Unfished","Sheltered","Salamon.IleAnglais.1",3,1,250,"Scaridae","Scarus falcippinis","Herbivore Scraper",38,1904.329122,76.17316488,2
-"20522",NA,"Chagos","Salamon","Ile Anglais","3","Unfished","Sheltered","Salamon.IleAnglais.3",3,3,250,"Scaridae","Scarus falcippinis","Herbivore Scraper",26,596.242114,23.84968456,2
-"20523",NA,"Chagos","Salamon","Ile Anglais","3","Unfished","Sheltered","Salamon.IleAnglais.3",3,3,250,"Scaridae","Scarus falcippinis","Herbivore Scraper",50,4410.140408,176.4056163,2
+"20520",NA,"Chagos","Peros Banhos","Exposed site 1","4","Unfished","Exposed","PerosBanhos.Exposedsite1.1",9,1,250,"Scaridae","Scarus falcipinnis","Herbivore Scraper",38,1904.329122,76.17316488,2
+"20521",NA,"Chagos","Salamon","Ile Anglais","2","Unfished","Sheltered","Salamon.IleAnglais.1",3,1,250,"Scaridae","Scarus falcipinnis","Herbivore Scraper",38,1904.329122,76.17316488,2
+"20522",NA,"Chagos","Salamon","Ile Anglais","3","Unfished","Sheltered","Salamon.IleAnglais.3",3,3,250,"Scaridae","Scarus falcipinnis","Herbivore Scraper",26,596.242114,23.84968456,2
+"20523",NA,"Chagos","Salamon","Ile Anglais","3","Unfished","Sheltered","Salamon.IleAnglais.3",3,3,250,"Scaridae","Scarus falcipinnis","Herbivore Scraper",50,4410.140408,176.4056163,2
 "20524",NA,"Chagos","Great Chagos Bank","Eagle","2","Unfished","Sheltered","GreatChagosBank.Eagle.2",9,2,250,"Scaridae","Scarus frenatus","Herbivore Scraper",24,466.7137575,18.6685503,2
 "20525",NA,"Chagos","Great Chagos Bank","Eagle","2","Unfished","Sheltered","GreatChagosBank.Eagle.2",9,2,250,"Scaridae","Scarus frenatus","Herbivore Scraper",25,528.8111818,21.15244727,2
 "20526",NA,"Chagos","Great Chagos Bank","Middle Brother","3","Unfished","Exposed","GreatChagosBank.MiddleBrother.4",3,4,250,"Scaridae","Scarus frenatus","Herbivore Scraper",38,1904.329122,76.17316488,2
@@ -5259,10 +5259,10 @@
 "23202",NA,"Chagos","Diego Garcia","Diego Garcia East coast",NA,"Unfished","","DiegoGarcia.DiegoGarciaEastcoast.3",9,3,250,"Acanthuridae","Acanthurus nigrofuscus","Herbivore Grazer",18,159.5732235,6.38292894,2
 "23203",NA,"Chagos","Diego Garcia","Cannon Point",NA,"Unfished","","DiegoGarcia.CannonPoint.2",9,2,250,"Acanthuridae","Acanthurus tennenti","Herbivore Grazer",10,32.47773807,1.299109523,2
 "23204",NA,"Chagos","Diego Garcia","Cannon Point",NA,"Unfished","","DiegoGarcia.CannonPoint.4",9,4,250,"Acanthuridae","Acanthurus tennenti","Herbivore Grazer",13,60.83286543,2.433314617,2
-"23205",NA,"Chagos","Diego Garcia","Cannon Point 2",NA,"Unfished","","DiegoGarcia.CannonPoint2.2",9,2,250,"Acanthuridae","acanthurus tennenti","Herbivore Grazer",13,60.83286543,2.433314617,2
+"23205",NA,"Chagos","Diego Garcia","Cannon Point 2",NA,"Unfished","","DiegoGarcia.CannonPoint2.2",9,2,250,"Acanthuridae","Acanthurus tennenti","Herbivore Grazer",13,60.83286543,2.433314617,2
 "23206",NA,"Chagos","Diego Garcia","Barton Point",NA,"Unfished","","DiegoGarcia.BartonPoint.1",9,1,250,"Acanthuridae","Acanthurus tennenti","Herbivore Grazer",14,72.63133659,2.905253464,2
-"23207",NA,"Chagos","Diego Garcia","Cannon Point 2",NA,"Unfished","","DiegoGarcia.CannonPoint2.3",9,3,250,"Acanthuridae","acanthurus tennenti","Herbivore Grazer",14,72.63133659,2.905253464,2
-"23208",NA,"Chagos","Diego Garcia","Cannon Point 2",NA,"Unfished","","DiegoGarcia.CannonPoint2.3",9,3,250,"Acanthuridae","acanthurus tennenti","Herbivore Grazer",14,72.63133659,2.905253464,2
+"23207",NA,"Chagos","Diego Garcia","Cannon Point 2",NA,"Unfished","","DiegoGarcia.CannonPoint2.3",9,3,250,"Acanthuridae","Acanthurus tennenti","Herbivore Grazer",14,72.63133659,2.905253464,2
+"23208",NA,"Chagos","Diego Garcia","Cannon Point 2",NA,"Unfished","","DiegoGarcia.CannonPoint2.3",9,3,250,"Acanthuridae","Acanthurus tennenti","Herbivore Grazer",14,72.63133659,2.905253464,2
 "23209",NA,"Chagos","Diego Garcia","Barton Point",NA,"Unfished","","DiegoGarcia.BartonPoint.1",9,1,250,"Acanthuridae","Acanthurus tennenti","Herbivore Grazer",15,85.66354971,3.426541988,2
 "23210",NA,"Chagos","Diego Garcia","Barton Point west",NA,"Unfished","","DiegoGarcia.BartonPointwest.1",9,1,250,"Acanthuridae","Acanthurus tennenti","Herbivore Grazer",15,85.66354971,3.426541988,2
 "23211",NA,"Chagos","Diego Garcia","Cannon Point",NA,"Unfished","","DiegoGarcia.CannonPoint.4",9,4,250,"Acanthuridae","Acanthurus tennenti","Herbivore Grazer",16,99.96334346,3.998533738,2
@@ -5271,7 +5271,7 @@
 "23214",NA,"Chagos","Diego Garcia","Cannon Point",NA,"Unfished","","DiegoGarcia.CannonPoint.3",9,3,250,"Acanthuridae","Acanthurus tennenti","Herbivore Grazer",17,115.5632095,4.62252838,2
 "23215",NA,"Chagos","Diego Garcia","Cannon Point",NA,"Unfished","","DiegoGarcia.CannonPoint.4",9,4,250,"Acanthuridae","Acanthurus tennenti","Herbivore Grazer",17,115.5632095,4.62252838,2
 "23216",NA,"Chagos","Diego Garcia","Barton Point",NA,"Unfished","","DiegoGarcia.BartonPoint.4",9,4,250,"Acanthuridae","Acanthurus tennenti","Herbivore Grazer",17,115.5632095,4.62252838,2
-"23217",NA,"Chagos","Diego Garcia","Cannon Point 2",NA,"Unfished","","DiegoGarcia.CannonPoint2.2",9,2,250,"Acanthuridae","acanthurus tennenti","Herbivore Grazer",17,115.5632095,4.62252838,2
+"23217",NA,"Chagos","Diego Garcia","Cannon Point 2",NA,"Unfished","","DiegoGarcia.CannonPoint2.2",9,2,250,"Acanthuridae","Acanthurus tennenti","Herbivore Grazer",17,115.5632095,4.62252838,2
 "23218",NA,"Chagos","Diego Garcia","Cannon Point",NA,"Unfished","","DiegoGarcia.CannonPoint.2",9,2,250,"Acanthuridae","Acanthurus tennenti","Herbivore Grazer",18,132.4944257,5.29977703,2
 "23219",NA,"Chagos","Diego Garcia","Cannon Point",NA,"Unfished","","DiegoGarcia.CannonPoint.2",9,2,250,"Acanthuridae","Acanthurus tennenti","Herbivore Grazer",18,132.4944257,5.29977703,2
 "23220",NA,"Chagos","Diego Garcia","Barton Point",NA,"Unfished","","DiegoGarcia.BartonPoint.3",9,3,250,"Acanthuridae","Acanthurus tennenti","Herbivore Grazer",18,132.4944257,5.29977703,2
@@ -5302,17 +5302,17 @@
 "23604",NA,"Chagos","Diego Garcia","Barton Point",NA,"Unfished","","DiegoGarcia.BartonPoint.3",9,3,250,"Scaridae","Chlororus enneacanthus","Herbivore Scraper",43,1668.112059,66.72448235,2
 "23605",NA,"Chagos","Diego Garcia","Barton Point",NA,"Unfished","","DiegoGarcia.BartonPoint.3",9,3,250,"Scaridae","Chlororus enneacanthus","Herbivore Scraper",47,2164.758087,86.59032349,2
 "23606",NA,"Chagos","Diego Garcia","Barton Point",NA,"Unfished","","DiegoGarcia.BartonPoint.3",9,3,250,"Scaridae","Chlororus enneacanthus","Herbivore Scraper",50,2595.044202,103.8017681,2
-"23607",NA,"Chagos","Diego Garcia","Barton Point",NA,"Unfished","","DiegoGarcia.BartonPoint.2",9,2,250,"Scaridae","chlororus sordidus","Herbivore Scraper",12,39.64274309,1.585709724,2
+"23607",NA,"Chagos","Diego Garcia","Barton Point",NA,"Unfished","","DiegoGarcia.BartonPoint.2",9,2,250,"Scaridae","Chlororus sordidus","Herbivore Scraper",12,39.64274309,1.585709724,2
 "23608",NA,"Chagos","Diego Garcia","Cannon Point 2",NA,"Unfished","","DiegoGarcia.CannonPoint2.1",9,1,250,"Scaridae","Chlororus sordidus","Herbivore Scraper",12,39.64274309,1.585709724,2
 "23609",NA,"Chagos","Diego Garcia","Cannon Point 2",NA,"Unfished","","DiegoGarcia.CannonPoint2.4",9,4,250,"Scaridae","Chlororus sordidus","Herbivore Scraper",12,39.64274309,1.585709724,2
-"23610",NA,"Chagos","Diego Garcia","Barton Point",NA,"Unfished","","DiegoGarcia.BartonPoint.2",9,2,250,"Scaridae","chlororus sordidus","Herbivore Scraper",13,50.12064708,2.004825883,2
+"23610",NA,"Chagos","Diego Garcia","Barton Point",NA,"Unfished","","DiegoGarcia.BartonPoint.2",9,2,250,"Scaridae","Chlororus sordidus","Herbivore Scraper",13,50.12064708,2.004825883,2
 "23611",NA,"Chagos","Diego Garcia","Middle Island",NA,"Unfished","","DiegoGarcia.MiddleIsland.1",9,1,250,"Scaridae","Chlororus sordidus","Herbivore Scraper",13,50.12064708,2.004825883,2
 "23612",NA,"Chagos","Diego Garcia","Middle Island",NA,"Unfished","","DiegoGarcia.MiddleIsland.1",9,1,250,"Scaridae","Chlororus sordidus","Herbivore Scraper",13,50.12064708,2.004825883,2
 "23613",NA,"Chagos","Diego Garcia","Middle Island",NA,"Unfished","","DiegoGarcia.MiddleIsland.4",9,4,250,"Scaridae","Chlororus sordidus","Herbivore Scraper",13,50.12064708,2.004825883,2
 "23614",NA,"Chagos","Diego Garcia","Cannon Point 2",NA,"Unfished","","DiegoGarcia.CannonPoint2.3",9,3,250,"Scaridae","Chlororus sordidus","Herbivore Scraper",13,50.12064708,2.004825883,2
 "23615",NA,"Chagos","Diego Garcia","Cannon Point 2",NA,"Unfished","","DiegoGarcia.CannonPoint2.4",9,4,250,"Scaridae","Chlororus sordidus","Herbivore Scraper",13,50.12064708,2.004825883,2
 "23616",NA,"Chagos","Diego Garcia","Cannon Point 2",NA,"Unfished","","DiegoGarcia.CannonPoint2.4",9,4,250,"Scaridae","Chlororus sordidus","Herbivore Scraper",13,50.12064708,2.004825883,2
-"23617",NA,"Chagos","Diego Garcia","Barton Point west",NA,"Unfished","","DiegoGarcia.BartonPointwest.4",9,4,250,"Scaridae","chlororus sordidus","Herbivore Scraper",14,62.27558152,2.491023261,2
+"23617",NA,"Chagos","Diego Garcia","Barton Point west",NA,"Unfished","","DiegoGarcia.BartonPointwest.4",9,4,250,"Scaridae","Chlororus sordidus","Herbivore Scraper",14,62.27558152,2.491023261,2
 "23618",NA,"Chagos","Diego Garcia","Middle Island",NA,"Unfished","","DiegoGarcia.MiddleIsland.1",9,1,250,"Scaridae","Chlororus sordidus","Herbivore Scraper",14,62.27558152,2.491023261,2
 "23619",NA,"Chagos","Diego Garcia","Middle Island",NA,"Unfished","","DiegoGarcia.MiddleIsland.3",9,3,250,"Scaridae","Chlororus sordidus","Herbivore Scraper",14,62.27558152,2.491023261,2
 "23620",NA,"Chagos","Diego Garcia","Middle Island",NA,"Unfished","","DiegoGarcia.MiddleIsland.4",9,4,250,"Scaridae","Chlororus sordidus","Herbivore Scraper",14,62.27558152,2.491023261,2
@@ -5320,29 +5320,29 @@
 "23622",NA,"Chagos","Diego Garcia","Middle Island",NA,"Unfished","","DiegoGarcia.MiddleIsland.4",9,4,250,"Scaridae","Chlororus sordidus","Herbivore Scraper",14,62.27558152,2.491023261,2
 "23623",NA,"Chagos","Diego Garcia","Cannon Point 2",NA,"Unfished","","DiegoGarcia.CannonPoint2.3",9,3,250,"Scaridae","Chlororus sordidus","Herbivore Scraper",14,62.27558152,2.491023261,2
 "23624",NA,"Chagos","Diego Garcia","Middle Island",NA,"Unfished","","DiegoGarcia.MiddleIsland.4",9,4,250,"Scaridae","Chlororus sordidus","Herbivore Scraper",15,76.22721205,3.049088482,2
-"23625",NA,"Chagos","Diego Garcia","Barton Point west",NA,"Unfished","","DiegoGarcia.BartonPointwest.2",9,2,250,"Scaridae","chlororus sordidus","Herbivore Scraper",16,92.09460642,3.683784257,2
+"23625",NA,"Chagos","Diego Garcia","Barton Point west",NA,"Unfished","","DiegoGarcia.BartonPointwest.2",9,2,250,"Scaridae","Chlororus sordidus","Herbivore Scraper",16,92.09460642,3.683784257,2
 "23626",NA,"Chagos","Peros Banhos","North Diamont",NA,"Unfished","","PerosBanhos.NorthDiamont.1",9,1,250,"Scaridae","Chlororus sordidus","Herbivore Scraper",16,92.09460642,3.683784257,2
 "23627",NA,"Chagos","Peros Banhos","North Diamont",NA,"Unfished","","PerosBanhos.NorthDiamont.1",9,1,250,"Scaridae","Chlororus sordidus","Herbivore Scraper",18,130.0502187,5.20200875,2
-"23628",NA,"Chagos","Diego Garcia","Barton Point west",NA,"Unfished","","DiegoGarcia.BartonPointwest.2",9,2,250,"Scaridae","chlororus sordidus","Herbivore Scraper",19,152.3739401,6.094957606,2
+"23628",NA,"Chagos","Diego Garcia","Barton Point west",NA,"Unfished","","DiegoGarcia.BartonPointwest.2",9,2,250,"Scaridae","Chlororus sordidus","Herbivore Scraper",19,152.3739401,6.094957606,2
 "23629",NA,"Chagos","Peros Banhos","North Diamont",NA,"Unfished","","PerosBanhos.NorthDiamont.1",9,1,250,"Scaridae","Chlororus sordidus","Herbivore Scraper",19,152.3739401,6.094957606,2
 "23630",NA,"Chagos","Peros Banhos","North Diamont",NA,"Unfished","","PerosBanhos.NorthDiamont.1",9,1,250,"Scaridae","Chlororus sordidus","Herbivore Scraper",19,152.3739401,6.094957606,2
 "23631",NA,"Chagos","Peros Banhos","North Diamont",NA,"Unfished","","PerosBanhos.NorthDiamont.2",9,2,250,"Scaridae","Chlororus sordidus","Herbivore Scraper",19,152.3739401,6.094957606,2
 "23632",NA,"Chagos","Peros Banhos","North Diamont",NA,"Unfished","","PerosBanhos.NorthDiamont.3",9,3,250,"Scaridae","Chlororus sordidus","Herbivore Scraper",20,177.0844938,7.083379752,2
-"23633",NA,"Chagos","Diego Garcia","Barton Point west",NA,"Unfished","","DiegoGarcia.BartonPointwest.2",9,2,250,"Scaridae","chlororus sordidus","Herbivore Scraper",26,381.9746632,15.27898653,2
-"23634",NA,"Chagos","Diego Garcia","Barton Point west",NA,"Unfished","","DiegoGarcia.BartonPointwest.3",9,3,250,"Scaridae","chlororus sordidus","Herbivore Scraper",26,381.9746632,15.27898653,2
-"23635",NA,"Chagos","Diego Garcia","Barton Point west",NA,"Unfished","","DiegoGarcia.BartonPointwest.3",9,3,250,"Scaridae","chlororus sordidus","Herbivore Scraper",27,426.6369599,17.0654784,2
+"23633",NA,"Chagos","Diego Garcia","Barton Point west",NA,"Unfished","","DiegoGarcia.BartonPointwest.2",9,2,250,"Scaridae","Chlororus sordidus","Herbivore Scraper",26,381.9746632,15.27898653,2
+"23634",NA,"Chagos","Diego Garcia","Barton Point west",NA,"Unfished","","DiegoGarcia.BartonPointwest.3",9,3,250,"Scaridae","Chlororus sordidus","Herbivore Scraper",26,381.9746632,15.27898653,2
+"23635",NA,"Chagos","Diego Garcia","Barton Point west",NA,"Unfished","","DiegoGarcia.BartonPointwest.3",9,3,250,"Scaridae","Chlororus sordidus","Herbivore Scraper",27,426.6369599,17.0654784,2
 "23636",NA,"Chagos","Diego Garcia","Middle Island",NA,"Unfished","","DiegoGarcia.MiddleIsland.2",9,2,250,"Scaridae","Chlororus sordidus","Herbivore Scraper",27,426.6369599,17.0654784,2
 "23637",NA,"Chagos","Diego Garcia","Middle Island",NA,"Unfished","","DiegoGarcia.MiddleIsland.1",9,1,250,"Scaridae","Chlororus sordidus","Herbivore Scraper",28,474.6086824,18.9843473,2
-"23638",NA,"Chagos","Diego Garcia","Barton Point",NA,"Unfished","","DiegoGarcia.BartonPoint.4",9,4,250,"Scaridae","chlororus sordidus","Herbivore Scraper",29,526.003678,21.04014712,2
+"23638",NA,"Chagos","Diego Garcia","Barton Point",NA,"Unfished","","DiegoGarcia.BartonPoint.4",9,4,250,"Scaridae","Chlororus sordidus","Herbivore Scraper",29,526.003678,21.04014712,2
 "23639",NA,"Chagos","Peros Banhos","North Diamont",NA,"Unfished","","PerosBanhos.NorthDiamont.3",9,3,250,"Scaridae","Chlororus sordidus","Herbivore Scraper",29,526.003678,21.04014712,2
 "23640",NA,"Chagos","Diego Garcia","Cannon Point 2",NA,"Unfished","","DiegoGarcia.CannonPoint2.1",9,1,250,"Scaridae","Chlororus sordidus","Herbivore Scraper",29,526.003678,21.04014712,2
 "23641",NA,"Chagos","Diego Garcia","Cannon Point 2",NA,"Unfished","","DiegoGarcia.CannonPoint2.3",9,3,250,"Scaridae","Chlororus sordidus","Herbivore Scraper",29,526.003678,21.04014712,2
 "23642",NA,"Chagos","Diego Garcia","Middle Island",NA,"Unfished","","DiegoGarcia.MiddleIsland.3",9,3,250,"Scaridae","Chlororus sordidus","Herbivore Scraper",30,580.9355095,23.23742038,2
 "23643",NA,"Chagos","Diego Garcia","Middle Island",NA,"Unfished","","DiegoGarcia.MiddleIsland.4",9,4,250,"Scaridae","Chlororus sordidus","Herbivore Scraper",30,580.9355095,23.23742038,2
 "23644",NA,"Chagos","Diego Garcia","Cannon Point 2",NA,"Unfished","","DiegoGarcia.CannonPoint2.2",9,2,250,"Scaridae","Chlororus sordidus","Herbivore Scraper",30,580.9355095,23.23742038,2
-"23645",NA,"Chagos","Diego Garcia","Barton Point west",NA,"Unfished","","DiegoGarcia.BartonPointwest.3",9,3,250,"Scaridae","chlororus sordidus","Herbivore Scraper",32,701.862572,28.07450288,2
+"23645",NA,"Chagos","Diego Garcia","Barton Point west",NA,"Unfished","","DiegoGarcia.BartonPointwest.3",9,3,250,"Scaridae","Chlororus sordidus","Herbivore Scraper",32,701.862572,28.07450288,2
 "23646",NA,"Chagos","Peros Banhos","North Diamont",NA,"Unfished","","PerosBanhos.NorthDiamont.1",9,1,250,"Scaridae","Chlororus sordidus","Herbivore Scraper",33,768.0835976,30.72334391,2
-"23647",NA,"Chagos","Diego Garcia","Barton Point",NA,"Unfished","","DiegoGarcia.BartonPoint.1",9,1,250,"Scaridae","chlororus sordidus","Herbivore Scraper",34,838.2930662,33.53172265,2
+"23647",NA,"Chagos","Diego Garcia","Barton Point",NA,"Unfished","","DiegoGarcia.BartonPoint.1",9,1,250,"Scaridae","Chlororus sordidus","Herbivore Scraper",34,838.2930662,33.53172265,2
 "23648",NA,"Chagos","Diego Garcia","Middle Island",NA,"Unfished","","DiegoGarcia.MiddleIsland.3",9,3,250,"Scaridae","Chlororus sordidus","Herbivore Scraper",34,838.2930662,33.53172265,2
 "23649",NA,"Chagos","Peros Banhos","North Diamont",NA,"Unfished","","PerosBanhos.NorthDiamont.4",9,4,250,"Scaridae","Chlororus sordidus","Herbivore Scraper",36,991.1262402,39.64504961,2
 "23650",NA,"Chagos","Diego Garcia","Cannon Point 2",NA,"Unfished","","DiegoGarcia.CannonPoint2.3",9,3,250,"Scaridae","Chlororus sordidus","Herbivore Scraper",36,991.1262402,39.64504961,2
@@ -5488,7 +5488,7 @@
 "25784",NA,"Chagos","Diego Garcia","Barton Point west",NA,"Unfished","","DiegoGarcia.BartonPointwest.2",9,2,250,"Balistidae","Melichthys niger","Herbivore Grazer",21,290.1318231,11.60527293,2
 "25785",NA,"Chagos","Diego Garcia","Cannon Point",NA,"Unfished","","DiegoGarcia.CannonPoint.1",9,1,250,"Balistidae","Melichthys niger","Herbivore Grazer",22,342.2931446,13.69172578,2
 "25786",NA,"Chagos","Diego Garcia","Middle Island",NA,"Unfished","","DiegoGarcia.MiddleIsland.1",9,1,250,"Balistidae","Melichthys niger","Herbivore Grazer",23,400.8747691,16.03499076,2
-"25909",NA,"Chagos","Diego Garcia","Middle Island",NA,"Unfished","","DiegoGarcia.MiddleIsland.4",9,4,250,"Acanthuridae","naso lituratus","Herbivore Browser",16,79.4376182,3.177504728,2
+"25909",NA,"Chagos","Diego Garcia","Middle Island",NA,"Unfished","","DiegoGarcia.MiddleIsland.4",9,4,250,"Acanthuridae","Naso lituratus","Herbivore Browser",16,79.4376182,3.177504728,2
 "25910",NA,"Chagos","Diego Garcia","Cannon Point",NA,"Unfished","","DiegoGarcia.CannonPoint.2",9,2,250,"Acanthuridae","Naso unicornis","Herbivore Browser",20,166.6983796,6.667935183,2
 "25911",NA,"Chagos","Diego Garcia","Cannon Point",NA,"Unfished","","DiegoGarcia.CannonPoint.2",9,2,250,"Acanthuridae","Naso unicornis","Herbivore Browser",22,221.6219243,8.864876972,2
 "25912",NA,"Chagos","Diego Garcia","Barton Point west",NA,"Unfished","","DiegoGarcia.BartonPointwest.1",9,1,250,"Acanthuridae","Naso unicornis","Herbivore Browser",24,287.4252656,11.49701062,2
@@ -5517,43 +5517,43 @@
 "25935",NA,"Chagos","Diego Garcia","Diego Garcia East coast",NA,"Unfished","","DiegoGarcia.DiegoGarciaEastcoast.4",9,4,250,"Acanthuridae","Naso unicornis","Herbivore Browser",42,1530.10992,61.20439681,2
 "25936",NA,"Chagos","Diego Garcia","Diego Garcia East coast",NA,"Unfished","","DiegoGarcia.DiegoGarciaEastcoast.4",9,4,250,"Acanthuridae","Naso unicornis","Herbivore Browser",42,1530.10992,61.20439681,2
 "25937",NA,"Chagos","Diego Garcia","Diego Garcia East coast",NA,"Unfished","","DiegoGarcia.DiegoGarciaEastcoast.4",9,4,250,"Acanthuridae","Naso unicornis","Herbivore Browser",42,1530.10992,61.20439681,2
-"26184",NA,"Chagos","Diego Garcia","Barton Point",NA,"Unfished","","DiegoGarcia.BartonPoint.1",9,1,100,"pomacentridae","plectroglyphidodon lacrymatus","Herbivore Grazer",8,14.66876456,1.466876456,5
-"26185",NA,"Chagos","Diego Garcia","Barton Point",NA,"Unfished","","DiegoGarcia.BartonPoint.1",9,1,100,"pomacentridae","plectroglyphidodon lacrymatus","Herbivore Grazer",8,14.66876456,1.466876456,5
-"26186",NA,"Chagos","Diego Garcia","Barton Point",NA,"Unfished","","DiegoGarcia.BartonPoint.1",9,1,100,"pomacentridae","plectroglyphidodon lacrymatus","Herbivore Grazer",8,14.66876456,1.466876456,5
-"26187",NA,"Chagos","Diego Garcia","Barton Point",NA,"Unfished","","DiegoGarcia.BartonPoint.1",9,1,100,"pomacentridae","plectroglyphidodon lacrymatus","Herbivore Grazer",8,14.66876456,1.466876456,5
-"26188",NA,"Chagos","Diego Garcia","Barton Point",NA,"Unfished","","DiegoGarcia.BartonPoint.1",9,1,100,"pomacentridae","plectroglyphidodon lacrymatus","Herbivore Grazer",8,14.66876456,1.466876456,5
-"26189",NA,"Chagos","Diego Garcia","Barton Point",NA,"Unfished","","DiegoGarcia.BartonPoint.1",9,1,100,"pomacentridae","plectroglyphidodon lacrymatus","Herbivore Grazer",8,14.66876456,1.466876456,5
-"26190",NA,"Chagos","Diego Garcia","Barton Point",NA,"Unfished","","DiegoGarcia.BartonPoint.2",9,2,100,"pomacentridae","plectroglyphidodon lacrymatus","Herbivore Grazer",8,14.66876456,1.466876456,5
-"26191",NA,"Chagos","Diego Garcia","Barton Point",NA,"Unfished","","DiegoGarcia.BartonPoint.2",9,2,100,"pomacentridae","plectroglyphidodon lacrymatus","Herbivore Grazer",8,14.66876456,1.466876456,5
-"26192",NA,"Chagos","Diego Garcia","Barton Point",NA,"Unfished","","DiegoGarcia.BartonPoint.2",9,2,100,"pomacentridae","plectroglyphidodon lacrymatus","Herbivore Grazer",8,14.66876456,1.466876456,5
-"26193",NA,"Chagos","Diego Garcia","Barton Point",NA,"Unfished","","DiegoGarcia.BartonPoint.2",9,2,100,"pomacentridae","plectroglyphidodon lacrymatus","Herbivore Grazer",8,14.66876456,1.466876456,5
-"26194",NA,"Chagos","Diego Garcia","Barton Point",NA,"Unfished","","DiegoGarcia.BartonPoint.2",9,2,100,"pomacentridae","plectroglyphidodon lacrymatus","Herbivore Grazer",8,14.66876456,1.466876456,5
-"26195",NA,"Chagos","Diego Garcia","Barton Point",NA,"Unfished","","DiegoGarcia.BartonPoint.2",9,2,100,"pomacentridae","plectroglyphidodon lacrymatus","Herbivore Grazer",8,14.66876456,1.466876456,5
-"26196",NA,"Chagos","Diego Garcia","Barton Point",NA,"Unfished","","DiegoGarcia.BartonPoint.2",9,2,100,"pomacentridae","plectroglyphidodon lacrymatus","Herbivore Grazer",8,14.66876456,1.466876456,5
-"26197",NA,"Chagos","Diego Garcia","Barton Point",NA,"Unfished","","DiegoGarcia.BartonPoint.3",9,3,100,"pomacentridae","plectroglyphidodon lacrymatus","Herbivore Grazer",8,14.66876456,1.466876456,5
-"26198",NA,"Chagos","Diego Garcia","Barton Point",NA,"Unfished","","DiegoGarcia.BartonPoint.3",9,3,100,"pomacentridae","plectroglyphidodon lacrymatus","Herbivore Grazer",8,14.66876456,1.466876456,5
-"26199",NA,"Chagos","Diego Garcia","Barton Point",NA,"Unfished","","DiegoGarcia.BartonPoint.3",9,3,100,"pomacentridae","plectroglyphidodon lacrymatus","Herbivore Grazer",8,14.66876456,1.466876456,5
-"26200",NA,"Chagos","Diego Garcia","Barton Point",NA,"Unfished","","DiegoGarcia.BartonPoint.3",9,3,100,"pomacentridae","plectroglyphidodon lacrymatus","Herbivore Grazer",8,14.66876456,1.466876456,5
-"26201",NA,"Chagos","Diego Garcia","Barton Point",NA,"Unfished","","DiegoGarcia.BartonPoint.3",9,3,100,"pomacentridae","plectroglyphidodon lacrymatus","Herbivore Grazer",8,14.66876456,1.466876456,5
-"26202",NA,"Chagos","Diego Garcia","Barton Point",NA,"Unfished","","DiegoGarcia.BartonPoint.3",9,3,100,"pomacentridae","plectroglyphidodon lacrymatus","Herbivore Grazer",8,14.66876456,1.466876456,5
-"26203",NA,"Chagos","Diego Garcia","Barton Point",NA,"Unfished","","DiegoGarcia.BartonPoint.3",9,3,100,"pomacentridae","plectroglyphidodon lacrymatus","Herbivore Grazer",8,14.66876456,1.466876456,5
-"26204",NA,"Chagos","Diego Garcia","Barton Point",NA,"Unfished","","DiegoGarcia.BartonPoint.3",9,3,100,"pomacentridae","plectroglyphidodon lacrymatus","Herbivore Grazer",8,14.66876456,1.466876456,5
-"26205",NA,"Chagos","Diego Garcia","Barton Point",NA,"Unfished","","DiegoGarcia.BartonPoint.3",9,3,100,"pomacentridae","plectroglyphidodon lacrymatus","Herbivore Grazer",8,14.66876456,1.466876456,5
-"26206",NA,"Chagos","Diego Garcia","Barton Point west",NA,"Unfished","","DiegoGarcia.BartonPointwest.1",9,1,100,"pomacentridae","plectroglyphidodon lacrymatus","Herbivore Grazer",8,14.66876456,1.466876456,5
-"26207",NA,"Chagos","Diego Garcia","Barton Point west",NA,"Unfished","","DiegoGarcia.BartonPointwest.1",9,1,100,"pomacentridae","plectroglyphidodon lacrymatus","Herbivore Grazer",8,14.66876456,1.466876456,5
-"26208",NA,"Chagos","Diego Garcia","Barton Point west",NA,"Unfished","","DiegoGarcia.BartonPointwest.2",9,2,100,"pomacentridae","plectroglyphidodon lacrymatus","Herbivore Grazer",8,14.66876456,1.466876456,5
-"26209",NA,"Chagos","Diego Garcia","Barton Point west",NA,"Unfished","","DiegoGarcia.BartonPointwest.3",9,3,100,"pomacentridae","plectroglyphidodon lacrymatus","Herbivore Grazer",8,14.66876456,1.466876456,5
-"26210",NA,"Chagos","Diego Garcia","Diego Garcia East coast",NA,"Unfished","","DiegoGarcia.DiegoGarciaEastcoast.1",9,1,100,"pomacentridae","plectroglyphidodon lacrymatus","Herbivore Grazer",8,14.66876456,1.466876456,5
-"26211",NA,"Chagos","Diego Garcia","Diego Garcia East coast",NA,"Unfished","","DiegoGarcia.DiegoGarciaEastcoast.1",9,1,100,"pomacentridae","plectroglyphidodon lacrymatus","Herbivore Grazer",8,14.66876456,1.466876456,5
-"26212",NA,"Chagos","Diego Garcia","Diego Garcia East coast",NA,"Unfished","","DiegoGarcia.DiegoGarciaEastcoast.2",9,2,100,"pomacentridae","plectroglyphidodon lacrymatus","Herbivore Grazer",8,14.66876456,1.466876456,5
-"26213",NA,"Chagos","Diego Garcia","Diego Garcia East coast",NA,"Unfished","","DiegoGarcia.DiegoGarciaEastcoast.3",9,3,100,"pomacentridae","plectroglyphidodon lacrymatus","Herbivore Grazer",8,14.66876456,1.466876456,5
-"26214",NA,"Chagos","Peros Banhos","North Diamont",NA,"Unfished","","PerosBanhos.NorthDiamont.1",9,1,100,"pomacentridae","plectroglyphidodon lacrymatus","Herbivore Grazer",8,14.66876456,1.466876456,5
-"26215",NA,"Chagos","Peros Banhos","North Diamont",NA,"Unfished","","PerosBanhos.NorthDiamont.1",9,1,100,"pomacentridae","plectroglyphidodon lacrymatus","Herbivore Grazer",8,14.66876456,1.466876456,5
-"26216",NA,"Chagos","Peros Banhos","North Diamont",NA,"Unfished","","PerosBanhos.NorthDiamont.2",9,2,100,"pomacentridae","plectroglyphidodon lacrymatus","Herbivore Grazer",8,14.66876456,1.466876456,5
-"26217",NA,"Chagos","Peros Banhos","North Diamont",NA,"Unfished","","PerosBanhos.NorthDiamont.2",9,2,100,"pomacentridae","plectroglyphidodon lacrymatus","Herbivore Grazer",8,14.66876456,1.466876456,5
-"26218",NA,"Chagos","Peros Banhos","North Diamont",NA,"Unfished","","PerosBanhos.NorthDiamont.3",9,3,100,"pomacentridae","plectroglyphidodon lacrymatus","Herbivore Grazer",8,14.66876456,1.466876456,5
-"26219",NA,"Chagos","Peros Banhos","North Diamont",NA,"Unfished","","PerosBanhos.NorthDiamont.4",9,4,100,"pomacentridae","plectroglyphidodon lacrymatus","Herbivore Grazer",8,14.66876456,1.466876456,5
-"26220",NA,"Chagos","Diego Garcia","Cannon Point 2",NA,"Unfished","","DiegoGarcia.CannonPoint2.4",9,4,100,"pomacentridae","plectroglyphidodon lacrymatus","Herbivore Grazer",8,14.66876456,1.466876456,5
+"26184",NA,"Chagos","Diego Garcia","Barton Point",NA,"Unfished","","DiegoGarcia.BartonPoint.1",9,1,100,"pomacentridae","Plectroglyphidodon lacrymatus","Herbivore Grazer",8,14.66876456,1.466876456,5
+"26185",NA,"Chagos","Diego Garcia","Barton Point",NA,"Unfished","","DiegoGarcia.BartonPoint.1",9,1,100,"pomacentridae","Plectroglyphidodon lacrymatus","Herbivore Grazer",8,14.66876456,1.466876456,5
+"26186",NA,"Chagos","Diego Garcia","Barton Point",NA,"Unfished","","DiegoGarcia.BartonPoint.1",9,1,100,"pomacentridae","Plectroglyphidodon lacrymatus","Herbivore Grazer",8,14.66876456,1.466876456,5
+"26187",NA,"Chagos","Diego Garcia","Barton Point",NA,"Unfished","","DiegoGarcia.BartonPoint.1",9,1,100,"pomacentridae","Plectroglyphidodon lacrymatus","Herbivore Grazer",8,14.66876456,1.466876456,5
+"26188",NA,"Chagos","Diego Garcia","Barton Point",NA,"Unfished","","DiegoGarcia.BartonPoint.1",9,1,100,"pomacentridae","Plectroglyphidodon lacrymatus","Herbivore Grazer",8,14.66876456,1.466876456,5
+"26189",NA,"Chagos","Diego Garcia","Barton Point",NA,"Unfished","","DiegoGarcia.BartonPoint.1",9,1,100,"pomacentridae","Plectroglyphidodon lacrymatus","Herbivore Grazer",8,14.66876456,1.466876456,5
+"26190",NA,"Chagos","Diego Garcia","Barton Point",NA,"Unfished","","DiegoGarcia.BartonPoint.2",9,2,100,"pomacentridae","Plectroglyphidodon lacrymatus","Herbivore Grazer",8,14.66876456,1.466876456,5
+"26191",NA,"Chagos","Diego Garcia","Barton Point",NA,"Unfished","","DiegoGarcia.BartonPoint.2",9,2,100,"pomacentridae","Plectroglyphidodon lacrymatus","Herbivore Grazer",8,14.66876456,1.466876456,5
+"26192",NA,"Chagos","Diego Garcia","Barton Point",NA,"Unfished","","DiegoGarcia.BartonPoint.2",9,2,100,"pomacentridae","Plectroglyphidodon lacrymatus","Herbivore Grazer",8,14.66876456,1.466876456,5
+"26193",NA,"Chagos","Diego Garcia","Barton Point",NA,"Unfished","","DiegoGarcia.BartonPoint.2",9,2,100,"pomacentridae","Plectroglyphidodon lacrymatus","Herbivore Grazer",8,14.66876456,1.466876456,5
+"26194",NA,"Chagos","Diego Garcia","Barton Point",NA,"Unfished","","DiegoGarcia.BartonPoint.2",9,2,100,"pomacentridae","Plectroglyphidodon lacrymatus","Herbivore Grazer",8,14.66876456,1.466876456,5
+"26195",NA,"Chagos","Diego Garcia","Barton Point",NA,"Unfished","","DiegoGarcia.BartonPoint.2",9,2,100,"pomacentridae","Plectroglyphidodon lacrymatus","Herbivore Grazer",8,14.66876456,1.466876456,5
+"26196",NA,"Chagos","Diego Garcia","Barton Point",NA,"Unfished","","DiegoGarcia.BartonPoint.2",9,2,100,"pomacentridae","Plectroglyphidodon lacrymatus","Herbivore Grazer",8,14.66876456,1.466876456,5
+"26197",NA,"Chagos","Diego Garcia","Barton Point",NA,"Unfished","","DiegoGarcia.BartonPoint.3",9,3,100,"pomacentridae","Plectroglyphidodon lacrymatus","Herbivore Grazer",8,14.66876456,1.466876456,5
+"26198",NA,"Chagos","Diego Garcia","Barton Point",NA,"Unfished","","DiegoGarcia.BartonPoint.3",9,3,100,"pomacentridae","Plectroglyphidodon lacrymatus","Herbivore Grazer",8,14.66876456,1.466876456,5
+"26199",NA,"Chagos","Diego Garcia","Barton Point",NA,"Unfished","","DiegoGarcia.BartonPoint.3",9,3,100,"pomacentridae","Plectroglyphidodon lacrymatus","Herbivore Grazer",8,14.66876456,1.466876456,5
+"26200",NA,"Chagos","Diego Garcia","Barton Point",NA,"Unfished","","DiegoGarcia.BartonPoint.3",9,3,100,"pomacentridae","Plectroglyphidodon lacrymatus","Herbivore Grazer",8,14.66876456,1.466876456,5
+"26201",NA,"Chagos","Diego Garcia","Barton Point",NA,"Unfished","","DiegoGarcia.BartonPoint.3",9,3,100,"pomacentridae","Plectroglyphidodon lacrymatus","Herbivore Grazer",8,14.66876456,1.466876456,5
+"26202",NA,"Chagos","Diego Garcia","Barton Point",NA,"Unfished","","DiegoGarcia.BartonPoint.3",9,3,100,"pomacentridae","Plectroglyphidodon lacrymatus","Herbivore Grazer",8,14.66876456,1.466876456,5
+"26203",NA,"Chagos","Diego Garcia","Barton Point",NA,"Unfished","","DiegoGarcia.BartonPoint.3",9,3,100,"pomacentridae","Plectroglyphidodon lacrymatus","Herbivore Grazer",8,14.66876456,1.466876456,5
+"26204",NA,"Chagos","Diego Garcia","Barton Point",NA,"Unfished","","DiegoGarcia.BartonPoint.3",9,3,100,"pomacentridae","Plectroglyphidodon lacrymatus","Herbivore Grazer",8,14.66876456,1.466876456,5
+"26205",NA,"Chagos","Diego Garcia","Barton Point",NA,"Unfished","","DiegoGarcia.BartonPoint.3",9,3,100,"pomacentridae","Plectroglyphidodon lacrymatus","Herbivore Grazer",8,14.66876456,1.466876456,5
+"26206",NA,"Chagos","Diego Garcia","Barton Point west",NA,"Unfished","","DiegoGarcia.BartonPointwest.1",9,1,100,"pomacentridae","Plectroglyphidodon lacrymatus","Herbivore Grazer",8,14.66876456,1.466876456,5
+"26207",NA,"Chagos","Diego Garcia","Barton Point west",NA,"Unfished","","DiegoGarcia.BartonPointwest.1",9,1,100,"pomacentridae","Plectroglyphidodon lacrymatus","Herbivore Grazer",8,14.66876456,1.466876456,5
+"26208",NA,"Chagos","Diego Garcia","Barton Point west",NA,"Unfished","","DiegoGarcia.BartonPointwest.2",9,2,100,"pomacentridae","Plectroglyphidodon lacrymatus","Herbivore Grazer",8,14.66876456,1.466876456,5
+"26209",NA,"Chagos","Diego Garcia","Barton Point west",NA,"Unfished","","DiegoGarcia.BartonPointwest.3",9,3,100,"pomacentridae","Plectroglyphidodon lacrymatus","Herbivore Grazer",8,14.66876456,1.466876456,5
+"26210",NA,"Chagos","Diego Garcia","Diego Garcia East coast",NA,"Unfished","","DiegoGarcia.DiegoGarciaEastcoast.1",9,1,100,"pomacentridae","Plectroglyphidodon lacrymatus","Herbivore Grazer",8,14.66876456,1.466876456,5
+"26211",NA,"Chagos","Diego Garcia","Diego Garcia East coast",NA,"Unfished","","DiegoGarcia.DiegoGarciaEastcoast.1",9,1,100,"pomacentridae","Plectroglyphidodon lacrymatus","Herbivore Grazer",8,14.66876456,1.466876456,5
+"26212",NA,"Chagos","Diego Garcia","Diego Garcia East coast",NA,"Unfished","","DiegoGarcia.DiegoGarciaEastcoast.2",9,2,100,"pomacentridae","Plectroglyphidodon lacrymatus","Herbivore Grazer",8,14.66876456,1.466876456,5
+"26213",NA,"Chagos","Diego Garcia","Diego Garcia East coast",NA,"Unfished","","DiegoGarcia.DiegoGarciaEastcoast.3",9,3,100,"pomacentridae","Plectroglyphidodon lacrymatus","Herbivore Grazer",8,14.66876456,1.466876456,5
+"26214",NA,"Chagos","Peros Banhos","North Diamont",NA,"Unfished","","PerosBanhos.NorthDiamont.1",9,1,100,"pomacentridae","Plectroglyphidodon lacrymatus","Herbivore Grazer",8,14.66876456,1.466876456,5
+"26215",NA,"Chagos","Peros Banhos","North Diamont",NA,"Unfished","","PerosBanhos.NorthDiamont.1",9,1,100,"pomacentridae","Plectroglyphidodon lacrymatus","Herbivore Grazer",8,14.66876456,1.466876456,5
+"26216",NA,"Chagos","Peros Banhos","North Diamont",NA,"Unfished","","PerosBanhos.NorthDiamont.2",9,2,100,"pomacentridae","Plectroglyphidodon lacrymatus","Herbivore Grazer",8,14.66876456,1.466876456,5
+"26217",NA,"Chagos","Peros Banhos","North Diamont",NA,"Unfished","","PerosBanhos.NorthDiamont.2",9,2,100,"pomacentridae","Plectroglyphidodon lacrymatus","Herbivore Grazer",8,14.66876456,1.466876456,5
+"26218",NA,"Chagos","Peros Banhos","North Diamont",NA,"Unfished","","PerosBanhos.NorthDiamont.3",9,3,100,"pomacentridae","Plectroglyphidodon lacrymatus","Herbivore Grazer",8,14.66876456,1.466876456,5
+"26219",NA,"Chagos","Peros Banhos","North Diamont",NA,"Unfished","","PerosBanhos.NorthDiamont.4",9,4,100,"pomacentridae","Plectroglyphidodon lacrymatus","Herbivore Grazer",8,14.66876456,1.466876456,5
+"26220",NA,"Chagos","Diego Garcia","Cannon Point 2",NA,"Unfished","","DiegoGarcia.CannonPoint2.4",9,4,100,"pomacentridae","Plectroglyphidodon lacrymatus","Herbivore Grazer",8,14.66876456,1.466876456,5
 "26543",NA,"Chagos","Peros Banhos","North Diamont",NA,"Unfished","","PerosBanhos.NorthDiamont.2",9,2,100,"pomacentridae","Pomacentrus indicus","Herbivore Grazer",8,117.0810334,11.70810334,5
 "27327",NA,"Chagos","Diego Garcia","Cannon Point",NA,"Unfished","","DiegoGarcia.CannonPoint.4",9,4,250,"Scaridae","Scarus capistratoides","Herbivore Scraper",23,248.0180797,9.920723189,2
 "27328",NA,"Chagos","Diego Garcia","Cannon Point",NA,"Unfished","","DiegoGarcia.CannonPoint.4",9,4,250,"Scaridae","Scarus capistratoides","Herbivore Scraper",24,281.2679759,11.25071904,2
@@ -5566,9 +5566,9 @@
 "27335",NA,"Chagos","Diego Garcia","Middle Island",NA,"Unfished","","DiegoGarcia.MiddleIsland.2",9,2,250,"Scaridae","Scarus caudofasciatus","Herbivore Scraper",29,509.5934112,20.38373645,2
 "27336",NA,"Chagos","Diego Garcia","Middle Island",NA,"Unfished","","DiegoGarcia.MiddleIsland.4",9,4,250,"Scaridae","Scarus caudofasciatus","Herbivore Scraper",40,1329.523042,53.18092169,2
 "27337",NA,"Chagos","Diego Garcia","Barton Point",NA,"Unfished","","DiegoGarcia.BartonPoint.1",9,1,250,"Scaridae","Scarus caudofasciatus","Herbivore Scraper",62,4912.075038,196.4830015,2
-"27338",NA,"Chagos","Diego Garcia","Diego Garcia East coast",NA,"Unfished","","DiegoGarcia.DiegoGarciaEastcoast.4",9,4,250,"Scaridae","scarus frenatus","Herbivore Scraper",19,228.3443248,9.133772991,2
-"27339",NA,"Chagos","Diego Garcia","Diego Garcia East coast",NA,"Unfished","","DiegoGarcia.DiegoGarciaEastcoast.2",9,2,250,"Scaridae","scarus frenatus","Herbivore Scraper",21,310.1667541,12.40667016,2
-"27340",NA,"Chagos","Diego Garcia","Barton Point west",NA,"Unfished","","DiegoGarcia.BartonPointwest.3",9,3,250,"Scaridae","scarus frenatus","Herbivore Scraper",24,466.7137575,18.6685503,2
+"27338",NA,"Chagos","Diego Garcia","Diego Garcia East coast",NA,"Unfished","","DiegoGarcia.DiegoGarciaEastcoast.4",9,4,250,"Scaridae","Scarus frenatus","Herbivore Scraper",19,228.3443248,9.133772991,2
+"27339",NA,"Chagos","Diego Garcia","Diego Garcia East coast",NA,"Unfished","","DiegoGarcia.DiegoGarciaEastcoast.2",9,2,250,"Scaridae","Scarus frenatus","Herbivore Scraper",21,310.1667541,12.40667016,2
+"27340",NA,"Chagos","Diego Garcia","Barton Point west",NA,"Unfished","","DiegoGarcia.BartonPointwest.3",9,3,250,"Scaridae","Scarus frenatus","Herbivore Scraper",24,466.7137575,18.6685503,2
 "27341",NA,"Chagos","Diego Garcia","Middle Island",NA,"Unfished","","DiegoGarcia.MiddleIsland.4",9,4,250,"Scaridae","Scarus frenatus","Herbivore Scraper",33,1236.678639,49.46714556,2
 "27342",NA,"Chagos","Diego Garcia","Cannon Point",NA,"Unfished","","DiegoGarcia.CannonPoint.3",9,3,250,"Scaridae","Scarus frenatus","Herbivore Scraper",36,1613.94918,64.55796721,2
 "27343",NA,"Chagos","Diego Garcia","Middle Island",NA,"Unfished","","DiegoGarcia.MiddleIsland.2",9,2,250,"Scaridae","Scarus frenatus","Herbivore Scraper",37,1755.098435,70.20393739,2
@@ -5586,10 +5586,10 @@
 "27355",NA,"Chagos","Diego Garcia","Diego Garcia East coast",NA,"Unfished","","DiegoGarcia.DiegoGarciaEastcoast.2",9,2,250,"Scaridae","Scarus ghobban","Herbivore Scraper",65,5694.551553,227.7820621,2
 "27356",NA,"Chagos","Diego Garcia","Diego Garcia East coast",NA,"Unfished","","DiegoGarcia.DiegoGarciaEastcoast.2",9,2,250,"Scaridae","Scarus ghobban","Herbivore Scraper",65,5694.551553,227.7820621,2
 "27357",NA,"Chagos","Diego Garcia","Diego Garcia East coast",NA,"Unfished","","DiegoGarcia.DiegoGarciaEastcoast.2",9,2,250,"Scaridae","Scarus ghobban","Herbivore Scraper",65,5694.551553,227.7820621,2
-"27358",NA,"Chagos","Diego Garcia","Barton Point west",NA,"Unfished","","DiegoGarcia.BartonPointwest.4",9,4,250,"Scaridae","scarus globiceps","Herbivore Scraper",38,1140.95275,45.63811001,2
+"27358",NA,"Chagos","Diego Garcia","Barton Point west",NA,"Unfished","","DiegoGarcia.BartonPointwest.4",9,4,250,"Scaridae","Scarus globiceps","Herbivore Scraper",38,1140.95275,45.63811001,2
 "27359",NA,"Chagos","Diego Garcia","Barton Point",NA,"Unfished","","DiegoGarcia.BartonPoint.1",9,1,250,"Scaridae","Scarus globiceps","Herbivore Scraper",40,1329.523042,53.18092169,2
 "27360",NA,"Chagos","Diego Garcia","Barton Point",NA,"Unfished","","DiegoGarcia.BartonPoint.1",9,1,250,"Scaridae","Scarus globiceps","Herbivore Scraper",42,1537.738042,61.50952167,2
-"27361",NA,"Chagos","Diego Garcia","Barton Point west",NA,"Unfished","","DiegoGarcia.BartonPointwest.2",9,2,250,"Scaridae","scarus globiceps","Herbivore Scraper",42,1537.738042,61.50952167,2
+"27361",NA,"Chagos","Diego Garcia","Barton Point west",NA,"Unfished","","DiegoGarcia.BartonPointwest.2",9,2,250,"Scaridae","Scarus globiceps","Herbivore Scraper",42,1537.738042,61.50952167,2
 "27362",NA,"Chagos","Diego Garcia","Cannon Point",NA,"Unfished","","DiegoGarcia.CannonPoint.3",9,3,250,"Scaridae","Scarus prasiognathus","Herbivore Scraper",34,818.8853566,32.75541426,2
 "27363",NA,"Chagos","Peros Banhos","North Diamont",NA,"Unfished","","PerosBanhos.NorthDiamont.4",9,4,250,"Scaridae","Scarus prasiognathus","Herbivore Scraper",38,1140.95275,45.63811001,2
 "27364",NA,"Chagos","Peros Banhos","North Diamont",NA,"Unfished","","PerosBanhos.NorthDiamont.4",9,4,250,"Scaridae","Scarus prasiognathus","Herbivore Scraper",38,1140.95275,45.63811001,2
@@ -5699,7 +5699,7 @@
 "27468",NA,"Chagos","Diego Garcia","Middle Island",NA,"Unfished","","DiegoGarcia.MiddleIsland.3",9,3,250,"Scaridae","Scarus tricolor","Herbivore Scraper",19,144.409649,5.776385961,2
 "27469",NA,"Chagos","Peros Banhos","North Diamont",NA,"Unfished","","PerosBanhos.NorthDiamont.3",9,3,250,"Scaridae","Scarus tricolor","Herbivore Scraper",20,168.2768685,6.73107474,2
 "27470",NA,"Chagos","Peros Banhos","North Diamont",NA,"Unfished","","PerosBanhos.NorthDiamont.1",9,1,250,"Scaridae","Scarus tricolor","Herbivore Scraper",22,223.592591,8.943703641,2
-"27471",NA,"Chagos","Diego Garcia","Middle Island",NA,"Unfished","","DiegoGarcia.MiddleIsland.1",9,1,250,"Scaridae","scarus tricolor","Herbivore Scraper",26,367.9624468,14.71849787,2
+"27471",NA,"Chagos","Diego Garcia","Middle Island",NA,"Unfished","","DiegoGarcia.MiddleIsland.1",9,1,250,"Scaridae","Scarus tricolor","Herbivore Scraper",26,367.9624468,14.71849787,2
 "27472",NA,"Chagos","Diego Garcia","Barton Point",NA,"Unfished","","DiegoGarcia.BartonPoint.3",9,3,250,"Scaridae","Scarus tricolor","Herbivore Scraper",27,411.79372,16.4717488,2
 "27473",NA,"Chagos","Diego Garcia","Barton Point",NA,"Unfished","","DiegoGarcia.BartonPoint.2",9,2,250,"Scaridae","Scarus tricolor","Herbivore Scraper",28,458.9635794,18.35854318,2
 "27474",NA,"Chagos","Peros Banhos","North Diamont",NA,"Unfished","","PerosBanhos.NorthDiamont.1",9,1,250,"Scaridae","Scarus tricolor","Herbivore Scraper",28,458.9635794,18.35854318,2
@@ -5719,11 +5719,11 @@
 "27626",NA,"Chagos","Peros Banhos","North Diamont",NA,"Unfished","","PerosBanhos.NorthDiamont.4",9,4,250,"Acanthuridae","Zebrasoma desjardinii","Herbivore Grazer",16,110.5239435,4.420957742,2
 "27627",NA,"Chagos","Diego Garcia","Barton Point",NA,"Unfished","","DiegoGarcia.BartonPoint.2",9,2,250,"Acanthuridae","Zebrasoma desjardinii","Herbivore Grazer",17,132.2242292,5.28896917,2
 "27628",NA,"Chagos","Peros Banhos","North Diamont",NA,"Unfished","","PerosBanhos.NorthDiamont.4",9,4,250,"Acanthuridae","Zebrasoma desjardinii","Herbivore Grazer",17,132.2242292,5.28896917,2
-"27629",NA,"Chagos","Diego Garcia","Cannon Point 2",NA,"Unfished","","DiegoGarcia.CannonPoint2.4",9,4,250,"Acanthuridae","zebrasoma scopas","Herbivore Grazer",9,20.16362835,0.806545134,2
-"27630",NA,"Chagos","Diego Garcia","Cannon Point 2",NA,"Unfished","","DiegoGarcia.CannonPoint2.4",9,4,250,"Acanthuridae","zebrasoma scopas","Herbivore Grazer",9,20.16362835,0.806545134,2
-"27631",NA,"Chagos","Diego Garcia","Cannon Point 2",NA,"Unfished","","DiegoGarcia.CannonPoint2.4",9,4,250,"Acanthuridae","zebrasoma scopas","Herbivore Grazer",9,20.16362835,0.806545134,2
+"27629",NA,"Chagos","Diego Garcia","Cannon Point 2",NA,"Unfished","","DiegoGarcia.CannonPoint2.4",9,4,250,"Acanthuridae","Zebrasoma scopas","Herbivore Grazer",9,20.16362835,0.806545134,2
+"27630",NA,"Chagos","Diego Garcia","Cannon Point 2",NA,"Unfished","","DiegoGarcia.CannonPoint2.4",9,4,250,"Acanthuridae","Zebrasoma scopas","Herbivore Grazer",9,20.16362835,0.806545134,2
+"27631",NA,"Chagos","Diego Garcia","Cannon Point 2",NA,"Unfished","","DiegoGarcia.CannonPoint2.4",9,4,250,"Acanthuridae","Zebrasoma scopas","Herbivore Grazer",9,20.16362835,0.806545134,2
 "27632",NA,"Chagos","Diego Garcia","Diego Garcia East coast",NA,"Unfished","","DiegoGarcia.DiegoGarciaEastcoast.2",9,2,250,"Acanthuridae","Zebrasoma scopas","Herbivore Grazer",10,27.53427107,1.101370843,2
-"27633",NA,"Chagos","Diego Garcia","Cannon Point 2",NA,"Unfished","","DiegoGarcia.CannonPoint2.4",9,4,250,"Acanthuridae","zebrasoma scopas","Herbivore Grazer",10,27.53427107,1.101370843,2
+"27633",NA,"Chagos","Diego Garcia","Cannon Point 2",NA,"Unfished","","DiegoGarcia.CannonPoint2.4",9,4,250,"Acanthuridae","Zebrasoma scopas","Herbivore Grazer",10,27.53427107,1.101370843,2
 "27634",NA,"Chagos","Diego Garcia","Barton Point west",NA,"Unfished","","DiegoGarcia.BartonPointwest.2",9,2,250,"Acanthuridae","Zebrasoma scopas","Herbivore Grazer",11,36.4982258,1.459929032,2
 "27635",NA,"Chagos","Diego Garcia","Barton Point west",NA,"Unfished","","DiegoGarcia.BartonPointwest.3",9,3,250,"Acanthuridae","Zebrasoma scopas","Herbivore Grazer",13,59.8141694,2.392566776,2
 "27636",NA,"Chagos","Diego Garcia","Diego Garcia East coast",NA,"Unfished","","DiegoGarcia.DiegoGarciaEastcoast.1",9,1,250,"Acanthuridae","Zebrasoma scopas","Herbivore Grazer",13,59.8141694,2.392566776,2

@@ -1,10 +1,10 @@
 ---
 title: "UVC datasets - exploring monitoring structure and herbivore assemblages"
 output:
+  pdf_document: default
+  html_notebook: default
   html_document:
     df_print: paged
-  html_notebook: default
-  pdf_document: default
 ---
 
 ```{r, echo=FALSE, include=FALSE, messages=FALSE}
@@ -100,6 +100,13 @@ grid.arrange(g2, g3)
 * 7 herbivore families
 * site, biomass, FG, species only variables of interest
 
+
+
+
+
+#biomass ditribution across functional groups
+```{r, echo=F, fig.caption = 'Herbivore size distribution in Maldives'}
+
 #package loads
 library(ggplot2)
 library(tidyverse)
@@ -109,8 +116,6 @@ library(gridExtra)
 load('data/wio_gbr_herb_master.Rdata')
 maldives <- herb %>% filter(dataset=='Maldives')
 
-#biomass ditribution across functional groups
-```{r, echo=F, fig.caption = 'Herbivore size distribution in Maldives'}
 ggplot(maldives, aes(log(mass.g, 2), fill=FG)) + geom_histogram(breaks=c(1:10)) + 
   facet_wrap(~FG) + theme(legend.position='none') + scale_x_continuous(breaks=c(1:10), 
   labels=c(2^c(1:10))) + labs (x='Mass (g)')
@@ -214,9 +219,9 @@ Very few browser species (5) as compared to grazers (22) and scrapers (25)... bu
 ## estimate size distribution by functional groups
 ggplot(chagos, aes(log(mass.g, 2), fill=FG)) + geom_histogram(breaks=c(1:10)) + facet_wrap(management~FG) + theme(legend.position='none') + scale_x_continuous(breaks=c(1:10), labels=c(2^c(1:10))) + labs (x='Mass (g)')
 
-library(plyr)
 
-ddply(chagos, .(FG), summarize,  MeanMass=mean(mass.g))
+
+#ddply(chagos, .(FG), summarize,  MeanMass=mean(mass.g))
 ```
 There are more grazers than any other functional group. Most grazers are mid-sized, whereas there are more large scrapers and browsers. The mean size of browzers is 1476g, grazers 115g, and scrapers 1808. 
 
@@ -269,7 +274,7 @@ ggplot(chagos, aes(fill=FG, y=biomass.kgha, x=habitat)) +
 ```
 
 
-```{r, echo=F}
+```{r, echo=F, include=F}
 #Comaparing depth at 3m and 9m
 str(chagos) #change depth from numeric to character for graph
 chagos$depth <- as.character(chagos$depth)
