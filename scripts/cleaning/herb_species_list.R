@@ -23,9 +23,9 @@ species$seychelles<-ifelse(species$species %in% ssp, 'TRUE', 'FALSE')
 
 species$nregions<-rowSums(species[,3:6]==T)
 
-## 14 browsers, 52 grazers, 39 scrapers
-## 105 species in total
-## 65 species only appear in 1 dataset
+## 14 browsers, 52 grazers, 38 scrapers
+## 104 species in total
+## 64 species only appear in 1 dataset
 
 
 write.csv(species, 'data/herbivore_species_list.csv')
