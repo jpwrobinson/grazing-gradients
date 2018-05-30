@@ -67,6 +67,16 @@ chagos$dataset<-'Chagos'
 chagos<-chagos %>% select(date, dataset, Location.Atoll, Island.Site, Site, management, Exposure, Unique_Site_ID, Depth, Transect, Transect.area, Family, Species, FG, Length, Biomass..g., Biomass..kg.ha., Abundance.500m2)
 colnames(chagos)<-c('date','dataset', 'reef', 'site', 'site.number','management','habitat', 'unique.id', 'depth', 'transect', 'transect.area', 'family', 'species', 'FG', 'length.cm','mass.g', 'biomass.kgha', 'abundance.500m2')
 
+## fix species names
+firstup <- function(x) {
+   substr(x, 1, 1) <- toupper(substr(x, 1, 1))
+x
+}
+
+chagos$species<-as.character(chagos$species)
+chagos$species<-firstup(chagos$species)
+chagos$species<-as.factor(chagos$species)
+
 
 ## GBR CLEANING FOR MERGE ##
 ## create new habitat, site and depth vars
@@ -90,6 +100,12 @@ maldives$dataset<-'Maldives'
 ## now subset to relevant columns and assign identical colnames
 maldives<-maldives %>% select(Date,dataset, Location.Atoll, Island.Site, site, management, Exposure, Unique_site_transect, Depth, Transect, Transect.area, Family, Species, FG, Length,Biomass..g., Biomass..kg.ha., Abundance.500m2)
 colnames(maldives)<-c('date','dataset', 'reef', 'site', 'site.number','management','habitat', 'unique.id', 'depth', 'transect', 'transect.area', 'family', 'species', 'FG', 'length.cm', 'mass.g','biomass.kgha', 'abundance.500m2')
+
+maldives$species<-as.character(maldives$species)
+maldives$species<-firstup(maldives$species)
+maldives$species<-as.factor(maldives$species)
+
+
 
 ## Seychelles CLEANING FOR MERGE ##
 ## create new habitat, site and depth vars
@@ -130,4 +146,5 @@ herb<-rbind(chagos, gbr, seychelles, maldives)
 herb<-herb[grepl('Herb*', herb$FG),]
 
 save(herb, file='data/wio_gbr_herb_master.Rdata')
+
 
