@@ -1,5 +1,14 @@
 # grazing-gradients
 
+## Meeting 4 - 30th May 2018 - bite rate literature and Rmd collaborating
+
+*Tasks*
+
+* Rmd - some crazy shit going on. Let's fix gitignore.
+* Bite rate literature - what's the species count at? What kind of data do we have?
+* Bite rate functions - lots of (slightly) different functions. Carbon intake, bioerosion, consumption rates. What are we most interested in? Perhaps focus on biomass for now and convert later when the patterns are clearer.
+
+
 ## Meeting 3 - 23rd May 2018 - checking in with Rmd and data questions, and bite rate literature search
 
 *Tasks*
