@@ -98,10 +98,6 @@ grid.arrange(g2, g3)
 * 1 habitat level (Exposed)
 * 30 herbivore species (3 browser spp., 13 grazer spp., 14 scraper spp.)
 * 7 herbivore families
-* site, biomass, FG, species only variables of interest
-
-
-
 
 
 #biomass ditribution across functional groups
@@ -158,6 +154,61 @@ grid.arrange(gooddeal1, gooddeal2)
 
 #### GBR
 
+* Nov 2010 & Jan 2011
+* 5 reefs, 3 sites each, 4 transects each of 250 m^2 (most) or 100 m^2 area
+* 1 management level (fished)
+* 18 habitat levels (3 exposed, 3 sheltered, crossed with crest-flat-slope)
+* NA depth
+* 8 herbivore families
+* 71 species (10 browser spp., 40 grazer spp., 21 scraper spp.)
+
+```{r}
+library(ggplot2)
+library(tidyverse)
+
+load('data/gbr_master.csv')
+gbr <- gbr_master
+
+```
+
+
+#biomass by functional group
+
+```{r, echo=F}
+ggplot(gbr, aes(log(mass.g, 2), fill=FG)) + geom_histogram(breaks=c(1:10)) + 
+  facet_wrap(~FG) + theme(legend.position='none') + scale_x_continuous(breaks=c(1:10), 
+  labels=c(2^c(1:10))) + labs (x='Mass (g)')
+```
+
+#common species
+```{r, echo=F, fig.width=6, fig.height=10}
+abund.gbr <- gbr %>% group_by(unique.id, site, species, FG) %>% 
+  summarise(abund.gbr = sum(abundance.500m2)) %>%
+  group_by(species, FG) %>% 
+  summarise(abund.gbr = mean(abund.gbr))
+
+biom.gbr <- gbr %>% group_by(unique.id, site, species, FG) %>% 
+  summarise(biom.gbr = sum(biomass.kgha)) %>%
+  group_by(species, FG) %>% 
+  summarise(biom.gbr = mean(biom.gbr))
+
+ggplot(abund.gbr[abund.gbr$abund.gbr<100,], aes(reorder(species,abund.gbr), 
+  abund.gbr, fill=FG)) + geom_bar(stat='identity') + 
+  labs(y='Mean abundance per 500m2', x='',title='GBR: abundance/biomass distributions') +
+  coord_flip() + theme(legend.position='none', axis.text.y=element_text(size=6))
+
+ggplot(biom.gbr[biom.gbr$biom.gbr<300,], aes(reorder(species,biom.gbr),
+  biom.gbr, fill=FG)) + geom_bar(stat='identity') + 
+  labs(y='Mean biomass kg ha-1', x='') +
+  coord_flip() + theme(legend.position=c(0.75, 0.25), axis.text.y=element_text(size=6))
+
+```
+#ugly biomass gradient across habitat for later
+```{r}
+ggplot(gbr, aes(log(mass.g, 2), fill=FG)) + geom_histogram(breaks=c(1:10)) + 
+  facet_wrap(habitat~FG) + theme(legend.position='none') + 
+  scale_x_continuous(breaks=c(1:10), labels=c(2^c(1:10))) + labs (x='Mass (g)')
+```
 
 
 #### Chagos
