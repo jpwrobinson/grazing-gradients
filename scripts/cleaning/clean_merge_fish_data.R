@@ -85,7 +85,7 @@ chagos$species<-as.factor(chagos$species)
 gbr$habitat<-with(gbr, paste(Exposure, Zone, sep='.'))
 gbr$site<-with(gbr, paste(Reef, Site, sep=''))
 gbr$depth<-NA
-gbr$Unique_Site_ID<-with(gbr, paste(site, habitat, Transect, sep='.'))
+gbr$Unique_Site_ID<-with(gbr, paste(reef, site, Transect, sep='.'))
 gbr$management<-'Unfished'
 gbr$dataset<-'GBR'
 ## now subset to relevant columns and assign identical colnames
@@ -115,7 +115,7 @@ seychelles$site.number<-as.numeric(factor(seychelles$Location))
 seychelles$Island<-ifelse(grepl('Mahe*', seychelles$Location), 'Mahe', 'Praslin')
 seychelles$Island<-ifelse(grepl('Ste Anne*', seychelles$Location), 'Mahe', seychelles$Island)
 seychelles$Depth<-NA
-seychelles$Unique_site_transect<-with(seychelles, paste(Location, count, sep='.'))
+seychelles$Unique_site_transect<-with(seychelles, paste(Year, Location, count, sep='.'))
 seychelles$Transect.area<-NA
 seychelles$dataset<-'Seychelles'
 ## now subset to relevant columns and assign identical colnames
