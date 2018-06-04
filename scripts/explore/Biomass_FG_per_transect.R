@@ -54,7 +54,7 @@ SE <- summarySE(meanbiomass, measurevar="biomass.kgha", groupvars=c("dataset","F
 
 #Make a group bar chart of biomass of each FG by country with SE error bars
 library(ggplot2)
-pd <- position_dodge(0.9) # move bars .05 to the left and right
+pd <- position_dodge(0.9) # move bars to the left and right
 ggplot(SE, aes(fill= FG, y=biomass.kgha, x=dataset)) + 
   geom_bar(position="dodge", stat="identity") +
   geom_errorbar(aes(ymin=biomass.kgha-se, ymax=biomass.kgha+se), width=.1, position = pd)
