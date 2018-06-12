@@ -1,6 +1,14 @@
+
+
+## load raw fish data
+load('data/wio_gbr_herb_master.Rdata')
+
+## libraries
+library(dplyr); library(ggplot2)
+
 #Find the mean biomass of each FG in each country-site-transect
 #Across all sampling years and for different lengthed transects (!)
-library(dplyr)
+
 meanbiomass <- herb %>%
   group_by(dataset, site.number, transect, FG) %>%
   summarise_at(vars(biomass.kgha), funs(mean(., na.rm=TRUE)))
@@ -16,8 +24,9 @@ meanbiomass <- herb %>%
 ##   conf.interval: the percent range of the confidence interval (default is 95%)
 summarySE <- function(data=NULL, measurevar, groupvars=NULL, na.rm=FALSE,
                       conf.interval=.95, .drop=TRUE) {
-  library(plyr)
-  
+
+library(plyr)
+
   # New version of length which can handle NA's: if na.rm==T, don't count them
   length2 <- function (x, na.rm=FALSE) {
     if (na.rm) sum(!is.na(x))
@@ -53,9 +62,12 @@ summarySE <- function(data=NULL, measurevar, groupvars=NULL, na.rm=FALSE,
 SE <- summarySE(meanbiomass, measurevar="biomass.kgha", groupvars=c("dataset","FG"))
 
 #Make a group bar chart of biomass of each FG by country with SE error bars
-library(ggplot2)
+## save as pdf
+pdf(file='figures/explore/biomass_byregion.pdf', height = 7, width=12)
 pd <- position_dodge(0.9) # move bars to the left and right
 ggplot(SE, aes(fill= FG, y=biomass.kgha, x=dataset)) + 
   geom_bar(position="dodge", stat="identity") +
   geom_errorbar(aes(ymin=biomass.kgha-se, ymax=biomass.kgha+se), width=.1, position = pd)
 
+## close pdf
+dev.off()
