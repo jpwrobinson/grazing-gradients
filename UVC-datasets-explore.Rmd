@@ -1,10 +1,10 @@
 ---
 title: "UVC datasets - exploring monitoring structure and herbivore assemblages"
 output:
-  pdf_document: default
-  html_notebook: default
   html_document:
     df_print: paged
+  html_notebook: default
+  pdf_document: default
 ---
 
 ```{r, echo=FALSE, include=FALSE, messages=FALSE}
@@ -166,8 +166,8 @@ grid.arrange(gooddeal1, gooddeal2)
 library(ggplot2)
 library(tidyverse)
 
-load('data/gbr_master.csv')
-gbr <- gbr_master
+load('data/wio_gbr_herb_master.Rdata')
+gbr <- herb %>% filter(dataset=='GBR')
 
 ```
 
@@ -203,13 +203,13 @@ ggplot(biom.gbr[biom.gbr$biom.gbr<300,], aes(reorder(species,biom.gbr),
   coord_flip() + theme(legend.position=c(0.75, 0.25), axis.text.y=element_text(size=6))
 
 ```
-#ugly biomass gradient across habitat for later
+
 ```{r}
 ggplot(gbr, aes(log(mass.g, 2), fill=FG)) + geom_histogram(breaks=c(1:10)) + 
   facet_wrap(habitat~FG) + theme(legend.position='none') + 
   scale_x_continuous(breaks=c(1:10), labels=c(2^c(1:10))) + labs (x='Mass (g)')
 ```
-
+Ugly biomass gradient across habitat levels - find it somewhat useful
 
 #### Chagos
 

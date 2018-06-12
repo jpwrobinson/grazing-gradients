@@ -28,6 +28,46 @@
             pdfborder={0 0 0},
             breaklinks=true}
 \urlstyle{same}  % don't use monospace font for urls
+\usepackage{color}
+\usepackage{fancyvrb}
+\newcommand{\VerbBar}{|}
+\newcommand{\VERB}{\Verb[commandchars=\\\{\}]}
+\DefineVerbatimEnvironment{Highlighting}{Verbatim}{commandchars=\\\{\}}
+% Add ',fontsize=\small' for more characters per line
+\usepackage{framed}
+\definecolor{shadecolor}{RGB}{248,248,248}
+\newenvironment{Shaded}{\begin{snugshade}}{\end{snugshade}}
+\newcommand{\KeywordTok}[1]{\textcolor[rgb]{0.13,0.29,0.53}{\textbf{#1}}}
+\newcommand{\DataTypeTok}[1]{\textcolor[rgb]{0.13,0.29,0.53}{#1}}
+\newcommand{\DecValTok}[1]{\textcolor[rgb]{0.00,0.00,0.81}{#1}}
+\newcommand{\BaseNTok}[1]{\textcolor[rgb]{0.00,0.00,0.81}{#1}}
+\newcommand{\FloatTok}[1]{\textcolor[rgb]{0.00,0.00,0.81}{#1}}
+\newcommand{\ConstantTok}[1]{\textcolor[rgb]{0.00,0.00,0.00}{#1}}
+\newcommand{\CharTok}[1]{\textcolor[rgb]{0.31,0.60,0.02}{#1}}
+\newcommand{\SpecialCharTok}[1]{\textcolor[rgb]{0.00,0.00,0.00}{#1}}
+\newcommand{\StringTok}[1]{\textcolor[rgb]{0.31,0.60,0.02}{#1}}
+\newcommand{\VerbatimStringTok}[1]{\textcolor[rgb]{0.31,0.60,0.02}{#1}}
+\newcommand{\SpecialStringTok}[1]{\textcolor[rgb]{0.31,0.60,0.02}{#1}}
+\newcommand{\ImportTok}[1]{#1}
+\newcommand{\CommentTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textit{#1}}}
+\newcommand{\DocumentationTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textbf{\textit{#1}}}}
+\newcommand{\AnnotationTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textbf{\textit{#1}}}}
+\newcommand{\CommentVarTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textbf{\textit{#1}}}}
+\newcommand{\OtherTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{#1}}
+\newcommand{\FunctionTok}[1]{\textcolor[rgb]{0.00,0.00,0.00}{#1}}
+\newcommand{\VariableTok}[1]{\textcolor[rgb]{0.00,0.00,0.00}{#1}}
+\newcommand{\ControlFlowTok}[1]{\textcolor[rgb]{0.13,0.29,0.53}{\textbf{#1}}}
+\newcommand{\OperatorTok}[1]{\textcolor[rgb]{0.81,0.36,0.00}{\textbf{#1}}}
+\newcommand{\BuiltInTok}[1]{#1}
+\newcommand{\ExtensionTok}[1]{#1}
+\newcommand{\PreprocessorTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textit{#1}}}
+\newcommand{\AttributeTok}[1]{\textcolor[rgb]{0.77,0.63,0.00}{#1}}
+\newcommand{\RegionMarkerTok}[1]{#1}
+\newcommand{\InformationTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textbf{\textit{#1}}}}
+\newcommand{\WarningTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textbf{\textit{#1}}}}
+\newcommand{\AlertTok}[1]{\textcolor[rgb]{0.94,0.16,0.16}{#1}}
+\newcommand{\ErrorTok}[1]{\textcolor[rgb]{0.64,0.00,0.00}{\textbf{#1}}}
+\newcommand{\NormalTok}[1]{#1}
 \usepackage{graphicx,grffile}
 \makeatletter
 \def\maxwidth{\ifdim\Gin@nat@width>\linewidth\linewidth\else\Gin@nat@width\fi}
@@ -153,8 +193,6 @@ biomass (i.e.~mean biomass across UVC replicates at each site).
   30 herbivore species (3 browser spp., 13 grazer spp., 14 scraper spp.)
 \item
   7 herbivore families
-\item
-  site, biomass, FG, species only variables of interest
 \end{itemize}
 
 \section{biomass ditribution across functional
@@ -170,58 +208,55 @@ spread in both
 
 \paragraph{GBR}\label{gbr}
 
-library(ggplot2) library(tidyverse)
+\begin{itemize}
+\tightlist
+\item
+  Nov 2010 \& Jan 2011
+\item
+  5 reefs, 3 sites each, 4 transects each of 250 m\^{}2 (most) or 100
+  m\^{}2 area
+\item
+  1 management level (fished)
+\item
+  18 habitat levels (3 exposed, 3 sheltered, crossed with
+  crest-flat-slope)
+\item
+  NA depth
+\item
+  8 herbivore families
+\item
+  71 species (10 browser spp., 40 grazer spp., 21 scraper spp.)
+\end{itemize}
 
-load(`data/gbr\_master.csv') gbr \textless{}- gbr\_master
+\begin{Shaded}
+\begin{Highlighting}[]
+\KeywordTok{library}\NormalTok{(ggplot2)}
+\KeywordTok{library}\NormalTok{(tidyverse)}
 
-str(gbr) unique(gbr\(date) #Nov 2010 & Jan 2011 unique(gbr\)site) \#5
-reefs, 3 sites each, 4 transects each
-unique(gbr\(management) #only 1 level unique(gbr\)habitat) \#3 exposed,
-3 sheltered, crest-flat-slope for each
-unique(gbr\(depth) #NA unique(gbr\)family) \#8 families
-unique(gbr\(FG) #3 funtional groups unique(gbr\)species) \#71 species
-aggregate(species \textasciitilde{} FG, gbr, function(x)
-length(unique(x))) \#10 browsers, 40 grazers, 21 scrapers
+\KeywordTok{load}\NormalTok{(}\StringTok{'data/wio_gbr_herb_master.Rdata'}\NormalTok{)}
+\NormalTok{gbr <-}\StringTok{ }\NormalTok{herb }\OperatorTok{%>%}\StringTok{ }\KeywordTok{filter}\NormalTok{(dataset}\OperatorTok{==}\StringTok{'GBR'}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
 
 \section{biomass by functional group}\label{biomass-by-functional-group}
 
-ggplot(gbr, aes(log(mass.g, 2), fill=FG)) +
-geom\_histogram(breaks=c(1:10)) + facet\_wrap(\textasciitilde{}FG) +
-theme(legend.position=`none') + scale\_x\_continuous(breaks=c(1:10),
-labels=c(2\^{}c(1:10))) + labs (x=`Mass (g)')
+\includegraphics{UVC-datasets-explore_files/figure-latex/unnamed-chunk-9-1.pdf}
 
 \section{common species}\label{common-species}
 
-abund.gbr \textless{}- gbr \%\textgreater{}\% group\_by(unique.id, site,
-species, FG) \%\textgreater{}\% summarise(abund.gbr =
-sum(abundance.500m2)) \%\textgreater{}\% group\_by(species, FG)
-\%\textgreater{}\% summarise(abund.gbr = mean(abund.gbr))
+\includegraphics{UVC-datasets-explore_files/figure-latex/unnamed-chunk-10-1.pdf}
+\includegraphics{UVC-datasets-explore_files/figure-latex/unnamed-chunk-10-2.pdf}
+\#ugly biomass gradient across habitat for later
 
-biom.gbr \textless{}- gbr \%\textgreater{}\% group\_by(unique.id, site,
-species, FG) \%\textgreater{}\% summarise(biom.gbr = sum(biomass.kgha))
-\%\textgreater{}\% group\_by(species, FG) \%\textgreater{}\%
-summarise(biom.gbr = mean(biom.gbr))
+\begin{Shaded}
+\begin{Highlighting}[]
+\KeywordTok{ggplot}\NormalTok{(gbr, }\KeywordTok{aes}\NormalTok{(}\KeywordTok{log}\NormalTok{(mass.g, }\DecValTok{2}\NormalTok{), }\DataTypeTok{fill=}\NormalTok{FG)) }\OperatorTok{+}\StringTok{ }\KeywordTok{geom_histogram}\NormalTok{(}\DataTypeTok{breaks=}\KeywordTok{c}\NormalTok{(}\DecValTok{1}\OperatorTok{:}\DecValTok{10}\NormalTok{)) }\OperatorTok{+}\StringTok{ }
+\StringTok{  }\KeywordTok{facet_wrap}\NormalTok{(habitat}\OperatorTok{~}\NormalTok{FG) }\OperatorTok{+}\StringTok{ }\KeywordTok{theme}\NormalTok{(}\DataTypeTok{legend.position=}\StringTok{'none'}\NormalTok{) }\OperatorTok{+}\StringTok{ }
+\StringTok{  }\KeywordTok{scale_x_continuous}\NormalTok{(}\DataTypeTok{breaks=}\KeywordTok{c}\NormalTok{(}\DecValTok{1}\OperatorTok{:}\DecValTok{10}\NormalTok{), }\DataTypeTok{labels=}\KeywordTok{c}\NormalTok{(}\DecValTok{2}\OperatorTok{^}\KeywordTok{c}\NormalTok{(}\DecValTok{1}\OperatorTok{:}\DecValTok{10}\NormalTok{))) }\OperatorTok{+}\StringTok{ }\KeywordTok{labs}\NormalTok{ (}\DataTypeTok{x=}\StringTok{'Mass (g)'}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
 
-ggplot(abund.gbr{[}abund.gbr\$abund.gbr\textless{}100,{]},
-aes(reorder(species,abund.gbr), abund.gbr, fill=FG)) +
-geom\_bar(stat=`identity') + labs(y=`Mean abundance per 500m2',
-x=`',title='GBR: abundance/biomass distributions') + coord\_flip() +
-theme(legend.position=`none', axis.text.y=element\_text(size=6))
-
-ggplot(biom.gbr{[}biom.gbr\$biom.gbr\textless{}300,{]},
-aes(reorder(species,biom.gbr), biom.gbr, fill=FG)) +
-geom\_bar(stat=`identity') + labs(y=`Mean biomass kg ha-1', x='') +
-coord\_flip() + theme(legend.position=c(0.75, 0.25),
-axis.text.y=element\_text(size=6))
-
-\section{ugly biomass gradient across habitat for
-later}\label{ugly-biomass-gradient-across-habitat-for-later}
-
-ggplot(gbr, aes(log(mass.g, 2), fill=FG)) +
-geom\_histogram(breaks=c(1:10)) +
-facet\_wrap(habitat\textasciitilde{}FG) + theme(legend.position=`none')
-+ scale\_x\_continuous(breaks=c(1:10), labels=c(2\^{}c(1:10))) + labs
-(x=`Mass (g)')
+\includegraphics{UVC-datasets-explore_files/figure-latex/unnamed-chunk-11-1.pdf}
 
 \paragraph{Chagos}\label{chagos}
 
@@ -241,7 +276,7 @@ Very few browser species (5) as compared to grazers (22) and scrapers
 (25)\ldots{} but there are some duplicate species due to typos, so still
 need to clean that up.
 
-\includegraphics{UVC-datasets-explore_files/figure-latex/unnamed-chunk-12-1.pdf}
+\includegraphics{UVC-datasets-explore_files/figure-latex/unnamed-chunk-16-1.pdf}
 There are more grazers than any other functional group. Most grazers are
 mid-sized, whereas there are more large scrapers and browsers. The mean
 size of browzers is 1476g, grazers 115g, and scrapers 1808.
@@ -249,9 +284,9 @@ size of browzers is 1476g, grazers 115g, and scrapers 1808.
 Now need to look at abundance and biomass of species and functional
 groups across sites\ldots{}
 
-\includegraphics{UVC-datasets-explore_files/figure-latex/unnamed-chunk-13-1.pdf}
+\includegraphics{UVC-datasets-explore_files/figure-latex/unnamed-chunk-17-1.pdf}
 
-\includegraphics{UVC-datasets-explore_files/figure-latex/unnamed-chunk-14-1.pdf}
+\includegraphics{UVC-datasets-explore_files/figure-latex/unnamed-chunk-18-1.pdf}
 
 There are no dates recorded for the Chagos dataset, so no time series
 analyses could be done. Additionally, all of Chagos is ``unfished''.
@@ -259,7 +294,7 @@ Therefore, only ``depth'' and ``habitat'' gradients were explored
 further to biomass. If lat long values can be attached to site names, a
 spatial look at the data can be done as well.
 
-\includegraphics{UVC-datasets-explore_files/figure-latex/unnamed-chunk-15-1.pdf}
+\includegraphics{UVC-datasets-explore_files/figure-latex/unnamed-chunk-19-1.pdf}
 
 
 \end{document}
