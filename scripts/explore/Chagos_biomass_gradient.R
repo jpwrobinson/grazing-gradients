@@ -44,5 +44,37 @@ ggplot(chagos, aes(fill=FG, y=biomass.kgha, x=depth)) +
   geom_bar(position="dodge", stat="identity")
 
 
+#add dates to chagos benthic
+library(dplyr)
+chagosBenthic <- pred[herb$dataset == 'Chagos',]
+chagosBenthic$unique.id <- as.factor(chagosBenthic$unique.id)
+levels(chagosBenthic$unique.id)
+chagosBenthic$unique.id <-as.character(chagosBenthic$unique.id)
+pred$date <- chagosBenthic[match(chagosBenthic$unique.id, pred$unique.id), 1]
 
+chagosBenthic <- chagosBenthic %>% 
+                  mutate(date = 
+                  if_else(unique.id %in% c("Diego Garcia.Barton Point","Diego Garcia.Barton Point west",
+                                    "Diego Garcia.Cannon Point", "Diego Garcia.Cannon Point 2", 
+                                    "Diego Garcia.Diego Garcia East coast","Diego Garcia.Middle Island",
+                                    "Peros Banhos.North Diamont"), "2012", "2010"))
+pred1 <- pred
+pred1 <- pred[pred$dataset != 'Chagos',]
+pred1 <- rbind(pred1, chagosBenthic)
+pred <- pred1
+rm(chagosBenthic)
+rm(pred1)
 
+#add dates to chagos herb
+chagosHerb <- herb %>% 
+  mutate(date = 
+           if_else(unique.id %in% c("Diego Garcia.Barton Point","Diego Garcia.Barton Point west",
+                                    "Diego Garcia.Cannon Point", "Diego Garcia.Cannon Point 2", 
+                                    "Diego Garcia.Diego Garcia East coast","Diego Garcia.Middle Island",
+                                    "Peros Banhos.North Diamont"), "2012", "2010"))
+herb1 <- herb
+herb1 <- herb[herb$dataset != 'Chagos',]
+herb1 <- rbind(herb1, chagosHerb)
+herb <- herb1
+rm(chagosHerb)
+rm(herb1)
