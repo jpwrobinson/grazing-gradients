@@ -180,6 +180,8 @@ gbr <- gbr %>% group_by(dataset, site, date, reef, benthic, unique.id) %>%
 
 ## chagos site names are fucked
 ## maldives site names are fucked
+## save individual
+save(chagos, gbr, maldives, seychelles, file='data/wio_benthic_master.Rdata')
 
 
 pred<-herb
