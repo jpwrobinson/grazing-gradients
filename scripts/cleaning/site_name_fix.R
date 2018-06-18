@@ -19,6 +19,8 @@ unique(chagos.fish$site)
 unique(chagos$reef)
 unique(chagos$site)
 
+chag<-list(fish=unique(chagos.fish$site), benthic=unique(chagos$site))
+
 ## Chagos missing reefs + sites
 
 ## gbr
@@ -32,3 +34,22 @@ unique(gbr$reef)
 unique(gbr$site)
 
 ### GBR is fixable.
+
+
+
+maldives.fish<-herb %>% filter(dataset=='Maldives')
+## fish sites
+unique(maldives.fish$reef)
+unique(maldives.fish$site)
+# unique(maldives$unique.id)
+## benthic sites
+unique(maldives$reef)
+unique(maldives$site)
+
+mald<-list(fish = unique(maldives.fish$site), benthic = c(as.character(unique(maldives$reef)), 'Huvadhoo'))
+
+
+write.csv(chag[[1]], file='data/chagos_fish_sites.csv')
+write.csv(chag[[2]], file='data/chagos_benthic_sites.csv')
+write.csv(mald[[1]], file='data/maldives_fish_sites.csv')
+write.csv(mald[[2]], file='data/maldives_benthic_sites.csv')
