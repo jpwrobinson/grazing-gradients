@@ -114,8 +114,10 @@ chagos$depth<-str_replace_all(chagos$depth, 'm', '')
 chagos$depth<-as.integer(chagos$depth)
 
 ## identify benthic vars of interest
-chagos$benthic<-ifelse(chagos$taxa == 'Total.hard.coral.cover', 'hard.coral', NA)
-chagos$benthic<-ifelse(chagos$taxa == 'Halimeda', 'macroalgae', chagos$benthic)
+chagos$benthic<-ifelse(chagos$taxa == 'Total hard coral cover', 'hard.coral', NA)
+chagos$benthic<-ifelse(chagos$taxa %in% c('Halimeda'), 'macroalgae', chagos$benthic)
+
+
 
 ## sum benthic categories 
 chagos$value<-as.numeric(chagos$value)
@@ -167,7 +169,7 @@ chagos$date<-NULL
 chagos<-ungroup(chagos); chagos2<-ungroup(chagos2)
 chagos<-rbind(chagos, chagos2)
 ## add ID
-chagos$unique.id<-with(chagos, paste(reef, site, transect, sep='.'))
+chagos$unique.id<-with(chagos, paste(reef, site, sep='.'))
 
 ## average across replicates
 chagos <- chagos %>% group_by(dataset, site, reef, benthic, unique.id) %>%
@@ -178,12 +180,12 @@ chagos <- chagos %>% group_by(dataset, site, reef, benthic, unique.id) %>%
 ## ------------------------------------ ##
 ## drop 3 NAs
 gbr <- gbr[!gbr$Reef=='',]
-colnames(gbr)[1:6]<-c('date', 'site', 'site.number', 'habitat', 'depth', 'transect')
+colnames(gbr)[1:6]<-c('date', 'reef', 'site.number', 'habitat', 'depth', 'transect')
 
 ## gather taxa into 1 column
-gbr <- gather(gbr, taxa, value, -date, -site, -site.number, -habitat, -depth, -transect)
+gbr <- gather(gbr, taxa, value, -date, -reef, -site.number, -habitat, -depth, -transect)
 gbr$dataset<-'GBR'
-gbr$reef<-paste0(gbr$site, gbr$site.number)
+gbr$site<-paste0(gbr$reef, gbr$site.number)
 
 
 ## estimates are already percent cover
@@ -213,11 +215,12 @@ gbr$value[is.na(gbr$value)]<-0
 gbr <- gbr %>% filter(benthic %in% c('hard.coral', 'macroalgae'))
 
 ## add ID
-gbr$unique.id<-with(gbr, paste(reef, site, sep='.'))
+gbr$unique.id<-with(gbr, paste(site, reef, sep='.'))
 
 
 gbr <- gbr %>% group_by(dataset, site, date, reef, benthic, unique.id) %>%
 				summarise(cover = mean(value))
+
 
 
 ## chagos site names are fucked
@@ -263,6 +266,7 @@ pred$site[pred$unique.id == 'SalamonIle AnglaisSheltered1']<-'Isle le Anglaise (
 pred$site[pred$unique.id == 'SalamonIle AnglaisSheltered2']<-'S2'
 pred$site[pred$unique.id == 'SalamonIle AnglaisSheltered3']<-'Isle le Anglaise (S3)'
 
+## match up in benthic data
 chagos$site[grepl('Salamon.S3', chagos$unique.id)]<-'Isle le Anglaise (S3)'
 
 
@@ -274,17 +278,20 @@ aggregate(unique.id ~ site, pred[pred$dataset=='Chagos',], uniques ) ## no
 aggregate(unique.id ~ site, chagos, uniques ) ## 4 transects each. ok.
 
 
-
-
 ## add IDs separately for each dataset
+pred$unique.id<-as.character(pred$unique.id)
 pred$unique.id[pred$dataset == 'Seychelles'] <- with(pred[pred$dataset == 'Seychelles',], paste(date,site, sep='.'))
-# pred$unique.id[pred$dataset == 'Chagos'] <- with(pred[pred$dataset == 'Chagos',], paste(site, reef, sep='.'))
+pred$unique.id[pred$dataset == 'Chagos'] <- with(pred[pred$dataset == 'Chagos',], paste(reef, site, sep='.'))
 # pred$unique.id[pred$dataset == 'Maldives'] <- with(pred[pred$dataset == 'Maldives',], paste(site, reef, sep='.'))
 pred$unique.id[pred$dataset == 'GBR'] <- with(pred[pred$dataset == 'GBR',], paste(site, reef, sep='.'))
 
 
+### FIX MATCHING. Doesn't seem to work for chagos
+### GBR seems to have surveys in same location different days
+#### Maldives site names need checked
+
 # pred$hard.coral[pred$dataset=='Maldives']<-maldives$cover[maldives$benthic=='hard.coral'][match(pred$unique.id, maldives$unique.id)]
-# pred$hard.coral[pred$dataset=='Chagos']<-chagos$cover[chagos$benthic=='hard.coral'][match(pred$unique.id, chagos$unique.id)]
+pred$hard.coral<-chagos$cover[chagos$benthic=='hard.coral'][match(pred$unique.id, chagos$unique.id)]
 pred$hard.coral<-seychelles$cover[seychelles$benthic=='hard.coral'][match(pred$unique.id, seychelles$unique.id)]
 pred$hard.coral<-gbr$cover[gbr$benthic=='hard.coral'][match(pred$unique.id, gbr$unique.id)]
 
