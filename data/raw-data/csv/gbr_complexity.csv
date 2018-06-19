@@ -1,0 +1,358 @@
+Location,Reef,Exposure,Site,Zone,Replicate,Structure
+GBR,Trunk,Exposed,1,Slope,1,3
+GBR,Trunk,Exposed,1,Slope,2,3
+GBR,Trunk,Exposed,1,Slope,3,3
+GBR,Trunk,Exposed,1,Slope,4,3.5
+GBR,Trunk,Exposed,1,Crest,1,2
+GBR,Trunk,Exposed,1,Crest,2,2.5
+GBR,Trunk,Exposed,1,Crest,3,2
+GBR,Trunk,Exposed,1,Crest,4,2
+GBR,Trunk,Exposed,1,Flat,1,2
+GBR,Trunk,Exposed,1,Flat,2,2
+GBR,Trunk,Exposed,1,Flat,3,1.5
+GBR,Trunk,Exposed,1,Flat,4,1
+GBR,Trunk,Exposed,2,Slope,1,3
+GBR,Trunk,Exposed,2,Slope,2,2.5
+GBR,Trunk,Exposed,2,Slope,3,2.5
+GBR,Trunk,Exposed,2,Slope,4,3
+GBR,Trunk,Exposed,2,Crest,1,3
+GBR,Trunk,Exposed,2,Crest,2,2
+GBR,Trunk,Exposed,2,Crest,3,2.5
+GBR,Trunk,Exposed,2,Crest,4,2
+GBR,Trunk,Exposed,2,Flat,1,0.5
+GBR,Trunk,Exposed,2,Flat,2,0.5
+GBR,Trunk,Exposed,2,Flat,3,0.5
+GBR,Trunk,Exposed,2,Flat,4,0.5
+GBR,Trunk,Exposed,3,Slope,1,2
+GBR,Trunk,Exposed,3,Slope,2,2.5
+GBR,Trunk,Exposed,3,Slope,3,2
+GBR,Trunk,Exposed,3,Slope,4,2
+GBR,Trunk,Exposed,3,Crest,1,3
+GBR,Trunk,Exposed,3,Crest,2,2.5
+GBR,Trunk,Exposed,3,Crest,3,2.5
+GBR,Trunk,Exposed,3,Crest,4,2.5
+GBR,Trunk,Exposed,3,Flat,1,1.5
+GBR,Trunk,Exposed,3,Flat,2,1
+GBR,Trunk,Exposed,3,Flat,3,1.5
+GBR,Trunk,Exposed,3,Flat,4,1
+GBR,Trunk,Sheltered,1,Slope,1,1.5
+GBR,Trunk,Sheltered,1,Slope,2,1.5
+GBR,Trunk,Sheltered,1,Slope,3,1.5
+GBR,Trunk,Sheltered,1,Slope,4,1.5
+GBR,Trunk,Sheltered,1,Crest,1,1
+GBR,Trunk,Sheltered,1,Crest,2,1
+GBR,Trunk,Sheltered,1,Crest,3,1.5
+GBR,Trunk,Sheltered,1,Crest,4,1.5
+GBR,Trunk,Sheltered,1,Flat,1,1
+GBR,Trunk,Sheltered,1,Flat,2,2
+GBR,Trunk,Sheltered,1,Flat,3,1.5
+GBR,Trunk,Sheltered,1,Flat,4,1.5
+GBR,Trunk,Sheltered,2,Slope,1,2
+GBR,Trunk,Sheltered,2,Slope,2,2
+GBR,Trunk,Sheltered,2,Slope,3,2
+GBR,Trunk,Sheltered,2,Slope,4,2
+GBR,Trunk,Sheltered,2,Crest,1,2
+GBR,Trunk,Sheltered,2,Crest,2,2
+GBR,Trunk,Sheltered,2,Crest,3,2
+GBR,Trunk,Sheltered,2,Crest,4,2.5
+GBR,Trunk,Sheltered,2,Flat,1,1.5
+GBR,Trunk,Sheltered,2,Flat,2,1.5
+GBR,Trunk,Sheltered,2,Flat,3,1
+GBR,Trunk,Sheltered,2,Flat,4,2
+GBR,Trunk,Sheltered,3,Slope,1,2
+GBR,Trunk,Sheltered,3,Slope,2,2
+GBR,Trunk,Sheltered,3,Slope,3,2
+GBR,Trunk,Sheltered,3,Crest,1,2
+GBR,Trunk,Sheltered,3,Crest,2,1.5
+GBR,Trunk,Sheltered,3,Crest,3,1.5
+GBR,Trunk,Sheltered,3,Flat,1,1
+GBR,Trunk,Sheltered,3,Flat,2,1
+GBR,Trunk,Sheltered,3,Flat,3,1
+GBR,Rib,Exposed,1,Slope,1,3
+GBR,Rib,Exposed,1,Slope,2,3
+GBR,Rib,Exposed,1,Slope,3,3
+GBR,Rib,Exposed,1,Slope,4,3.5
+GBR,Rib,Exposed,1,Crest,1,2.5
+GBR,Rib,Exposed,1,Crest,2,2.5
+GBR,Rib,Exposed,1,Crest,3,2.5
+GBR,Rib,Exposed,1,Crest,4,2.5
+GBR,Rib,Exposed,1,Flat,1,1.5
+GBR,Rib,Exposed,1,Flat,2,1.5
+GBR,Rib,Exposed,1,Flat,3,2
+GBR,Rib,Exposed,1,Flat,4,2
+GBR,Rib,Exposed,2,Slope,1,2
+GBR,Rib,Exposed,2,Slope,2,2
+GBR,Rib,Exposed,2,Slope,3,2.5
+GBR,Rib,Exposed,2,Slope,4,2.5
+GBR,Rib,Exposed,2,Crest,1,2.5
+GBR,Rib,Exposed,2,Crest,2,2.5
+GBR,Rib,Exposed,2,Crest,3,2.5
+GBR,Rib,Exposed,2,Crest,4,2.5
+GBR,Rib,Exposed,2,Flat,1,1
+GBR,Rib,Exposed,2,Flat,2,1
+GBR,Rib,Exposed,2,Flat,3,1
+GBR,Rib,Exposed,2,Flat,4,0.5
+GBR,Rib,Exposed,3,Slope,1,2.5
+GBR,Rib,Exposed,3,Slope,2,3
+GBR,Rib,Exposed,3,Slope,3,3
+GBR,Rib,Exposed,3,Slope,4,3
+GBR,Rib,Exposed,3,Crest,1,2
+GBR,Rib,Exposed,3,Crest,2,2
+GBR,Rib,Exposed,3,Crest,3,2
+GBR,Rib,Exposed,3,Crest,4,1.5
+GBR,Rib,Exposed,3,Flat,1,1
+GBR,Rib,Exposed,3,Flat,2,1
+GBR,Rib,Exposed,3,Flat,3,1
+GBR,Rib,Exposed,3,Flat,4,1
+GBR,Rib,Sheltered,1,Slope,1,3
+GBR,Rib,Sheltered,1,Slope,2,3
+GBR,Rib,Sheltered,1,Slope,3,3.5
+GBR,Rib,Sheltered,1,Slope,4,3
+GBR,Rib,Sheltered,1,Crest,1,2.5
+GBR,Rib,Sheltered,1,Crest,2,2.5
+GBR,Rib,Sheltered,1,Crest,3,2.5
+GBR,Rib,Sheltered,1,Crest,4,2.5
+GBR,Rib,Sheltered,1,Flat,1,1.75
+GBR,Rib,Sheltered,1,Flat,2,1.75
+GBR,Rib,Sheltered,1,Flat,3,1.5
+GBR,Rib,Sheltered,1,Flat,4,1.75
+GBR,Rib,Sheltered,2,Slope,1,2
+GBR,Rib,Sheltered,2,Slope,2,2
+GBR,Rib,Sheltered,2,Slope,3,3
+GBR,Rib,Sheltered,2,Slope,4,3
+GBR,Rib,Sheltered,2,Crest,1,2.5
+GBR,Rib,Sheltered,2,Crest,2,2
+GBR,Rib,Sheltered,2,Crest,3,2.5
+GBR,Rib,Sheltered,2,Crest,4,2.5
+GBR,Rib,Sheltered,2,Flat,1,1
+GBR,Rib,Sheltered,2,Flat,2,1
+GBR,Rib,Sheltered,2,Flat,3,1
+GBR,Rib,Sheltered,2,Flat,4,1
+GBR,Rib,Sheltered,3,Slope,1,2
+GBR,Rib,Sheltered,3,Slope,2,2.5
+GBR,Rib,Sheltered,3,Slope,3,3
+GBR,Rib,Sheltered,3,Slope,4,2.5
+GBR,Rib,Sheltered,3,Crest,1,3
+GBR,Rib,Sheltered,3,Crest,2,2.5
+GBR,Rib,Sheltered,3,Crest,3,2.25
+GBR,Rib,Sheltered,3,Crest,4,2.5
+GBR,Rib,Sheltered,3,Flat,1,1.75
+GBR,Rib,Sheltered,3,Flat,2,1.75
+GBR,Rib,Sheltered,3,Flat,3,2
+GBR,Rib,Sheltered,3,Flat,4,1.5
+GBR,Davies,Exposed,1,Slope,1,3.5
+GBR,Davies,Exposed,1,Slope,2,4
+GBR,Davies,Exposed,1,Slope,3,3.5
+GBR,Davies,Exposed,1,Slope,4,3.5
+GBR,Davies,Exposed,1,Crest,1,3
+GBR,Davies,Exposed,1,Crest,2,3
+GBR,Davies,Exposed,1,Crest,3,2.5
+GBR,Davies,Exposed,1,Crest,4,2.5
+GBR,Davies,Exposed,1,Flat,1,1.5
+GBR,Davies,Exposed,1,Flat,2,1.5
+GBR,Davies,Exposed,1,Flat,3,1.5
+GBR,Davies,Exposed,1,Flat,4,1.5
+GBR,Davies,Exposed,2,Slope,1,3
+GBR,Davies,Exposed,2,Slope,2,3.5
+GBR,Davies,Exposed,2,Slope,3,4
+GBR,Davies,Exposed,2,Slope,4,3.5
+GBR,Davies,Exposed,2,Crest,1,2.5
+GBR,Davies,Exposed,2,Crest,2,2.5
+GBR,Davies,Exposed,2,Crest,3,2.5
+GBR,Davies,Exposed,2,Crest,4,3
+GBR,Davies,Exposed,2,Flat,1,1
+GBR,Davies,Exposed,2,Flat,2,2
+GBR,Davies,Exposed,2,Flat,3,1.5
+GBR,Davies,Exposed,2,Flat,4,1.5
+GBR,Davies,Exposed,3,Slope,1,3.5
+GBR,Davies,Exposed,3,Slope,2,3.5
+GBR,Davies,Exposed,3,Slope,3,3.5
+GBR,Davies,Exposed,3,Slope,4,4
+GBR,Davies,Exposed,3,Crest,1,2.5
+GBR,Davies,Exposed,3,Crest,2,2
+GBR,Davies,Exposed,3,Crest,3,2
+GBR,Davies,Exposed,3,Crest,4,2.5
+GBR,Davies,Exposed,3,Flat,1,1.5
+GBR,Davies,Exposed,3,Flat,2,1.5
+GBR,Davies,Exposed,3,Flat,3,1
+GBR,Davies,Exposed,3,Flat,4,1.5
+GBR,Davies,Sheltered,1,Slope,1,2.5
+GBR,Davies,Sheltered,1,Slope,2,2.5
+GBR,Davies,Sheltered,1,Slope,3,2.5
+GBR,Davies,Sheltered,1,Slope,4,2
+GBR,Davies,Sheltered,1,Crest,1,2.5
+GBR,Davies,Sheltered,1,Crest,2,2
+GBR,Davies,Sheltered,1,Crest,3,2.5
+GBR,Davies,Sheltered,1,Crest,4,2
+GBR,Davies,Sheltered,1,Flat,1,2
+GBR,Davies,Sheltered,1,Flat,2,2
+GBR,Davies,Sheltered,1,Flat,3,2
+GBR,Davies,Sheltered,1,Flat,4,2
+GBR,Davies,Sheltered,2,Slope,1,2.5
+GBR,Davies,Sheltered,2,Slope,2,2
+GBR,Davies,Sheltered,2,Slope,3,2
+GBR,Davies,Sheltered,2,Slope,4,2.5
+GBR,Davies,Sheltered,2,Crest,1,3
+GBR,Davies,Sheltered,2,Crest,2,3
+GBR,Davies,Sheltered,2,Crest,3,3
+GBR,Davies,Sheltered,2,Crest,4,2.5
+GBR,Davies,Sheltered,2,Flat,1,2
+GBR,Davies,Sheltered,2,Flat,2,2
+GBR,Davies,Sheltered,2,Flat,3,2
+GBR,Davies,Sheltered,2,Flat,4,2
+GBR,Davies,Sheltered,3,Slope,1,3.5
+GBR,Davies,Sheltered,3,Slope,2,4
+GBR,Davies,Sheltered,3,Slope,3,3.5
+GBR,Davies,Sheltered,3,Slope,4,3.5
+GBR,Davies,Sheltered,3,Crest,1,2.5
+GBR,Davies,Sheltered,3,Crest,2,2.5
+GBR,Davies,Sheltered,3,Crest,3,2.5
+GBR,Davies,Sheltered,3,Crest,4,2.5
+GBR,Davies,Sheltered,3,Flat,1,2
+GBR,Davies,Sheltered,3,Flat,2,2
+GBR,Davies,Sheltered,3,Flat,3,2
+GBR,Davies,Sheltered,3,Flat,4,2
+GBR,Wheeler,Exposed,1,Slope,1,3.5
+GBR,Wheeler,Exposed,1,Slope,2,4
+GBR,Wheeler,Exposed,1,Slope,3,3
+GBR,Wheeler,Exposed,1,Slope,4,3
+GBR,Wheeler,Exposed,1,Crest,1,2.5
+GBR,Wheeler,Exposed,1,Crest,2,2.5
+GBR,Wheeler,Exposed,1,Crest,3,2.5
+GBR,Wheeler,Exposed,1,Crest,4,2
+GBR,Wheeler,Exposed,1,Flat,1,1
+GBR,Wheeler,Exposed,1,Flat,2,1
+GBR,Wheeler,Exposed,1,Flat,3,2
+GBR,Wheeler,Exposed,1,Flat,4,1.5
+GBR,Wheeler,Exposed,2,Slope,1,3
+GBR,Wheeler,Exposed,2,Slope,2,3
+GBR,Wheeler,Exposed,2,Slope,3,3.5
+GBR,Wheeler,Exposed,2,Slope,4,3
+GBR,Wheeler,Exposed,2,Crest,1,2
+GBR,Wheeler,Exposed,2,Crest,2,2.5
+GBR,Wheeler,Exposed,2,Crest,3,2
+GBR,Wheeler,Exposed,2,Crest,4,2
+GBR,Wheeler,Exposed,2,Flat,1,1
+GBR,Wheeler,Exposed,2,Flat,2,1.5
+GBR,Wheeler,Exposed,2,Flat,3,1.5
+GBR,Wheeler,Exposed,2,Flat,4,1.5
+GBR,Wheeler,Exposed,3,Slope,1,2.5
+GBR,Wheeler,Exposed,3,Slope,2,2.5
+GBR,Wheeler,Exposed,3,Slope,3,3
+GBR,Wheeler,Exposed,3,Slope,4,3
+GBR,Wheeler,Exposed,3,Crest,1,2
+GBR,Wheeler,Exposed,3,Crest,2,2
+GBR,Wheeler,Exposed,3,Crest,3,2
+GBR,Wheeler,Exposed,3,Crest,4,2
+GBR,Wheeler,Exposed,3,Flat,1,1
+GBR,Wheeler,Exposed,3,Flat,2,1
+GBR,Wheeler,Exposed,3,Flat,3,1.5
+GBR,Wheeler,Exposed,3,Flat,4,1.5
+GBR,Wheeler,Sheltered,1,Slope,1,4
+GBR,Wheeler,Sheltered,1,Slope,2,4
+GBR,Wheeler,Sheltered,1,Slope,3,3.5
+GBR,Wheeler,Sheltered,1,Slope,4,3
+GBR,Wheeler,Sheltered,1,Crest,1,3
+GBR,Wheeler,Sheltered,1,Crest,2,3
+GBR,Wheeler,Sheltered,1,Crest,3,2.5
+GBR,Wheeler,Sheltered,1,Crest,4,2.5
+GBR,Wheeler,Sheltered,1,Flat,1,1.5
+GBR,Wheeler,Sheltered,1,Flat,2,2
+GBR,Wheeler,Sheltered,1,Flat,3,1.5
+GBR,Wheeler,Sheltered,1,Flat,4,1.5
+GBR,Wheeler,Sheltered,2,Slope,1,4
+GBR,Wheeler,Sheltered,2,Slope,2,3.5
+GBR,Wheeler,Sheltered,2,Slope,3,3.5
+GBR,Wheeler,Sheltered,2,Slope,4,3.5
+GBR,Wheeler,Sheltered,2,Crest,1,2.5
+GBR,Wheeler,Sheltered,2,Crest,2,2
+GBR,Wheeler,Sheltered,2,Crest,3,2
+GBR,Wheeler,Sheltered,2,Crest,4,2.5
+GBR,Wheeler,Sheltered,2,Flat,1,2
+GBR,Wheeler,Sheltered,2,Flat,2,2.5
+GBR,Wheeler,Sheltered,2,Flat,3,2.5
+GBR,Wheeler,Sheltered,2,Flat,4,2
+GBR,Wheeler,Sheltered,3,Slope,1,2.5
+GBR,Wheeler,Sheltered,3,Slope,2,2.5
+GBR,Wheeler,Sheltered,3,Slope,3,2.5
+GBR,Wheeler,Sheltered,3,Slope,4,2.5
+GBR,Wheeler,Sheltered,3,Crest,1,3
+GBR,Wheeler,Sheltered,3,Crest,2,2.5
+GBR,Wheeler,Sheltered,3,Crest,3,3
+GBR,Wheeler,Sheltered,3,Crest,4,2.5
+GBR,Wheeler,Sheltered,3,Flat,1,2.5
+GBR,Wheeler,Sheltered,3,Flat,2,2.5
+GBR,Wheeler,Sheltered,3,Flat,3,1.5
+GBR,Wheeler,Sheltered,3,Flat,4,2
+GBR,John Brewer,Exposed,1,Slope,1,2
+GBR,John Brewer,Exposed,1,Slope,2,1.5
+GBR,John Brewer,Exposed,1,Slope,3,2
+GBR,John Brewer,Exposed,1,Slope,4,2
+GBR,John Brewer,Exposed,1,Crest,1,2
+GBR,John Brewer,Exposed,1,Crest,2,1.5
+GBR,John Brewer,Exposed,1,Crest,3,2.5
+GBR,John Brewer,Exposed,1,Crest,4,3
+GBR,John Brewer,Exposed,1,Flat,1,1
+GBR,John Brewer,Exposed,1,Flat,2,1
+GBR,John Brewer,Exposed,1,Flat,3,1
+GBR,John Brewer,Exposed,1,Flat,4,1
+GBR,John Brewer,Exposed,2,Slope,1,2.5
+GBR,John Brewer,Exposed,2,Slope,2,2.5
+GBR,John Brewer,Exposed,2,Slope,3,2.5
+GBR,John Brewer,Exposed,2,Slope,4,2.5
+GBR,John Brewer,Exposed,2,Crest,1,2
+GBR,John Brewer,Exposed,2,Crest,2,2
+GBR,John Brewer,Exposed,2,Crest,3,2.5
+GBR,John Brewer,Exposed,2,Crest,4,2.5
+GBR,John Brewer,Exposed,2,Flat,1,1
+GBR,John Brewer,Exposed,2,Flat,2,1
+GBR,John Brewer,Exposed,2,Flat,3,1
+GBR,John Brewer,Exposed,2,Flat,4,1
+GBR,John Brewer,Exposed,3,Slope,1,2.5
+GBR,John Brewer,Exposed,3,Slope,2,2
+GBR,John Brewer,Exposed,3,Slope,3,2.5
+GBR,John Brewer,Exposed,3,Slope,4,2.5
+GBR,John Brewer,Exposed,3,Crest,1,2.5
+GBR,John Brewer,Exposed,3,Crest,2,2.5
+GBR,John Brewer,Exposed,3,Crest,3,2.5
+GBR,John Brewer,Exposed,3,Crest,4,2
+GBR,John Brewer,Exposed,3,Flat,1,1
+GBR,John Brewer,Exposed,3,Flat,2,1
+GBR,John Brewer,Exposed,3,Flat,3,1
+GBR,John Brewer,Exposed,3,Flat,4,1
+GBR,John Brewer,Sheltered,1,Slope,1,2
+GBR,John Brewer,Sheltered,1,Slope,2,2.5
+GBR,John Brewer,Sheltered,1,Slope,3,2.5
+GBR,John Brewer,Sheltered,1,Slope,4,2
+GBR,John Brewer,Sheltered,1,Crest,1,2.5
+GBR,John Brewer,Sheltered,1,Crest,2,3
+GBR,John Brewer,Sheltered,1,Crest,3,2
+GBR,John Brewer,Sheltered,1,Crest,4,2.5
+GBR,John Brewer,Sheltered,1,Flat,1,2
+GBR,John Brewer,Sheltered,1,Flat,2,2.5
+GBR,John Brewer,Sheltered,1,Flat,3,2
+GBR,John Brewer,Sheltered,1,Flat,4,2
+GBR,John Brewer,Sheltered,2,Slope,1,2
+GBR,John Brewer,Sheltered,2,Slope,2,2
+GBR,John Brewer,Sheltered,2,Slope,3,2
+GBR,John Brewer,Sheltered,2,Slope,4,2
+GBR,John Brewer,Sheltered,2,Crest,1,2
+GBR,John Brewer,Sheltered,2,Crest,2,2
+GBR,John Brewer,Sheltered,2,Crest,3,2
+GBR,John Brewer,Sheltered,2,Crest,4,2.5
+GBR,John Brewer,Sheltered,2,Flat,1,2.5
+GBR,John Brewer,Sheltered,2,Flat,2,2
+GBR,John Brewer,Sheltered,2,Flat,3,2
+GBR,John Brewer,Sheltered,2,Flat,4,2
+GBR,John Brewer,Sheltered,3,Slope,1,2
+GBR,John Brewer,Sheltered,3,Slope,2,2
+GBR,John Brewer,Sheltered,3,Slope,3,2
+GBR,John Brewer,Sheltered,3,Slope,4,2
+GBR,John Brewer,Sheltered,3,Crest,1,2
+GBR,John Brewer,Sheltered,3,Crest,2,2
+GBR,John Brewer,Sheltered,3,Crest,3,2
+GBR,John Brewer,Sheltered,3,Crest,4,2
+GBR,John Brewer,Sheltered,3,Flat,1,2
+GBR,John Brewer,Sheltered,3,Flat,2,2
+GBR,John Brewer,Sheltered,3,Flat,3,2
+GBR,John Brewer,Sheltered,3,Flat,4,2
