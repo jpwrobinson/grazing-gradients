@@ -7,6 +7,7 @@ uniques<-function(x){length(unique(x))}
 ## load raw fish data
 load('data/wio_gbr_herb_master.Rdata')
 
+
 ## load uncleaned benthic data
 maldives<-read.csv('data/raw-data/csv/maldives_benthos.csv')
 seychelles<-read.csv('data/raw-data/csv/seychelles_benthos.csv')
@@ -412,7 +413,7 @@ pred$date<-str_replace_all(pred$date, '15/03/', '')
 
 
 ## save master
-save(pred, file='data/wio_herb_benthic.Rdata')
+save(pred, file='data/wio_herb_benthic_merged.Rdata')
 
 
 

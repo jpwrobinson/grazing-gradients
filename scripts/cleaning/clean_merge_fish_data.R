@@ -64,6 +64,7 @@ chagos$mass.g<-NA
 chagos$Depth<-as.numeric(str_replace_all(chagos$Depth, 'm', ''))
 chagos$management<-'Unfished'
 chagos$dataset<-'Chagos'
+Vodamulaa
 ## now subset to relevant columns and assign identical colnames
 chagos<-chagos %>% select(date, dataset, Location.Atoll, Island.Site, Site, management, Exposure, Unique_Site_ID, Depth, Transect, Transect.area, Family, Species, FG, Length, Biomass..g., Biomass..kg.ha., Abundance.500m2)
 colnames(chagos)<-c('date','dataset', 'reef', 'site', 'site.number','management','habitat', 'unique.id', 'depth', 'transect', 'transect.area', 'family', 'species', 'FG', 'length.cm','mass.g', 'biomass.kgha', 'abundance.500m2')
@@ -93,6 +94,9 @@ gbr$dataset<-'GBR'
 gbr<-gbr %>% select(Date,dataset, Reef, site, Site, management, habitat, Unique_Site_ID, depth, Transect, Transect.size, Family, Species, FG, Length, Weight,Biomass..kg.ha., Abundance...500m2.)
 colnames(gbr)<-c('date','dataset', 'reef', 'site', 'site.number','management','habitat', 'unique.id', 'depth', 'transect', 'transect.area', 'family', 'species', 'FG', 'length.cm','mass.g', 'biomass.kgha', 'abundance.500m2')
 
+## fix maldives Siganus argenteus FG
+gbr$FG[gbr$species == 'Siganus argenteus']<- 'Herbivore Browser'
+
 ## Maldives CLEANING FOR MERGE ##
 ## create new habitat, site and depth vars
 maldives$Depth<-as.numeric(str_replace_all(maldives$Depth, 'm', ''))
@@ -101,6 +105,9 @@ maldives$management<-'Fished'
 maldives$dataset<-'Maldives'
 maldives$site<-'Huvadhoo'
 maldives$site.number<-as.numeric(factor(maldives$Island.Site))
+
+## fix error name
+maldives$Island.Site<-str_replace_all(maldives$Island.Site, 'Vodamuloo', 'Vodamulaa')
 
 ## now subset to relevant columns and assign identical colnames
 maldives<-maldives %>% select(Date,dataset, Island.Site,site, site.number, management, Exposure, Unique_site_transect, Depth, Transect, Transect.area, Family, Species, FG, Length,Biomass..g., Biomass..kg.ha., Abundance.500m2)
