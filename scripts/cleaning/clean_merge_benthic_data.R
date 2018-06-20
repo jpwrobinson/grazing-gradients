@@ -398,6 +398,19 @@ dim(pred[is.na(pred$complexity),]) # NOPE
 
 
 
+## final data tidying - add dates for chagos and switch to years for other sites
+chagos12sites<-c('Barton Point east', 'Barton Point west', 'Cannon Point', 'Cannon Point 2', 'East side', 'Middle Island', "North Diamont")
+pred$date[pred$dataset=='Chagos']<-ifelse(pred$reef[pred$dataset=='Chagos'] %in% chagos12sites, "2012", "2010")
+
+pred$date<-str_replace_all(pred$date, 'Nov ', '')
+pred$date<-str_replace_all(pred$date, 'Jan ', '')
+pred$date<-str_replace_all(pred$date, '11/03/', '')
+pred$date<-str_replace_all(pred$date, '12/03/', '')
+pred$date<-str_replace_all(pred$date, '13/03/', '')
+pred$date<-str_replace_all(pred$date, '14/03/', '')
+pred$date<-str_replace_all(pred$date, '15/03/', '')
+
+
 ## save master
 save(pred, file='data/wio_herb_benthic.Rdata')
 
