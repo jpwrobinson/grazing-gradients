@@ -50,6 +50,11 @@ seychelles$benthic<-ifelse(seychelles$taxa %in% hard.coral,  'hard.coral', NA)
 # seychelles$benthic<-ifelse(seychelles$taxa %in% turf, 'turf', seychelles$benthic)
 seychelles$benthic<-ifelse(seychelles$taxa %in% macroalgae, 'macroalgae', seychelles$benthic)
 
+## save complexity for later
+seychelles.complex<-seychelles %>% filter(taxa == 'struc.complexity')
+seychelles.complex$unique.id<-with(seychelles.complex, paste(date, site, sep='.'))
+
+## subset to hard coral + MA
 seychelles<-seychelles %>% filter(benthic %in% c('hard.coral', 'macroalgae'))
 
 ## change to numeric
@@ -83,6 +88,9 @@ colnames(maldives)<-c('dataset', 'site', 'date', 'reef', 'transect', 'depth', 'd
 ## sum intervals per taxa and /100 for percent cover
 maldives <- maldives %>% group_by(dataset, site, date, reef, transect, depth, taxa) %>%
 			summarise(value = sum(value)/100)
+
+## fix error site name
+maldives$reef<-str_replace_all(maldives$reef, 'Vilingi', 'Vilingili')
 
 
 ## need to group taxa for simpler comparison across datasets + benthic gradients
@@ -145,6 +153,9 @@ chagos$dataset<-'Chagos'
 ##fix colnames
 colnames(chagos)<-c('date', 'depth', 'reef', 'transect', 'site', 'taxa', 'value', 'dataset')
 
+## fix error name
+chagos$reef<-str_replace_all(chagos$reef, 'Peuros', 'Peros')
+
 ## fix transect to numbers
 chagos$depth<-str_replace_all(chagos$depth, 'm', '')
 chagos$depth<-as.integer(chagos$depth)
@@ -204,12 +215,14 @@ chagos$date<-NULL
 ## ungroup
 chagos<-ungroup(chagos); chagos2<-ungroup(chagos2)
 chagos<-rbind(chagos, chagos2)
+
 ## add ID
 chagos$unique.id<-with(chagos, paste(reef, site, sep='.'))
 
 ## average across replicates
 chagos <- chagos %>% group_by(dataset, site, reef, benthic, unique.id) %>%
 				summarise(cover = mean(value))
+
 
 ## ------------------------------------ ##
 		   ## clean GBR ##
@@ -265,11 +278,9 @@ with(gbr, table(unique.id, benthic))
 ## save individual
 save(chagos, gbr, maldives, seychelles, file='data/wio_benthic_master.Rdata')
 
-## merge together
-# maldives<-with(maldives, cbind(dataset, site, reef, benthic, unique.id, cover))
-
-
 pred<-herb
+## drop seychelles 1994, 2005
+pred<-pred %>% filter(!(date %in% c(1994, 2005)))
 
 ### fix chagos site names to match with benthos
 sites<-read.csv('data/raw-data/csv/chagos_sitenames.csv')
@@ -308,6 +319,8 @@ pred$site[pred$unique.id == 'SalamonIle AnglaisSheltered3']<-'Isle le Anglaise (
 
 ## match up in benthic data
 chagos$site[grepl('Salamon.S3', chagos$unique.id)]<-'Isle le Anglaise (S3)'
+## fix unique.id
+chagos$unique.id<-with(chagos, paste(reef, site, sep='.'))
 
 
 ## what is missing?
@@ -322,25 +335,72 @@ aggregate(unique.id ~ site, chagos, uniques ) ## 4 transects each. ok.
 pred$unique.id<-as.character(pred$unique.id)
 pred$unique.id[pred$dataset == 'Seychelles'] <- with(pred[pred$dataset == 'Seychelles',], paste(date,site, sep='.'))
 pred$unique.id[pred$dataset == 'Chagos'] <- with(pred[pred$dataset == 'Chagos',], paste(reef, site, sep='.'))
-# pred$unique.id[pred$dataset == 'Maldives'] <- with(pred[pred$dataset == 'Maldives',], paste(site, reef, sep='.'))
+pred$unique.id[pred$dataset == 'Maldives'] <- with(pred[pred$dataset == 'Maldives',], paste(reef, site, sep='.'))
 pred$unique.id[pred$dataset == 'GBR'] <- with(pred[pred$dataset == 'GBR',], paste(site, reef, sep='.'))
 
 
-### FIX MATCHING. Doesn't seem to work for chagos
-### GBR seems to have surveys in same location different days
-#### Maldives site names need checked
 
-# pred$hard.coral[pred$dataset=='Maldives']<-maldives$cover[maldives$benthic=='hard.coral'][match(pred$unique.id, maldives$unique.id)]
-pred$hard.coral<-chagos$cover[chagos$benthic=='hard.coral'][match(pred$unique.id, chagos$unique.id)]
-pred$hard.coral<-seychelles$cover[seychelles$benthic=='hard.coral'][match(pred$unique.id, seychelles$unique.id)]
-pred$hard.coral[pred$dataset=='GBR']<-gbr$cover[gbr$benthic=='hard.coral'][match(pred$unique.id[pred$dataset=='GBR'], gbr$unique.id)]
+## Matching looks horrible but it works. hoo-fucking-rah.
 
+pred$hard.coral[pred$dataset=='Seychelles']<-seychelles$cover[seychelles$benthic=='hard.coral'][match(pred$unique.id[pred$dataset=='Seychelles'], seychelles$unique.id[seychelles$benthic=='hard.coral'])]
+pred$hard.coral[pred$dataset=='Maldives']<-maldives$cover[maldives$benthic=='hard.coral'][match(pred$unique.id[pred$dataset=='Maldives'], maldives$unique.id[maldives$benthic=='hard.coral'])]
+pred$hard.coral[pred$dataset=='GBR']<-gbr$cover[gbr$benthic=='hard.coral'][match(pred$unique.id[pred$dataset=='GBR'], gbr$unique.id[gbr$benthic=='hard.coral'])]
+pred$hard.coral[pred$dataset=='Chagos']<-chagos$cover[chagos$benthic=='hard.coral'][match(pred$unique.id[pred$dataset=='Chagos'], chagos$unique.id[chagos$benthic=='hard.coral'])]
+
+pred$macroalgae[pred$dataset=='Seychelles']<-seychelles$cover[seychelles$benthic=='macroalgae'][match(pred$unique.id[pred$dataset=='Seychelles'], seychelles$unique.id[seychelles$benthic=='macroalgae'])]
+pred$macroalgae[pred$dataset=='Maldives']<-maldives$cover[maldives$benthic=='macroalgae'][match(pred$unique.id[pred$dataset=='Maldives'], maldives$unique.id[maldives$benthic=='macroalgae'])]
+pred$macroalgae[pred$dataset=='GBR']<-gbr$cover[gbr$benthic=='macroalgae'][match(pred$unique.id[pred$dataset=='GBR'], gbr$unique.id[gbr$benthic=='macroalgae'])]
+pred$macroalgae[pred$dataset=='Chagos']<-chagos$cover[chagos$benthic=='macroalgae'][match(pred$unique.id[pred$dataset=='Chagos'], chagos$unique.id[chagos$benthic=='macroalgae'])]
+
+
+## checking matching works
+head(pred[pred$dataset=='Seychelles',])
+seychelles %>% filter(unique.id == '2008.Cousin Carbonate')
+tail(pred[pred$dataset=='Seychelles',])
+seychelles %>% filter(unique.id == '2017.Praslin SW Patch')
 
 head(pred[pred$dataset=='GBR',])
 gbr %>% filter(unique.id =='Davies1.Davies')
+tail(pred[pred$dataset=='GBR',])
+gbr %>% filter(unique.id =='Wheeler3.Wheeler')
+
+head(pred[pred$dataset=='Maldives',])
+maldives %>% filter(unique.id =='Maamendhoo.Huvadhoo')
+tail(pred[pred$dataset=='Maldives',])
+maldives %>% filter(unique.id =='Gemanafushi.Huvadhoo')
+
+head(pred[pred$dataset=='Chagos',])
+chagos %>% filter(unique.id =='Great Chagos Bank.Middle Brother (E3)')
+tail(pred[pred$dataset=='Chagos',])
+chagos %>% filter(unique.id =='Diego Garcia.East side')
+
+## any NA benthos?
+pred %>% filter(is.na(hard.coral))
+pred %>% filter(is.na(macroalgae))
+
+## yes macroalgae at one site = Maamendhoo.Huvadhoo. Not observed.
+pred$macroalgae[is.na(pred$macroalgae)]<-0
+
+
+### NOW ADD STRUCTURAL COMPLEXITY
+load('data/wio_complexity.Rdata')
+
+## merge seychelles complex
+seychelles.complex<-seychelles.complex %>% group_by(dataset, site, transect, unique.id) %>%
+			summarise(complexity = mean(value))
+
+complex<-rbind(complex, seychelles.complex)
+
+## match into pred
+pred$complexity<-complex$complexity[match(pred$unique.id, complex$unique.id)]
+## any NAs?
+dim(pred[is.na(pred$complexity),]) # NOPE
+
+
 
 ## save master
 save(pred, file='data/wio_herb_benthic.Rdata')
+
 
 
 

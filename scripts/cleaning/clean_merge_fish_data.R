@@ -95,14 +95,16 @@ colnames(gbr)<-c('date','dataset', 'reef', 'site', 'site.number','management','h
 
 ## Maldives CLEANING FOR MERGE ##
 ## create new habitat, site and depth vars
-maldives$site<-with(maldives, paste(Location.Atoll, Island.Site, sep='.'))
 maldives$Depth<-as.numeric(str_replace_all(maldives$Depth, 'm', ''))
 maldives$Unique_site_transect<-with(maldives, paste(Island.Site, Exposure, Transect, sep='.'))
 maldives$management<-'Fished'
 maldives$dataset<-'Maldives'
+maldives$site<-'Huvadhoo'
+maldives$site.number<-as.numeric(factor(maldives$Island.Site))
+
 ## now subset to relevant columns and assign identical colnames
-maldives<-maldives %>% select(Date,dataset, Location.Atoll, Island.Site, site, management, Exposure, Unique_site_transect, Depth, Transect, Transect.area, Family, Species, FG, Length,Biomass..g., Biomass..kg.ha., Abundance.500m2)
-colnames(maldives)<-c('date','dataset', 'reef', 'site', 'site.number','management','habitat', 'unique.id', 'depth', 'transect', 'transect.area', 'family', 'species', 'FG', 'length.cm', 'mass.g','biomass.kgha', 'abundance.500m2')
+maldives<-maldives %>% select(Date,dataset, Island.Site,site, site.number, management, Exposure, Unique_site_transect, Depth, Transect, Transect.area, Family, Species, FG, Length,Biomass..g., Biomass..kg.ha., Abundance.500m2)
+colnames(maldives)<-c('date','dataset', 'reef', 'site','site.number', 'management','habitat', 'unique.id', 'depth', 'transect', 'transect.area', 'family', 'species', 'FG', 'length.cm', 'mass.g','biomass.kgha', 'abundance.500m2')
 
 maldives$species<-as.character(maldives$species)
 maldives$species<-firstup(maldives$species)
