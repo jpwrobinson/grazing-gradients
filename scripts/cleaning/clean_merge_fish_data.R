@@ -58,7 +58,8 @@ unique(maldives$FG)
 ## add date column
 
 chagos$date<-NA
-chagos$Unique_Site_ID<-paste(gsub('\\ ', '',chagos$Location.Atoll), gsub('\\ ', '', chagos$Island.Site), chagos$Transect, sep='.')
+# chagos$Unique_Site_ID<-paste(gsub('\\ ', '',chagos$Location.Atoll), gsub('\\ ', '', chagos$Island.Site), chagos$Transect, sep='.')
+chagos$Unique_Site_ID<-chagos$Unique_site_transect
 chagos$mass.g<-NA
 chagos$Depth<-as.numeric(str_replace_all(chagos$Depth, 'm', ''))
 chagos$management<-'Unfished'
