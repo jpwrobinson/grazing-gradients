@@ -9,35 +9,70 @@ load('data/wio_gbr_herb_master.Rdata')
 
 ## load uncleaned benthic data
 maldives<-read.csv('data/raw-data/csv/maldives_benthos.csv')
+seychelles<-read.csv('data/raw-data/csv/seychelles_benthos.csv')
 gbr<-read.csv('data/raw-data/csv/gbr_benthos.csv')
 chagos<-read.csv('data/raw-data/csv/chagos_benthos.csv', header=F)
 chagos2<-read.csv('data/raw-data/csv/chagos_benthos2.csv', header=T)
 
 
-## load seychelles (clean)
-load('data/raw-data/SEY_UVC_benthicPV_SC_DEPTH_replicates.Rdata')
-seychelles<-SC.site; rm(SC.site)
 ## change column names to match fish data
-colnames(seychelles)[colnames(seychelles)=='Island']<-'reef'
 colnames(seychelles)[colnames(seychelles)=='location']<-'site'
 colnames(seychelles)[colnames(seychelles)=='count']<-'transect'
+colnames(seychelles)[colnames(seychelles)=='year']<-'date'
 seychelles$dataset<-'Seychelles'
+seychelles$unique.id<-with(seychelles, paste(site, date, sep='.'))
 
 ## gather taxa into 1 column
-seychelles<-gather(seychelles,  benthic, value, -site, -habitat, -transect, -year, -depth, -site.year, -reef, -state)
+seychelles<-gather(seychelles,  taxa, value, -dataset, -site, -habitat, -transect, -date, -unique.id)
+## drop Line.inter from characters
+seychelles$taxa<-str_replace_all(seychelles$taxa, 'Line.inter.', '')
+## fix habitats
+seychelles$habitat<-plyr::revalue(seychelles$habitat, c('Granite' = 'Granitic', 'coral'='Carbonate', 'granite'= 'Granitic', 'sand'='Patch'))
+## fix sites
+seychelles$site<-str_replace_all(seychelles$site, '_Coral', ' Carbonate')
+seychelles$site<-str_replace_all(seychelles$site, '_Granite', ' Granite')
+seychelles$site<-str_replace_all(seychelles$site, '_Sand', ' Patch')
+seychelles$site<-str_replace_all(seychelles$site, '_sand', ' Patch')
+seychelles$site<-str_replace_all(seychelles$site, 'Ste.', 'Ste')
+seychelles$site<-str_replace_all(seychelles$site, 'SteAnne', 'Ste Anne')
 
-## drop extra taxa for now to focus on total hard.coral and macroalgae
+
+## need to group taxa for simpler comparison across datasets + benthic gradients
+benthic.cats<-unique(seychelles$taxa)
+
+# turf<-c('Coraline.algae')
+macroalgae<-c('Sargassum', 'Asparagopsis', 'Caulerpa', 'Galaxora', 
+		'Lobophyta', 'turtle.grass', 'Halimeda', 'Turbinaria_macroalgae', 
+		'Dictyota' , 'Dictyopteris', 'Padina',  'seagrass')
+hard.coral<-benthic.cats[c(22:53, 57:65)]; hard.coral
+
+seychelles$benthic<-ifelse(seychelles$taxa %in% hard.coral,  'hard.coral', NA)
+# seychelles$benthic<-ifelse(seychelles$taxa %in% turf, 'turf', seychelles$benthic)
+seychelles$benthic<-ifelse(seychelles$taxa %in% macroalgae, 'macroalgae', seychelles$benthic)
+
 seychelles<-seychelles %>% filter(benthic %in% c('hard.coral', 'macroalgae'))
 
 ## change to numeric
 seychelles$value<-as.numeric(seychelles$value)
 
 # add unique ID
-seychelles$unique.id<-with(seychelles, paste(year, site, sep='.'))
+seychelles$unique.id<-with(seychelles, paste(date, site, sep='.'))
+
+## now aggregate by benthic category
+seychelles <- seychelles %>% group_by(dataset, site, date,unique.id, habitat, transect, benthic) %>%
+			summarise(value = sum(value))
+seychelles$value[is.na(seychelles$value)]<-0
+## multiply by 10 to get percent cover
+seychelles$value<-seychelles$value * 10 
+
+
 
 ## average across replicates to get site level values
-seychelles <- seychelles %>% group_by(site, habitat, year, site.year, reef, state, benthic, unique.id) %>%
+seychelles <- seychelles %>% group_by(site, habitat, date, benthic, unique.id) %>%
 				summarise(cover = mean(value))
+
+# ggplot(seychelles, aes(date, cover, col=benthic)) + geom_line() + facet_wrap(~site)
+
 
 ## ------------------------------------ ##
 		   ## clean maldives ##
@@ -49,17 +84,18 @@ colnames(maldives)<-c('dataset', 'site', 'date', 'reef', 'transect', 'depth', 'd
 maldives <- maldives %>% group_by(dataset, site, date, reef, transect, depth, taxa) %>%
 			summarise(value = sum(value)/100)
 
+
 ## need to group taxa for simpler comparison across datasets + benthic gradients
 availsubtrate<-c('Rock', 'Sand', 'Rubble')
 other<-c('Fungia', 'Soft Coral Encrusting', 'Zoanthid', 'Hydroid', 'Ascidian', 
 	'Sponge Encrusting', 'Anemone', 'Coralimorph', 'Tubastrea', 
 	'Heliopora', 'Soft Coral Table')
-turf<-c('CCA', 'EAM')
+non.ma<-c('CCA', 'EAM')
 macroalgae<-'Macroalgae'
 
 maldives$benthic<-ifelse(maldives$taxa %in% other, 'other', 'hard.coral')
 maldives$benthic<-ifelse(maldives$taxa %in% availsubtrate, 'availablesubtrate', maldives$benthic)
-maldives$benthic<-ifelse(maldives$taxa %in% turf, 'turf', maldives$benthic)
+maldives$benthic<-ifelse(maldives$taxa %in% non.ma, 'non.ma', maldives$benthic)
 maldives$benthic<-ifelse(maldives$taxa %in% macroalgae, 'macroalgae', maldives$benthic)
 
 ## now aggregate by benthic category
@@ -218,15 +254,19 @@ gbr <- gbr %>% filter(benthic %in% c('hard.coral', 'macroalgae'))
 gbr$unique.id<-with(gbr, paste(site, reef, sep='.'))
 
 
-gbr <- gbr %>% group_by(dataset, site, date, reef, benthic, unique.id) %>%
+gbr <- gbr %>% group_by(dataset, site, reef, benthic, unique.id) %>%
 				summarise(cover = mean(value))
 
+## is there one hard.coral and one macroalgae value per site?
+with(gbr, table(unique.id, benthic))
+## yes
 
 
-## chagos site names are fucked
-## maldives site names are fucked
 ## save individual
 save(chagos, gbr, maldives, seychelles, file='data/wio_benthic_master.Rdata')
+
+## merge together
+# maldives<-with(maldives, cbind(dataset, site, reef, benthic, unique.id, cover))
 
 
 pred<-herb
@@ -293,8 +333,11 @@ pred$unique.id[pred$dataset == 'GBR'] <- with(pred[pred$dataset == 'GBR',], past
 # pred$hard.coral[pred$dataset=='Maldives']<-maldives$cover[maldives$benthic=='hard.coral'][match(pred$unique.id, maldives$unique.id)]
 pred$hard.coral<-chagos$cover[chagos$benthic=='hard.coral'][match(pred$unique.id, chagos$unique.id)]
 pred$hard.coral<-seychelles$cover[seychelles$benthic=='hard.coral'][match(pred$unique.id, seychelles$unique.id)]
-pred$hard.coral<-gbr$cover[gbr$benthic=='hard.coral'][match(pred$unique.id, gbr$unique.id)]
+pred$hard.coral[pred$dataset=='GBR']<-gbr$cover[gbr$benthic=='hard.coral'][match(pred$unique.id[pred$dataset=='GBR'], gbr$unique.id)]
 
+
+head(pred[pred$dataset=='GBR',])
+gbr %>% filter(unique.id =='Davies1.Davies')
 
 ## save master
 save(pred, file='data/wio_herb_benthic.Rdata')
