@@ -1,5 +1,5 @@
 setwd("~/Documents/git_repos/grazing-gradients")
-load("/data/wio_herb_benthic_merged.Rdata")
+load("data/wio_herb_benthic_merged.Rdata")
 
 library(ggplot2)
 
