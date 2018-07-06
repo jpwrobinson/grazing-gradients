@@ -8,11 +8,21 @@ output: pdf_document
 
 #### Seychelles
 
-
-#### Chagos
-
-
 #### GBR
 
 
-#### Maldives
+#### Chagos & Maldives
+
+In Maldives and Chagos, ecological surveys were conducted using belt transects on hard-bottom reef habitat at 8-10m depth. In each transect, one observer recorded the abundance, size and identify of all diurnal reef-associated fishes >8 cm. Large mobile fishes were surveyd in 5 x 50 m transects and small site-attached species were recorded with  2 x 50m transects. For each transect size, 4 replicate transects were conducted at each site along the 3m and 9m depth contour. 
+
+Following fish surveys, benthic community composition was surveyed with 4 x 50 m line transects. The benthic taxa (hard coral genera, macroalgae, etc., etc.) direclty below the transect was recorded at each 50 cm. Data were converted to percent cover for each transect. Habitat complexity was assessed on a 6-point scal (Polunin & Roberts 1993) ranging from 0 (no vertical relief) to 5 (complex habitat with caves and overhangs).
+
+Chagos surveys encompassed 25 sites on 4 atolls and were conducted in 2010, Maldives surveys encompassed 11 sites on 1 atoll and were conducted in 2013.
+
+#### General data treatment stuff
+
+Observation error and bias were minimized because one observer (NAJ) performed all surveys, except for benthic surveys in Seychelles (Shaun Wilson).
+
+All fish sizes (total length, cm) were converted to body mass (grams) using published length ~ weight relationships, and standardized by transect area as kg per hectare.
+
+Fish biomass estimates were averaged across transects at each site, for each functional feeding group.
