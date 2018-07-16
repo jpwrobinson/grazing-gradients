@@ -412,6 +412,13 @@ pred$date<-str_replace_all(pred$date, '14/03/', '')
 pred$date<-str_replace_all(pred$date, '15/03/', '')
 
 
+## some extra stuff we found during model process
+pred$depth[pred$dataset=='Seychelles']<-10
+pred$depth[pred$dataset=='GBR']<-10
+# drop 3m sites in Chagos with LUDACRIS/Luka Modric biomass
+pred<-pred %>% filter(depth != 3) 
+
+
 ## save master
 save(pred, file='data/wio_herb_benthic_merged.Rdata')
 
