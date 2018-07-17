@@ -53,10 +53,15 @@ pairs2(data.frame(h$hard.coral, h$macroalgae, h$complexity, h$management),
 
 ```{r, echo=FALSE, include=FALSE, messages=FALSE}
 
-##scale vars
+##scale vars to keep covariate means = 0. helpful later.
 h$hard.coral <- scale(h$hard.coral)
 h$macroalgae <- scale(h$macroalgae)
 h$complexity <- scale(h$complexity)
+
+## make dummy variables
+h$fish.dummy<-ifelse(h$management=='Fished', 1, 0)
+h$pristine.dummy<-ifelse(h$management=='Unfished', 1, 0)
+# we use 2 dummy variables for 3 levels
 
 ## convert biomass to log10
 h$grazerlog10<-log10(h$grazer+1)
@@ -72,8 +77,47 @@ summary(m)
 
 \newpage
 ### Grazers
+&nbsp;
 
 ```{r, echo=FALSE, include=FALSE, messages=FALSE}
 #### GRAZER BIOMASS MODELS
+
+## drop 0 grazer site
+h<-h[h$grazer > 0,]
+
+m.grazer<-lmer(grazerlog10 ~ hard.coral + macroalgae * complexity + fish.dummy + pristine.dummy + ## fixed
+          (1 | dataset/reef) , ## random, nested = reefs within datasets
+                data = h)
+summary(m.grazer)
+
+```
+
+```{r, echo=FALSE, include=TRUE, messages=FALSE, fig.cap='Grazer model residuals'}
+## model diagnostic plots - grazer biomass
+par(mfrow=c(2,2))
+hist(resid(m.grazer))
+hist(h$grazerlog10)
+plot(resid(m.grazer), h$grazerlog10)
+shapiro.test(resid(m.grazer)) #$ not great. it failed. but the eyeballs test is good.
+
+```
+
+```{r, echo=FALSE, include=TRUE, messages=FALSE, fig.cap='Grazer model effects'}
+
+## NOW PLOT PREDICTIONS
+nd<-data.frame(hard.coral = seq(min(h$hard.coral), max(h$hard.coral), length.out=30),
+                  macroalgae = 0, complexity = 0, fish.dummy = 0, pristine.dummy=0)
+
+## predict grazer biomass for hard coral effect, holding every other covariate constant
+p.grazer<-predict(object=m.grazer, newdata = nd, re.form=NA)
+
+plot(nd$hard.coral, p.grazer, type='l',col=1, axes=F, ylab='Log10 Biomass (kg/ha)', xlab='Hard coral cover (%)', ylim=c(1, 4))
+axis(1, at = seq(min(h$hard.coral), max(h$hard.coral), length.out=5), 
+     labels= round(seq(min(pred$hard.coral), max(pred$hard.coral), length.out=5), 0))
+axis(2)
+
+par(xpd=T)
+text(x=-0.5, y=1000, label='Hard coral effect', font=2)
+legend('topright', legend=c('Grazer', 'Scraper', 'Browser'), col=c(1,2,3), lty=1)
 
 ```
