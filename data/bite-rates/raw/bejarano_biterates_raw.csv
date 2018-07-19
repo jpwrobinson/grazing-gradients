@@ -1,0 +1,2124 @@
+site.name,camera,part,grazable cov,min.surveyed,seg,fish.id,time.entry,family,species,life.phase,size.tl,size.SL,function,total.bites,surveyor,exit.time
+ese2,1,2,55,24,7 to 10,1,0:07:05,aca,cstriatus,na,12,,gra.det,17,kate,0:07:19
+ese2,1,2,55,24,7 to 10,2,0:08:40,aca,cstriatus,na,15,,gra.det,3,kate,0:08:46
+ese2,1,2,55,24,7 to 10,3,0:09:19,aca,cstriatus,na,15,,gra.det,46,kate,0:09:49
+ese2,1,2,55,24,7 to 10,4,0:09:28,aca,cstriatus,na,15,,gra.det,8,kate,0:09:39
+ese2,1,2,55,24,13 to 16,5,0:13:27,aca,cstriatus,na,10,,gra.det,4,kate,0:13:32
+ese2,1,2,55,24,13 to 16,6,0:13:55,aca,cstriatus,na,13,,gra.det,4,kate,0:14:00
+ese2,1,2,55,24,13 to 16,7,0:13:57,aca,zscopas,na,12,,gra.det,3,kate,0:14:12
+ese2,1,2,55,24,13 to 16,8,0:14:27,aca,cstriatus,na,15,,gra.det,7,kate,0:14:35
+ese2,1,2,55,24,13 to 16,9,0:15:29,aca,cstriatus,na,12,,gra.det,13,kate,0:15:56
+ese2,1,2,55,24,19 to 22,10,0:19:00,aca,cstriatus,na,15,,gra.det,13,kate,0:19:17
+ese2,1,2,55,24,19 to 22,11,0:19:41,aca,cstriatus,na,15,,gra.det,7,kate,0:14:35
+ese2,1,2,55,24,19 to 22,12,0:21:20,aca,cstriatus,na,15,,gra.det,6,kate,0:21:27
+ese2,1,2,55,24,25 to 28,13,0:25:07,aca,cstriatus,na,15,,gra.det,7,kate,0:25:18
+ese2,1,2,55,24,25 to 28,14,0:26:02,aca,cstriatus,na,12,,gra.det,7,kate,0:26:10
+ese2,1,2,55,24,25 to 28,15,0:26:34,aca,cstriatus,na,15,,gra.det,4,kate,0:26:43
+ese2,1,2,55,24,25 to 28,16,0:26:41,aca,cstriatus,na,15,,gra.det,4,kate,0:26:49
+ese2,1,2,55,24,25 to 28,17,0:27:16,aca,cstriatus,na,15,,gra.det,15,kate,0:27:30
+ese2,1,2,55,24,31 to 34,18,0:31:33,aca,anigricans,na,10,,gra.det,6,kate,0:31:40
+ese2,1,2,55,24,31 to 34,19,0:31:39,aca,cstriatus,na,12,,gra.det,3,kate,0:31:49
+ese2,1,2,55,24,31 to 34,20,0:32:02,aca,cstriatus,na,12,,gra.det,17,kate,0:32:10
+ese2,1,2,55,24,37 to 40,21,0:37:14,aca,cstriatus,na,15,,gra.det,7,kate,0:37:24
+ese2,1,2,55,24,37 to 40,22,0:38:20,aca,cstriatus,na,12,,gra.det,7,kate,0:38:29
+ese2,1,2,55,24,37 to 40,23,0:38:43,aca,cstriatus,na,15,,gra.det,8,kate,0:38:53
+ese2,1,3,55,24,0 to 3,24,0:06:00,aca,cstriatus,na,15,,gra.det,5,kate,0:12:00
+ese2,1,3,55,24,0 to 3,25,0:21:00,aca,cstriatus,na,15,,gra.det,5,kate,0:29:00
+ese2,1,3,55,24,0 to 3,26,0:32:00,aca,cstriatus,na,12,,gra.det,11,kate,0:39:00
+ese2,1,3,55,24,0 to 3,27,0:01:15,aca,zscopas,na,10,,gra.det,12,kate,0:01:21
+ese2,1,3,55,24,0 to 3,28,0:01:27,aca,zscopas,na,10,,gra.det,1,kate,0:01:30
+ese2,1,3,55,24,0 to 3,29,0:01:35,aca,cstriatus,na,15,,gra.det,14,kate,0:01:48
+ese2,1,3,55,24,6 to 9,30,0:06:48,aca,cstriatus,na,15,,gra.det,14,kate,0:07:09
+ese2,1,3,55,24,6 to 9,31,0:07:23,aca,cstriatus,na,15,,gra.det,15,kate,0:07:39
+ese2,2,2,93,24,5 to 8,1,0:06:30,aca,cstriatus,na,15,,gra.det,1,kate,0:06:32
+ese2,2,2,93,24,11 to 14,2,0:11:53,aca,zscopas,na,12,,gra.det,2,kate,0:11:58
+ese2,2,2,93,24,11 to 14,3,0:13:04,sig,scorallinus,na,20,,gra.det,23,kate,0:13:59
+ese2,2,2,93,24,11 to 14,4,0:13:07,sig,scorallinus,na,20,,gra.det,22,kate,0:13:59
+ese2,2,2,93,24,17 to 20,no fish,no fish,no fish,no fish,no fish,no fish,no fish,no fish,0,kate,0:00:00
+ese2,2,2,93,24,23 to 26,5,0:24:27,aca,cstriatus,na,15,,gra.det,10,kate,0:24:39
+ese2,2,2,93,24,29 to 32,no fish,no fish,no fish,no fish,no fish,no fish,no fish,no fish,0,kate,0:00:00
+ese2,2,2,93,24,35 to 38,6,0:36:28,aca,cstriatus,na,15,,gra.det,6,kate,0:36:34
+ese2,2,2,93,24,0 to 3,7,0:02:52,aca,cstriatus,na,15,,gra.det,10,kate,0:03:00
+ese2,2,2,93,24,6 to 9,8,0:06:06,aca,cstriatus,na,15,,gra.det,11,kate,0:06:16
+ese2,2,2,93,24,6 to 9,9,0:07:33,aca,cstriatus,na,15,,gra.det,9,kate,0:07:40
+ese2,2,2,93,24,6 to 9,10,0:08:41,aca,cstriatus,na,15,,gra.det,13,kate,0:08:52
+ese2,3,2,60,24,1 to 4,1,0:01:17,sca,sniger,tp,20,,scra.sma.exc,20,Sonia,not recorded
+ese2,3,2,60,24,1 to 4,2,0:01:38,aca,cstriatus,na,12,,gra.det,11,Sonia,not recorded
+ese2,3,2,60,24,1 to 4,3,0:02:48,aca,zscopas,na,11,,gra.det,54,Sonia,not recorded
+ese2,3,2,60,24,1 to 4,4,0:02:58,aca,cstriatus,na,12,,gra.det,13,Sonia,not recorded
+ese2,3,2,60,24,7 to 10,5,0:07:24,sca,spsittacus,ip,7,,scra.sma.exc,4,Sonia,not recorded
+ese2,3,2,60,24,7 to 10,6,0:07:26,sca,spsittacus,ip,9,,scra.sma.exc,12,Sonia,not recorded
+ese2,3,2,60,24,7 to 10,7,0:07:30,sig,scorallinus,na,17,,gra.det,3,Sonia,not recorded
+ese2,3,2,60,24,7 to 10,8,0:07:48,sig,scorallinus,na,17,,gra.det,5,Sonia,not recorded
+ese2,3,2,60,24,7 to 10,9,0:07:48,sig,scorallinus,na,17,,gra.det,2,Sonia,not recorded
+ese2,3,2,60,24,7 to 10,10,0:07:54,aca,cstriatus,na,13,,gra.det,21,Sonia,not recorded
+ese2,3,2,60,24,7 to 10,11,0:08:08,aca,cstriatus,na,12,,gra.det,5,Sonia,not recorded
+ese2,3,2,60,24,7 to 10,12,0:08:08,aca,cstriatus,na,11,,gra.det,4,Sonia,not recorded
+ese2,3,2,60,24,7 to 10,13,0:08:18,aca,cstriatus,na,10,,gra.det,16,Sonia,not recorded
+ese2,3,2,60,24,7 to 10,14,0:08:22,sig,scorallinus,na,17,,gra.det,8,Sonia,not recorded
+ese2,3,2,60,24,7 to 10,15,0:08:38,sig,spuellus,na,17,,gra.det,2,Sonia,not recorded
+ese2,3,2,60,24,7 to 10,16,0:08:40,sig,scorallinus,na,17,,gra.det,3,Sonia,not recorded
+ese2,3,2,60,24,7 to 10,17,0:08:53,aca,cstriatus,na,13,,gra.det,13,Sonia,not recorded
+ese2,3,2,60,24,7 to 10,18,0:08:53,sig,scorallinus,na,17,,gra.det,5,Sonia,not recorded
+ese2,3,2,60,24,7 to 10,19,0:09:30,sig,scorallinus,na,12,,gra.det,6,Sonia,not recorded
+ese2,3,2,60,24,13 to 16,20,0:13:20,aca,cstriatus,na,10,,gra.det,13,Sonia,not recorded
+ese2,3,2,60,24,19 to 22,21,0:19:00,aca,cstriatus,na,12,,gra.det,24,Sonia,not recorded
+ese2,3,2,60,24,19 to 22,22,0:19:52,aca,cstriatus,na,12,,gra.det,38,Sonia,not recorded
+ese2,3,2,60,24,19 to 22,23,0:21:36,aca,cstriatus,na,12,,gra.det,5,Sonia,not recorded
+ese2,3,2,60,24,19 to 22,24,0:21:54,aca,nlituratus,na,17,,browser,2,Sonia,not recorded
+ese2,3,2,60,24,25 to 28,25,0:25:00,aca,cstriatus,na,12,,gra.det,11,Sonia,not recorded
+ese2,3,2,60,24,25 to 28,26,0:25:02,aca,cstriatus,na,10,,gra.det,5,Sonia,not recorded
+ese2,3,2,60,24,25 to 28,27,0:25:00,sca,csordidus,ip,10,,scra.sma.exc,13,Sonia,not recorded
+ese2,3,2,60,24,25 to 28,28,0:25:13,aca,zscopas,na,11,,gra.det,2,Sonia,not recorded
+ese2,3,2,60,24,25 to 28,29,0:25:34,sca,csordidus,ip,12,,scra.sma.exc,40,Sonia,not recorded
+ese2,3,2,60,24,25 to 28,30,0:25:35,aca,cstriatus,na,15,,gra.det,20,Sonia,not recorded
+ese2,3,2,60,24,25 to 28,31,0:25:35,sca,csordidus,ip,12,,scra.sma.exc,11,Sonia,not recorded
+ese2,3,2,60,24,25 to 28,32,0:25:39,aca,cstriatus,na,12,,gra.det,10,Sonia,not recorded
+ese2,3,2,60,24,25 to 28,33,0:25:52,aca,cstriatus,na,8,,gra.det,6,Sonia,not recorded
+ese2,3,2,60,24,25 to 28,34,0:26:16,sca,csordidus,ip,12,,scra.sma.exc,10,Sonia,not recorded
+ese2,3,2,60,24,25 to 28,35,0:26:16,aca,cstriatus,na,15,,gra.det,7,Sonia,not recorded
+ese2,3,2,60,24,25 to 28,36,0:26:19,aca,cstriatus,na,12,,gra.det,5,Sonia,not recorded
+ese2,3,2,60,24,25 to 28,37,0:26:36,sca,csordidus,ip,12,,scra.sma.exc,6,Sonia,not recorded
+ese2,3,2,60,24,25 to 28,38,0:36:37,sca,csordidus,ip,11,,scra.sma.exc,7,Sonia,not recorded
+ese2,3,2,60,24,25 to 28,39,0:26:48,aca,zscopas,na,10,,gra.det,4,Sonia,not recorded
+ese2,3,2,60,24,25 to 28,40,0:26:51,aca,cstriatus,na,11,,gra.det,7,Sonia,not recorded
+ese2,3,2,60,24,25 to 28,41,0:27:19,sca,csordidus,ip,11,,scra.sma.exc,5,Sonia,not recorded
+ese2,3,2,60,24,25 to 28,42,0:27:34,aca,cstriatus,na,12,,gra.det,7,Sonia,not recorded
+ese2,3,2,60,24,25 to 28,43,0:27:39,sca,csordidus,ip,11,,scra.sma.exc,3,Sonia,not recorded
+ese2,3,2,60,24,25 to 28,44,0:28:00,aca,cstriatus,na,15,,gra.det,1,Sonia,not recorded
+ese2,3,2,60,24,31 to 34,45,0:31:12,aca,cstriatus,na,12,,gra.det,7,Sonia,not recorded
+ese2,3,2,60,24,31 to 34,46,0:31:23,sca,csordidus,ip,12,,scra.sma.exc,8,Sonia,not recorded
+ese2,3,2,60,24,31 to 34,47,0:31:38,sca,csordidus,ip,23,,scra.sma.exc,6,Sonia,not recorded
+ese2,3,2,60,24,31 to 34,48,0:32:06,aca,cstriatus,na,12,,gra.det,15,Sonia,not recorded
+ese2,3,2,60,24,31 to 34,49,0:32:47,sca,csordidus,ip,12,,scra.sma.exc,11,Sonia,not recorded
+ese2,3,2,60,24,31 to 34,50,0:32:47,aca,nlituratus,na,17,,browser,8,Sonia,not recorded
+ese2,3,2,60,24,31 to 34,51,0:33:48,aca,nlituratus,na,17,,browser,3,Sonia,not recorded
+ese2,3,2,60,24,37 to 40,52,0:38:22,aca,cstriatus,na,11,,gra.det,7,Sonia,not recorded
+ese2,3,2,60,24,37 to 40,53,0:38:46,aca,cstriatus,na,13,,gra.det,18,Sonia,not recorded
+ese2,3,3,60,24,0 to 3,54,0:00:00,sca,csordidus,ip,12,,scra.sma.exc,22,Sonia,not recorded
+ese2,3,3,60,24,0 to 3,55,0:00:00,aca,cstriatus,na,13,,gra.det,31,Sonia,not recorded
+ese2,3,3,60,24,0 to 3,56,0:00:00,sca,csordidus,ip,11,,scra.sma.exc,6,Sonia,not recorded
+ese2,3,3,60,24,0 to 3,57,0:00:00,aca,cstriatus,na,16,,gra.det,14,Sonia,not recorded
+ese2,3,3,60,24,0 to 3,58,0:00:00,sig,scorallinus,na,17,,gra.det,5,Sonia,not recorded
+ese2,3,3,60,24,0 to 3,59,0:10:00,sca,csordidus,ip,8,,scra.sma.exc,7,Sonia,not recorded
+ese2,3,3,60,24,0 to 3,60,0:33:00,aca,zscopas,na,12,,gra.det,4,Sonia,not recorded
+ese2,4,2,85,24,0 to 3,1,0:00:35,aca,cstriatus,na,15,,gra.det,2,kate,0:41:00
+ese2,4,2,85,24,0 to 3,2,0:00:48,aca,cstriatus,na,12,,gra.det,7,kate,0:01:00
+ese2,4,2,85,24,0 to 3,3,0:01:45,aca,cstriatus,na,12,,gra.det,9,kate,0:01:54
+ese2,4,2,85,24,6 to 9,4,0:06:05,aca,cstriatus,na,15,,gra.det,1,kate,0:06:09
+ese2,4,2,85,24,6 to 9,5,0:06:26,aca,cstriatus,na,15,,gra.det,3,kate,0:06:38
+ese2,4,2,85,24,6 to 9,6,0:06:58,aca,cstriatus,na,15,,gra.det,29,kate,0:07:18
+ese2,4,2,85,24,6 to 9,7,0:08:41,aca,cstriatus,na,15,,gra.det,16,kate,0:08:56
+ese2,4,2,85,24,6 to 9,8,0:08:54,aca,cstriatus,na,12,,gra.det,4,kate,0:09:00
+ese2,4,2,85,24,12 to 15,9,0:13:37,aca,cstriatus,na,12,,gra.det,25,kate,0:14:01
+ese2,4,2,85,24,12 to 15,10,0:14:22,aca,cstriatus,na,15,,gra.det,5,kate,0:14:29
+ese2,4,2,85,24,18 to 21,11,0:19:03,aca,cstriatus,na,10,,gra.det,16,kate,0:19:14
+ese2,4,2,85,24,18 to 21,12,0:19:04,aca,cstriatus,na,15,,gra.det,18,kate,0:19:18
+ese2,4,2,85,24,18 to 21,13,0:19:24,aca,cstriatus,na,15,,gra.det,9,kate,0:19:33
+ese2,4,2,85,24,18 to 21,14,0:19:33,aca,cstriatus,na,15,,gra.det,3,kate,0:19:46
+ese2,4,2,85,24,18 to 21,15,0:20:08,aca,cstriatus,na,15,,gra.det,8,kate,0:20:19
+ese2,4,2,85,24,24 to 27,16,0:24:31,aca,cstriatus,na,15,,gra.det,9,kate,0:24:29
+ese2,4,2,85,24,24 to 27,17,0:25:21,aca,cstriatus,na,15,,gra.det,7,kate,0:25:31
+ese2,4,2,85,24,24 to 27,18,0:25:31,aca,cstriatus,na,15,,gra.det,11,kate,0:25:43
+ese2,4,2,85,24,24 to 27,19,0:25:31,sca,csordidus,IP,15,,scra.sma.exc,13,kate,0:25:45
+ese2,4,2,85,24,24 to 27,20,12:26:05,aca,cstriatus,na,12,,gra.det,21,kate,0:26:23
+ese2,4,2,85,24,30 to 33,21,0:30:03,aca,cstriatus,na,15,,gra.det,20,kate,0:30:22
+ese2,4,2,85,24,30 to 33,22,0:32:21,aca,zscopas,na,10,,gra.det,6,kate,0:32:29
+ese2,4,2,85,24,30 to 33,23,0:32:32,aca,cstriatus,na,15,,gra.det,15,kate,0:32:47
+ese2,4,2,85,24,36 to 39,24,0:37:23,aca,cstriatus,na,15,,gra.det,2,kate,0:37:30
+ese2,4,2,85,24,36 to 39,25,0:38:28,aca,cstriatus,na,12,,gra.det,13,kate,0:38:35
+ese2,4,3,85,24,0 to 3,26,0:00:05,aca,cstriatus,na,12,,gra.det,12,kate,0:17:00
+ese2,4,3,85,24,0 to 3,27,0:01:28,aca,cstriatus,na,15,,gra.det,13,kate,0:01:44
+ese2,4,3,85,24,0 to 3,28,0:01:42,aca,cstriatus,na,15,,gra.det,71,kate,0:02:33
+ese2,5,1,81,24,29 to 32,1,0:30:04,aca,cstriatus,na,13,,gra.det,9,Rob,not recorded
+ese2,5,1,81,24,35 to 38,2,0:35:06,aca,cstriatus,na,14,,gra.det,4,Rob,not recorded
+ese2,5,1,81,24,35 to 38,3,0:36:39,aca,cstriatus,na,10,,gra.det,9,Rob,not recorded
+ese2,5,2,81,24,0 to 3,4,0:09:00,aca,zscopas,na,8,,gra.det,2,Rob,not recorded
+ese2,5,2,81,24,0 to 3,5,0:01:19,sca,sschlegeli,ip,10,,scra.sma.exc,1,Rob,not recorded
+ese2,5,2,81,24,0 to 3,6,0:01:27,aca,cstriatus,na,10,,gra.det,2,Rob,not recorded
+ese2,5,2,81,24,0 to 3,7,0:01:46,aca,cstriatus,na,13,,gra.det,9,Rob,not recorded
+ese2,5,2,81,24,6 to 9,8,0:06:20,aca,cstriatus,na,11,,gra.det,6,Rob,not recorded
+ese2,5,2,81,24,6 to 9,9,0:06:54,aca,anigricans,na,4,,gra.det,3,Rob,not recorded
+ese2,5,2,81,24,12 to 15,10,0:12:24,aca,cstriatus,na,10,,gra.det,4,Rob,not recorded
+ese2,5,2,81,24,12 to 15,11,0:12:54,aca,cstriatus,na,12,,gra.det,10,Rob,not recorded
+ese2,5,2,81,24,12 to 15,12,0:13:34,aca,cstriatus,na,10,,gra.det,3,Rob,not recorded
+ese2,5,2,81,24,18 to 21,13,0:18:38,aca,cstriatus,na,12,,gra.det,25,Rob,not recorded
+ese2,5,2,81,24,18 to 21,14,0:19:12,aca,cstriatus,na,12,,gra.det,8,Rob,not recorded
+ese2,5,2,81,24,18 to 21,15,0:19:56,aca,cstriatus,na,12,,gra.det,8,Rob,not recorded
+ese2,5,2,81,24,18 to 21,16,0:20:34,aca,anigricans,na,8,,gra.det,14,Rob,not recorded
+ese2,5,2,81,24,18 to 21,17,0:20:52,aca,cstriatus,na,10,,gra.det,1,Rob,not recorded
+ese2,5,2,81,24,24 to 27,18,0:24:00,aca,cstriatus,na,11,,gra.det,1,Rob,not recorded
+ese2,5,2,81,24,24 to 27,19,0:24:06,aca,cstriatus,na,12,,gra.det,9,Rob,not recorded
+ese2,5,2,81,24,24 to 27,20,0:24:36,aca,cstriatus,na,11,,gra.det,19,Rob,not recorded
+ese2,5,2,81,24,24 to 27,21,0:26:50,aca,cstriatus,na,7,,gra.det,4,Rob,not recorded
+ese2,5,2,81,24,30 to 33,22,0:31:06,aca,cstriatus,na,11,,gra.det,4,Rob,not recorded
+ese2,5,2,81,24,30 to 33,23,0:31:40,aca,cstriatus,na,11,,gra.det,1,Rob,not recorded
+ese2,5,2,81,24,30 to 33,24,0:32:22,aca,cstriatus,na,11,,gra.det,2,Rob,not recorded
+ese2,6,1,57,24,24 to 27,1,0:24:19,aca,cstriatus,na,13,,gra.det,10,Sonia,not recorded
+ese2,6,1,57,24,24 to 27,2,0:24:38,aca,cstriatus,na,8,,gra.det,19,Sonia,not recorded
+ese2,6,1,57,24,24 to 27,3,0:26:00,aca,cstriatus,na,14,,gra.det,29,Sonia,not recorded
+ese2,6,1,57,24,24 to 27,4,0:26:10,aca,cstriatus,na,8,,gra.det,9,Sonia,not recorded
+ese2,6,1,57,24,30 to 33,5,0:30:35,aca,cstriatus,na,10,,gra.det,14,Sonia,not recorded
+ese2,6,1,57,24,30 to 33,6,0:31:06,aca,cstriatus,na,15,,gra.det,1,Sonia,not recorded
+ese2,6,1,57,24,30 to 33,7,0:31:12,aca,cstriatus,na,13,,gra.det,8,Sonia,not recorded
+ese2,6,1,57,24,30 to 33,8,0:31:21,aca,zscopas,na,8,,gra.det,20,Sonia,not recorded
+ese2,6,1,57,24,30 to 33,9,0:31:47,sca,csordidus,ip,12,,scra.sma.exc,18,Sonia,not recorded
+ese2,6,1,57,24,30 to 33,10,0:31:49,sca,csordidus,ip,11,,scra.sma.exc,7,Sonia,not recorded
+ese2,6,1,57,24,30 to 33,11,0:32:00,aca,cstriatus,na,13,,gra.det,12,Sonia,not recorded
+ese2,6,1,57,24,30 to 33,12,0:32:09,aca,cstriatus,na,12,,gra.det,10,Sonia,not recorded
+ese2,6,1,57,24,30 to 33,13,0:32:10,sca,csordidus,ip,12,,scra.sma.exc,5,Sonia,not recorded
+ese2,6,1,57,24,30 to 33,14,0:32:10,sca,csordidus,ip,12,,scra.sma.exc,6,Sonia,not recorded
+ese2,6,1,57,24,30 to 33,15,0:32:19,aca,cstriatus,na,13,,gra.det,10,Sonia,not recorded
+ese2,6,1,57,24,30 to 33,16,0:32:53,aca,cstriatus,na,11,,gra.det,5,Sonia,not recorded
+ese2,6,1,57,24,36 to 39,17,0:36:55,aca,cstriatus,na,12,,gra.det,24,Sonia,not recorded
+ese2,6,1,57,24,36 to 39,18,0:37:28,aca,cstriatus,na,12,,gra.det,2,Sonia,not recorded
+ese2,6,1,57,24,36 to 39,19,0:38:16,aca,cstriatus,na,12,,gra.det,39,Sonia,not recorded
+ese2,6,1,57,24,36 to 39,20,0:38:34,sca,csordidus,ip,11,,scra.sma.exc,11,Sonia,not recorded
+ese2,6,1,57,24,36 to 39,21,0:38:16,aca,cstriatus,na,11,,gra.det,7,Sonia,not recorded
+ese2,6,2,57,24,0 to 3,22,0:00:00,aca,cstriatus,na,11,,gra.det,6,Sonia,not recorded
+ese2,6,2,57,24,0 to 3,23,0:00:11,sca,sniger,tp,15,,scra.sma.exc,9,Sonia,not recorded
+ese2,6,2,57,24,0 to 3,24,0:00:21,aca,cstriatus,na,10,,gra.det,6,Sonia,not recorded
+ese2,6,2,57,24,0 to 3,25,0:01:04,sca,sniger,tp,15,,scra.sma.exc,9,Sonia,not recorded
+ese2,6,2,57,24,0 to 3,26,0:02:00,aca,cstriatus,na,10,,gra.det,8,Sonia,not recorded
+ese2,6,2,57,24,0 to 3,27,0:02:03,sca,sniger,tp,15,,scra.sma.exc,10,Sonia,not recorded
+ese2,6,2,57,24,0 to 3,28,0:02:38,aca,cstriatus,na,11,,gra.det,9,Sonia,not recorded
+ese2,6,2,57,24,6 to 9,29,0:07:13,aca,cstriatus,na,12,,gra.det,4,Sonia,not recorded
+ese2,6,2,57,24,6 to 9,30,0:07:20,aca,cstriatus,na,11,,gra.det,5,Sonia,not recorded
+ese2,6,2,57,24,6 to 9,31,0:08:02,aca,cstriatus,na,12,,gra.det,15,Sonia,not recorded
+ese2,6,2,57,24,6 to 9,32,0:08:33,aca,cstriatus,na,12,,gra.det,8,Sonia,not recorded
+ese2,6,2,57,24,12 to 15,33,0:12:16,aca,cstriatus,na,12,,gra.det,7,Sonia,not recorded
+ese2,6,2,57,24,12 to 15,34,0:12:26,aca,cstriatus,na,13,,gra.det,7,Sonia,not recorded
+ese2,6,2,57,24,12 to 15,35,0:12:42,aca,cstriatus,na,13,,gra.det,21,Sonia,not recorded
+ese2,6,2,57,24,12 to 15,36,0:13:20,aca,nlituratus,na,17,,browser,3,Sonia,not recorded
+ese2,6,2,57,24,12 to 15,37,0:13:47,aca,cstriatus,na,11,,gra.det,1,Sonia,not recorded
+ese2,6,2,57,24,18 to 21,38,0:18:27,aca,anigricans,na,8,,gra.det,50,Sonia,not recorded
+ese2,6,2,57,24,18 to 21,39,0:18:34,aca,cstriatus,na,12,,gra.det,6,Sonia,not recorded
+ese2,6,2,57,24,18 to 21,40,0:18:39,aca,cstriatus,na,10,,gra.det,10,Sonia,not recorded
+ese2,6,2,57,24,18 to 21,41,0:19:08,aca,cstriatus,na,12,,gra.det,7,Sonia,not recorded
+ese2,6,2,57,24,18 to 21,42,0:20:32,aca,cstriatus,na,12,,gra.det,10,Sonia,not recorded
+ese2,6,2,57,24,18 to 21,43,0:20:51,aca,zscopas,na,8,,gra.det,8,Sonia,not recorded
+ese2,6,2,57,24,18 to 21,44,0:20:58,aca,cstriatus,na,12,,gra.det,1,Sonia,not recorded
+ese2,6,2,57,24,24 to 27,45,0:24:17,aca,cstriatus,na,13,,gra.det,16,Sonia,not recorded
+ese2,6,2,57,24,24 to 27,46,0:24:39,aca,cstriatus,na,8,,gra.det,4,Sonia,not recorded
+ese2,6,2,57,24,24 to 27,47,0:24:43,sca,sniger,tp,19,,scra.sma.exc,18,Sonia,not recorded
+ese2,6,2,57,24,24 to 27,48,0:24:45,aca,cstriatus,na,10,,gra.det,8,Sonia,not recorded
+ese2,6,2,57,24,24 to 27,49,0:25:35,aca,cstriatus,na,13,,gra.det,12,Sonia,not recorded
+ese2,6,2,57,24,24 to 27,50,0:25:54,aca,cstriatus,na,12,,gra.det,2,Sonia,not recorded
+ese2,6,2,57,24,24 to 27,51,0:26:11,aca,cstriatus,na,11,,gra.det,1,Sonia,not recorded
+ese2,6,2,57,24,24 to 27,52,0:26:42,aca,cstriatus,na,13,,gra.det,7,Sonia,not recorded
+ese2,6,2,57,24,24 to 27,53,0:26:51,aca,cstriatus,na,11,,gra.det,2,Sonia,not recorded
+ese3,1,2,76,24,13 to 16,no fish,no fish,no fish,no fish,no fish,no fish,no fish,no fish,0,kate,0:00:00
+ese3,1,2,76,24,19 to 22,no fish,no fish,no fish,no fish,no fish,no fish,no fish,no fish,0,kate,0:00:00
+ese3,1,2,76,24,25 to 28,1,0:25:12,aca,cstriatus,na,15,,gra.det,7,kate,0:25:25
+ese3,1,2,76,24,31 to 34,no fish,no fish,no fish,no fish,no fish,no fish,no fish,no fish,0,kate,0:00:00
+ese3,1,2,76,24,37 to 40,no fish,no fish,no fish,no fish,no fish,no fish,no fish,no fish,0,kate,0:00:00
+ese3,1,3,76,24,0 to 3,no fish,no fish,no fish,no fish,no fish,no fish,no fish,no fish,0,kate,0:00:00
+ese3,1,3,76,24,6 to 9,2,0:06:41,aca,cstriatus,na,15,,gra.det,31,kate,0:07:12
+ese3,1,3,76,24,12 to 15,no fish,no fish,no fish,no fish,no fish,no fish,no fish,no fish,0,kate,0:00:00
+ese3,2,2,86,24,10 to 13,no fish,no fish,no fish,no fish,no fish,no fish,no fish,no fish,0,kate,0:00:00
+ese3,2,2,86,24,16 to 19,no fish,no fish,no fish,no fish,no fish,no fish,no fish,no fish,0,kate,0:00:00
+ese3,2,2,86,24,22 to 25,no fish,no fish,no fish,no fish,no fish,no fish,no fish,no fish,0,kate,0:00:00
+ese3,2,2,86,24,28 to 31,no fish,no fish,no fish,no fish,no fish,no fish,no fish,no fish,0,kate,0:00:00
+ese3,2,2,86,24,34 to 37,no fish,no fish,no fish,no fish,no fish,no fish,no fish,no fish,0,kate,0:00:00
+ese3,2,2,86,24,40 to 43,no fish,no fish,no fish,no fish,no fish,no fish,no fish,no fish,0,kate,0:00:00
+ese3,2,3,86,24,3 to 6,no fish,no fish,no fish,no fish,no fish,no fish,no fish,no fish,0,kate,0:00:00
+ese3,2,3,86,24,9 to 12,no fish,no fish,no fish,no fish,no fish,no fish,no fish,no fish,0,kate,0:00:00
+ese3,3,2,54,24,1 to 4,1,0:01:53,aca,cstriatus,na,12,,gra.det,16,Sonia,not recorded
+ese3,3,2,54,24,1 to 4,2,0:02:31,aca,cstriatus,na,12,,gra.det,9,Sonia,not recorded
+ese3,3,2,54,24,1 to 4,3,0:03:26,aca,cstriatus,na,12,,gra.det,27,Sonia,not recorded
+ese3,3,2,54,24,7 to 10,4,0:07:00,aca,nlituratus,na,24,,browser,22,Sonia,not recorded
+ese3,3,2,54,24,7 to 10,5,0:07:00,aca,cstriatus,na,12,,gra.det,30,Sonia,not recorded
+ese3,3,2,54,24,7 to 10,6,0:07:28,aca,cstriatus,na,12,,gra.det,1,Sonia,not recorded
+ese3,3,2,54,24,7 to 10,7,0:09:20,aca,nlituratus,na,24,,browser,4,Sonia,not recorded
+ese3,3,2,54,24,13 to 16,8,0:13:04,aca,cstriatus,na,12,,gra.det,3,Sonia,not recorded
+ese3,3,2,54,24,13 to 16,9,0:13:05,sca,csordidus,tp,17,,scra.sma.exc,4,Sonia,not recorded
+ese3,3,2,54,24,13 to 16,10,0:13:08,aca,cstriatus,na,15,,gra.det,34,Sonia,not recorded
+ese3,3,2,54,24,13 to 16,11,0:13:19,sca,csordidus,ip,13,,scra.sma.exc,9,Sonia,not recorded
+ese3,3,2,54,24,13 to 16,12,0:13:32,aca,zscopas,na,9,,gra.det,9,Sonia,not recorded
+ese3,3,2,54,24,13 to 16,13,0:14:16,aca,cstriatus,na,12,,gra.det,4,Sonia,not recorded
+ese3,3,2,54,24,13 to 16,14,0:15:50,aca,cstriatus,na,11,,gra.det,2,Sonia,not recorded
+ese3,3,2,54,24,19 to 22,15,0:20:10,sca,csordidus,ip,12,,scra.sma.exc,4,Sonia,not recorded
+ese3,3,2,54,24,19 to 22,16,0:25:16,aca,cstriatus,na,12,,gra.det,27,Sonia,not recorded
+ese3,3,2,54,24,25 to 28,17,0:27:32,aca,cstriatus,na,12,,gra.det,12,Sonia,not recorded
+ese3,3,2,54,24,31 to 34,18,0:32:43,sca,csordidus,tp,18,,scra.sma.exc,1,Sonia,not recorded
+ese3,3,2,54,24,31 to 34,19,0:32:58,sca,csordidus,tp,18,,scra.sma.exc,2,Sonia,not recorded
+ese3,3,2,54,24,37 to 40,20,0:37:00,aca,cstriatus,na,12,,gra.det,2,Sonia,not recorded
+ese3,3,2,54,24,37 to 40,21,0:38:13,aca,cstriatus,na,13,,gra.det,8,Sonia,not recorded
+ese3,3,2,54,24,37 to 40,22,0:38:45,aca,cstriatus,na,11,,gra.det,20,Sonia,not recorded
+ese3,3,2,54,24,37 to 40,23,0:39:06,aca,cstriatus,na,13,,gra.det,2,Sonia,not recorded
+ese3,3,3,54,24,0 to 3,24,0:00:00,sca,sniger,tp,16,,scra.sma.exc,54,Sonia,not recorded
+ese3,3,3,54,24,0 to 3,25,0:00:07,aca,zscopas,na,11,,gra.det,9,Sonia,not recorded
+ese3,3,3,54,24,0 to 3,26,0:00:30,sca,csordidus,ip,16,,scra.sma.exc,16,Sonia,not recorded
+ese3,3,3,54,24,0 to 3,27,0:00:47,aca,zscopas,na,12,,gra.det,4,Sonia,not recorded
+ese3,3,3,54,24,0 to 3,28,0:01:12,aca,cstriatus,na,15,,gra.det,10,Sonia,not recorded
+ese3,3,3,54,24,0 to 3,29,0:02:03,sca,sniger,tp,16,,scra.sma.exc,4,Sonia,not recorded
+ese3,3,3,54,24,0 to 3,30,0:02:09,aca,cstriatus,na,14,,gra.det,11,Sonia,not recorded
+ese3,3,3,54,24,0 to 3,31,0:02:33,aca,cstriatus,na,11,,gra.det,1,Sonia,not recorded
+ese3,4,2,96,24,1 to 4,1,0:01:51,aca,cstriatus,na,15,,gra.det,17,kate,0:02:12
+ese3,4,2,96,24,1 to 4,2,0:01:55,aca,cstriatus,na,15,,gra.det,29,kate,0:02:31
+ese3,4,2,96,24,1 to 4,3,0:02:37,aca,cstriatus,na,15,,gra.det,11,kate,0:02:48
+ese3,4,2,96,24,1 to 4,4,0:03:43,aca,cstriatus,na,12,,gra.det,14,kate,0:03:55
+ese3,4,2,96,24,7 to 10,5,0:07:25,aca,cstriatus,na,12,,gra.det,5,kate,0:07:30
+ese3,4,2,96,24,7 to 10,6,0:08:16,aca,cstriatus,na,15,,gra.det,3,kate,0:08:21
+ese3,4,2,96,24,13 to 16,7,0:14:23,sca,csordidus,IP,20,,scra.sma.exc,3,kate,0:14:25
+ese3,4,2,96,24,13 to 16,8,0:14:33,sca,csordidus,IP,20,,scra.sma.exc,4,kate,0:14:40
+ese3,4,2,96,24,13 to 16,9,0:15:14,sca,csordidus,IP,20,,scra.sma.exc,3,kate,0:15:19
+ese3,4,2,96,24,13 to 16,10,0:15:16,sca,csordidus,IP,10,,scra.sma.exc,11,kate,0:15:33
+ese3,4,2,96,24,13 to 16,11,0:15:20,aca,zscopas,na,12,,gra.det,21,kate,0:15:43
+ese3,4,2,96,24,13 to 16,12,0:15:23,sca,csordidus,IP,20,,scra.sma.exc,7,kate,0:15:53
+ese3,4,2,96,24,13 to 16,13,0:15:54,sca,schameleon,TP,25,,scra.sma.exc,6,kate,0:16:00
+ese3,4,2,96,24,19 to 22,14,0:21:48,aca,cstriatus,na,12,,gra.det,24,kate,0:21:57
+ese3,4,2,96,24,25 to 28,15,0:25:18,aca,cstriatus,na,15,,gra.det,4,kate,0:25:24
+ese3,4,2,96,24,31 to 34,no fish,no fish,no fish,no fish,no fish,no fish,no fish,no fish,0,kate,0:00:00
+ese3,4,2,96,24,37 to 40,16,0:37:39,aca,cstriatus,na,15,,gra.det,6,kate,0:37:57
+ese3,4,2,96,24,37 to 40,17,0:37:53,aca,cstriatus,na,15,,gra.det,11,kate,0:38:11
+ese3,4,2,96,24,37 to 40,18,0:38:43,aca,cstriatus,na,12,,gra.det,6,kate,0:38:53
+ese3,4,3,96,24,0 to 3,19,0:01:46,aca,cstriatus,na,15,,gra.det,38,kate,0:02:53
+ese3,4,3,96,24,0 to 3,20,0:01:49,aca,zscopas,na,10,,gra.det,33,kate,0:02:24
+ese3,4,3,96,24,0 to 3,21,0:01:57,aca,zscopas,na,12,,gra.det,46,kate,0:02:45
+ese3,5,1,90,24,38 to 41,no fish,no fish,no fish,no fish,no fish,no fish,no fish,no fish,0,Rob,not recorded
+ese3,5,2,90,24,0 to 3,1,0:02:14,sca,sniger,tp,12,,scra.sma.exc,8,Rob,not recorded
+ese3,5,2,90,24,6 to 9,no fish,no fish,no fish,no fish,no fish,no fish,no fish,no fish,0,Rob,not recorded
+ese3,5,2,90,24,12 to 15,no fish,no fish,no fish,no fish,no fish,no fish,no fish,no fish,0,Rob,not recorded
+ese3,5,2,90,24,18 to 21,2,0:18:16,sca,csordidus,tp,20,,scra.sma.exc,3,Rob,not recorded
+ese3,5,2,90,24,18 to 21,3,0:18:30,sca,sschlegeli,ip,17,,scra.sma.exc,8,Rob,not recorded
+ese3,5,2,90,24,18 to 21,4,0:19:07,sca,csordidus,tp,17,,scra.sma.exc,2,Rob,not recorded
+ese3,5,2,90,24,18 to 21,5,0:19:07,sca,sschlegeli,ip,11,,scra.sma.exc,4,Rob,not recorded
+ese3,5,2,90,24,18 to 21,6,0:20:22,sca,sschlegeli,ip,9,,scra.sma.exc,6,Rob,not recorded
+ese3,5,2,90,24,24 to 27,7,0:25:43,aca,cstriatus,na,11,,gra.det,3,Rob,not recorded
+ese3,5,2,90,24,30 to 33,no fish,no fish,no fish,no fish,no fish,no fish,no fish,no fish,0,Rob,not recorded
+ese3,5,2,90,24,36 to 39,no fish,no fish,no fish,no fish,no fish,no fish,no fish,no fish,0,Rob,not recorded
+ese3,6,1,86,24,28 to 31,no fish,no fish,no fish,no fish,no fish,no fish,no fish,no fish,0,Sonia,not recorded
+ese3,6,1,86,24,34 to 37,no fish,no fish,no fish,no fish,no fish,no fish,no fish,no fish,0,Sonia,not recorded
+ese3,6,1,86,24,40 to 43,no fish,no fish,no fish,no fish,no fish,no fish,no fish,no fish,0,Sonia,not recorded
+ese3,6,2,86,24,3 to 6,no fish,no fish,no fish,no fish,no fish,no fish,no fish,no fish,0,Sonia,not recorded
+ese3,6,2,86,24,9 to 12,no fish,no fish,no fish,no fish,no fish,no fish,no fish,no fish,0,Sonia,not recorded
+ese3,6,2,86,24,15 to 18,no fish,no fish,no fish,no fish,no fish,no fish,no fish,no fish,0,Sonia,not recorded
+ese3,6,2,86,24,21 to 24,no fish,no fish,no fish,no fish,no fish,no fish,no fish,no fish,0,Sonia,not recorded
+ese3,6,2,86,24,27 to 30,no fish,no fish,no fish,no fish,no fish,no fish,no fish,no fish,0,Sonia,not recorded
+lhouse,1,1,66,24,33 to 36,1,0:33:00,aca,cstriatus,na,11,,gra.det,30,Sonia,not recorded
+lhouse,1,1,66,24,33 to 36,2,0:33:47,aca,zscopas,na,11,,gra.det,30,Sonia,not recorded
+lhouse,1,1,66,24,39 to 42,3,0:39:00,aca,cstriatus,na,13,,gra.det,37,Sonia,not recorded
+lhouse,1,1,66,24,39 to 42,4,0:41:41,aca,cstriatus,na,12,,gra.det,10,Sonia,not recorded
+lhouse,1,1,66,24,39 to 42,5,0:41:47,aca,cstriatus,na,13,,gra.det,11,Sonia,not recorded
+lhouse,1,2,66,24,3 to 6,6,0:04:05,sca,csordidus,ip,12,,scra.sma.exc,6,Sonia,not recorded
+lhouse,1,2,66,24,3 to 6,7,0:04:06,aca,cstriatus,na,13,,gra.det,19,Sonia,not recorded
+lhouse,1,2,66,24,3 to 6,8,0:04:07,aca,anigrofuscus,na,11,,gra.det,14,Sonia,not recorded
+lhouse,1,2,66,24,3 to 6,9,0:05:17,aca,anigrofuscus,na,8,,gra.det,2,Sonia,not recorded
+lhouse,1,2,66,24,3 to 6,10,0:05:17,aca,cstriatus,na,12,,gra.det,3,Sonia,not recorded
+lhouse,1,2,66,24,3 to 6,11,0:05:17,aca,cstriatus,na,13,,gra.det,1,Sonia,not recorded
+lhouse,1,2,66,24,3 to 6,12,0:05:26,aca,cstriatus,na,13,,gra.det,5,Sonia,not recorded
+lhouse,1,2,66,24,3 to 6,13,0:05:26,aca,cstriatus,na,12,,gra.det,9,Sonia,not recorded
+lhouse,1,2,66,24,3 to 6,14,0:05:26,sca,csordidus,tp,19,,scra.sma.exc,8,Sonia,not recorded
+lhouse,1,2,66,24,3 to 6,15,0:05:34,aca,cstriatus,na,13,,gra.det,1,Sonia,not recorded
+lhouse,1,2,66,24,3 to 6,16,0:05:54,aca,cstriatus,na,14,,gra.det,4,Sonia,not recorded
+lhouse,1,2,66,24,3 to 6,17,0:05:54,aca,cstriatus,na,14,,gra.det,4,Sonia,not recorded
+lhouse,1,2,66,24,9 to 12,18,0:09:00,aca,cstriatus,na,12,,gra.det,15,Sonia,not recorded
+lhouse,1,2,66,24,9 to 12,19,0:10:13,aca,cstriatus,na,12,,gra.det,36,Sonia,not recorded
+lhouse,1,2,66,24,9 to 12,20,0:10:38,sca,csordidus,ip,12,,scra.sma.exc,3,Sonia,not recorded
+lhouse,1,2,66,24,9 to 12,21,0:10:45,aca,cstriatus,na,12,,gra.det,21,Sonia,not recorded
+lhouse,1,2,66,24,9 to 12,22,0:11:04,sca,csordidus,ip,13,,scra.sma.exc,7,Sonia,not recorded
+lhouse,1,2,66,24,9 to 12,23,0:11:05,aca,cstriatus,na,13,,gra.det,81,Sonia,not recorded
+lhouse,1,2,66,24,9 to 12,24,0:11:06,sca,csordidus,tp,20,,scra.sma.exc,11,Sonia,not recorded
+lhouse,1,2,66,24,9 to 12,25,0:11:25,aca,cstriatus,na,13,,gra.det,23,Sonia,not recorded
+lhouse,1,2,66,24,9 to 12,26,0:11:46,sca,csordidus,tp,18,,scra.sma.exc,6,Sonia,not recorded
+lhouse,1,2,66,24,9 to 12,27,0:11:46,sca,csordidus,ip,13,,scra.sma.exc,5,Sonia,not recorded
+lhouse,1,2,66,24,9 to 12,28,0:11:47,aca,cstriatus,na,12,,gra.det,12,Sonia,not recorded
+lhouse,1,2,66,24,15 to 18,29,0:15:00,aca,zscopas,na,13,,gra.det,21,Sonia,not recorded
+lhouse,1,2,66,24,15 to 18,30,0:17:23,aca,cstriatus,na,12,,gra.det,5,Sonia,not recorded
+lhouse,1,2,66,24,15 to 18,31,0:17:25,aca,zscopas,na,11,,gra.det,2,Sonia,not recorded
+lhouse,1,2,66,24,21 to 24,32,0:22:16,aca,cstriatus,na,11,,gra.det,7,Sonia,not recorded
+lhouse,1,2,66,24,21 to 24,33,0:22:21,aca,cstriatus,na,13,,gra.det,1,Sonia,not recorded
+lhouse,1,2,66,24,21 to 24,34,0:22:24,aca,cstriatus,na,13,,gra.det,54,Sonia,not recorded
+lhouse,1,2,66,24,21 to 24,35,0:22:35,sca,csordidus,tp,20,,scra.sma.exc,2,Sonia,not recorded
+lhouse,1,2,66,24,21 to 24,36,0:22:40,aca,zscopas,na,12,,gra.det,14,Sonia,not recorded
+lhouse,1,2,66,24,21 to 24,37,0:23:17,aca,cstriatus,na,12,,gra.det,12,Sonia,not recorded
+lhouse,1,2,66,24,21 to 24,38,0:23:20,aca,anigrofuscus,na,9,,gra.det,1,Sonia,not recorded
+lhouse,1,2,66,24,21 to 24,39,0:23:31,aca,cstriatus,na,13,,gra.det,3,Sonia,not recorded
+lhouse,1,2,66,24,21 to 24,40,0:23:33,aca,cstriatus,na,10,,gra.det,23,Sonia,not recorded
+lhouse,1,2,66,24,27 to 30,41,0:27:15,aca,cstriatus,na,13,,gra.det,106,Sonia,not recorded
+lhouse,1,2,66,24,27 to 30,42,0:27:33,sca,csordidus,ip,14,,scra.sma.exc,7,Sonia,not recorded
+lhouse,1,2,66,24,27 to 30,43,0:27:45,aca,cstriatus,na,13,,gra.det,27,Sonia,not recorded
+lhouse,1,2,66,24,27 to 30,44,0:27:56,aca,zscopas,na,12,,gra.det,5,Sonia,not recorded
+lhouse,1,2,66,24,27 to 30,45,0:29:48,aca,cstriatus,na,12,,gra.det,15,Sonia,not recorded
+lhouse,1,2,66,24,33 to 36,46,0:34:10,aca,cstriatus,na,12,,gra.det,71,Sonia,not recorded
+lhouse,1,2,66,24,33 to 36,47,0:34:10,aca,zscopas,na,11,,gra.det,42,Sonia,not recorded
+lhouse,1,2,66,24,33 to 36,48,0:35:16,sca,csordidus,tp,20,,scra.sma.exc,1,Sonia,not recorded
+lhouse,1,2,66,24,33 to 36,49,0:35:23,aca,cstriatus,na,14,,gra.det,47,Sonia,not recorded
+lhouse,1,2,66,24,33 to 36,50,0:35:23,sca,csordidus,tp,20,,scra.sma.exc,21,Sonia,not recorded
+lhouse,1,2,66,24,33 to 36,51,0:35:23,aca,zscopas,na,12,,gra.det,37,Sonia,not recorded
+lhouse,2,1,50,24,31 to 34,1,0:31:17,aca,anigricans,na,12,,gra.det,11,kate,0:31:31
+lhouse,2,1,50,24,31 to 34,2,0:31:46,aca,anigricans,na,10,,gra.det,23,kate,0:21:05
+lhouse,2,1,50,24,31 to 34,3,0:32:04,sca,csordidus,IP,20,,scra.sma.exc,22,kate,0:32:29
+lhouse,2,1,50,24,31 to 34,4,0:33:20,sca,csordidus,IP,20,,scra.sma.exc,9,kate,0:33:33
+lhouse,2,1,50,24,37 to 40,5,0:37:08,aca,cstriatus,na,15,,gra.det,6,kate,0:37:19
+lhouse,2,1,50,24,37 to 40,6,0:37:29,sca,csordidus,IP,20,,scra.sma.exc,10,kate,0:37:39
+lhouse,2,1,50,24,37 to 40,7,0:37:40,sca,csordidus,IP,15,,scra.sma.exc,9,kate,0:37:59
+lhouse,2,2,50,24,0 to 3,8,0:01:13,aca,anigricans,na,12,,gra.det,10,kate,0:01:27
+lhouse,2,2,50,24,0 to 3,9,0:01:23,aca,anigricans,na,10,,gra.det,10,kate,0:01:31
+lhouse,2,2,50,24,0 to 3,10,0:01:41,aca,cstriatus,na,15,,gra.det,12,kate,0:01:48
+lhouse,2,2,50,24,0 to 3,11,0:01:52,aca,anigricans,na,10,,gra.det,55,kate,0:02:37
+lhouse,2,2,50,24,0 to 3,12,0:02:00,aca,cstriatus,na,15,,gra.det,4,kate,0:02:04
+lhouse,2,2,50,24,0 to 3,13,0:02:07,aca,cstriatus,na,15,,gra.det,6,kate,0:02:14
+lhouse,2,2,50,24,0 to 3,14,0:02:33,sca,csordidus,TP,30,,scra.sma.exc,2,kate,0:02:38
+lhouse,2,2,50,24,6 to 9,15,0:06:10,aca,anigricans,na,12,,gra.det,13,kate,0:06:28
+lhouse,2,2,50,24,6 to 9,16,0:06:12,aca,cstriatus,na,15,,gra.det,16,kate,0:06:28
+lhouse,2,2,50,24,6 to 9,17,0:06:54,sca,schameleon,IP,30,,scra.sma.exc,15,kate,0:07:39
+lhouse,2,2,50,24,6 to 9,18,0:07:56,sca,csordidus,IP,20,,scra.sma.exc,9,kate,0:08:12
+lhouse,2,2,50,24,6 to 9,19,0:07:57,aca,cstriatus,na,15,,gra.det,8,kate,0:08:08
+lhouse,2,2,50,24,6 to 9,20,0:07:59,sca,csordidus,IP,20,,scra.sma.exc,8,kate,0:08:09
+lhouse,2,2,50,24,6 to 9,21,0:08:03,aca,anigricans,na,10,,gra.det,10,kate,0:08:16
+lhouse,2,2,50,24,6 to 9,22,0:08:10,aca,cstriatus,na,15,,gra.det,16,kate,0:08:32
+lhouse,2,2,50,24,12 to 15,23,0:12:22,sca,csordidus,IP,20,,scra.sma.exc,4,kate,0:12:28
+lhouse,2,2,50,24,12 to 15,24,0:12:42,sca,csordidus,IP,20,,scra.sma.exc,4,kate,0:12:59
+lhouse,2,2,50,24,12 to 15,25,0:12:48,sca,csordidus,IP,20,,scra.sma.exc,4,kate,0:12:59
+lhouse,2,2,50,24,12 to 15,26,0:13:08,aca,anigricans,na,10,,gra.det,15,kate,0:13:24
+lhouse,2,2,50,24,12 to 15,27,0:14:02,sca,csordidus,IP,20,,scra.sma.exc,1,kate,0:14:08
+lhouse,2,2,50,24,12 to 15,28,0:14:47,aca,anigricans,na,10,,gra.det,12,kate,0:15:00
+lhouse,2,2,50,24,18 to 21,29,0:18:23,aca,anigricans,na,10,,gra.det,17,kate,0:18:36
+lhouse,2,2,50,24,18 to 21,30,0:19:01,aca,anigricans,na,10,,gra.det,2,kate,0:19:08
+lhouse,2,2,50,24,18 to 21,31,0:19:23,sca,csordidus,IP,20,,scra.sma.exc,4,kate,0:19:34
+lhouse,2,2,50,24,18 to 21,32,0:20:19,aca,cstriatus,na,15,,gra.det,11,kate,0:20:28
+lhouse,2,2,50,24,18 to 21,33,0:20:20,aca,anigricans,na,10,,gra.det,43,kate,0:21:00
+lhouse,2,2,50,24,24 to 27,34,0:24:25,aca,cstriatus,na,15,,gra.det,6,kate,0:24:35
+lhouse,2,2,50,24,24 to 27,35,0:24:48,sca,csordidus,IP,20,,scra.sma.exc,2,kate,0:24:53
+lhouse,2,2,50,24,24 to 27,36,0:26:13,sca,csordidus,IP,20,,scra.sma.exc,4,kate,0:26:19
+lhouse,2,2,50,24,24 to 27,37,0:26:19,aca,anigricans,na,10,,gra.det,11,kate,0:26:28
+lhouse,2,2,50,24,24 to 27,38,0:26:26,aca,cstriatus,na,15,,gra.det,21,kate,0:26:40
+lhouse,2,2,50,24,24 to 27,39,0:26:30,aca,anigricans,na,10,,gra.det,32,kate,0:26:49
+lhouse,2,2,50,24,24 to 27,40,0:26:30,sca,csordidus,IP,20,,scra.sma.exc,11,kate,0:26:42
+lhouse,2,2,50,24,24 to 27,41,0:26:42,aca,cstriatus,na,15,,gra.det,3,kate,0:26:47
+lhouse,2,2,50,24,30 to 33,42,0:30:00,aca,cstriatus,na,15,,gra.det,14,kate,0:30:12
+lhouse,2,2,50,24,30 to 33,43,0:30:01,aca,anigricans,na,10,,gra.det,3,kate,0:30:06
+lhouse,2,2,50,24,30 to 33,44,0:30:42,aca,anigricans,na,10,,gra.det,40,kate,0:31:06
+lhouse,2,2,50,24,30 to 33,45,0:30:51,aca,cstriatus,na,15,,gra.det,17,kate,0:31:06
+lhouse,2,2,50,24,30 to 33,46,0:31:29,aca,cstriatus,na,15,,gra.det,27,kate,0:32:04
+lhouse,2,2,50,24,30 to 33,47,0:31:46,aca,nlituratus,na,25,,browser,1,kate,0:31:55
+lhouse,2,2,50,24,30 to 33,48,0:32:33,aca,anigricans,na,10,,gra.det,10,kate,0:32:46
+lhouse,2,2,50,24,30 to 33,49,0:32:48,aca,anigricans,na,10,,gra.det,19,kate,0:33:00
+lhouse,3,1,52,24,14 to 17,no fish,no fish,no fish,no fish,no fish,no fish,no fish,no fish,0,Teb,not recorded
+lhouse,3,1,52,24,20 to 23,1,0:21:33,aca,cstriatus,na,9,,gra.det,2,Teb,not recorded
+lhouse,3,1,52,24,20 to 23,2,0:21:46,aca,zscopas,na,10,,gra.det,2,Teb,not recorded
+lhouse,3,1,52,24,20 to 23,3,0:21:55,aca,cstriatus,na,10,,gra.det,11,Teb,not recorded
+lhouse,3,1,52,24,20 to 23,4,0:22:18,sca,csordidus,IP,12,,scra.sma.exc,3,Teb,not recorded
+lhouse,3,1,52,24,26 to 29,5,0:26:16,aca,cstriatus,na,10,,gra.det,4,Teb,not recorded
+lhouse,3,1,52,24,26 to 29,6,0:26:18,aca,zscopas,na,9,,gra.det,5,Teb,not recorded
+lhouse,3,1,52,24,26 to 29,7,0:26:22,aca,cstriatus,na,12,,gra.det,9,Teb,not recorded
+lhouse,3,1,52,24,26 to 29,8,0:26:27,aca,cstriatus,na,6,,gra.det,3,Teb,not recorded
+lhouse,3,1,52,24,26 to 29,9,0:26:30,aca,cstriatus,na,9,,gra.det,2,Teb,not recorded
+lhouse,3,1,52,24,26 to 29,10,0:26:50,aca,zscopas,na,10,,gra.det,10,Teb,not recorded
+lhouse,3,1,52,24,32 to 35 ,no fish,no fish,no fish,no fish,no fish,no fish,no fish,no fish,0,Teb,not recorded
+lhouse,3,1,52,24,38 to 41,11,0:38:53,sca,schameleon,IP,15,,scra.sma.exc,7,Teb,not recorded
+lhouse,3,1,52,24,38 to 41,12,0:39:36,sca,csordidus,TP,13,,scra.sma.exc,2,Teb,not recorded
+lhouse,3,1,52,24,38 to 41,13,0:39:55,aca,cstriatus,na,8,,gra.det,9,Teb,not recorded
+lhouse,3,2,52,24,0 to 3,no fish,no fish,no fish,no fish,no fish,no fish,no fish,no fish,0,Sonia,not recorded
+lhouse,3,2,52,24,6 to 9,14,0:07:04,aca,zscopas,na,10,,gra.det,1,Sonia,not recorded
+lhouse,3,2,52,24,6 to 9,15,0:07:19,aca,cstriatus,na,10,,gra.det,4,Sonia,not recorded
+lhouse,3,2,52,24,12 to 15,16,0:12:58,sca,csordidus,ip,13,,scra.sma.exc,3,Sonia,not recorded
+lhouse,3,2,52,24,12 to 15,17,0:13:39,aca,cstriatus,na,12,,gra.det,6,Sonia,not recorded
+lhouse,4,1,92,24,29 to 32,1,0:29:00,sig,scorallinus,na,10,,gra.det,14,Rob,not recorded
+lhouse,4,1,92,24,29 to 32,2,0:29:01,aca,cstriatus,na,9,,gra.det,5,Rob,not recorded
+lhouse,4,1,92,24,29 to 32,3,0:29:30,aca,zscopas,na,9,,gra.det,55,Rob,not recorded
+lhouse,4,1,92,24,29 to 32,4,0:29:37,aca,cstriatus,na,14,,gra.det,48,Rob,not recorded
+lhouse,4,1,92,24,29 to 32,5,0:30:48,sig,scorallinus,na,10,,gra.det,9,Rob,not recorded
+lhouse,4,1,92,24,35 to 38,6,0:35:00,aca,cstriatus,na,10,,gra.det,10,Rob,not recorded
+lhouse,4,1,92,24,35 to 38,7,0:35:00,aca,cstriatus,na,9,,gra.det,11,Rob,not recorded
+lhouse,4,1,92,24,35 to 38,8,0:35:00,aca,zscopas,na,8,,gra.det,6,Rob,not recorded
+lhouse,4,1,92,24,35 to 38,9,0:35:00,aca,zscopas,na,8,,gra.det,152,Rob,not recorded
+lhouse,4,1,92,24,35 to 38,10,0:35:08,aca,zscopas,na,8,,gra.det,4,Rob,not recorded
+lhouse,4,1,92,24,35 to 38,11,0:35:29,aca,cstriatus,na,10,,gra.det,54,Rob,not recorded
+lhouse,4,1,92,24,35 to 38,12,0:35:32,sca,csordidus,ip,9,,scra.sma.exc,4,Rob,not recorded
+lhouse,4,1,92,24,35 to 38,13,0:35:33,sca,csordidus,ip,10,,scra.sma.exc,12,Rob,not recorded
+lhouse,4,1,92,24,35 to 38,14,0:35:43,aca,cstriatus,na,11,,gra.det,11,Rob,not recorded
+lhouse,4,1,92,24,35 to 38,15,0:36:17,sca,sniger,tp,15,,scra.sma.exc,12,Rob,not recorded
+lhouse,4,1,92,24,35 to 38,16,0:36:25,aca,cstriatus,na,12,,gra.det,15,Rob,not recorded
+lhouse,4,1,92,24,35 to 38,17,0:36:33,aca,cstriatus,na,10,,gra.det,2,Rob,not recorded
+lhouse,4,1,92,24,35 to 38,18,0:36:38,aca,cstriatus,na,10,,gra.det,18,Rob,not recorded
+lhouse,4,1,92,24,35 to 38,19,0:36:43,sig,svulpinus,na,15,,gra.det,9,Rob,not recorded
+lhouse,4,1,92,24,35 to 38,20,0:36:55,aca,cstriatus,na,10,,gra.det,7,Rob,not recorded
+lhouse,4,1,92,24,35 to 38,21,0:37:36,aca,cstriatus,na,10,,gra.det,28,Rob,not recorded
+lhouse,4,2,92,24,0 to 3,22,0:42:00,sca,csordidus,ip,8,,scra.sma.exc,8,Rob,not recorded
+lhouse,4,2,92,24,0 to 3,23,0:48:00,aca,zscopas,na,8,,gra.det,5,Rob,not recorded
+lhouse,4,2,92,24,0 to 3,24,0:01:11,aca,cstriatus,na,10,,gra.det,10,Rob,not recorded
+lhouse,4,2,92,24,0 to 3,25,0:01:12,aca,cstriatus,na,11,,gra.det,12,Rob,not recorded
+lhouse,4,2,92,24,0 to 3,26,0:01:37,aca,cstriatus,na,11,,gra.det,1,Rob,not recorded
+lhouse,4,2,92,24,0 to 3,27,0:01:39,aca,zscopas,na,8,,gra.det,2,Rob,not recorded
+lhouse,4,2,92,24,0 to 3,28,0:01:58,aca,cstriatus,na,10,,gra.det,30,Rob,not recorded
+lhouse,4,2,92,24,6 to 9,29,0:06:00,aca,cstriatus,na,9,,gra.det,16,Rob,not recorded
+lhouse,4,2,92,24,6 to 9,30,0:06:00,aca,zscopas,na,8,,gra.det,24,Rob,not recorded
+lhouse,4,2,92,24,6 to 9,31,0:06:00,aca,cstriatus,na,10,,gra.det,44,Rob,not recorded
+lhouse,4,2,92,24,6 to 9,32,0:06:04,aca,cstriatus,na,9,,gra.det,40,Rob,not recorded
+lhouse,4,2,92,24,6 to 9,33,0:06:27,sca,cbleekeri,ip,8,,scra.sma.exc,32,Rob,not recorded
+lhouse,4,2,92,24,6 to 9,34,0:06:27,sca,csordidus,ip,13,,scra.sma.exc,11,Rob,not recorded
+lhouse,4,2,92,24,6 to 9,35,0:06:28,sca,csordidus,ip,11,,scra.sma.exc,12,Rob,not recorded
+lhouse,4,2,92,24,6 to 9,36,0:06:45,aca,zscopas,na,8,,gra.det,4,Rob,not recorded
+lhouse,4,2,92,24,6 to 9,37,0:06:50,aca,cstriatus,na,10,,gra.det,2,Rob,not recorded
+lhouse,4,2,92,24,6 to 9,38,0:06:53,sca,csordidus,ip,12,,scra.sma.exc,4,Rob,not recorded
+lhouse,4,2,92,24,6 to 9,39,0:08:11,aca,cstriatus,na,9,,gra.det,6,Rob,not recorded
+lhouse,4,2,92,24,6 to 9,40,0:08:50,aca,zscopas,na,9,,gra.det,5,Rob,not recorded
+lhouse,4,2,92,24,12 to 15,41,0:12:00,aca,zscopas,na,8,,gra.det,4,Rob,not recorded
+lhouse,4,2,92,24,12 to 15,42,0:12:32,aca,zscopas,na,7,,gra.det,12,Rob,not recorded
+lhouse,4,2,92,24,12 to 15,43,0:13:10,aca,cstriatus,na,11,,gra.det,2,Rob,not recorded
+lhouse,4,2,92,24,12 to 15,44,0:13:28,aca,cstriatus,na,11,,gra.det,27,Rob,not recorded
+lhouse,4,2,92,24,12 to 15,45,0:13:29,sca,csordidus,ip,9,,scra.sma.exc,5,Rob,not recorded
+lhouse,4,2,92,24,12 to 15,46,0:13:32,aca,cstriatus,na,10,,gra.det,4,Rob,not recorded
+lhouse,4,2,92,24,12 to 15,47,0:13:35,aca,zscopas,na,9,,gra.det,43,Rob,not recorded
+lhouse,4,2,92,24,18 to 21,48,0:18:22,aca,zscopas,na,8,,gra.det,4,Rob,not recorded
+lhouse,4,2,92,24,18 to 21,49,0:18:50,sca,csordidus,ip,7,,scra.sma.exc,1,Rob,not recorded
+lhouse,4,2,92,24,18 to 21,50,0:19:47,aca,zscopas,na,8,,gra.det,5,Rob,not recorded
+lhouse,4,2,92,24,18 to 21,51,0:20:11,sca,csordidus,ip,8,,scra.sma.exc,8,Rob,not recorded
+lhouse,4,2,92,24,18 to 21,52,0:20:20,aca,cstriatus,na,9,,gra.det,8,Rob,not recorded
+lhouse,4,2,92,24,24 to 27,53,0:24:00,sca,cbleekeri,tp,20,,scra.sma.exc,11,Rob,not recorded
+lhouse,4,2,92,24,24 to 27,54,0:24:02,aca,zscopas,na,9,,gra.det,19,Rob,not recorded
+lhouse,4,2,92,24,24 to 27,55,0:24:20,aca,cstriatus,na,11,,gra.det,18,Rob,not recorded
+lhouse,4,2,92,24,24 to 27,56,0:24:40,aca,cstriatus,na,12,,gra.det,15,Rob,not recorded
+lhouse,4,2,92,24,24 to 27,57,0:25:47,aca,cstriatus,na,10,,gra.det,3,Rob,not recorded
+lhouse,4,2,92,24,24 to 27,58,0:26:39,sca,sniger,ip,9,,scra.sma.exc,15,Rob,not recorded
+lhouse,4,2,92,24,24 to 27,59,0:26:40,sca,csordidus,ip,12,,scra.sma.exc,1,Rob,not recorded
+lhouse,4,2,92,24,24 to 27,60,0:26:41,sca,cbleekeri,ip,10,,scra.sma.exc,15,Rob,not recorded
+lhouse,4,2,92,24,24 to 27,61,0:26:41,sca,csordidus,ip,12,,scra.sma.exc,13,Rob,not recorded
+lhouse,4,2,92,24,24 to 27,62,0:26:48,sca,csordidus,ip,9,,scra.sma.exc,5,Rob,not recorded
+lhouse,4,2,92,24,30 to 33,63,0:30:00,sca,csordidus,ip,9,,scra.sma.exc,6,Rob,not recorded
+lhouse,4,2,92,24,30 to 33,64,0:32:07,aca,zscopas,na,7,,gra.det,57,Rob,not recorded
+lhouse,4,2,92,24,30 to 33,65,0:32:50,aca,zscopas,na,9,,gra.det,11,Rob,not recorded
+lhouse,4,2,92,24,30 to 33,66,0:32:53,aca,nlituratus,na,20,,browser,3,Rob,not recorded
+lhouse,5,1,50,24,27 to 30,no fish,no fish,no fish,no fish,no fish,no fish,no fish,no fish,0,kate,0:00:00
+lhouse,5,1,50,24,33 to 36,1,0:33:34,aca,cstriatus,na,12,,gra.det,34,kate,0:34:18
+lhouse,5,1,50,24,33 to 36,2,0:33:49,aca,zscopas,na,12,,gra.det,66,kate,0:35:30
+lhouse,5,1,50,24,33 to 36,3,0:33:59,sca,schameleon,IP,30,,scra.sma.exc,5,kate,0:34:11
+lhouse,5,1,50,24,33 to 36,4,0:34:28,aca,cstriatus,na,15,,gra.det,31,kate,0:34:52
+lhouse,5,1,50,24,33 to 36,5,0:34:41,sca,csordidus,TP,30,,scra.sma.exc,4,kate,0:34:48
+lhouse,5,1,50,24,39 to 42,no fish,no fish,no fish,no fish,no fish,no fish,no fish,no fish,0,kate,0:00:00
+lhouse,5,2,50,24,3 to 6,6,0:04:07,aca,cstriatus,na,15,,gra.det,4,kate,0:04:17
+lhouse,5,2,50,24,9 to 12,7,0:10:25,aca,cstriatus,na,15,,gra.det,6,kate,0:10:37
+lhouse,5,2,50,24,9 to 12,8,0:10:35,sca,csordidus,IP,20,,scra.sma.exc,7,kate,0:10:57
+lhouse,5,2,50,24,9 to 12,9,0:10:42,aca,cstriatus,na,15,,gra.det,33,kate,0:11:11
+lhouse,5,2,50,24,9 to 12,10,0:11:00,sca,csordidus,IP,20,,scra.sma.exc,7,kate,0:11:13
+lhouse,5,2,50,24,15 to 18,11,0:17:38,sca,schameleon,IP,20,,scra.sma.exc,12,kate,0:18:00
+lhouse,5,2,50,24,21 to 24,no fish,no fish,no fish,no fish,no fish,no fish,no fish,no fish,0,kate,0:00:00
+lhouse,5,2,50,24,27 to 30,no fish,no fish,no fish,no fish,no fish,no fish,no fish,no fish,0,kate,0:00:00
+lhouse,6,1,50,24,24 to 27,1,0:24:55,sca,csordidus,IP,12,,scra.sma.exc,7,kate,0:25:07
+lhouse,6,1,50,24,24 to 27,2,0:24:57,sca,csordidus,IP,15,,scra.sma.exc,15,kate,0:25:18
+lhouse,6,1,50,24,30 to 33,3,0:30:19,aca,zscopas,na,12,,gra.det,41,kate,0:31:03
+lhouse,6,1,50,24,30 to 33,4,0:30:27,sca,csordidus,IP,20,,scra.sma.exc,16,kate,0:30:53
+lhouse,6,1,50,24,30 to 33,5,0:31:19,aca,zscopas,na,12,,gra.det,8,kate,0:31:31
+lhouse,6,1,50,24,30 to 33,6,0:32:35,aca,cstriatus,na,15,,gra.det,18,kate,0:32:46
+lhouse,6,1,50,24,36 to 39,7,0:37:01,aca,cstriatus,na,15,,gra.det,30,kate,0:37:29
+lhouse,6,1,50,24,36 to 39,8,0:37:18,aca,zscopas,na,12,,gra.det,63,kate,0:38:26
+lhouse,6,2,50,24,0 to 3,9,0:01:51,aca,cstriatus,na,15,,gra.det,3,kate,0:01:56
+lhouse,6,2,50,24,0 to 3,10,0:02:32,aca,cstriatus,na,15,,gra.det,13,kate,0:02:44
+lhouse,6,2,50,24,0 to 3,11,0:02:36,aca,anigricans,na,10,,gra.det,10,kate,0:02:48
+lhouse,6,2,50,24,6 to 9,12,0:06:09,aca,cstriatus,na,15,,gra.det,33,kate,0:06:29
+lhouse,6,2,50,24,6 to 9,13,0:06:10,sca,csordidus,IP,15,,scra.sma.exc,2,kate,0:06:12
+lhouse,6,2,50,24,6 to 9,14,0:06:10,sca,csordidus,IP,20,,scra.sma.exc,1,kate,0:06:14
+lhouse,6,2,50,24,6 to 9,15,0:06:14,sca,csordidus,TP,30,,scra.sma.exc,9,kate,0:06:32
+lhouse,6,2,50,24,6 to 9,16,0:07:48,aca,zscopas,na,10,,gra.det,44,kate,0:08:24
+lhouse,6,2,50,24,6 to 9,17,0:08:02,sca,csordidus,IP,15,,scra.sma.exc,16,kate,0:08:17
+lhouse,6,2,50,24,6 to 9,18,8:19:00,sig,spuellus,na,20,,gra.det,1,kate,0:08:22
+lhouse,6,2,50,24,6 to 9,19,0:08:20,sca,csordidus,IP,20,,scra.sma.exc,5,kate,0:08:30
+lhouse,6,2,50,24,12 to 15,no fish,no fish,no fish,no fish,no fish,no fish,no fish,no fish,0,kate,0:00:00
+lhouse,6,2,50,24,18 to 21,20,0:18:16,aca,cstriatus,na,15,,gra.det,13,kate,0:18:27
+lhouse,6,2,50,24,18 to 21,21,0:18:41,aca,zscopas,na,10,,gra.det,8,kate,0:18:53
+lhouse,6,2,50,24,18 to 21,22,0:19:00,aca,cstriatus,na,15,,gra.det,18,kate,0:19:12
+lhouse,6,2,50,24,18 to 21,23,0:20:02,aca,anigricans,na,10,,gra.det,22,kate,0:20:36
+lhouse,6,2,50,24,18 to 21,24,0:20:14,aca,cstriatus,na,15,,gra.det,14,kate,0:20:28
+lhouse,6,2,50,24,18 to 21,25,0:20:15,aca,zscopas,na,10,,gra.det,13,kate,0:20:29
+lhouse,6,2,50,24,24 to 27,no fish,no fish,no fish,no fish,no fish,no fish,no fish,no fish,0,kate,0:00:00
+luk,1,2,60,24,4 to 7,no fish,no fish,no fish,no fish,no fish,no fish,no fish,no fish,0,Sonia,not recorded
+luk,1,2,60,24,10 to 13,no fish,no fish,no fish,no fish,no fish,no fish,no fish,no fish,0,Sonia,not recorded
+luk,1,2,60,24,16 to 19,no fish,no fish,no fish,no fish,no fish,no fish,no fish,no fish,0,Sonia,not recorded
+luk,1,2,60,24,22 to 25,1,0:24:10,aca,zscopas,na,12,,gra.det,13,Sonia,not recorded
+luk,1,2,60,24,28 to 31,no fish,no fish,no fish,no fish,no fish,no fish,no fish,no fish,0,0,not recorded
+luk,1,2,60,24,34 to 37,2,0:34:00,aca,zveliferum,na,14,,gra.det,86,Sonia,not recorded
+luk,1,2,60,24,34 to 37,3,0:34:11,aca,cstriatus,na,10,,gra.det,30,Sonia,not recorded
+luk,1,2,60,24,34 to 37,4,0:34:19,sca,sniger,tp,22,,scra.sma.exc,4,Sonia,not recorded
+luk,1,2,60,24,34 to 37,5,0:34:23,aca,zscopas,na,12,,gra.det,16,Sonia,not recorded
+luk,1,2,60,24,34 to 37,6,0:34:38,sca,schameleon,ip,15,,scra.sma.exc,11,Sonia,not recorded
+luk,1,2,60,24,34 to 37,7,0:35:39,sig,svulpinus,na,15,,gra.det,14,Sonia,not recorded
+luk,1,2,60,24,34 to 37,8,0:35:39,sig,svulpinus,na,15,,gra.det,9,Sonia,not recorded
+luk,1,2,60,24,34 to 37,9,0:35:39,sig,scorallinus,na,15,,gra.det,13,Sonia,not recorded
+luk,1,2,60,24,34 to 37,10,0:36:00,sca,sspinus,ip,11,,scra.sma.exc,52,Sonia,not recorded
+luk,1,2,60,24,34 to 37,11,0:36:00,sca,csordidus,ip,13,,scra.sma.exc,2,Sonia,not recorded
+luk,1,2,60,24,34 to 37,12,0:36:17,sca,schameleon,ip,16,,scra.sma.exc,2,Sonia,not recorded
+luk,1,2,60,24,40 to 43,no fish,no fish,no fish,no fish,no fish,no fish,no fish,no fish,0,Sonia,not recorded
+luk,1,3,60,24,3 to 6,13,0:03:13,aca,cstriatus,na,12,,gra.det,6,Sonia,not recorded
+luk,2,2,45,24,0 to 3,no fish,no fish,no fish,no fish,no fish,no fish,no fish,no fish,0,kate,0:00:00
+luk,2,2,45,24,6 to 9,no fish,no fish,no fish,no fish,no fish,no fish,no fish,no fish,0,kate,0:00:00
+luk,2,2,45,24,12 to 15,no fish,no fish,no fish,no fish,no fish,no fish,no fish,no fish,0,kate,0:00:00
+luk,2,2,45,24,18 to 21,no fish,no fish,no fish,no fish,no fish,no fish,no fish,no fish,0,kate,0:00:00
+luk,2,2,45,24,24 to 27,no fish,no fish,no fish,no fish,no fish,no fish,no fish,no fish,0,kate,0:00:00
+luk,2,2,45,24,30 to 33,no fish,no fish,no fish,no fish,no fish,no fish,no fish,no fish,0,kate,0:00:00
+luk,2,2,45,24,36 to 39,no fish,no fish,no fish,no fish,no fish,no fish,no fish,no fish,0,kate,0:00:00
+luk,2,3,45,24,0 to 3,no fish,no fish,no fish,no fish,no fish,no fish,no fish,no fish,0,kate,0:00:00
+luk,3,2,89,24,3 to 6,1,0:04:31,aca,cstriatus,na,15,,gra.det,46,kate,0:05:18
+luk,3,2,89,24,9 to 12,2,0:11:50,sca,soviceps,TP,35,,scra.sma.exc,8,kate,0:11:58
+luk,3,2,89,24,15 to 18,no fish,no fish,no fish,no fish,no fish,no fish,no fish,no fish,0,kate,0:00:00
+luk,3,2,89,24,21 to 24,no fish,no fish,no fish,no fish,no fish,no fish,no fish,no fish,0,kate,0:00:00
+luk,3,2,89,24,27 to 30,no fish,no fish,no fish,no fish,no fish,no fish,no fish,no fish,0,kate,0:00:00
+luk,3,2,89,24,33 to 36,no fish,no fish,no fish,no fish,no fish,no fish,no fish,no fish,0,kate,0:00:00
+luk,3,2,89,24,39 to 42,no fish,no fish,no fish,no fish,no fish,no fish,no fish,no fish,0,kate,0:00:00
+luk,3,3,89,24,0 to 3,3,0:26:00,sca,cmicrorhinos,TP,40,35,lexc.bio,36,kate,0:01:38
+luk,3,3,89,24,0 to 3,4,0:43:00,sca,cmicrorhinos,TP,40,35,lexc.bio,12,kate,0:01:33
+luk,3,3,89,24,0 to 3,5,0:01:45,sca,cmicrorhinos,TP,40,35,lexc.bio,3,kate,0:01:52
+luk,3,3,89,24,0 to 3,6,0:02:04,sca,cmicrorhinos,TP,40,35,lexc.bio,15,kate,0:02:42
+luk,3,3,89,24,0 to 3,7,0:02:33,sca,cmicrorhinos,TP,40,35,lexc.bio,12,kate,0:02:55
+luk,4,1,87,24,34 to 37,1,0:34:03,aca,cstriatus,na,8,,gra.det,6,Sonia,not recorded
+luk,4,1,87,24,34 to 37,2,0:34:51,aca,cstriatus,na,8,,gra.det,3,Sonia,not recorded
+luk,4,1,87,24,40 to 43,3,0:40:00,aca,cstriatus,na,8,,gra.det,22,Sonia,not recorded
+luk,4,1,87,24,40 to 43,4,0:42:29,sca,sniger,IP,9,,scra.sma.exc,9,Sonia,not recorded
+luk,4,2,87,24,3 to 6,no fish,no fish,no fish,no fish,no fish,no fish,no fish,no fish,no fish,Sonia,no fish
+luk,4,2,87,24,9 to 12,5,0:09:26,aca,cstriatus,na,8,,gra.det,18,Sonia,not recorded
+luk,4,2,87,24,9 to 12,6,0:09:56,aca,cstriatus,na,8,,gra.det,13,Sonia,not recorded
+luk,4,2,87,24,9 to 12,7,0:10:23,aca,cstriatus,na,8,,gra.det,67,Sonia,not recorded
+luk,4,2,87,24,15 to 18,8,0:16:44,aca,cstriatus,na,12,,gra.det,9,Sonia,not recorded
+luk,4,2,87,24,15 to 18,9,0:17:11,aca,cstriatus,na,8,,gra.det,6,Sonia,not recorded
+luk,4,2,87,24,21 to 24,10,0:21:00,aca,cstriatus,na,8,,gra.det,3,Sonia,not recorded
+luk,4,2,87,24,21 to 24,11,0:22:07,aca,cstriatus,na,12,,gra.det,5,Sonia,not recorded
+luk,4,2,87,24,21 to 24,12,0:23:10,aca,cstriatus,na,8,,gra.det,2,Sonia,not recorded
+luk,4,2,87,24,21 to 24,13,0:23:11,aca,cstriatus,na,12,,gra.det,9,Sonia,not recorded
+luk,4,2,87,24,21 to 24,14,0:23:39,aca,cstriatus,na,11,,gra.det,10,Sonia,not recorded
+luk,4,2,87,24,27 to 30,15,0:27:00,aca,zscopas,na,7,,gra.det,29,Sonia,not recorded
+luk,4,2,87,24,27 to 30,16,0:27:00,sca,sniger,IP,10,,scra.sma.exc,14,Sonia,not recorded
+luk,4,2,87,24,27 to 30,17,0:27:11,sca,csordidus,IP,12,,scra.sma.exc,37,Sonia,not recorded
+luk,4,2,87,24,27 to 30,18,0:27:19,sca,sniger,IP,12,,scra.sma.exc,39,Sonia,not recorded
+luk,4,2,87,24,27 to 30,19,0:27:23,sca,csordidus,IP,13,,scra.sma.exc,8,Sonia,not recorded
+luk,4,2,87,24,27 to 30,20,0:28:30,aca,cstriatus,na,13,,gra.det,14,Sonia,not recorded
+luk,4,2,87,24,27 to 30,21,0:28:55,aca,cstriatus,na,13,,gra.det,33,Sonia,not recorded
+luk,4,2,87,24,33 to 36,22,0:34:09,aca,cstriatus,na,13,,gra.det,33,Sonia,not recorded
+luk,5,1,60,24,11 to 14,1,0:11:00,aca,apyroferus,na,12,,gra.det,2,Teb,not recorded
+luk,5,1,60,24,11 to 14,2,0:11:00,aca,cstriatus,na,12,,gra.det,3,Teb,not recorded
+luk,5,1,60,24,11 to 14,3,0:11:00,aca,zscopas,na,8,,gra.det,2,Teb,not recorded
+luk,5,1,60,24,11 to 14,4,0:11:10,aca,cstriatus,na,9,,gra.det,26,Teb,not recorded
+luk,5,1,60,24,11 to 14,5,0:11:10,aca,cstriatus,na,10,,gra.det,2,Teb,not recorded
+luk,5,1,60,24,11 to 14,6,0:11:25,aca,cstriatus,na,7,,gra.det,37,Teb,not recorded
+luk,5,1,60,24,11 to 14,7,0:11:27,aca,zscopas,na,14,,gra.det,4,Teb,not recorded
+luk,5,1,60,24,11 to 14,8,0:11:33,aca,cstriatus,na,8,,gra.det,1,Teb,not recorded
+luk,5,1,60,24,11 to 14,9,0:12:26,aca,cstriatus,na,12,,gra.det,6,Teb,not recorded
+luk,5,1,60,24,11 to 14,10,0:12:32,sca,csordidus,ip,13,,scra.sma.exc,3,Teb,not recorded
+luk,5,1,60,24,11 to 14,11,0:12:34,sca,csordidus,tp,15,,scra.sma.exc,7,Teb,not recorded
+luk,5,1,60,24,23 to 26,12,0:24:27,aca,apyroferus,na,14,,gra.det,11,Teb,not recorded
+luk,5,1,60,24,29 to 32,13,0:29:00,aca,cstriatus,na,10,,gra.det,15,Teb,not recorded
+luk,5,1,60,24,29 to 32,14,0:29:04,sca,csordidus,ip,14,,scra.sma.exc,6,Teb,not recorded
+luk,5,1,60,24,29 to 32,15,0:29:04,sca,sniger,tp,15,,scra.sma.exc,20,Teb,not recorded
+luk,5,1,60,24,29 to 32,16,0:29:06,aca,zscopas,na,10,,gra.det,2,Teb,not recorded
+luk,5,1,60,24,29 to 32,17,0:29:24,sca,csordidus,tp,16,,scra.sma.exc,2,Teb,not recorded
+luk,5,1,60,24,29 to 32,18,0:29:29,aca,cstriatus,na,7,,gra.det,43,Teb,not recorded
+luk,5,1,60,24,29 to 32,19,0:29:51,sca,sniger,tp,27,,scra.sma.exc,19,Sonia,00:30:19
+luk,5,1,60,24,29 to 32,20,0:29:52,sca,csordidus,IP,14,,scra.sma.exc,33,Sonia,00:30:28
+luk,5,1,60,24,29 to 32,21,0:29:58,sca,csordidus,IP,14,,scra.sma.exc,12,Sonia,00:30:17
+luk,5,1,60,24,29 to 32,22,0:29:58,aca,zscopas,na,12,,gra.det,9,Sonia,00:30:20
+luk,5,1,60,24,29 to 32,23,0:30:05,aca,zscopas,na,13,,gra.det,11,Sonia,00:30:18
+luk,5,1,60,24,29 to 32,24,0:30:05,sca,csordidus,IP,15,,scra.sma.exc,1,Sonia,00:30:13
+luk,5,1,60,24,29 to 32,25,0:30:06,sca,sschlegeli,IP,14,,scra.sma.exc,22,Sonia,00:30:29
+luk,5,1,60,24,29 to 32,26,12:30:07,sca,csordidus,IP,14,,scra.sma.exc,3,Sonia,00:30:14
+luk,5,1,60,24,29 to 32,27,0:30:14,sca,csordidus,IP,24,,scra.sma.exc,15,Sonia,00:30:31
+luk,5,1,60,24,29 to 32,28,12:30:16,aca,cstriatus,na,12,,gra.det,3,Sonia,00:30:22
+luk,5,1,60,24,29 to 32,29,0:30:24,sca,sschlegeli,IP,18,,scra.sma.exc,11,Sonia,00:35:00
+luk,5,1,60,24,29 to 32,30,0:30:45,aca,cstriatus,na,12,,gra.det,5,Sonia,00:30:56
+luk,5,1,60,24,30 to 47,no fish,no fish,no fish,no fish,no fish,no fish,no fish,no fish,no fish,no fish,no fish
+luk,5,2,60,24,0 to 3,31,0:02:40,aca,cstriatus,na,12,,gra.det,1,Sonia,00:02:44
+luk,5,2,60,24,0 to 3,32,0:02:42,aca,cstriatus,na,13,,gra.det,3,Sonia,00:02:48
+luk,5,2,60,24,6 to 9,no fish,no fish,no fish,no fish,no fish,no fish,no fish,no fish,no fish,no fish,no fish
+luk,5,2,60,24,12 to 15,no fish,no fish,no fish,no fish,no fish,no fish,no fish,no fish,no fish,no fish,no fish
+luk,5,2,60,24,18 to 21,no fish,no fish,no fish,no fish,no fish,no fish,no fish,no fish,no fish,no fish,no fish
+ngk.n,1,2,57,24,22 to 25,1,0:22:00,aca,nlituratus,na,20,,browser,10,Sonia,not recorded
+ngk.n,1,2,57,24,22 to 25,2,0:22:13,aca,zscopas,na,8,,gra.det,1,Sonia,not recorded
+ngk.n,1,2,57,24,22 to 25,3,0:24:35,aca,nlituratus,na,20,,browser,15,Sonia,not recorded
+ngk.n,1,2,57,24,28 to 31,4,0:29:24,sca,sschlegeli,ip,23,,scra.sma.exc,1,Sonia,not recorded
+ngk.n,1,2,57,24,28 to 31,5,0:30:05,aca,cstriatus,na,14,,gra.det,2,Sonia,not recorded
+ngk.n,1,2,57,24,34 to 37,6,0:34:11,aca,nlituratus,na,17,,browser,8,Sonia,not recorded
+ngk.n,1,2,57,24,34 to 37,7,0:35:15,aca,cstriatus,na,14,,gra.det,9,Sonia,not recorded
+ngk.n,1,2,57,24,40 to 43,8,0:40:56,sca,sschlegeli,ip,23,,scra.sma.exc,1,Sonia,not recorded
+ngk.n,1,2,57,24,40 to 43,9,0:41:36,aca,nlituratus,na,20,,browser,9,Sonia,not recorded
+ngk.n,1,2,57,24,40 to 43,10,0:42:39,aca,nlituratus,na,20,,browser,12,Sonia,not recorded
+ngk.n,1,2,57,24,40 to 43,11,0:42:43,sca,csordidus,ip,12,,scra.sma.exc,5,Sonia,not recorded
+ngk.n,1,3,57,24,3 to 6,12,0:03:16,aca,cstriatus,na,13,,gra.det,6,Sonia,not recorded
+ngk.n,1,3,57,24,9 to 12,13,0:09:31,aca,cstriatus,na,11,,gra.det,4,Sonia,not recorded
+ngk.n,1,3,57,24,9 to 12,14,0:09:49,aca,cstriatus,na,11,,gra.det,23,Sonia,not recorded
+ngk.n,1,3,57,24,15 to 18,15,0:17:33,aca,cstriatus,na,11,,gra.det,21,Sonia,not recorded
+ngk.n,1,3,57,24,21 to 24,16,0:21:00,aca,nlituratus,na,20,,browser,36,Sonia,not recorded
+ngk.n,1,3,57,24,21 to 24,17,0:21:47,aca,cstriatus,na,12,,gra.det,5,Sonia,not recorded
+ngk.n,1,3,57,24,21 to 24,18,0:22:35,aca,cstriatus,na,12,,gra.det,16,Sonia,not recorded
+ngk.n,1,3,57,24,21 to 24,19,0:22:37,aca,cstriatus,na,11,,gra.det,16,Sonia,not recorded
+ngk.n,1,3,57,24,21 to 24,20,0:23:19,aca,cstriatus,na,12,,gra.det,11,Sonia,not recorded
+ngk.n,2,2,92,24,17 to 20,1,0:17:39,aca,cstriatus,na,12,,gra.det,23,kate,0:02:05
+ngk.n,2,2,92,24,23 to 26,2,0:23:49,sca,sdimidiatus,IP,20,,scra.sma.exc,5,kate,0:23:55
+ngk.n,2,2,92,24,23 to 26,3,0:23:49,sca,csordidus,IP,15,,scra.sma.exc,6,kate,0:24:05
+ngk.n,2,2,92,24,23 to 26,4,0:24:22,sca,csordidus,IP,15,,scra.sma.exc,21,kate,0:24:47
+ngk.n,2,2,92,24,29 to 32,no fish,no fish,no fish,no fish,no fish,no fish,no fish,no fish,0,kate,0:00:00
+ngk.n,2,2,92,24,35 to 38,no fish,no fish,no fish,no fish,no fish,no fish,no fish,no fish,0,kate,0:00:00
+ngk.n,2,3,92,24,0 to 3,no fish,no fish,no fish,no fish,no fish,no fish,no fish,no fish,0,kate,0:00:00
+ngk.n,2,3,92,24,6 to 9,no fish,no fish,no fish,no fish,no fish,no fish,no fish,no fish,0,kate,0:00:00
+ngk.n,2,3,92,24,12 to 15,no fish,no fish,no fish,no fish,no fish,no fish,no fish,no fish,0,kate,0:00:00
+ngk.n,2,3,92,24,18 to 21,no fish,no fish,no fish,no fish,no fish,no fish,no fish,no fish,0,kate,0:00:00
+ngk.n,3,2,94,24,14 to 17,no fish,no fish,no fish,no fish,no fish,no fish,no fish,no fish,0,kate,0:00:00
+ngk.n,3,2,94,24,20 to 23,1,0:21:34,aca,cstriatus,na,15,,gra.det,8,kate,0:21:46
+ngk.n,3,2,94,24,26 to 29,no fish,no fish,no fish,no fish,no fish,no fish,no fish,no fish,0,kate,0:00:00
+ngk.n,3,2,94,24,32 to 35,2,0:32:08,aca,cstriatus,na,12,,gra.det,15,kate,0:32:25
+ngk.n,3,2,94,24,38 to 41,no fish,no fish,no fish,no fish,no fish,no fish,no fish,no fish,0,kate,0:00:00
+ngk.n,3,3,94,24,3 to 6,3,0:04:31,sca,squoyi,TP,35,,scra.sma.exc,25,kate,0:04:57
+ngk.n,3,3,94,24,3 to 6,4,0:05:27,aca,cstriatus,na,12,,gra.det,7,kate,0:05:38
+ngk.n,3,3,94,24,9 to 12,no fish,no fish,no fish,no fish,no fish,no fish,no fish,no fish,0,kate,0:00:00
+ngk.n,3,3,94,24,15 to 18,5,0:16:11,aca,cstriatus,na,12,,gra.det,17,kate,0:16:28
+ngk.n,3,3,94,24,15 to 18,6,0:17:17,aca,cstriatus,na,12,,gra.det,36,kate,0:17:44
+ngk.n,3,3,94,24,15 to 18,7,0:17:18,sca,sdimidiatus,IP,15,,scra.sma.exc,40,kate,0:17:48
+ngk.n,4,2,60,24,12 to 15,1,0:12:00,aca,zscopas,na,5,,gra.det,35,Rob,not recorded
+ngk.n,4,2,60,24,12 to 15,2,0:12:33,aca,cstriatus,na,11,,gra.det,8,Rob,not recorded
+ngk.n,4,2,60,24,18 to 21,3,0:18:17,sca,sniger,tp,7,,scra.sma.exc,11,Rob,not recorded
+ngk.n,4,2,60,24,18 to 21,4,0:18:32,aca,zscopas,na,5,,gra.det,10,Rob,not recorded
+ngk.n,4,2,60,24,18 to 21,5,0:19:11,aca,cstriatus,na,7,,gra.det,88,Rob,not recorded
+ngk.n,4,2,60,24,24 to 27,6,0:25:09,aca,cstriatus,na,8,,gra.det,12,Rob,not recorded
+ngk.n,4,2,60,24,30 to 33,7,0:31:29,aca,cstriatus,na,6,,gra.det,6,Rob,not recorded
+ngk.n,4,2,60,24,36 to 39,8,0:38:19,aca,cstriatus,na,6,,gra.det,17,Rob,not recorded
+ngk.n,4,2,60,24,36 to 39,9,0:38:44,aca,cstriatus,na,4,,gra.det,18,Rob,not recorded
+ngk.n,4,3,60,24,0 to 3,10,0:00:00,aca,zscopas,na,6,,gra.det,6,Rob,not recorded
+ngk.n,4,3,60,24,0 to 3,11,0:00:09,aca,zscopas,na,7,,gra.det,21,Rob,not recorded
+ngk.n,4,3,60,24,0 to 3,12,0:02:28,aca,cstriatus,na,7,,gra.det,5,Rob,not recorded
+ngk.n,4,3,60,24,6 to 9,13,0:07:34,aca,cstriatus,na,7,,gra.det,61,Rob,not recorded
+ngk.n,4,3,60,24,6 to 9,14,0:07:49,aca,zscopas,na,6,,gra.det,3,Rob,not recorded
+ngk.n,4,3,60,24,6 to 9,15,0:07:53,aca,cstriatus,na,7,,gra.det,13,Rob,not recorded
+ngk.n,4,3,60,24,12 to 15,16,0:12:00,aca,zscopas,na,6,,gra.det,92,Rob,not recorded
+ngk.n,4,3,60,24,12 to 15,17,0:12:00,aca,cstriatus,na,7,,gra.det,54,Rob,not recorded
+ngk.n,5,1,60,24,35 to 38,no fish,no fish,no fish,no fish,no fish,no fish,no fish,no fish,0,Sonia,not recorded
+ngk.n,5,2,60,24,0 to 3,1,0:02:04,aca,cstriatus,na,12,,gra.det,12,Sonia,not recorded
+ngk.n,5,2,60,24,6 to 9,2,0:07:53,aca,cstriatus,na,10,,gra.det,9,Sonia,not recorded
+ngk.n,5,2,60,24,12 to 15,3,0:12:01,aca,cstriatus,na,10,,gra.det,3,Sonia,not recorded
+ngk.n,5,2,60,24,18 to 21,no fish,no fish,no fish,no fish,no fish,no fish,no fish,no fish,0,Sonia,not recorded
+ngk.n,5,2,60,24,24 to 27,no fish,no fish,no fish,no fish,no fish,no fish,no fish,no fish,0,Sonia,not recorded
+ngk.n,5,2,60,24,30 to 33,4,0:31:38,aca,cstriatus,na,12,,gra.det,3,Sonia,not recorded
+ngk.n,5,2,60,24,30 to 33,5,0:32:37,aca,cstriatus,na,12,,gra.det,4,Sonia,not recorded
+ngk.n,5,2,60,24,36 to 39,no fish,no fish,no fish,no fish,no fish,no fish,no fish,no fish,0,Sonia,not recorded
+ngk.s,1,2,100,24,2 to 5,1,0:02:40,aca,cstriatus,na,15,,gra.det,21,kate,0:02:59
+ngk.s,1,2,100,24,2 to 5,2,0:02:45,aca,cstriatus,na,15,,gra.det,14,kate,0:03:01
+ngk.s,1,2,100,24,2 to 5,3,0:02:48,sca,csordidus,IP,20,,scra.sma.exc,5,kate,0:02:56
+ngk.s,1,2,100,24,2 to 5,4,0:03:02,aca,zscopas,na,10,,gra.det,17,kate,0:03:13
+ngk.s,1,2,100,24,2 to 5,5,0:03:12,aca,zscopas,na,10,,gra.det,20,kate,0:03:29
+ngk.s,1,2,100,24,2 to 5,6,0:04:40,aca,zscopas,na,10,,gra.det,18,kate,0:04:54
+ngk.s,1,2,100,24,8 to 11,7,0:08:34,sca,csordidus,IP,15,,scra.sma.exc,4,kate,0:08:44
+ngk.s,1,2,100,24,8 to 11,8,0:08:57,aca,cstriatus,na,15,,gra.det,6,kate,0:09:02
+ngk.s,1,2,100,24,8 to 11,9,0:09:05,sca,csordidus,IP,20,,scra.sma.exc,12,kate,0:09:20
+ngk.s,1,2,100,24,8 to 11,10,0:09:49,aca,cstriatus,na,15,,gra.det,11,kate,0:09:57
+ngk.s,1,2,100,24,8 to 11,11,0:09:51,aca,cstriatus,na,15,,gra.det,15,kate,0:10:08
+ngk.s,1,2,100,24,8 to 11,12,0:10:39,aca,zscopas,na,10,,gra.det,28,kate,0:11:00
+ngk.s,1,2,100,24,14 to 17,13,0:14:25,aca,zscopas,na,10,,gra.det,202,kate,0:16:52
+ngk.s,1,2,100,24,14 to 17,14,0:14:42,aca,nlituratus,na,20,,browser,10,kate,0:14:52
+ngk.s,1,2,100,24,14 to 17,15,0:14:48,sca,csordidus,IP,15,,scra.sma.exc,23,kate,0:15:22
+ngk.s,1,2,100,24,14 to 17,16,0:15:01,aca,cstriatus,na,15,,gra.det,6,kate,0:15:07
+ngk.s,1,2,100,24,14 to 17,17,0:15:08,aca,zscopas,na,10,,gra.det,112,kate,0:17:00
+ngk.s,1,2,100,24,14 to 17,18,0:15:10,aca,nlituratus,na,20,,browser,17,kate,0:15:37
+ngk.s,1,2,100,24,14 to 17,19,0:15:11,aca,cstriatus,na,15,,gra.det,66,kate,0:16:04
+ngk.s,1,2,100,24,14 to 17,20,0:15:53,aca,cstriatus,na,15,,gra.det,7,kate,0:16:01
+ngk.s,1,2,100,24,14 to 17,21,12:15:54,aca,nlituratus,na,20,,browser,11,kate,0:16:17
+ngk.s,1,2,100,24,14 to 17,22,0:16:32,sca,csordidus,IP,20,,scra.sma.exc,17,kate,0:16:53
+ngk.s,1,2,100,24,20 to 23,23,0:20:33,aca,zscopas,na,12,,gra.det,30,kate,0:21:05
+ngk.s,1,2,100,24,20 to 23,24,0:20:40,aca,zscopas,na,12,,gra.det,28,kate,0:21:11
+ngk.s,1,2,100,24,20 to 23,25,0:20:41,aca,nlituratus,na,15,,browser,6,kate,0:20:47
+ngk.s,1,2,100,24,20 to 23,26,0:20:46,aca,cstriatus,na,15,,gra.det,27,kate,0:21:08
+ngk.s,1,2,100,24,20 to 23,27,0:21:16,sca,csordidus,IP,15,,scra.sma.exc,12,kate,0:21:31
+ngk.s,1,2,100,24,20 to 23,28,0:21:16,aca,zscopas,na,12,,gra.det,89,kate,0:22:40
+ngk.s,1,2,100,24,20 to 23,29,0:21:23,aca,cstriatus,na,15,,gra.det,12,kate,0:21:34
+ngk.s,1,2,100,24,20 to 23,30,0:21:47,aca,nlituratus,na,15,,browser,15,kate,0:22:19
+ngk.s,1,2,100,24,20 to 23,31,0:22:09,aca,zscopas,na,12,,gra.det,19,kate,0:22:25
+ngk.s,1,2,100,24,20 to 23,32,0:22:27,aca,nlituratus,na,15,,browser,13,kate,0:22:54
+ngk.s,1,2,100,24,20 to 23,33,0:22:33,sca,csordidus,IP,15,,scra.sma.exc,34,kate,0:22:56
+ngk.s,1,2,100,24,26 to 29,34,0:26:27,aca,nlituratus,na,15,,browser,11,kate,0:26:41
+ngk.s,1,2,100,24,26 to 29,35,0:26:45,aca,cstriatus,na,15,,gra.det,7,kate,0:26:53
+ngk.s,1,2,100,24,26 to 29,36,0:26:48,aca,zscopas,na,12,,gra.det,10,kate,0:27:00
+ngk.s,1,2,100,24,26 to 29,37,0:26:52,aca,nlituratus,na,15,,browser,12,kate,0:27:25
+ngk.s,1,2,100,24,26 to 29,38,0:26:59,sca,csordidus,IP,10,,scra.sma.exc,29,kate,0:27:32
+ngk.s,1,2,100,24,26 to 29,39,0:27:08,aca,zscopas,na,12,,gra.det,28,kate,0:27:32
+ngk.s,1,2,100,24,26 to 29,40,0:27:09,aca,cstriatus,na,15,,gra.det,16,kate,0:27:25
+ngk.s,1,2,100,24,26 to 29,41,0:27:16,aca,cstriatus,na,15,,gra.det,16,kate,0:27:32
+ngk.s,1,2,100,24,26 to 29,42,0:27:38,sca,csordidus,IP,10,,scra.sma.exc,2,kate,0:27:45
+ngk.s,1,2,100,24,26 to 29,43,0:28:19,aca,cstriatus,na,12,,gra.det,20,kate,0:28:39
+ngk.s,1,2,100,24,32 to 35,44,0:34:41,aca,cstriatus,na,15,,gra.det,19,kate,0:35:00
+ngk.s,1,2,100,24,38 to 41,45,0:39:15,aca,cstriatus,na,15,,gra.det,28,kate,0:39:52
+ngk.s,1,2,100,24,3 to 6,46,0:04:39,aca,cstriatus,na,15,,gra.det,9,kate,0:04:47
+ngk.s,1,2,100,24,3 to 6,47,0:05:03,sca,csordidus,IP,10,,scra.sma.exc,38,kate,0:05:43
+ngk.s,2,2,98,24,0 to 3,1,0:02:14,sca,sniger,TP,20,,scra.sma.exc,7,kate,0:02:25
+ngk.s,2,2,98,24,0 to 3,2,0:02:34,aca,nlituratus,na,15,,browser,7,kate,0:02:46
+ngk.s,2,2,98,24,0 to 3,3,0:02:49,aca,cstriatus,na,15,,gra.det,11,kate,0:02:59
+ngk.s,2,2,98,24,6 to 9,4,0:06:22,sca,cbleekeri,IP,25,,scra.sma.exc,23,kate,0:06:56
+ngk.s,2,2,98,24,6 to 9,5,0:06:23,sca,csordidus,IP,20,,scra.sma.exc,1,kate,0:06:25
+ngk.s,2,2,98,24,6 to 9,6,0:07:10,sca,csordidus,IP,15,,scra.sma.exc,4,kate,0:07:19
+ngk.s,2,2,98,24,6 to 9,7,0:07:11,sca,csordidus,IP,20,,scra.sma.exc,12,kate,0:07:31
+ngk.s,2,2,98,24,12 to 15,8,0:12:34,aca,cstriatus,na,15,,gra.det,11,kate,0:12:41
+ngk.s,2,2,98,24,12 to 15,9,0:12:56,sca,csordidus,IP,15,,scra.sma.exc,8,kate,0:13:05
+ngk.s,2,2,98,24,12 to 15,10,0:13:03,aca,cstriatus,na,15,,gra.det,11,kate,0:13:10
+ngk.s,2,2,98,24,12 to 15,11,0:13:07,aca,cstriatus,na,15,,gra.det,31,kate,0:13:26
+ngk.s,2,2,98,24,12 to 15,12,0:13:44,aca,zscopas,na,12,,gra.det,3,kate,0:13:49
+ngk.s,2,2,98,24,12 to 15,13,0:13:46,sca,csordidus,IP,15,,scra.sma.exc,6,kate,0:13:57
+ngk.s,2,2,98,24,12 to 15,14,0:13:51,aca,cstriatus,na,15,,gra.det,16,kate,0:14:02
+ngk.s,2,2,98,24,12 to 15,15,0:13:53,aca,cstriatus,na,15,,gra.det,5,kate,0:13:58
+ngk.s,2,2,98,24,12 to 15,16,0:14:05,aca,cstriatus,na,12,,gra.det,5,kate,0:14:10
+ngk.s,2,2,98,24,12 to 15,17,0:14:10,sca,csordidus,IP,20,,scra.sma.exc,3,kate,0:14:16
+ngk.s,2,2,98,24,12 to 15,18,0:14:16,sca,cbleekeri,IP,25,,scra.sma.exc,20,kate,0:14:37
+ngk.s,2,2,98,24,12 to 15,19,0:14:23,aca,cstriatus,na,12,,gra.det,11,kate,0:14:32
+ngk.s,2,2,98,24,18 to 21,20,0:19:23,aca,cstriatus,na,15,,gra.det,14,kate,0:19:35
+ngk.s,2,2,98,24,24 to 27,21,0:24:18,sca,cbleekeri,IP,25,,scra.sma.exc,8,kate,0:24:36
+ngk.s,2,2,98,24,30 to 33,22,0:30:33,aca,cstriatus,na,15,,gra.det,26,kate,0:30:54
+ngk.s,2,2,98,24,30 to 33,23,0:31:52,aca,cstriatus,na,15,,gra.det,57,kate,0:32:37
+ngk.s,2,2,98,24,36 to 39,24,0:36:39,aca,cstriatus,na,15,,gra.det,10,kate,0:36:46
+ngk.s,2,2,98,24,36 to 39,25,0:37:07,aca,cstriatus,na,12,,gra.det,44,kate,0:37:33
+ngk.s,2,3,98,24,0 to 3,no fish,no fish,no fish,no fish,no fish,no fish,no fish,no fish,0,kate,0:00:00
+ngk.s,3,1,96,24,38 to 41,1,0:38:00,aca,cstriatus,na,12,,gra.det,44,Sonia,not recorded
+ngk.s,3,1,96,24,38 to 41,2,0:38:02,aca,cstriatus,na,12,,gra.det,14,Sonia,not recorded
+ngk.s,3,1,96,24,38 to 41,3,0:38:09,aca,zscopas,na,12,,gra.det,10,Sonia,not recorded
+ngk.s,3,1,96,24,38 to 41,4,0:39:07,aca,cstriatus,na,12,,gra.det,2,Sonia,not recorded
+ngk.s,3,1,96,24,38 to 41,5,0:39:18,aca,cstriatus,na,12,,gra.det,48,Sonia,not recorded
+ngk.s,3,1,96,24,38 to 41,6,0:39:51,aca,zscopas,na,12,,gra.det,4,Sonia,not recorded
+ngk.s,3,1,96,24,38 to 41,7,0:40:04,aca,zscopas,na,12,,gra.det,9,Sonia,not recorded
+ngk.s,3,1,96,24,38 to 41,8,0:40:06,aca,zscopas,na,12,,gra.det,23,Sonia,not recorded
+ngk.s,3,1,96,24,38 to 41,9,0:40:42,aca,cstriatus,na,12,,gra.det,4,Sonia,not recorded
+ngk.s,3,1,96,24,38 to 41,10,0:40:47,sca,csordidus,IP,12,,scra.sma.exc,6,Sonia,not recorded
+ngk.s,3,2,96,24,3 to 6,no fish,no fish,no fish,no fish,no fish,no fish,no fish,no fish,0,Rob,not recorded
+ngk.s,3,2,96,24,9 to 12,11,0:09:41,aca,cstriatus,na,4,,gra.det,15,Rob,not recorded
+ngk.s,3,2,96,24,9 to 12,12,0:10:19,aca,cstriatus,na,6,,gra.det,9,Rob,not recorded
+ngk.s,3,2,96,24,9 to 12,13,0:10:22,aca,zscopas,na,10,,gra.det,5,Rob,not recorded
+ngk.s,3,2,96,24,9 to 12,14,0:10:56,aca,cstriatus,na,5,,gra.det,3,Rob,not recorded
+ngk.s,3,2,96,24,15 to 18,no fish,no fish,no fish,no fish,no fish,no fish,no fish,no fish,0,Rob,not recorded
+ngk.s,3,2,96,24,21 to 24,no fish,no fish,no fish,no fish,no fish,no fish,no fish,no fish,0,Rob,not recorded
+ngk.s,3,2,96,24,27 to 30,no fish,no fish,no fish,no fish,no fish,no fish,no fish,no fish,0,Rob,not recorded
+ngk.s,3,2,96,24,33 to 36,no fish,no fish,no fish,no fish,no fish,no fish,no fish,no fish,0,Rob,not recorded
+ngk.s,3,2,96,24,39 to 42,no fish,no fish,no fish,no fish,no fish,no fish,no fish,no fish,0,Rob,not recorded
+ngk.s,4,1,44,24,34 to 37,no fish,no fish,no fish,no fish,no fish,no fish,no fish,no fish,0,Sonia,not recorded
+ngk.s,4,1,44,24,40 to 43,1,0:41:56,sca,csordidus,TP,20,,scra.sma.exc,3,Sonia,not recorded
+ngk.s,4,2,44,24,3 to 6,no fish,no fish,no fish,no fish,no fish,no fish,no fish,no fish,0,Sonia,not recorded
+ngk.s,4,2,44,24,9 to 12,2,0:09:00,sca,schameleon,TP,15,,scra.sma.exc,24,Sonia,not recorded
+ngk.s,4,2,44,24,9 to 12,3,0:10:28,sig,svulpinus,na,17,,gra.det,2,Sonia,not recorded
+ngk.s,4,2,44,24,9 to 12,4,0:10:29,sig,svulpinus,na,18,,gra.det,3,Sonia,not recorded
+ngk.s,4,2,44,24,9 to 12,5,0:10:30,sca,schameleon,TP,18,,scra.sma.exc,12,Sonia,not recorded
+ngk.s,4,2,44,24,9 to 12,6,0:10:33,sig,scorallinus,na,20,,gra.det,16,Sonia,not recorded
+ngk.s,4,2,44,24,9 to 12,7,0:10:34,sig,scorallinus,na,20,,gra.det,15,Sonia,not recorded
+ngk.s,4,2,44,24,9 to 12,8,0:10:35,aca,zscopas,na,8,,gra.det,5,Sonia,not recorded
+ngk.s,4,2,44,24,9 to 12,9,0:10:46,sca,sschlegeli,IP,18,,scra.sma.exc,3,Sonia,not recorded
+ngk.s,4,2,44,24,9 to 12,10,0:11:02,aca,nlituratus,na,18,,browser,2,Sonia,not recorded
+ngk.s,4,2,44,24,9 to 12,11,0:11:03,aca,zscopas,na,8,,gra.det,7,Sonia,not recorded
+ngk.s,4,2,44,24,9 to 12,12,0:11:07,aca,zscopas,na,12,,gra.det,7,Sonia,not recorded
+ngk.s,4,2,44,24,9 to 12,13,0:11:16,aca,nlituratus,na,18,,browser,4,Sonia,not recorded
+ngk.s,4,2,44,24,9 to 12,14,0:11:36,aca,nlituratus,na,18,,browser,12,Sonia,not recorded
+ngk.s,4,2,44,24,15 to 18,15,0:15:00,aca,nlituratus,na,15,,browser,3,Sonia,not recorded
+ngk.s,4,2,44,24,15 to 18,16,0:16:20,aca,zscopas,na,10,,gra.det,42,Sonia,not recorded
+ngk.s,4,2,44,24,15 to 18,17,0:16:51,sig,scorallinus,na,18,,gra.det,14,Sonia,not recorded
+ngk.s,4,2,44,24,15 to 18,18,0:16:54,sca,schameleon,IP,15,,scra.sma.exc,18,Sonia,not recorded
+ngk.s,4,2,44,24,15 to 18,19,0:17:10,sig,scorallinus,na,18,,gra.det,5,Sonia,not recorded
+ngk.s,4,2,44,24,21 to 24,20,0:21:06,aca,zscopas,na,8,,gra.det,5,Sonia,not recorded
+ngk.s,4,2,44,24,21 to 24,21,0:21:07,aca,zscopas,na,8,,gra.det,3,Sonia,not recorded
+ngk.s,4,2,44,24,21 to 24,22,0:21:51,aca,zscopas,na,10,,gra.det,10,Sonia,not recorded
+ngk.s,4,2,44,24,21 to 24,23,0:21:51,aca,zscopas,na,10,,gra.det,12,Sonia,not recorded
+ngk.s,4,2,44,24,21 to 24,24,0:21:51,aca,zscopas,na,10,,gra.det,11,Sonia,not recorded
+ngk.s,4,2,44,24,21 to 24,25,0:22:10,sca,csordidus,TP,20,,scra.sma.exc,3,Sonia,not recorded
+ngk.s,4,2,44,24,21 to 24,26,0:22:16,sig,spunctatissimus,na,18,,gra.det,18,Sonia,not recorded
+ngk.s,4,2,44,24,21 to 24,27,0:22:21,aca,nlituratus,na,20,,browser,18,Sonia,not recorded
+ngk.s,4,2,44,24,21 to 24,28,0:22:26,sig,scorallinus,na,20,,gra.det,30,Sonia,not recorded
+ngk.s,4,2,44,24,21 to 24,29,0:22:26,sig,scorallinus,na,20,,gra.det,28,Sonia,not recorded
+ngk.s,4,2,44,24,21 to 24,30,0:22:24,aca,cstriatus,na,12,,gra.det,7,Sonia,not recorded
+ngk.s,4,2,44,24,21 to 24,31,0:22:47,aca,zscopas,na,12,,gra.det,15,Sonia,not recorded
+ngk.s,4,2,44,24,21 to 24,32,0:23:41,aca,zscopas,na,12,,gra.det,2,Sonia,not recorded
+ngk.s,4,2,44,24,27 to 30,no fish,no fish,no fish,no fish,no fish,no fish,no fish,no fish,0,Sonia,not recorded
+ngk.s,4,2,44,24,33 to 36,33,0:33:00,sig,spunctatus,na,12,,gra.det,15,Sonia,not recorded
+ngk.s,4,2,44,24,33 to 36,34,0:33:00,aca,zscopas,na,8,,gra.det,8,Sonia,not recorded
+ngk.s,4,2,44,24,33 to 36,35,0:33:00,aca,zscopas,na,8,,gra.det,15,Sonia,not recorded
+ngk.s,4,2,44,24,33 to 36,36,0:34:14,sca,schameleon,TP,20,,scra.sma.exc,2,Sonia,not recorded
+ngk.s,4,2,44,24,33 to 36,37,0:34:20,sig,svulpinus,na,20,,gra.det,36,Sonia,not recorded
+ngk.s,4,2,44,24,33 to 36,38,0:34:20,sig,svulpinus,na,20,,gra.det,36,Sonia,not recorded
+ngk.s,4,2,44,24,33 to 36,39,0:34:20,sca,schameleon,TP,20,,scra.sma.exc,8,Sonia,not recorded
+ngk.s,4,2,44,24,33 to 36,40,0:35:00,sca,csordidus,IP,15,,scra.sma.exc,5,Sonia,not recorded
+ngk.s,4,2,44,24,33 to 36,41,0:35:00,aca,cstriatus,na,10,,gra.det,12,Sonia,not recorded
+ngk.s,4,2,44,24,33 to 36,42,0:35:00,aca,zscopas,na,8,,gra.det,5,Sonia,not recorded
+ngk.s,5,1,94,24,18 to 21,1,0:18:18,aca,cstriatus,na,13,,gra.det,5,Sonia,not recorded
+ngk.s,5,1,94,24,18 to 21,2,0:18:54,aca,cstriatus,na,14,,gra.det,6,Sonia,not recorded
+ngk.s,5,1,94,24,18 to 21,3,0:18:55,aca,cstriatus,na,13,,gra.det,11,Sonia,not recorded
+ngk.s,5,1,94,24,18 to 21,4,0:20:07,aca,cstriatus,na,12,,gra.det,41,Sonia,not recorded
+ngk.s,5,1,94,24,18 to 21,5,0:20:36,aca,cstriatus,na,13,,gra.det,4,Sonia,not recorded
+ngk.s,5,1,94,24,24 to 27,6,0:24:01,aca,cstriatus,na,12,,gra.det,4,Sonia,not recorded
+ngk.s,5,1,94,24,24 to 27,7,0:24:42,aca,cstriatus,na,13,,gra.det,55,Sonia,not recorded
+ngk.s,5,1,94,24,24 to 27,8,0:25:19,aca,cstriatus,na,11,,gra.det,12,Sonia,not recorded
+ngk.s,5,1,94,24,24 to 27,9,0:25:48,aca,cstriatus,na,12,,gra.det,18,Sonia,not recorded
+ngk.s,5,1,94,24,24 to 27,10,0:26:23,aca,cstriatus,na,12,,gra.det,1,Sonia,not recorded
+ngk.s,5,1,94,24,24 to 27,11,0:26:24,aca,cstriatus,na,12,,gra.det,12,Sonia,not recorded
+ngk.s,5,1,94,24,30 to 33,12,0:30:11,aca,cstriatus,na,12,,gra.det,6,Sonia,not recorded
+ngk.s,5,1,94,24,30 to 33,13,0:30:28,aca,cstriatus,na,12,,gra.det,7,Sonia,not recorded
+ngk.s,5,1,94,24,30 to 33,14,0:30:29,aca,cstriatus,na,13,,gra.det,12,Sonia,not recorded
+ngk.s,5,1,94,24,30 to 33,15,0:31:10,aca,cstriatus,na,13,,gra.det,1,Sonia,not recorded
+ngk.s,5,1,94,24,30 to 33,16,0:31:14,aca,cstriatus,na,12,,gra.det,8,Sonia,not recorded
+ngk.s,5,1,94,24,30 to 33,17,0:31:40,aca,cstriatus,na,14,,gra.det,40,Sonia,not recorded
+ngk.s,5,1,94,24,36 to 39,18,0:36:00,aca,cstriatus,na,13,,gra.det,10,Sonia,not recorded
+ngk.s,5,1,94,24,36 to 39,19,0:36:55,aca,cstriatus,na,12,,gra.det,23,Sonia,not recorded
+ngk.s,5,1,94,24,36 to 39,20,0:37:03,aca,cstriatus,na,12,,gra.det,14,Sonia,not recorded
+ngk.s,5,1,94,24,36 to 39,21,0:37:31,aca,cstriatus,na,12,,gra.det,7,Sonia,not recorded
+ngk.s,5,2,94,24,0 to 3,22,0:00:10,aca,zscopas,na,10,,gra.det,14,Sonia,not recorded
+ngk.s,5,2,94,24,0 to 3,23,0:00:44,aca,cstriatus,na,11,,gra.det,19,Sonia,not recorded
+ngk.s,5,2,94,24,0 to 3,24,0:00:47,aca,zscopas,na,10,,gra.det,5,Sonia,not recorded
+ngk.s,5,2,94,24,0 to 3,25,0:01:44,sca,csordidus,tp,22,,scra.sma.exc,3,Sonia,not recorded
+ngk.s,5,2,94,24,0 to 3,26,0:01:44,aca,cstriatus,na,11,,gra.det,4,Sonia,not recorded
+ngk.s,5,2,94,24,0 to 3,27,0:01:47,aca,cstriatus,na,12,,gra.det,9,Sonia,not recorded
+ngk.s,5,2,94,24,0 to 3,28,0:02:14,aca,cstriatus,na,13,,gra.det,5,Sonia,not recorded
+ngk.s,5,2,94,24,0 to 3,29,0:02:24,aca,cstriatus,na,13,,gra.det,3,Sonia,not recorded
+ngk.s,5,2,94,24,0 to 3,30,0:02:27,aca,cstriatus,na,13,,gra.det,5,Sonia,not recorded
+ngk.s,5,2,94,24,6 to 9,31,0:06:43,aca,cstriatus,na,12,,gra.det,3,Sonia,not recorded
+ngk.s,5,2,94,24,6 to 9,32,0:06:45,aca,cstriatus,na,12,,gra.det,1,Sonia,not recorded
+ngk.s,5,2,94,24,6 to 9,33,0:07:15,aca,cstriatus,na,11,,gra.det,10,Sonia,not recorded
+ngk.s,5,2,94,24,6 to 9,34,0:07:42,aca,cstriatus,na,12,,gra.det,16,Sonia,not recorded
+ngk.s,5,2,94,24,12 to 15,35,0:12:47,aca,cstriatus,na,12,,gra.det,3,Sonia,not recorded
+ngk.s,5,2,94,24,18 to 21,36,0:19:20,aca,cstriatus,na,13,,gra.det,2,Sonia,not recorded
+ngk.s,5,2,94,24,18 to 21,37,0:20:32,aca,cstriatus,na,12,,gra.det,5,Sonia,not recorded
+sdrop,1,2,97,24,3 to 6,1,0:04:32,aca,cstriatus,na,13,,gra.det,12,sonia,not recorded
+sdrop,1,2,97,24,9 to 12,2,0:10:01,aca,zscopas,na,10,,gra.det,24,sonia,not recorded
+sdrop,1,2,97,24,9 to 12,3,0:10:29,sca,csordidus,ip,14,,scra.sma.exc,31,sonia,not recorded
+sdrop,1,2,97,24,9 to 12,4,0:11:46,aca,zscopas,na,9,,gra.det,22,sonia,not recorded
+sdrop,1,2,97,24,15 to 18,5,0:15:00,sig,svulpinus,na,17,,gra.det,2,sonia,not recorded
+sdrop,1,2,97,24,21 to 24,6,0:21:00,aca,zscopas,na,10,,gra.det,12,sonia,not recorded
+sdrop,1,2,97,24,21 to 24,7,0:21:22,aca,zscopas,na,10,,gra.det,2,sonia,not recorded
+sdrop,1,2,97,24,21 to 24,8,0:22:55,aca,zscopas,na,9,,gra.det,3,sonia,not recorded
+sdrop,1,2,97,24,21 to 24,9,0:22:56,aca,zscopas,na,8,,gra.det,2,sonia,not recorded
+sdrop,1,2,97,24,21 to 24,10,0:23:06,sca,sschlegeli,ip,17,,scra.sma.exc,34,sonia,not recorded
+sdrop,1,2,97,24,21 to 24,11,0:23:28,aca,cstriatus,na,16,,gra.det,15,sonia,not recorded
+sdrop,1,2,97,24,21 to 24,12,0:23:48,aca,cstriatus,na,16,,gra.det,4,sonia,not recorded
+sdrop,1,2,97,24,27 to 30,13,0:28:28,aca,cstriatus,na,12,,gra.det,25,sonia,not recorded
+sdrop,1,2,97,24,27 to 30,14,0:29:59,aca,zscopas,na,10,,gra.det,1,sonia,not recorded
+sdrop,1,2,97,24,33 to 36,15,0:33:41,aca,zscopas,na,11,,gra.det,4,sonia,not recorded
+sdrop,1,2,97,24,33 to 36,16,0:33:40,sca,sschlegeli,ip,17,,scra.sma.exc,4,sonia,not recorded
+sdrop,1,2,97,24,33 to 36,17,0:33:45,aca,apyroferus,na,19,,gra.det,2,sonia,not recorded
+sdrop,1,2,97,24,33 to 36,18,0:33:52,aca,zscopas,na,10,,gra.det,12,sonia,not recorded
+sdrop,1,2,97,24,33 to 36,19,0:33:58,sca,sschlegeli,ip,17,,scra.sma.exc,4,sonia,not recorded
+sdrop,1,2,97,24,33 to 36,20,0:33:58,aca,cstriatus,na,14,,gra.det,2,sonia,not recorded
+sdrop,1,2,97,24,33 to 36,21,0:33:58,aca,zscopas,na,10,,gra.det,3,sonia,not recorded
+sdrop,1,2,97,24,33 to 36,22,0:34:00,aca,cstriatus,na,12,,gra.det,4,sonia,not recorded
+sdrop,1,2,97,24,33 to 36,23,0:34:44,aca,zscopas,na,11,,gra.det,36,sonia,not recorded
+sdrop,1,2,97,24,33 to 36,24,0:35:00,aca,zscopas,na,11,,gra.det,1,sonia,not recorded
+sdrop,1,2,97,24,33 to 36,25,0:35:13,aca,cstriatus,na,13,,gra.det,11,sonia,not recorded
+sdrop,1,2,97,24,33 to 36,26,0:35:19,aca,cstriatus,na,13,,gra.det,23,sonia,not recorded
+sdrop,1,2,97,24,33 to 36,27,0:35:36,aca,zveliferum,na,13,,gra.det,10,sonia,not recorded
+sdrop,1,2,97,24,33 to 36,28,0:35:42,sca,sdimidiatus,ip,14,,scra.sma.exc,8,sonia,not recorded
+sdrop,1,2,97,24,33 to 36,29,0:35:50,sca,sdimidiatus,tp,21,,scra.sma.exc,6,sonia,not recorded
+sdrop,1,2,97,24,33 to 36,30,0:35:53,aca,cstriatus,na,13,,gra.det,7,sonia,not recorded
+sdrop,1,2,97,24,39 to 42,31,0:39:18,aca,cstriatus,na,11,,gra.det,14,sonia,not recorded
+sdrop,1,2,97,24,39 to 42,32,0:39:47,aca,zscopas,na,8,,gra.det,8,sonia,not recorded
+sdrop,1,2,97,24,39 to 42,33,0:40:20,aca,cstriatus,na,12,,gra.det,2,sonia,not recorded
+sdrop,1,2,97,24,39 to 42,34,0:40:32,sca,sschlegeli,ip,16,,scra.sma.exc,5,sonia,not recorded
+sdrop,1,2,97,24,39 to 42,35,0:40:48,sca,sschlegeli,ip,16,,scra.sma.exc,5,sonia,not recorded
+sdrop,1,2,97,24,39 to 42,36,0:40:38,aca,cstriatus,na,14,,gra.det,42,sonia,not recorded
+sdrop,1,2,97,24,39 to 42,37,0:41:40,aca,cstriatus,na,13,,gra.det,25,sonia,not recorded
+sdrop,1,2,97,24,39 to 42,38,0:41:41,aca,cstriatus,na,13,,gra.det,13,sonia,not recorded
+sdrop,1,3,97,24,3 to 6,39,0:03:27,aca,zscopas,na,10,,gra.det,2,sonia,not recorded
+sdrop,1,3,97,24,3 to 6,40,0:03:29,aca,zscopas,na,9,,gra.det,2,sonia,not recorded
+sdrop,1,3,97,24,3 to 6,41,0:03:37,sca,csordidus,ip,14,,scra.sma.exc,6,sonia,not recorded
+sdrop,1,3,97,24,3 to 6,42,0:04:03,aca,zscopas,na,8,,gra.det,4,sonia,not recorded
+sdrop,1,3,97,24,3 to 6,43,0:04:16,sca,csordidus,ip,12,,scra.sma.exc,17,sonia,not recorded
+sdrop,1,3,97,24,3 to 6,44,0:05:52,aca,cstriatus,na,13,,gra.det,5,sonia,not recorded
+sdrop,2,1,99,24,36 to 39,no fish,no fish,no fish,no fish,no fish,no fish,no fish,no fish,0,Rob,not recorded
+sdrop,2,2,99,24,0 to 3,no fish,no fish,no fish,no fish,no fish,no fish,no fish,no fish,0,Rob,not recorded
+sdrop,2,2,99,24,6 to 9,1,0:08:39,sca,sschlegeli,TP,21,,scra.sma.exc,23,Rob,not recorded
+sdrop,2,2,99,24,12 to 15,2,0:12:22,aca,cstriatus,na,10,,gra.det,27,Rob,not recorded
+sdrop,2,2,99,24,12 to 15,3,0:12:23,aca,cstriatus,na,9,,gra.det,14,Rob,not recorded
+sdrop,2,2,99,24,12 to 15,4,0:13:11,aca,cstriatus,na,7,,gra.det,3,Rob,not recorded
+sdrop,2,2,99,24,12 to 15,5,0:14:19,aca,cstriatus,na,9,,gra.det,15,Rob,not recorded
+sdrop,2,2,99,24,18 to 21,6,0:19:24,sca,sschlegeli,IP,10,,scra.sma.exc,49,Rob,not recorded
+sdrop,2,2,99,24,18 to 21,7,0:20:38,aca,cstriatus,na,10,,gra.det,4,Rob,not recorded
+sdrop,2,2,99,24,25 to 27,no fish,no fish,no fish,no fish,no fish,no fish,no fish,no fish,0,Rob,not recorded
+sdrop,2,2,99,24,32 to 36,8,0:32:02,aca,cstriatus,na,11,,gra.det,71,Rob,not recorded
+sdrop,2,2,99,24,37 to 39,9,0:37:11,aca,zscopas,na,8,,gra.det,11,Rob,not recorded
+sdrop,2,2,99,24,37 to 39,10,0:38:09,aca,cstriatus,na,10,,gra.det,37,Rob,not recorded
+sdrop,2,2,99,24,37 to 39,11,0:38:32,aca,zscopas,na,5,,gra.det,2,Rob,not recorded
+sdrop,3,1,90,24,33 to 36,1,0:33:46,aca,zscopas,na,9,,gra.det,15,Sonia,not recorded
+sdrop,3,1,90,24,39 to 42,2,0:39:00,aca,cstriatus,na,10,,gra.det,17,Sonia,not recorded
+sdrop,3,1,90,24,39 to 42,3,0:41:14,aca,cstriatus,na,11,,gra.det,7,Sonia,not recorded
+sdrop,3,1,90,24,39 to 42,4,0:41:40,aca,cstriatus,na,4,,gra.det,20,Sonia,not recorded
+sdrop,3,1,90,24,39 to 42,5,0:41:53,aca,zscopas,na,7,,gra.det,8,Sonia,not recorded
+sdrop,3,2,90,24,3 to 6,6,0:03:00,aca,zscopas,na,7,,gra.det,77,Sonia,not recorded
+sdrop,3,2,90,24,3 to 6,7,0:03:04,aca,zscopas,na,11,,gra.det,44,Sonia,not recorded
+sdrop,3,2,90,24,3 to 6,8,0:04:56,aca,zscopas,na,12,,gra.det,14,Sonia,not recorded
+sdrop,3,2,90,24,3 to 6,9,0:05:10,aca,zscopas,na,7,,gra.det,20,Sonia,not recorded
+sdrop,3,2,90,24,3 to 6,10,0:05:44,aca,cstriatus,na,11,,gra.det,4,Sonia,not recorded
+sdrop,3,2,90,24,3 to 6,11,0:05:58,aca,zscopas,na,10,,gra.det,1,Sonia,not recorded
+sdrop,3,2,90,24,9 to 12,12,0:10:33,aca,cstriatus,na,4,,gra.det,63,Sonia,not recorded
+sdrop,3,2,90,24,9 to 12,13,0:11:29,aca,zscopas,na,10,,gra.det,2,Sonia,not recorded
+sdrop,3,2,90,24,9 to 12,14,0:11:45,aca,zscopas,na,11,,gra.det,25,Sonia,not recorded
+sdrop,3,2,90,24,9 to 12,15,0:11:50,aca,zscopas,na,12,,gra.det,7,Sonia,not recorded
+sdrop,3,2,90,24,15 to 18,16,0:15:00,aca,zscopas,na,10,,gra.det,2,Sonia,not recorded
+sdrop,3,2,90,24,15 to 18,17,0:15:02,aca,zscopas,na,7,,gra.det,63,Sonia,not recorded
+sdrop,3,2,90,24,15 to 18,18,0:15:18,aca,cstriatus,na,4,,gra.det,38,Sonia,not recorded
+sdrop,3,2,90,24,21 to 24,19,0:21:00,aca,cstriatus,na,4,,gra.det,25,Sonia,not recorded
+sdrop,3,2,90,24,21 to 24,20,0:22:37,aca,zscopas,na,6,,gra.det,28,Sonia,not recorded
+sdrop,3,2,90,24,21 to 24,21,0:22:53,aca,cstriatus,na,4,,gra.det,45,Sonia,not recorded
+sdrop,3,2,90,24,27 to 30,22,0:27:00,aca,cstriatus,na,4,,gra.det,55,Sonia,not recorded
+sdrop,3,2,90,24,33 to 36,23,0:34:15,aca,cstriatus,na,4,,gra.det,78,Sonia,not recorded
+sdrop,4,1,93,24,30 to 33,1,0:31:17,aca,cstriatus,na,10,,gra.det,45,sonia,not recorded
+sdrop,4,1,93,24,30 to 33,2,0:32:25,aca,cstriatus,na,10,,gra.det,2,sonia,not recorded
+sdrop,4,1,93,24,30 to 33,3,0:36:00,aca,cstriatus,na,13,,gra.det,12,sonia,not recorded
+sdrop,4,1,93,24,36 to 39,4,0:36:38,aca,cstriatus,na,10,,gra.det,2,sonia,not recorded
+sdrop,4,1,93,24,36 to 39,5,0:36:52,aca,zscopas,na,12,,gra.det,3,sonia,not recorded
+sdrop,4,1,93,24,36 to 39,6,0:37:14,aca,cstriatus,na,10,,gra.det,2,sonia,not recorded
+sdrop,4,1,93,24,36 to 39,7,0:38:30,sca,csordidus,ip,12,,scra.sma.exc,1,sonia,not recorded
+sdrop,4,1,93,24,36 to 39,8,0:38:35,sca,sdimidiatus,ip,20,,scra.sma.exc,8,sonia,not recorded
+sdrop,4,1,93,24,36 to 39,9,0:38:33,aca,cstriatus,na,10,,gra.det,12,sonia,not recorded
+sdrop,4,2,93,24,0 to 3,10,0:01:05,aca,cstriatus,na,11,,gra.det,21,sonia,not recorded
+sdrop,4,2,93,24,0 to 3,11,0:02:15,aca,cstriatus,na,10,,gra.det,4,sonia,not recorded
+sdrop,4,2,93,24,0 to 3,12,0:02:20,aca,cstriatus,na,13,,gra.det,2,sonia,not recorded
+sdrop,4,2,93,24,0 to 3,13,0:02:24,aca,cstriatus,na,10,,gra.det,11,sonia,not recorded
+sdrop,4,2,93,24,6 to 9,14,0:06:00,aca,zscopas,na,11,,gra.det,1,sonia,not recorded
+sdrop,4,2,93,24,6 to 9,15,0:06:30,aca,cstriatus,na,10,,gra.det,11,sonia,not recorded
+sdrop,4,2,93,24,6 to 9,16,0:07:24,aca,cstriatus,na,9,,gra.det,15,sonia,not recorded
+sdrop,4,2,93,24,6 to 9,17,0:08:51,aca,cstriatus,na,9,,gra.det,7,sonia,not recorded
+sdrop,4,2,93,24,12 to 15,18,0:12:06,aca,cstriatus,na,9,,gra.det,8,sonia,not recorded
+sdrop,4,2,93,24,12 to 15,19,0:13:06,aca,cstriatus,na,8,,gra.det,8,sonia,not recorded
+sdrop,4,2,93,24,12 to 15,20,0:13:54,aca,cstriatus,na,8,,gra.det,12,sonia,not recorded
+sdrop,4,2,93,24,12 to 15,21,0:14:04,aca,cstriatus,na,11,,gra.det,44,sonia,not recorded
+sdrop,4,2,93,24,12 to 15,22,0:14:07,sca,sniger,na,22,,scra.sma.exc,3,sonia,not recorded
+sdrop,4,2,93,24,12 to 15,23,0:14:42,aca,cstriatus,na,13,,gra.det,9,sonia,not recorded
+sdrop,4,2,93,24,18 to 21,24,0:18:16,aca,zscopas,na,12,,gra.det,26,sonia,not recorded
+sdrop,4,2,93,24,18 to 21,25,0:19:38,aca,cstriatus,na,12,,gra.det,21,sonia,not recorded
+sdrop,4,2,93,24,18 to 21,26,0:19:56,aca,cstriatus,na,13,,gra.det,9,sonia,not recorded
+sdrop,4,2,93,24,24 to 27,27,0:24:01,aca,cstriatus,na,9,,gra.det,2,sonia,not recorded
+sdrop,4,2,93,24,24 to 27,28,0:24:40,aca,cstriatus,na,12,,gra.det,5,sonia,not recorded
+sdrop,4,2,93,24,24 to 27,29,0:26:54,aca,cstriatus,na,11,,gra.det,2,sonia,not recorded
+sdrop,4,2,93,24,30 to 33,30,0:30:11,aca,cstriatus,na,11,,gra.det,11,sonia,not recorded
+sdrop,4,2,93,24,30 to 33,31,0:30:11,aca,cstriatus,na,12,,gra.det,1,sonia,not recorded
+sdrop,4,2,93,24,30 to 33,32,0:32:15,aca,cstriatus,na,13,,gra.det,13,sonia,not recorded
+sdrop,4,2,93,24,30 to 33,33,0:32:42,aca,cstriatus,na,14,,gra.det,6,sonia,not recorded
+sdrop,5,1,98,24,27 to 30,no fish,no fish,no fish,no fish,no fish,no fish,no fish,no fish,0,sonia,not recorded
+sdrop,5,1,98,24,33 to 36,1,0:33:41,aca,cstriatus,na,11,,gra.det,2,sonia,not recorded
+sdrop,5,1,98,24,33 to 36,2,0:33:57,aca,cstriatus,na,12,,gra.det,3,sonia,not recorded
+sdrop,5,1,98,24,33 to 36,3,0:34:01,sca,csordidus,ip,15,,scra.sma.exc,1,sonia,not recorded
+sdrop,5,1,98,24,39 to 42,4,0:39:19,aca,cstriatus,na,12,,gra.det,3,sonia,not recorded
+sdrop,5,1,98,24,39 to 42,5,0:40:56,sca,csordidus,ip,16,,scra.sma.exc,4,sonia,not recorded
+sdrop,5,2,98,24,3 to 6,6,0:04:03,aca,cstriatus,na,12,,gra.det,8,sonia,not recorded
+sdrop,5,2,98,24,9 to 12,no fish,no fish,no fish,no fish,no fish,no fish,no fish,no fish,0,sonia,not recorded
+sdrop,5,2,98,24,15 to 18,7,0:15:00,aca,cstriatus,na,12,,gra.det,1,sonia,not recorded
+sdrop,5,2,98,24,21 to 24,no fish,no fish,no fish,no fish,no fish,no fish,no fish,no fish,0,sonia,not recorded
+sdrop,5,2,98,24,27 to 30,8,0:27:40,sca,csordidus,ip,12,,scra.sma.exc,4,sonia,not recorded
+sdrop,5,2,98,24,27 to 30,9,0:27:41,aca,cstriatus,na,13,,gra.det,10,sonia,not recorded
+sdrop,5,2,98,24,27 to 30,10,0:29:00,aca,cstriatus,na,13,,gra.det,8,sonia,not recorded
+sdrop,5,2,98,24,27 to 30,11,0:29:18,aca,cstriatus,na,12,,gra.det,7,sonia,not recorded
+uch1,1,1,50,24,14 to 17,1,0:14:00,sca,sschlegeli,ip,11,,scra.sma.exc,6,Sonia,0:14:21
+uch1,1,1,50,24,14 to 17,2,0:14:00,sca,csordidus,ip,13,,scra.sma.exc,9,Sonia,0:14:21
+uch1,1,1,50,24,14 to 17,3,0:14:14,sca,csordidus,ip,16,,scra.sma.exc,2,Sonia,0:14:21
+uch1,1,1,50,24,14 to 17,4,0:14:14,sca,csordidus,ip,12,,scra.sma.exc,6,Sonia,0:14:26
+uch1,1,1,50,24,14 to 17,5,0:14:34,aca,anigricans,na,12,,gra.det,5,Sonia,0:14:41
+uch1,1,1,50,24,14 to 17,6,0:15:30,aca,cstriatus,na,14,,gra.det,1,Sonia,0:15:35
+uch1,1,1,50,24,14 to 17,7,0:15:41,aca,cstriatus,na,13,,gra.det,15,Sonia,0:15:59
+uch1,1,1,50,24,14 to 17,8,0:15:46,aca,cstriatus,na,15,,gra.det,3,Sonia,0:15:50
+uch1,1,1,50,24,14 to 17,9,0:16:04,sca,csordidus,tp,25,,scra.sma.exc,1,Sonia,0:16:10
+uch1,1,1,50,24,14 to 17,10,0:16:10,aca,cstriatus,na,14,,gra.det,10,Sonia,0:16:29
+uch1,1,1,50,24,14 to 17,11,0:16:30,aca,cstriatus,na,15,,gra.det,10,Sonia,0:16:41
+uch1,1,1,50,24,14 to 17,12,0:16:44,aca,cstriatus,na,14,,gra.det,4,Sonia,0:16:52
+uch1,1,1,50,24,14 to 17,13,0:16:44,aca,cstriatus,na,14,,gra.det,8,Sonia,0:16:54
+uch1,1,1,50,24,20 to 23,14,0:20:00,aca,cstriatus,na,13,,gra.det,4,Sonia,0:20:06
+uch1,1,1,50,24,20 to 23,15,0:20:37,aca,anigricans,na,13,,gra.det,56,Sonia,0:21:25
+uch1,1,1,50,24,20 to 23,16,0:21:02,aca,cstriatus,na,15,,gra.det,5,Sonia,0:21:06
+uch1,1,1,50,24,20 to 23,17,0:21:32,aca,cstriatus,na,14,,gra.det,3,Sonia,0:21:38
+uch1,1,1,50,24,20 to 23,18,0:22:26,aca,cstriatus,na,14,,gra.det,6,Sonia,0:22:34
+uch1,1,1,50,24,26 to 29,19,0:26:00,aca,cstriatus,na,14,,gra.det,5,Sonia,0:26:11
+uch1,1,1,50,24,26 to 29,20,0:26:16,sca,csordidus,tp,25,,scra.sma.exc,7,Sonia,0:26:27
+uch1,1,1,50,24,26 to 29,21,0:26:30,sca,csordidus,ip,15,,scra.sma.exc,11,Sonia,0:26:41
+uch1,1,1,50,24,26 to 29,22,0:27:43,aca,anigricans,na,12,,gra.det,8,Sonia,0:28:00
+uch1,1,1,50,24,26 to 29,23,0:27:44,aca,cstriatus,na,13,,gra.det,7,Sonia,0:27:52
+uch1,1,1,50,24,26 to 29,24,0:27:49,sig,svulpinus,na,15,,gra.det,1,Sonia,0:28:12
+uch1,1,1,50,24,26 to 29,25,0:27:54,sca,csordidus,ip,14,,scra.sma.exc,8,Sonia,0:28:04
+uch1,1,1,50,24,26 to 29,26,0:27:55,sca,csordidus,ip,13,,scra.sma.exc,10,Sonia,0:28:04
+uch1,1,1,50,24,26 to 29,27,0:27:56,sca,csordidus,ip,15,,scra.sma.exc,11,Sonia,0:28:04
+uch1,1,1,50,24,26 to 29,28,0:28:01,sca,sschlegeli,tp,26,,scra.sma.exc,8,Sonia,0:28:12
+uch1,1,1,50,24,26 to 29,29,0:28:42,aca,anigricans,na,12,,gra.det,1,Sonia,0:28:47
+uch1,1,1,50,24,26 to 29,30,0:28:48,aca,cstriatus,na,14,,gra.det,14,Sonia,0:29:00
+uch1,1,1,50,24,32 to 35 ,31,0:32:00,sca,csordidus,ip,15,,scra.sma.exc,7,Sonia,0:32:36
+uch1,1,1,50,24,32 to 35 ,32,0:32:00,sca,csordidus,ip,15,,scra.sma.exc,10,Sonia,0:32:36
+uch1,1,1,50,24,32 to 35 ,33,0:32:00,sca,sschlegeli,ip,14,,scra.sma.exc,21,Sonia,0:32:36
+uch1,1,1,50,24,32 to 35 ,34,0:32:00,sca,csordidus,ip,12,,scra.sma.exc,18,Sonia,0:32:36
+uch1,1,1,50,24,32 to 35 ,35,0:32:00,sca,sschlegeli,ip,12,,scra.sma.exc,15,Sonia,0:32:36
+uch1,1,1,50,24,32 to 35 ,36,0:32:24,aca,cstriatus,na,14,,gra.det,6,Sonia,0:32:27
+uch1,1,1,50,24,32 to 35 ,37,0:32:51,sca,csordidus,ip,14,,scra.sma.exc,5,Sonia,0:32:58
+uch1,1,1,50,24,32 to 35 ,38,0:32:51,sca,csordidus,ip,12,,scra.sma.exc,6,Sonia,0:32:58
+uch1,1,1,50,24,32 to 35 ,39,0:32:51,sca,csordidus,ip,12,,scra.sma.exc,1,Sonia,0:32:58
+uch1,1,1,50,24,32 to 35 ,40,0:32:51,sca,sschlegeli,ip,11,,scra.sma.exc,25,Sonia,0:33:26
+uch1,1,1,50,24,32 to 35 ,41,0:32:51,sca,sschlegeli,ip,11,,scra.sma.exc,39,Sonia,0:33:26
+uch1,1,1,50,24,32 to 35 ,42,0:33:35,sca,csordidus,ip,12,,scra.sma.exc,14,Sonia,0:33:38
+uch1,1,1,50,24,32 to 35 ,43,0:33:41,sca,csordidus,tp,25,,scra.sma.exc,1,Sonia,0:33:47
+uch1,1,1,50,24,32 to 35 ,44,0:33:31,sca,csordidus,ip,11,,scra.sma.exc,10,Sonia,0:33:50
+uch1,1,1,50,24,32 to 35 ,45,0:33:31,sca,csordidus,ip,12,,scra.sma.exc,13,Sonia,0:33:50
+uch1,1,1,50,24,32 to 35 ,46,0:33:31,sca,sschlegeli,ip,12,,scra.sma.exc,3,Sonia,0:33:50
+uch1,1,1,50,24,32 to 35 ,47,0:33:55,sca,csordidus,tp,25,,scra.sma.exc,8,Sonia,0:34:13
+uch1,1,1,50,24,32 to 35 ,48,0:34:14,aca,cstriatus,na,14,,gra.det,10,Sonia,0:34:24
+uch1,1,1,50,24,32 to 35 ,49,0:34:38,sca,sniger,tp,27,,scra.sma.exc,6,Sonia,0:34:44
+uch1,1,1,50,24,32 to 35 ,50,0:34:56,sca,csordidus,ip,15,,scra.sma.exc,4,Sonia,0:35:14
+uch1,1,1,50,24,32 to 35 ,51,0:34:58,sca,csordidus,ip,15,,scra.sma.exc,1,Sonia,0:35:14
+uch1,1,1,50,24,38 to 41,52,0:38:21,sca,sniger,tp,27,,scra.sma.exc,9,Sonia,0:38:35
+uch1,1,2,50,24,3 to 6,53,0:03:00,aca,zscopas,na,10,,gra.det,18,Sonia,not recorded
+uch1,1,2,50,24,3 to 6,54,0:03:00,aca,anigrofuscus,na,10,,gra.det,17,Sonia,not recorded
+uch1,1,2,50,24,3 to 6,55,0:03:00,sca,sschlegeli,ip,16,,scra.sma.exc,7,Sonia,not recorded
+uch1,1,2,50,24,3 to 6,56,0:03:48,aca,cstriatus,na,14,,gra.det,5,Sonia,not recorded
+uch1,1,2,50,24,3 to 6,57,0:03:58,aca,cstriatus,na,14,,gra.det,15,Sonia,not recorded
+uch1,1,2,50,24,3 to 6,58,0:04:45,aca,cstriatus,na,14,,gra.det,18,Sonia,not recorded
+uch1,1,2,50,24,9 to 12,59,0:09:00,aca,cstriatus,na,14,,gra.det,7,Sonia,not recorded
+uch1,1,2,50,24,9 to 12,60,0:09:30,sca,sniger,tp,22,,scra.sma.exc,10,Sonia,not recorded
+uch1,1,2,50,24,15 to 18,61,0:15:14,aca,cstriatus,na,12,,gra.det,14,Sonia,not recorded
+uch1,1,2,50,24,15 to 18,62,0:17:02,aca,cstriatus,na,12,,gra.det,13,Sonia,not recorded
+uch1,2,1,90,24,31 to 34,1,0:31:04,sca,csordidus,tp,14,,scra.sma.exc,5,Rob,not recorded
+uch1,2,1,90,24,31 to 34,2,0:31:12,aca,cstriatus,na,7,,gra.det,7,Rob,not recorded
+uch1,2,1,90,24,31 to 34,3,0:31:26,aca,cstriatus,na,7,,gra.det,14,Rob,not recorded
+uch1,2,1,90,24,31 to 34,4,0:31:40,aca,cstriatus,na,10,,gra.det,17,Rob,not recorded
+uch1,2,1,90,24,31 to 34,5,0:31:47,aca,cstriatus,na,11,,gra.det,22,Rob,not recorded
+uch1,2,1,90,24,31 to 34,6,0:31:50,aca,cstriatus,na,8,,gra.det,8,Rob,not recorded
+uch1,2,1,90,24,31 to 34,7,0:32:05,aca,anigrofuscus,na,6,,gra.det,71,Rob,not recorded
+uch1,2,1,90,24,31 to 34,8,0:32:10,aca,cstriatus,na,8,,gra.det,51,Rob,not recorded
+uch1,2,1,90,24,31 to 34,9,0:32:16,aca,cstriatus,na,9,,gra.det,5,Rob,not recorded
+uch1,2,1,90,24,31 to 34,10,0:32:16,aca,cstriatus,na,7,,gra.det,44,Rob,not recorded
+uch1,2,1,90,24,31 to 34,11,0:32:25,aca,anigrofuscus,na,5,,gra.det,4,Rob,not recorded
+uch1,2,1,90,24,31 to 34,12,0:32:55,aca,cstriatus,na,7,,gra.det,4,Rob,not recorded
+uch1,2,1,90,24,31 to 34,13,0:33:15,aca,cstriatus,na,7,,gra.det,22,Rob,not recorded
+uch1,2,1,90,24,31 to 34,14,0:33:32,aca,cstriatus,na,7,,gra.det,6,Rob,not recorded
+uch1,2,1,90,24,31 to 34,15,0:33:42,aca,nlituratus,na,8,,browser,10,Rob,not recorded
+uch1,2,1,90,24,31 to 34,16,0:33:45,aca,cstriatus,na,8,,gra.det,1,Rob,not recorded
+uch1,2,1,90,24,31 to 34,17,0:33:46,aca,cstriatus,na,8,,gra.det,18,Rob,not recorded
+uch1,2,1,90,24,37 to 40,18,0:37:03,aca,cstriatus,na,7,,gra.det,19,Rob,not recorded
+uch1,2,1,90,24,37 to 40,19,0:38:06,aca,cstriatus,na,6,,gra.det,11,Rob,not recorded
+uch1,2,1,90,24,37 to 40,20,0:38:19,aca,cstriatus,na,7,,gra.det,19,Rob,not recorded
+uch1,2,1,90,24,37 to 40,21,0:38:46,aca,cstriatus,na,7,,gra.det,35,Rob,not recorded
+uch1,2,1,90,24,37 to 40,22,0:39:35,aca,cstriatus,na,8,,gra.det,9,Rob,not recorded
+uch1,2,1,90,24,37 to 40,23,0:39:39,aca,cstriatus,na,8,,gra.det,14,Rob,not recorded
+uch1,2,1,90,24,37 to 40,24,0:39:43,aca,cstriatus,na,7,,gra.det,5,Rob,not recorded
+uch1,2,1,90,24,37 to 40,25,0:39:44,aca,cstriatus,na,8,,gra.det,14,Rob,not recorded
+uch1,2,1,90,24,37 to 40,26,0:39:58,aca,cstriatus,na,9,,gra.det,2,Rob,not recorded
+uch1,2,2,90,24,0 to 3,27,0:00:03,aca,cstriatus,na,8,,gra.det,5,Rob,not recorded
+uch1,2,2,90,24,0 to 3,28,0:00:15,aca,cstriatus,na,10,,gra.det,14,Rob,not recorded
+uch1,2,2,90,24,0 to 3,29,0:00:26,aca,cstriatus,na,8,,gra.det,4,Rob,not recorded
+uch1,2,2,90,24,0 to 3,30,0:00:49,aca,cstriatus,na,9,,gra.det,1,Rob,not recorded
+uch1,2,2,90,24,0 to 3,31,0:01:17,aca,cstriatus,na,10,,gra.det,2,Rob,not recorded
+uch1,2,2,90,24,0 to 3,32,0:01:41,aca,cstriatus,na,8,,gra.det,13,Rob,not recorded
+uch1,2,2,90,24,0 to 3,33,0:01:45,aca,cstriatus,na,7,,gra.det,2,Rob,not recorded
+uch1,2,2,90,24,0 to 3,34,0:01:54,aca,cstriatus,na,8,,gra.det,8,Rob,not recorded
+uch1,2,2,90,24,0 to 3,35,0:02:20,aca,cstriatus,na,8,,gra.det,7,Rob,not recorded
+uch1,2,2,90,24,0 to 3,36,0:02:43,aca,cstriatus,na,8,,gra.det,4,Rob,not recorded
+uch1,2,2,90,24,6 to 9,37,0:06:05,aca,cstriatus,na,8,,gra.det,3,Rob,not recorded
+uch1,2,2,90,24,6 to 9,38,0:06:40,aca,cstriatus,na,8,,gra.det,20,Rob,not recorded
+uch1,2,2,90,24,6 to 9,39,0:06:44,aca,anigrofuscus,na,6,,gra.det,31,Rob,not recorded
+uch1,2,2,90,24,6 to 9,40,0:06:56,aca,cstriatus,na,9,,gra.det,52,Rob,not recorded
+uch1,2,2,90,24,6 to 9,41,0:06:57,aca,cstriatus,na,9,,gra.det,13,Rob,not recorded
+uch1,2,2,90,24,6 to 9,42,0:06:49,aca,anigrofuscus,na,6,,gra.det,30,Rob,not recorded
+uch1,2,2,90,24,6 to 9,43,0:07:14,aca,anigrofuscus,na,7,,gra.det,58,Rob,not recorded
+uch1,2,2,90,24,6 to 9,44,0:07:28,aca,cstriatus,na,8,,gra.det,7,Rob,not recorded
+uch1,2,2,90,24,6 to 9,45,0:07:34,aca,cstriatus,na,8,,gra.det,29,Rob,not recorded
+uch1,2,2,90,24,6 to 9,46,0:08:36,sca,schameleon,IP,17,,scra.sma.exc,11,Rob,not recorded
+uch1,2,2,90,24,6 to 9,47,0:08:37,aca,anigrofuscus,na,7,,gra.det,2,Rob,not recorded
+uch1,2,2,90,24,6 to 9,48,0:08:37,aca,anigrofuscus,na,6,,gra.det,17,Rob,not recorded
+uch1,2,2,90,24,6 to 9,49,0:08:49,aca,cstriatus,na,8,,gra.det,1,Rob,not recorded
+uch1,2,2,90,24,6 to 9,50,0:08:54,aca,cstriatus,na,7,,gra.det,6,Rob,not recorded
+uch1,2,2,90,24,6 to 9,51,0:08:57,aca,cstriatus,na,9,,gra.det,5,Rob,not recorded
+uch1,2,2,90,24,12 to 15,52,0:12:00,aca,cstriatus,na,8,,gra.det,1,Rob,not recorded
+uch1,2,2,90,24,12 to 15,53,0:13:02,aca,cstriatus,na,9,,gra.det,20,Rob,not recorded
+uch1,2,2,90,24,12 to 15,54,0:13:33,aca,cstriatus,na,9,,gra.det,10,Rob,not recorded
+uch1,2,2,90,24,12 to 15,55,0:13:31,aca,cstriatus,na,8,,gra.det,27,Rob,not recorded
+uch1,2,2,90,24,12 to 15,56,0:13:48,aca,cstriatus,na,8,,gra.det,1,Rob,not recorded
+uch1,2,2,90,24,12 to 15,57,0:14:46,aca,cstriatus,na,9,,gra.det,7,Rob,not recorded
+uch1,2,2,90,24,18 to 21,58,0:20:38,aca,cstriatus,na,9,,gra.det,14,Rob,not recorded
+uch1,2,2,90,24,18 to 21,59,0:20:42,aca,cstriatus,na,9,,gra.det,9,Rob,not recorded
+uch1,2,2,90,24,18 to 21,60,0:20:47,aca,anigrofuscus,na,6,,gra.det,4,Rob,not recorded
+uch1,2,2,90,24,24 to 27,61,0:24:00,aca,cstriatus,na,9,,gra.det,16,Rob,not recorded
+uch1,2,2,90,24,24 to 27,62,0:24:00,aca,anigrofuscus,na,6,,gra.det,58,Rob,not recorded
+uch1,2,2,90,24,24 to 27,63,0:24:06,aca,cstriatus,na,8,,gra.det,18,Rob,not recorded
+uch1,2,2,90,24,24 to 27,64,0:24:16,aca,cstriatus,na,8,,gra.det,38,Rob,not recorded
+uch1,2,2,90,24,24 to 27,65,0:25:07,aca,cstriatus,na,8,,gra.det,7,Rob,not recorded
+uch1,2,2,90,24,24 to 27,66,0:26:05,aca,cstriatus,na,8,,gra.det,55,Rob,not recorded
+uch1,2,2,90,24,30 to 33,67,0:30:28,aca,cstriatus,na,9,,gra.det,25,Rob,not recorded
+uch1,2,2,90,24,30 to 33,68,0:31:54,aca,cstriatus,na,7,,gra.det,5,Rob,not recorded
+uch1,2,2,90,24,30 to 33,69,0:32:05,aca,cstriatus,na,7,,gra.det,12,Rob,not recorded
+uch1,2,2,90,24,30 to 33,70,0:32:11,aca,cstriatus,na,8,,gra.det,50,Rob,not recorded
+uch1,2,2,90,24,30 to 33,71,0:32:31,aca,cstriatus,na,7,,gra.det,8,Rob,not recorded
+uch1,3,1,62,24,30 to 33,1,0:30:13,aca,cstriatus,na,12,,gra.det,25,Sonia,not recorded
+uch1,3,1,62,24,30 to 33,2,0:30:38,aca,cstriatus,na,13,,gra.det,16,Sonia,not recorded
+uch1,3,1,62,24,30 to 33,3,0:31:54,aca,cstriatus,na,13,,gra.det,2,Sonia,not recorded
+uch1,3,1,62,24,30 to 33,4,0:32:04,aca,anigrofuscus,na,10,,gra.det,32,Sonia,not recorded
+uch1,3,1,62,24,30 to 33,5,0:34:35,aca,cstriatus,na,13,,gra.det,2,Sonia,not recorded
+uch1,3,1,62,24,36 to 39,6,0:36:39,aca,cstriatus,na,12,,gra.det,31,Sonia,not recorded
+uch1,3,1,62,24,36 to 39,7,0:36:51,aca,cstriatus,na,12,,gra.det,5,Sonia,not recorded
+uch1,3,1,62,24,36 to 39,8,0:37:50,aca,cstriatus,na,12,,gra.det,7,Sonia,not recorded
+uch1,3,1,62,24,36 to 39,9,0:38:37,aca,cstriatus,na,12,,gra.det,8,Sonia,not recorded
+uch1,3,2,62,24,0 to 3,10,0:00:00,aca,cstriatus,na,12,,gra.det,8,Sonia,not recorded
+uch1,3,2,62,24,0 to 3,11,0:30:00,aca,cstriatus,na,12,,gra.det,9,Sonia,not recorded
+uch1,3,2,62,24,0 to 3,12,0:02:15,aca,cstriatus,na,12,,gra.det,34,Sonia,not recorded
+uch1,3,2,62,24,0 to 3,13,0:02:22,sca,csordidus,IP,14,,scra.sma.exc,2,Sonia,not recorded
+uch1,3,2,62,24,6 to 9,14,0:06:00,aca,cstriatus,na,13,,gra.det,45,Sonia,not recorded
+uch1,3,2,62,24,6 to 9,15,0:06:36,aca,cstriatus,na,12,,gra.det,16,Sonia,not recorded
+uch1,3,2,62,24,6 to 9,16,0:07:12,aca,anigrofuscus,na,10,,gra.det,12,Sonia,not recorded
+uch1,3,2,62,24,6 to 9,17,0:07:40,aca,cstriatus,na,12,,gra.det,7,Sonia,not recorded
+uch1,3,2,62,24,6 to 9,18,0:08:22,aca,cstriatus,na,13,,gra.det,38,Sonia,not recorded
+uch1,3,2,62,24,6 to 9,19,0:08:39,aca,cstriatus,na,12,,gra.det,12,Sonia,not recorded
+uch1,3,2,62,24,12 to 15,20,0:12:55,sca,csordidus,TP,22,,scra.sma.exc,4,Sonia,not recorded
+uch1,3,2,62,24,12 to 15,21,0:13:02,aca,cstriatus,na,12,,gra.det,14,Sonia,not recorded
+uch1,3,2,62,24,12 to 15,22,0:13:38,sca,sspinus,TP,20,,scra.sma.exc,42,Sonia,not recorded
+uch1,3,2,62,24,12 to 15,23,0:13:51,aca,cstriatus,na,12,,gra.det,14,Sonia,not recorded
+uch1,3,2,62,24,18 to 21,24,0:18:00,aca,cstriatus,na,12,,gra.det,40,Sonia,not recorded
+uch1,3,2,62,24,18 to 21,25,0:19:09,sca,sspinus,TP,20,,scra.sma.exc,17,Sonia,not recorded
+uch1,3,2,62,24,18 to 21,26,0:20:00,aca,cstriatus,na,12,,gra.det,7,Sonia,not recorded
+uch1,3,2,62,24,18 to 21,27,0:20:07,sca,sforsteni,IP,17,,scra.sma.exc,13,Sonia,not recorded
+uch1,3,2,62,24,18 to 21,28,0:20:32,sca,sforsteni,IP,17,,scra.sma.exc,9,Sonia,not recorded
+uch1,3,2,62,24,18 to 21,29,0:20:32,aca,cstriatus,na,13,,gra.det,13,Sonia,not recorded
+uch1,3,2,62,24,24 to 27,30,0:24:39,sca,schameleon,TP,20,,scra.sma.exc,5,Sonia,not recorded
+uch1,3,2,62,24,24 to 27,31,0:24:47,aca,cstriatus,na,12,,gra.det,31,Sonia,not recorded
+uch1,3,2,62,24,24 to 27,32,0:26:56,aca,cstriatus,na,12,,gra.det,6,Sonia,not recorded
+uch1,3,2,62,24,30 to 33,33,0:31:03,aca,cstriatus,na,12,,gra.det,5,Sonia,not recorded
+uch1,3,2,62,24,30 to 33,34,0:31:04,aca,cstriatus,na,13,,gra.det,77,Sonia,not recorded
+uch1,3,2,62,24,30 to 33,35,0:31:23,aca,cstriatus,na,11,,gra.det,7,Sonia,not recorded
+uch1,3,2,62,24,30 to 33,36,0:32:22,aca,cstriatus,na,13,,gra.det,4,Sonia,not recorded
+uch1,4,1,94,24,21 to 24,1,0:21:00,aca,cstriatus,na,12,,gra.det,1,sonia,0:21:05
+uch1,4,1,94,24,21 to 24,2,0:21:15,aca,anigrofuscus,na,12,,gra.det,149,sonia,0:22:22
+uch1,4,1,94,24,21 to 24,3,0:22:38,aca,cstriatus,na,12,,gra.det,7,sonia,0:22:47
+uch1,4,1,94,24,27 to 30,4,0:27:00,aca,anigrofuscus,na,12,,gra.det,11,sonia,0:27:04
+uch1,4,1,94,24,27 to 30,5,0:27:00,aca,cstriatus,na,11,,gra.det,11,sonia,0:27:09
+uch1,4,1,94,24,33 to 36,6,0:33:00,aca,anigrofuscus,na,11,,gra.det,59,sonia,0:33:35
+uch1,4,1,94,24,33 to 36,7,0:33:49,aca,anigrofuscus,na,11,,gra.det,1,sonia,0:33:52
+uch1,4,1,94,24,33 to 36,8,0:34:28,aca,anigrofuscus,na,11,,gra.det,110,sonia,0:35:33
+uch1,4,1,94,24,33 to 36,9,0:34:51,aca,anigricans,na,11,,gra.det,7,sonia,0:35:01
+uch1,4,1,94,24,33 to 36,10,0:34:51,aca,anigricans,na,11,,gra.det,17,sonia,0:36:31
+uch1,4,1,94,24,33 to 36,11,0:34:51,aca,anigrofuscus,na,11,,gra.det,22,sonia,0:37:14
+uch1,4,1,94,24,39 to 42,12,0:39:00,aca,anigricans,na,11,,gra.det,11,sonia,0:39:08
+uch1,4,1,94,24,39 to 42,13,0:39:06,aca,anigrofuscus,na,10,,gra.det,14,sonia,0:39:18
+uch1,4,1,94,24,39 to 42,14,0:39:51,aca,anigricans,na,10,,gra.det,19,sonia,0:40:05
+uch1,4,1,94,24,39 to 42,15,0:39:54,aca,anigrofuscus,na,11,,gra.det,137,sonia,0:41:04
+uch1,4,2,94,24,3 to 6,16,0:03:00,aca,cstriatus,na,13,,gra.det,21,sonia,0:03:24
+uch1,4,2,94,24,3 to 6,17,0:03:00,sca,csordidus,IP,12,,scra.sma.exc,10,sonia,0:03:04
+uch1,4,2,94,24,3 to 6,18,0:03:12,aca,anigrofuscus,na,11,,gra.det,51,sonia,0:03:38
+uch1,4,2,94,24,3 to 6,19,0:03:18,aca,anigricans,na,11,,gra.det,6,sonia,0:03:23
+uch1,4,2,94,24,3 to 6,20,0:04:03,aca,anigrofuscus,na,11,,gra.det,18,sonia,0:04:16
+uch1,4,2,94,24,3 to 6,21,0:04:12,aca,anigricans,na,10,,gra.det,7,sonia,0:04:20
+uch1,4,2,94,24,3 to 6,22,0:04:57,aca,anigrofuscus,na,11,,gra.det,6,sonia,0:05:06
+uch1,4,2,94,24,3 to 6,23,0:04:57,aca,anigrofuscus,na,11,,gra.det,3,sonia,0:05:03
+uch1,4,2,94,24,3 to 6,24,0:05:34,aca,anigrofuscus,na,11,,gra.det,49,sonia,0:06:09
+uch1,4,2,94,24,3 to 6,25,0:05:53,aca,anigricans,na,11,,gra.det,3,sonia,0:06:02
+uch1,4,2,94,24,9 to 12,26,0:09:04,aca,cstriatus,na,12,,gra.det,15,sonia,0:09:18
+uch1,4,2,94,24,9 to 12,27,0:09:37,aca,cstriatus,na,13,,gra.det,8,sonia,0:09:47
+uch1,4,2,94,24,9 to 12,28,0:09:36,aca,anigrofuscus,na,11,,gra.det,18,sonia,0:09:48
+uch1,4,2,94,24,9 to 12,29,0:10:19,aca,anigricans,na,11,,gra.det,6,sonia,0:10:26
+uch1,4,2,94,24,15 to 18,30,0:15:00,aca,anigricans,na,11,,gra.det,25,sonia,0:15:15
+uch1,4,2,94,24,15 to 18,31,0:15:10,aca,cstriatus,na,13,,gra.det,16,sonia,0:15:27
+uch1,4,2,94,24,15 to 18,32,0:15:43,aca,anigricans,na,10,,gra.det,32,sonia,0:15:27
+uch1,4,2,94,24,15 to 18,33,0:16:00,aca,cstriatus,na,13,,gra.det,27,sonia,0:16:24
+uch1,4,2,94,24,15 to 18,34,0:17:40,aca,cstriatus,na,14,,gra.det,1,sonia,0:17:43
+uch1,4,2,94,24,15 to 18,35,0:17:47,aca,anigrofuscus,na,11,,gra.det,22,sonia,0:18:06
+uch1,4,2,94,24,21 to 24,36,0:21:02,aca,cstriatus,na,13,,gra.det,18,sonia,0:21:19
+uch1,4,2,94,24,21 to 24,37,0:21:32,aca,cstriatus,na,13,,gra.det,19,sonia,0:21:45
+uch1,4,2,94,24,21 to 24,38,0:21:35,aca,anigrofuscus,na,11,,gra.det,7,sonia,0:21:41
+uch1,4,2,94,24,21 to 24,39,0:21:55,aca,anigrofuscus,na,11,,gra.det,37,sonia,0:22:12
+uch1,4,2,94,24,21 to 24,40,0:21:56,aca,cstriatus,na,13,,gra.det,35,sonia,0:22:18
+uch1,4,2,94,24,21 to 24,41,0:21:57,aca,cstriatus,na,13,,gra.det,36,sonia,0:22:21
+uch1,5,1,91,24,22 to 25,1,0:22:09,aca,anigrofuscus,na,11,,gra.det,4,sonia,0:22:16
+uch1,5,1,91,24,28 to 31,2,0:29:18,sca,sschlegeli,IP,13,,scra.sma.exc,3,sonia,0:29:21
+uch1,5,1,91,24,28 to 31,3,0:30:26,sca,sschlegeli,IP,13,,scra.sma.exc,26,sonia,0:30:45
+uch1,5,1,91,24,34 to 37,4,0:34:28,sca,csordidus,IP,12,,scra.sma.exc,55,sonia,0:35:45
+uch1,5,1,91,24,34 to 37,5,0:34:31,aca,cstriatus,na,14,,gra.det,18,sonia,0:34:46
+uch1,5,1,91,24,34 to 37,6,0:34:37,sca,csordidus,IP,13,,scra.sma.exc,36,sonia,0:35:37
+uch1,5,1,91,24,34 to 37,7,0:34:52,aca,anigricans,na,10,,gra.det,16,sonia,0:35:06
+uch1,5,1,91,24,34 to 37,8,0:35:03,aca,cstriatus,na,14,,gra.det,69,sonia,0:35:52
+uch1,5,1,91,24,34 to 37,9,0:35:03,aca,anigrofuscus,na,10,,gra.det,61,sonia,0:35:41
+uch1,5,1,91,24,34 to 37,10,0:36:24,aca,cstriatus,na,14,,gra.det,37,sonia,0:36:51
+uch1,5,1,91,24,40 to 43,11,0:41:21,aca,anigrofuscus,na,11,,gra.det,26,sonia,0:41:40
+uch1,5,1,91,24,40 to 43,12,0:42:15,aca,anigricans,na,11,,gra.det,34,sonia,0:42:40
+uch1,5,1,91,24,40 to 43,13,0:42:55,sca,csordidus,IP,15,,scra.sma.exc,4,sonia,0:43:20
+uch1,5,1,91,24,40 to 43,14,0:42:57,sca,csordidus,IP,15,,scra.sma.exc,3,sonia,0:43:33
+uch1,5,2,91,24,3 to 6,15,0:03:00,sca,csordidus,IP,15,,scra.sma.exc,7,sonia,0:03:10
+uch1,5,2,91,24,3 to 6,16,0:03:00,sca,csordidus,IP,15,,scra.sma.exc,9,sonia,0:03:10
+uch1,5,2,91,24,3 to 6,17,0:03:00,sca,sschlegeli,IP,14,,scra.sma.exc,14,sonia,0:03:16
+uch1,5,2,91,24,3 to 6,18,0:03:00,aca,anigrofuscus,na,13,,gra.det,30,sonia,0:03:23
+uch1,5,2,91,24,3 to 6,19,0:03:00,sca,csordidus,IP,12,,scra.sma.exc,7,sonia,0:03:10
+uch1,5,2,91,24,3 to 6,20,0:03:25,sca,csordidus,IP,12,,scra.sma.exc,4,sonia,0:03:30
+uch1,5,2,91,24,3 to 6,21,0:03:28,aca,anigrofuscus,na,10,,gra.det,6,sonia,0:03:33
+uch1,5,2,91,24,3 to 6,22,0:03:54,aca,cstriatus,na,13,,gra.det,40,sonia,0:04:33
+uch1,5,2,91,24,9 to 12,23,0:09:46,sca,csordidus,IP,12,,scra.sma.exc,5,sonia,0:09:58
+uch1,5,2,91,24,9 to 12,24,0:09:46,sca,csordidus,IP,14,,scra.sma.exc,8,sonia,0:10:01
+uch1,5,2,91,24,9 to 12,25,0:11:16,sca,sschlegeli,IP,14,,scra.sma.exc,18,sonia,0:11:32
+uch1,5,2,91,24,9 to 12,26,0:11:26,sca,csordidus,IP,11,,scra.sma.exc,4,sonia,0:11:36
+uch1,5,2,91,24,9 to 12,27,0:11:24,sca,csordidus,IP,12,,scra.sma.exc,7,sonia,0:11:33
+uch1,5,2,91,24,9 to 12,28,0:11:41,sca,sschlegeli,IP,9,,scra.sma.exc,20,sonia,0:11:53
+uch1,5,2,91,24,15 to 18,29,0:16:05,aca,cstriatus,na,13,,gra.det,95,sonia,0:17:41
+uch1,5,2,91,24,15 to 18,30,0:17:22,sca,csordidus,IP,12,,scra.sma.exc,10,sonia,0:17:31
+uch1,5,2,91,24,15 to 18,31,0:17:25,sca,csordidus,IP,15,,scra.sma.exc,36,sonia,0:18:11
+uch1,5,2,91,24,21 to 24,32,0:23:23,aca,cstriatus,na,14,,gra.det,12,sonia,0:23:33
+uch2,1,2,90,24,4 to 7,1,0:05:16,aca,cstriatus,na,13,,gra.det,26,Sonia,not recorded
+uch2,1,2,90,24,4 to 7,2,0:05:14,aca,cstriatus,na,14,,gra.det,13,Sonia,not recorded
+uch2,1,2,90,24,4 to 7,3,0:05:23,aca,cstriatus,na,15,,gra.det,11,Sonia,not recorded
+uch2,1,2,90,24,4 to 7,4,0:06:08,aca,cstriatus,na,13,,gra.det,5,Sonia,not recorded
+uch2,1,2,90,24,10 to 13,5,0:10:00,aca,cstriatus,na,23,,gra.det,7,Sonia,not recorded
+uch2,1,2,90,24,10 to 13,6,0:11:17,aca,cstriatus,na,13,,gra.det,7,Sonia,not recorded
+uch2,1,2,90,24,16 to 19,7,0:16:00,sca,csordidus,tp,23,,scra.sma.exc,17,Sonia,not recorded
+uch2,1,2,90,24,16 to 19,8,0:17:36,sca,sniger,tp,25,,scra.sma.exc,16,Sonia,not recorded
+uch2,1,2,90,24,16 to 19,9,0:17:46,sca,csordidus,tp,23,,scra.sma.exc,7,Sonia,not recorded
+uch2,1,2,90,24,16 to 19,10,0:18:03,sca,sforsteni,tp,30,,scra.sma.exc,4,Sonia,not recorded
+uch2,1,2,90,24,22 to 25,11,0:23:40,aca,cstriatus,na,13,,gra.det,4,Sonia,not recorded
+uch2,1,2,90,24,22 to 25,12,0:24:16,aca,cstriatus,na,13,,gra.det,31,Sonia,not recorded
+uch2,1,2,90,24,22 to 25,13,0:24:18,aca,zscopas,na,10,,gra.det,15,Sonia,not recorded
+uch2,1,2,90,24,22 to 25,14,0:24:20,aca,zscopas,na,13,,gra.det,8,Sonia,not recorded
+uch2,1,2,90,24,28 to 31,no fish,no fish,no fish,no fish,no fish,no fish,no fish,no fish,0,Sonia,not recorded
+uch2,1,2,90,24,34 to 37,15,0:34:41,aca,cstriatus,na,12,,gra.det,27,Sonia,not recorded
+uch2,1,2,90,24,34 to 37,16,0:34:47,aca,cstriatus,na,12,,gra.det,29,Sonia,not recorded
+uch2,1,2,90,24,34 to 37,17,0:34:48,aca,cstriatus,na,12,,gra.det,10,Sonia,not recorded
+uch2,1,2,90,24,34 to 37,18,0:34:48,aca,cstriatus,na,12,,gra.det,13,Sonia,not recorded
+uch2,1,2,90,24,34 to 37,19,0:36:22,aca,cstriatus,na,15,,gra.det,22,Sonia,not recorded
+uch2,1,2,90,24,40 to 43,20,0:40:14,aca,cstriatus,na,12,,gra.det,47,Sonia,not recorded
+uch2,1,2,90,24,40 to 43,21,0:40:22,aca,cstriatus,na,12,,gra.det,14,Sonia,not recorded
+uch2,1,2,90,24,40 to 43,22,0:40:24,aca,zscopas,na,10,,gra.det,15,Sonia,not recorded
+uch2,1,2,90,24,40 to 43,23,0:40:27,aca,zscopas,na,10,,gra.det,22,Sonia,not recorded
+uch2,1,2,90,24,40 to 43,24,0:40:57,aca,cstriatus,na,12,,gra.det,52,Sonia,not recorded
+uch2,1,2,90,24,40 to 43,25,0:40:59,aca,zscopas,na,10,,gra.det,33,Sonia,not recorded
+uch2,1,2,90,24,40 to 43,26,0:40:59,aca,cstriatus,na,13,,gra.det,58,Sonia,not recorded
+uch2,1,2,90,24,40 to 43,27,0:41:00,sca,csordidus,tp,23,,scra.sma.exc,11,Sonia,not recorded
+uch2,1,2,90,24,40 to 43,28,0:41:10,aca,zscopas,na,10,,gra.det,18,Sonia,not recorded
+uch2,1,2,90,24,40 to 43,29,0:42:10,aca,zscopas,na,10,,gra.det,14,Sonia,not recorded
+uch2,1,2,90,24,40 to 43,30,0:42:19,aca,cstriatus,na,12,,gra.det,30,Sonia,not recorded
+uch2,1,2,90,24,40 to 43,31,0:42:19,aca,cstriatus,na,12,,gra.det,21,Sonia,not recorded
+uch2,1,3,90,24,3 to 6,32,0:03:00,aca,cstriatus,na,12,,gra.det,32,Sonia,not recorded
+uch2,1,3,90,24,3 to 6,33,0:03:00,aca,cstriatus,na,12,,gra.det,13,Sonia,not recorded
+uch2,1,3,90,24,3 to 6,34,0:03:51,aca,cstriatus,na,12,,gra.det,21,Sonia,not recorded
+uch2,1,3,90,24,3 to 6,35,0:03:37,sca,csordidus,tp,23,,scra.sma.exc,6,Sonia,not recorded
+uch2,1,3,90,24,3 to 6,36,0:03:52,aca,cstriatus,na,12,,gra.det,13,Sonia,not recorded
+uch2,1,3,90,24,3 to 6,37,0:04:28,aca,cstriatus,na,14,,gra.det,27,Sonia,not recorded
+uch2,1,3,90,24,3 to 6,38,0:04:33,sca,csordidus,ip,12,,scra.sma.exc,2,Sonia,not recorded
+uch2,1,3,90,24,3 to 6,39,0:04:44,aca,cstriatus,na,14,,gra.det,13,Sonia,not recorded
+uch2,2,1,45,24,38 to 41,1,0:38:14,sca,csordidus,IP,13,,scra.sma.exc,49,sonia,0:39:16
+uch2,2,1,45,24,38 to 41,2,0:38:19,aca,zscopas,na,11,,gra.det,75,sonia,0:39:17
+uch2,2,1,45,24,38 to 41,3,0:38:30,aca,naso,na,24,,browser,10,sonia,0:39:01
+uch2,2,1,45,24,38 to 41,4,0:38:44,sca,schameleon,IP,23,,scra.sma.exc,25,sonia,0:39:17
+uch2,2,1,45,24,38 to 41,5,0:38:50,sca,schameleon,IP,23,,scra.sma.exc,3,sonia,0:39:03
+uch2,2,1,45,24,38 to 41,6,0:40:10,aca,zscopas,na,9,,gra.det,30,sonia,0:41:25
+uch2,2,1,45,24,38 to 41,7,0:39:50,aca,naso,na,24,,browser,3,sonia,0:40:20
+uch2,2,2,45,24,3 to 6,8,0:03:43,sca,schameleon,TP,24,,scra.sma.exc,2,sonia,0:03:56
+uch2,2,2,45,24,3 to 6,9,0:04:22,sca,schameleon,TP,24,,scra.sma.exc,16,sonia,0:04:48
+uch2,2,2,45,24,3 to 6,10,0:04:21,aca,zscopas,na,10,,gra.det,6,sonia,0:04:48
+uch2,2,2,45,24,9 to 12,11,0:09:00,sca,csordidus,IP,15,,scra.sma.exc,14,sonia,0:09:19
+uch2,2,2,45,24,9 to 12,12,0:09:05,sca,csordidus,TP,22,,scra.sma.exc,13,sonia,0:09:24
+uch2,2,2,45,24,9 to 12,13,0:09:09,sca,csordidus,IP,24,,scra.sma.exc,6,sonia,0:09:20
+uch2,2,2,45,24,9 to 12,14,0:09:00,aca,zscopas,na,10,,gra.det,10,sonia,0:09:25
+uch2,2,2,45,24,9 to 12,15,0:09:29,sca,schameleon,IP,20,,scra.sma.exc,3,sonia,0:09:34
+uch2,2,2,45,24,15 to 18,16,0:15:29,aca,zscopas,na,10,,gra.det,4,sonia,0:15:33
+uch2,2,2,45,24,15 to 18,17,0:15:41,aca,zscopas,na,10,,gra.det,12,sonia,0:15:57
+uch2,2,2,45,24,15 to 18,18,0:16:08,sca,csordidus,TP,24,,scra.sma.exc,14,sonia,0:16:32
+uch2,2,2,45,24,15 to 18,19,0:16:48,aca,cstriatus,na,15,,gra.det,13,sonia,0:17:07
+uch2,2,2,45,24,15 to 18,20,0:16:55,sca,csordidus,IP,11,,scra.sma.exc,7,sonia,0:17:04
+uch2,2,2,45,24,15 to 18,21,0:17:00,sca,csordidus,IP,15,,scra.sma.exc,1,sonia,0:17:09
+uch2,2,2,45,24,15 to 18,22,0:17:21,sca,csordidus,IP,12,,scra.sma.exc,11,sonia,0:17:46
+uch2,2,2,45,24,15 to 18,23,0:17:22,sca,csordidus,IP,15,,scra.sma.exc,15,sonia,0:17:45
+uch2,2,2,45,24,15 to 18,24,0:17:24,aca,zscopas,na,10,,gra.det,25,sonia,0:18:31
+uch2,2,2,45,24,21 to 24,25,0:21:09,aca,naso,na,23,,browser,3,sonia,0:21:14
+uch2,2,2,45,24,21 to 24,26,0:21:11,sca,csordidus,IP,15,,scra.sma.exc,15,sonia,0:21:28
+uch2,2,2,45,24,21 to 24,27,0:21:13,sca,csordidus,IP,15,,scra.sma.exc,3,sonia,0:21:26
+uch2,2,2,45,24,21 to 24,28,0:22:09,sca,csordidus,TP,23,,scra.sma.exc,25,sonia,0:22:43
+uch2,2,2,45,24,21 to 24,29,0:22:57,sca,sniger,TP,25,,scra.sma.exc,8,sonia,0:23:15
+uch2,2,2,45,24,27 to 30,no fish,no fish,no fish,no fish,no fish,no fish,no fish,no fish,0,sonia,no fish
+uch2,2,2,45,24,33 to 36,30,0:33:00,aca,zscopas,na,11,,gra.det,14,sonia,0:33:24
+uch2,2,2,45,24,39 to 42,31,0:39:41,aca,zscopas,na,11,,gra.det,21,sonia,0:40:06
+uch2,2,2,45,24,39 to 42,32,0:40:58,aca,zscopas,na,11,,gra.det,8,sonia,0:41:07
+uch2,2,2,45,24,39 to 42,33,0:41:23,aca,zscopas,na,11,,gra.det,11,sonia,0:41:34
+uch2,3,1,90,24,33 to 36,no fish,no fish,no fish,no fish,no fish,no fish,no fish,no fish,0,Rob,not recorded
+uch2,3,1,90,24,39 to 42,1,0:39:00,aca,cstriatus,na,13,,gra.det,3,Rob,not recorded
+uch2,3,1,90,24,39 to 42,2,0:39:00,aca,cstriatus,na,10,,gra.det,1,Rob,not recorded
+uch2,3,1,90,24,39 to 42,3,0:39:03,sca,csordidus,ip,13,,scra.sma.exc,7,Rob,not recorded
+uch2,3,1,90,24,39 to 42,4,0:39:09,aca,cstriatus,na,12,,gra.det,13,Rob,not recorded
+uch2,3,1,90,24,39 to 42,5,0:39:12,sca,csordidus,tp,16,,scra.sma.exc,11,Rob,not recorded
+uch2,3,1,90,24,39 to 42,6,0:39:14,aca,zscopas,na,11,,gra.det,12,Rob,not recorded
+uch2,3,1,90,24,39 to 42,7,0:39:26,aca,cstriatus,na,10,,gra.det,16,Rob,not recorded
+uch2,3,1,90,24,39 to 42,8,0:39:36,aca,zscopas,na,10,,gra.det,94,Rob,not recorded
+uch2,3,1,90,24,39 to 42,9,0:40:01,aca,cstriatus,na,12,,gra.det,29,Rob,not recorded
+uch2,3,1,90,24,39 to 42,10,0:40:01,aca,zscopas,na,11,,gra.det,34,Rob,not recorded
+uch2,3,1,90,24,39 to 42,11,0:40:09,sca,csordidus,tp,17,,scra.sma.exc,67,Rob,not recorded
+uch2,3,1,90,24,39 to 42,12,0:41:24,sca,csordidus,tp,24,,scra.sma.exc,22,Rob,not recorded
+uch2,3,1,90,24,39 to 42,13,0:41:38,sca,sspinus,tp,22,,scra.sma.exc,24,Rob,not recorded
+uch2,3,2,90,24,3 to 6,14,0:03:00,aca,naso,na,16,,browser,1,Rob,not recorded
+uch2,3,2,90,24,3 to 6,15,0:03:00,sca,csordidus,tp,17,,scra.sma.exc,2,Rob,not recorded
+uch2,3,2,90,24,3 to 6,16,0:03:03,sca,csordidus,ip,12,,scra.sma.exc,4,Rob,not recorded
+uch2,3,2,90,24,3 to 6,17,0:03:41,aca,cstriatus,na,12,,gra.det,5,Rob,not recorded
+uch2,3,2,90,24,9 to 12,18,0:09:00,aca,zscopas,na,8,,gra.det,29,Rob,not recorded
+uch2,3,2,90,24,9 to 12,19,0:09:57,aca,zscopas,na,8,,gra.det,81,Rob,not recorded
+uch2,3,2,90,24,9 to 12,20,0:10:46,sca,csordidus,tp,15,,scra.sma.exc,7,Rob,not recorded
+uch2,3,2,90,24,9 to 12,21,0:10:52,aca,zscopas,na,7,,gra.det,64,Rob,not recorded
+uch2,3,2,90,24,15 to 18,22,0:15:00,sca,csordidus,tp,16,,scra.sma.exc,37,Rob,not recorded
+uch2,3,2,90,24,15 to 18,23,0:15:00,aca,zscopas,na,8,,gra.det,106,Rob,not recorded
+uch2,3,2,90,24,15 to 18,24,0:15:00,aca,cstriatus,na,11,,gra.det,28,Rob,not recorded
+uch2,3,2,90,24,15 to 18,25,0:15:18,aca,cstriatus,na,12,,gra.det,12,Rob,not recorded
+uch2,3,2,90,24,15 to 18,26,0:15:00,aca,zscopas,na,8,,gra.det,123,Rob,not recorded
+uch2,3,2,90,24,15 to 18,27,0:15:55,sca,csordidus,tp,16,,scra.sma.exc,55,Rob,not recorded
+uch2,3,2,90,24,15 to 18,28,0:16:02,aca,cstriatus,na,11,,gra.det,5,Rob,not recorded
+uch2,3,2,90,24,15 to 18,29,0:16:24,sca,sniger,tp,15,,scra.sma.exc,6,Rob,not recorded
+uch2,3,2,90,24,15 to 18,30,0:16:40,aca,cstriatus,na,11,,gra.det,69,Rob,not recorded
+uch2,3,2,90,24,15 to 18,31,0:17:25,aca,cstriatus,na,12,,gra.det,48,Rob,not recorded
+uch2,3,2,90,24,15 to 18,32,0:17:29,aca,zscopas,na,8,,gra.det,30,Rob,not recorded
+uch2,3,2,90,24,21 to 24,33,0:21:00,sca,csordidus,tp,19,,scra.sma.exc,5,Rob,not recorded
+uch2,3,2,90,24,21 to 24,34,0:21:00,aca,zscopas,na,9,,gra.det,105,Rob,not recorded
+uch2,3,2,90,24,21 to 24,35,0:21:06,aca,cstriatus,na,11,,gra.det,13,Rob,not recorded
+uch2,3,2,90,24,21 to 24,36,0:21:07,aca,zscopas,na,8,,gra.det,39,Rob,not recorded
+uch2,3,2,90,24,21 to 24,37,0:21:12,sca,csordidus,tp,14,,scra.sma.exc,1,Rob,not recorded
+uch2,3,2,90,24,21 to 24,38,0:21:27,sca,sdimidiatus,ip,13,,scra.sma.exc,20,Rob,not recorded
+uch2,3,2,90,24,21 to 24,39,0:21:29,sig,sargenteus,na,16,,gra.det,62,Rob,not recorded
+uch2,3,2,90,24,21 to 24,40,0:21:40,sca,csordidus,ip,14,,scra.sma.exc,65,Rob,not recorded
+uch2,3,2,90,24,21 to 24,41,0:21:42,sca,sniger,tp,14,,scra.sma.exc,56,Rob,not recorded
+uch2,3,2,90,24,21 to 24,42,0:21:47,aca,cstriatus,na,11,,gra.det,46,Rob,not recorded
+uch2,3,2,90,24,21 to 24,43,0:22:09,sca,sdimidiatus,ip,13,,scra.sma.exc,91,Rob,not recorded
+uch2,3,2,90,24,21 to 24,44,0:22:23,sca,ccarolinus,tp,18,,browser,45,Rob,not recorded
+uch2,3,2,90,24,21 to 24,45,0:22:41,aca,zscopas,na,7,,gra.det,4,Rob,not recorded
+uch2,3,2,90,24,21 to 24,46,0:23:07,aca,zscopas,na,8,,gra.det,40,Rob,not recorded
+uch2,3,2,90,24,21 to 24,47,0:23:43,sca,csordidus,IP,11,,scra.sma.exc,3,Rob,not recorded
+uch2,3,2,90,24,21 to 24,48,0:23:51,aca,cstriatus,na,11,,gra.det,13,Rob,not recorded
+uch2,3,2,90,24,27 to 30,49,0:28:24,aca,zscopas,na,7,,gra.det,2,Rob,not recorded
+uch2,3,2,90,24,27 to 30,50,0:28:25,aca,zscopas,na,7,,gra.det,7,Rob,not recorded
+uch2,3,2,90,24,27 to 30,51,0:28:54,sca,csordidus,tp,17,,scra.sma.exc,10,Rob,not recorded
+uch2,3,2,90,24,33 to 36,52,0:33:00,sca,csordidus,tp,14,,scra.sma.exc,6,Rob,not recorded
+uch2,3,2,90,24,33 to 36,53,0:33:35,sca,csordidus,tp,14,,scra.sma.exc,4,Rob,not recorded
+uch2,3,2,90,24,33 to 36,54,0:33:35,aca,zscopas,na,7,,gra.det,8,Rob,not recorded
+uch2,3,2,90,24,33 to 36,55,0:34:33,aca,zscopas,na,7,,gra.det,5,Rob,not recorded
+uch2,4,1,55,24,31 to 34,1,0:31:26,aca,cstriatus,na,13,,gra.det,4,Sonia,not recorded
+uch2,4,1,55,24,31 to 34,2,0:32:09,aca,cstriatus,na,14,,gra.det,20,Sonia,not recorded
+uch2,4,1,55,24,37 to 40,no fish,no fish,no fish,no fish,no fish,no fish,no fish,no fish,0,Sonia,not recorded
+uch2,4,2,55,24,0 to 3,3,0:01:33,aca,cstriatus,na,13,,gra.det,9,Sonia,not recorded
+uch2,4,2,55,24,0 to 3,4,0:01:40,aca,zscopas,na,12,,gra.det,16,Sonia,not recorded
+uch2,4,2,55,24,0 to 3,5,0:02:12,aca,zscopas,na,10,,gra.det,17,Sonia,not recorded
+uch2,4,2,55,24,0 to 3,6,0:02:11,sca,schameleon,IP,14,,scra.sma.exc,4,Sonia,not recorded
+uch2,4,2,55,24,0 to 3,7,0:02:18,aca,zscopas,na,10,,gra.det,13,Sonia,not recorded
+uch2,4,2,55,24,0 to 3,8,0:02:17,aca,cstriatus,na,14,,gra.det,7,Sonia,not recorded
+uch2,4,2,55,24,0 to 3,9,0:02:32,sca,sniger,IP,10,,scra.sma.exc,4,Sonia,not recorded
+uch2,4,2,55,24,0 to 3,10,0:02:51,aca,zscopas,na,10,,gra.det,9,Sonia,not recorded
+uch2,4,2,55,24,6 to 9,11,0:06:00,aca,cstriatus,na,12,,gra.det,2,Sonia,not recorded
+uch2,4,2,55,24,6 to 9,12,0:08:00,sca,sniger,TP,8,,scra.sma.exc,14,Sonia,not recorded
+uch2,4,2,55,24,12 to 15,13,0:12:21,sca,sniger,TP,21,,scra.sma.exc,14,Sonia,not recorded
+uch2,4,2,55,24,12 to 15,14,0:12:28,aca,naso,na,20,,browser,1,Sonia,not recorded
+uch2,4,2,55,24,12 to 15,15,0:12:30,aca,naso,na,19,,browser,9,Sonia,not recorded
+uch2,4,2,55,24,12 to 15,16,0:12:30,aca,naso,na,19,,browser,7,Sonia,not recorded
+uch2,4,2,55,24,12 to 15,17,0:12:57,aca,naso,na,21,,browser,1,Sonia,not recorded
+uch2,4,2,55,24,12 to 15,18,0:13:09,aca,naso,na,21,,browser,8,Sonia,not recorded
+uch2,4,2,55,24,12 to 15,19,0:13:40,aca,cstriatus,na,14,,gra.det,17,Sonia,not recorded
+uch2,4,2,55,24,12 to 15,20,0:13:45,aca,naso,na,20,,browser,5,Sonia,not recorded
+uch2,4,2,55,24,12 to 15,21,0:13:49,sca,csordidus,TP,22,,scra.sma.exc,29,Sonia,not recorded
+uch2,4,2,55,24,12 to 15,22,0:14:02,sca,sdimidiatus,tp,17,,scra.sma.exc,6,Sonia,not recorded
+uch2,4,2,55,24,12 to 15,23,0:14:34,aca,zscopas,na,10,,gra.det,21,Sonia,not recorded
+uch2,4,2,55,24,12 to 15,24,0:14:36,aca,zscopas,na,10,,gra.det,12,Sonia,not recorded
+uch2,4,2,55,24,18 to 21,25,0:18:00,aca,zscopas,na,10,,gra.det,13,Sonia,not recorded
+uch2,4,2,55,24,18 to 21,26,0:18:00,aca,zscopas,na,10,,gra.det,1,Sonia,not recorded
+uch2,4,2,55,24,18 to 21,27,0:18:00,aca,cstriatus,na,12,,gra.det,31,Sonia,not recorded
+uch2,4,2,55,24,18 to 21,28,0:18:00,sca,sdimidiatus,tp,16,,scra.sma.exc,20,Sonia,not recorded
+uch2,4,2,55,24,18 to 21,29,0:18:36,sca,csordidus,ip,12,,scra.sma.exc,4,Sonia,not recorded
+uch2,4,2,55,24,18 to 21,30,0:18:38,aca,zscopas,na,10,,gra.det,4,Sonia,not recorded
+uch2,4,2,55,24,18 to 21,31,0:18:42,aca,cstriatus,na,13,,gra.det,5,Sonia,not recorded
+uch2,4,2,55,24,18 to 21,32,0:19:03,sca,sdimidiatus,tp,17,,scra.sma.exc,2,Sonia,not recorded
+uch2,4,2,55,24,18 to 21,33,0:19:18,sca,csordidus,ip,12,,scra.sma.exc,7,Sonia,not recorded
+uch2,4,2,55,24,18 to 21,34,0:20:13,aca,cstriatus,na,12,,gra.det,10,Sonia,not recorded
+uch2,4,2,55,24,24 to 27,35,0:24:10,aca,zscopas,na,10,,gra.det,4,Sonia,not recorded
+uch2,4,2,55,24,24 to 27,36,0:25:44,aca,cstriatus,na,12,,gra.det,22,Sonia,not recorded
+uch2,4,2,55,24,30 to 33,37,0:30:00,sca,sdimidiatus,tp,17,,scra.sma.exc,1,Sonia,not recorded
+uch2,4,2,55,24,30 to 33,38,0:32:29,aca,cstriatus,na,14,,gra.det,25,Sonia,not recorded
+uch2,4,2,55,24,30 to 33,39,0:32:29,sca,csordidus,tp,23,,scra.sma.exc,2,Sonia,not recorded
+uch2,4,2,55,24,30 to 33,40,0:32:57,aca,cstriatus,na,14,,gra.det,5,Sonia,not recorded
+uch2,5,1,80,24,21 to 24,1,0:21:18,sca,sschlegeli,IP,24,,scra.sma.exc,13,sonia,0:21:38
+uch2,5,1,80,24,21 to 24,2,0:21:34,aca,cstriatus,na,12,,gra.det,11,sonia,0:21:43
+uch2,5,1,80,24,21 to 24,3,0:21:42,sca,sdimidiatus,TP,24,,scra.sma.exc,43,sonia,0:22:20
+uch2,5,1,80,24,21 to 24,4,0:22:06,sca,csordidus,TP,26,,scra.sma.exc,11,sonia,0:22:20
+uch2,5,1,80,24,27 to 30,5,0:28:31,sca,sschlegeli,IP,24,,scra.sma.exc,5,sonia,0:28:47
+uch2,5,1,80,24,27 to 30,6,0:29:15,sca,csordidus,TP,24,,scra.sma.exc,25,sonia,0:29:53
+uch2,5,1,80,24,27 to 30,7,0:29:43,aca,nvlamingii,na,26,,browser,1,sonia,not recorded
+uch2,5,1,80,24,33 to 36,no fish,no fish,no fish,no fish,no fish,no fish,no fish,no fish,0,sonia,no fish
+uch2,5,1,80,24,39 to 42,no fish,no fish,no fish,no fish,no fish,no fish,no fish,no fish,0,sonia,no fish
+uch2,5,2,80,24,3 to 6,8,0:03:01,aca,cstriatus,na,14,,gra.det,9,sonia,0:03:08
+uch2,5,2,80,24,3 to 6,9,0:03:03,sca,csordidus,TP,22,,scra.sma.exc,2,sonia,0:03:13
+uch2,5,2,80,24,3 to 6,10,0:03:38,sca,sschlegeli,IP,15,,scra.sma.exc,19,sonia,0:04:02
+uch2,5,2,80,24,9 to 12,no fish,no fish,no fish,no fish,no fish,no fish,no fish,no fish,0,sonia,no fish
+uch2,5,2,80,24,15 to 18,11,0:15:13,sca,schameleon,TP,26,,scra.sma.exc,6,sonia,0:15:25
+uch2,5,2,80,24,21 to 24,no fish,no fish,no fish,no fish,no fish,no fish,no fish,no fish,0,sonia,no fish
+uch3,1,1,96,24,31 to 34,1,0:31:30,aca,cstriatus,na,15,,gra.det,7,sonia,0:31:45
+uch3,1,1,96,24,31 to 34,2,0:31:30,aca,cstriatus,na,18,,gra.det,25,sonia,0:31:58
+uch3,1,1,96,24,31 to 34,3,0:31:33,aca,cstriatus,na,13,,gra.det,12,sonia,0:31:42
+uch3,1,1,96,24,31 to 34,4,0:31:45,sca,sspinus,TP,23,,scra.sma.exc,69,sonia,0:32:21
+uch3,1,1,96,24,31 to 34,5,0:33:51,aca,cstriatus,na,14,,gra.det,3,sonia,0:34:04
+uch3,1,1,96,24,37 to 40,6,0:37:19,aca,cstriatus,na,14,,gra.det,19,sonia,0:37:35
+uch3,1,1,96,24,37 to 40,7,0:37:35,aca,cstriatus,na,12,,gra.det,10,sonia,0:37:47
+uch3,1,1,96,24,37 to 40,8,0:38:19,aca,cstriatus,na,16,,gra.det,5,sonia,0:38:32
+uch3,1,1,96,24,37 to 40,9,0:38:53,aca,cstriatus,na,15,,gra.det,11,sonia,0:39:05
+uch3,1,1,96,24,37 to 40,10,0:39:12,aca,anigrofuscus,na,10,,gra.det,16,sonia,0:39:33
+uch3,1,1,96,24,37 to 40,11,0:39:14,aca,cstriatus,na,16,,gra.det,12,sonia,0:39:29
+uch3,1,1,96,24,37 to 40,12,0:39:41,aca,cstriatus,na,14,,gra.det,11,sonia,0:39:56
+uch3,1,2,96,24,0 to 3,13,0:00:02,aca,cstriatus,na,16,,gra.det,8,sonia,0:00:08
+uch3,1,2,96,24,0 to 3,14,0:00:18,sca,csordidus,TP,26,,scra.sma.exc,2,sonia,0:00:23
+uch3,1,2,96,24,0 to 3,15,0:00:48,aca,cstriatus,na,16,,gra.det,5,sonia,0:57:00
+uch3,1,2,96,24,0 to 3,16,0:01:19,aca,cstriatus,na,16,,gra.det,21,sonia,0:01:35
+uch3,1,2,96,24,0 to 3,17,0:01:21,aca,cstriatus,na,15,,gra.det,15,sonia,0:01:31
+uch3,1,2,96,24,0 to 3,18,0:01:27,sca,sniger,TP,23,,scra.sma.exc,14,sonia,0:01:42
+uch3,1,2,96,24,0 to 3,19,0:01:37,aca,cstriatus,na,14,,gra.det,1,sonia,0:01:42
+uch3,1,2,96,24,0 to 3,20,0:01:44,aca,cstriatus,na,15,,gra.det,4,sonia,0:01:48
+uch3,1,2,96,24,0 to 3,21,0:02:00,aca,cstriatus,na,13,,gra.det,11,sonia,0:02:07
+uch3,1,2,96,24,0 to 3,22,0:02:20,aca,cstriatus,na,15,,gra.det,21,sonia,0:02:44
+uch3,1,2,96,24,0 to 3,23,0:02:25,sca,sniger,TP,23,,scra.sma.exc,18,sonia,0:02:41
+uch3,1,2,96,24,0 to 3,24,0:02:31,aca,cstriatus,na,13,,gra.det,11,sonia,0:02:46
+uch3,1,2,96,24,0 to 3,25,0:02:24,aca,cstriatus,na,15,,gra.det,10,sonia,0:02:33
+uch3,1,2,96,24,0 to 3,26,0:02:42,aca,cstriatus,na,12,,gra.det,7,sonia,0:02:49
+uch3,1,2,96,24,6 to 9,27,0:06:08,aca,cstriatus,na,12,,gra.det,11,sonia,0:06:18
+uch3,1,2,96,24,6 to 9,28,0:06:19,aca,cstriatus,na,12,,gra.det,6,sonia,0:06:25
+uch3,1,2,96,24,6 to 9,29,0:06:30,aca,cstriatus,na,20,,gra.det,4,sonia,0:06:40
+uch3,1,2,96,24,6 to 9,30,0:06:35,sca,sspinus,TP,25,,scra.sma.exc,73,sonia,0:07:24
+uch3,1,2,96,24,6 to 9,31,0:06:42,aca,cstriatus,na,15,,gra.det,4,sonia,0:06:52
+uch3,1,2,96,24,6 to 9,32,0:07:06,aca,cstriatus,na,12,,gra.det,23,sonia,0:07:29
+uch3,1,2,96,24,6 to 9,33,0:07:11,aca,cstriatus,na,12,,gra.det,27,sonia,0:07:32
+uch3,1,2,96,24,6 to 9,34,0:07:12,aca,anigrofuscus,na,10,,gra.det,48,sonia,0:07:36
+uch3,1,2,96,24,6 to 9,35,0:07:12,aca,cstriatus,na,10,,gra.det,40,sonia,0:07:23
+uch3,1,2,96,24,6 to 9,36,0:07:13,sca,sforsteni,IP,20,,scra.sma.exc,13,sonia,0:07:25
+uch3,1,2,96,24,6 to 9,37,0:07:30,aca,cstriatus,na,13,,gra.det,11,sonia,0:07:41
+uch3,1,2,96,24,12 to 15,38,0:12:00,aca,cstriatus,na,12,,gra.det,29,sonia,0:12:20
+uch3,1,2,96,24,12 to 15,39,0:12:02,aca,cstriatus,na,12,,gra.det,16,sonia,0:12:25
+uch3,1,2,96,24,12 to 15,40,0:12:05,sca,spsittacus,IP,12,,scra.sma.exc,128,sonia,0:12:55
+uch3,1,2,96,24,12 to 15,41,0:12:42,aca,cstriatus,na,14,,gra.det,14,sonia,0:12:53
+uch3,1,2,96,24,12 to 15,42,0:13:02,aca,cstriatus,na,14,,gra.det,1,sonia,0:13:10
+uch3,1,2,96,24,12 to 15,43,0:13:01,aca,cstriatus,na,13,,gra.det,7,sonia,0:13:04
+uch3,1,2,96,24,12 to 15,44,0:13:05,aca,cstriatus,na,14,,gra.det,2,sonia,0:13:10
+uch3,1,2,96,24,12 to 15,45,0:13:07,aca,cstriatus,na,14,,gra.det,14,sonia,0:13:18
+uch3,1,2,96,24,12 to 15,46,0:13:22,aca,cstriatus,na,13,,gra.det,10,sonia,0:13:32
+uch3,1,2,96,24,12 to 15,47,0:13:31,aca,cstriatus,na,14,,gra.det,3,sonia,0:13:37
+uch3,1,2,96,24,12 to 15,48,0:13:34,aca,anigrofuscus,na,10,,gra.det,10,sonia,0:13:43
+uch3,1,2,96,24,18 to 21,49,0:18:38,aca,cstriatus,na,12,,gra.det,3,sonia,0:18:44
+uch3,1,2,96,24,18 to 21,50,0:19:05,aca,cstriatus,na,16,,gra.det,6,sonia,0:19:10
+uch3,1,2,96,24,18 to 21,51,0:19:16,aca,cstriatus,na,12,,gra.det,4,sonia,0:19:21
+uch3,1,2,96,24,18 to 21,52,0:19:41,aca,cstriatus,na,15,,gra.det,18,sonia,0:19:57
+uch3,1,2,96,24,18 to 21,53,0:20:16,aca,cstriatus,na,10,,gra.det,16,sonia,0:20:28
+uch3,1,2,96,24,24 to 27,54,0:24:18,aca,cstriatus,na,16,,gra.det,14,sonia,0:24:27
+uch3,1,2,96,24,24 to 27,55,0:24:32,aca,cstriatus,na,16,,gra.det,13,sonia,0:24:42
+uch3,1,2,96,24,24 to 27,56,0:25:04,aca,anigrofuscus,na,9,,gra.det,8,sonia,0:25:13
+uch3,1,2,96,24,24 to 27,57,0:25:05,aca,cstriatus,na,14,,gra.det,10,sonia,0:25:11
+uch3,1,2,96,24,24 to 27,58,0:25:05,aca,cstriatus,na,14,,gra.det,2,sonia,0:25:08
+uch3,1,2,96,24,24 to 27,59,0:25:11,aca,cstriatus,na,15,,gra.det,13,sonia,0:25:22
+uch3,1,2,96,24,24 to 27,60,0:25:19,aca,cstriatus,na,17,,gra.det,33,sonia,0:25:34
+uch3,1,2,96,24,30 to 33,61,0:30:20,aca,cstriatus,na,12,,gra.det,12,sonia,0:30:29
+uch3,1,2,96,24,30 to 33,62,0:31:19,sca,sforsteni,IP,20,,scra.sma.exc,7,sonia,0:31:27
+uch3,1,2,96,24,30 to 33,63,0:31:20,aca,cstriatus,na,17,,gra.det,24,sonia,0:31:37
+uch3,1,2,96,24,30 to 33,64,0:32:04,aca,cstriatus,na,16,,gra.det,2,sonia,0:32:07
+uch3,1,2,96,24,30 to 33,65,0:32:04,sca,csordidus,TP,25,,scra.sma.exc,5,sonia,0:32:16
+uch3,2,1,83,24,28 to 31,1,0:28:54,aca,cstriatus,na,8,,gra.det,8,Rob,not recorded
+uch3,2,1,83,24,28 to 31,2,0:29:31,aca,cstriatus,na,8,,gra.det,18,Rob,not recorded
+uch3,2,1,83,24,34 to 37,3,0:35:12,aca,zscopas,na,7,,gra.det,2,Rob,not recorded
+uch3,2,1,83,24,40 to 43,4,0:41:02,aca,cstriatus,na,7,,gra.det,14,Rob,not recorded
+uch3,2,1,83,24,40 to 43,5,0:41:50,sca,csordidus,ip,15,,scra.sma.exc,1,Rob,not recorded
+uch3,2,1,83,24,40 to 43,6,0:42:30,aca,cstriatus,na,8,,gra.det,3,Rob,not recorded
+uch3,2,2,83,24,3 to 6,7,0:03:13,aca,cstriatus,na,12,,gra.det,6,Rob,not recorded
+uch3,2,2,83,24,3 to 6,8,0:03:56,sca,csordidus,ip,12,,scra.sma.exc,8,Rob,not recorded
+uch3,2,2,83,24,3 to 6,9,0:05:55,aca,cstriatus,na,12,,gra.det,7,Rob,not recorded
+uch3,2,2,83,24,9 to 12,10,0:09:00,sca,sspinus,ip,10,,scra.sma.exc,45,Rob,not recorded
+uch3,2,2,83,24,9 to 12,11,0:10:58,sca,sspinus,ip,9,,scra.sma.exc,84,Rob,not recorded
+uch3,2,2,83,24,9 to 12,12,0:11:09,sca,sniger,ip,9,,scra.sma.exc,4,Rob,not recorded
+uch3,2,2,83,24,9 to 12,13,0:11:49,aca,cstriatus,na,10,,gra.det,9,Rob,not recorded
+uch3,2,2,83,24,9 to 12,14,0:11:54,aca,cstriatus,na,10,,gra.det,4,Rob,not recorded
+uch3,2,2,83,24,15 to 18,15,0:16:19,sca,sniger,tp,12,,scra.sma.exc,6,Rob,not recorded
+uch3,2,2,83,24,15 to 18,16,0:16:29,aca,cstriatus,na,12,,gra.det,8,Rob,not recorded
+uch3,2,2,83,24,15 to 18,17,0:17:36,aca,cstriatus,na,9,,gra.det,15,Rob,not recorded
+uch3,2,2,83,24,21 to 24,18,0:23:17,aca,cstriatus,na,11,,gra.det,1,Rob,not recorded
+uch3,2,2,83,24,21 to 24,19,0:23:19,aca,cstriatus,na,8,,gra.det,15,Rob,not recorded
+uch3,2,2,83,24,21 to 24,20,0:23:50,aca,cstriatus,na,8,,gra.det,1,Rob,not recorded
+uch3,2,2,83,24,21 to 24,21,0:23:58,aca,cstriatus,na,11,,gra.det,4,Rob,not recorded
+uch3,2,2,83,24,27 to 30,22,0:27:00,aca,cstriatus,na,11,,gra.det,4,Rob,not recorded
+uch3,2,2,83,24,27 to 30,23,0:27:02,aca,cstriatus,na,12,,gra.det,9,Rob,not recorded
+uch3,2,2,83,24,27 to 30,24,0:27:42,aca,cstriatus,na,10,,gra.det,15,Rob,not recorded
+uch3,2,2,83,24,27 to 30,25,0:28:13,aca,cstriatus,na,12,,gra.det,25,Rob,not recorded
+uch3,3,1,60,24,26 t0 29,1,0:26:30,aca,anigricans,na,11,,gra.det,10,Sonia,not recorded
+uch3,3,1,60,24,26 t0 29,2,0:27:07,aca,cstriatus,na,14,,gra.det,5,Sonia,not recorded
+uch3,3,1,60,24,26 t0 29,3,0:27:43,aca,anigricans,na,9,,gra.det,26,Sonia,not recorded
+uch3,3,1,60,24,32 to 35 ,no fish,no fish,no fish,no fish,no fish,no fish,no fish,no fish,0,Sonia,not recorded
+uch3,3,1,60,24,38 to 41,4,0:38:10,aca,cstriatus,na,15,,gra.det,6,Sonia,not recorded
+uch3,3,1,60,24,38 to 41,5,0:38:11,aca,anigricans,na,10,,gra.det,1,Sonia,not recorded
+uch3,3,1,60,24,38 to 41,6,0:38:36,aca,cstriatus,na,13,,gra.det,28,Sonia,not recorded
+uch3,3,1,60,24,38 to 41,7,0:40:01,sca,csordidus,ip,11,,scra.sma.exc,6,Sonia,not recorded
+uch3,3,1,60,24,38 to 41,8,0:40:06,sca,csordidus,ip,13,,scra.sma.exc,2,Sonia,not recorded
+uch3,3,1,60,24,38 to 41,9,0:40:22,aca,cstriatus,na,12,,gra.det,6,Sonia,not recorded
+uch3,3,1,60,24,38 to 41,10,0:40:40,aca,cstriatus,na,17,,gra.det,9,Sonia,not recorded
+uch3,3,2,60,24,3 to 6,11,0:04:09,aca,cstriatus,na,17,,gra.det,1,Sonia,not recorded
+uch3,3,2,60,24,3 to 6,12,0:04:46,aca,anigrofuscus,na,8,,gra.det,10,Sonia,not recorded
+uch3,3,2,60,24,3 to 6,13,0:05:39,sca,squoyi,tp,17,,scra.sma.exc,44,Sonia,not recorded
+uch3,3,2,60,24,9 to 12,14,0:09:44,sca,sspinus,ip,11,,scra.sma.exc,19,Sonia,not recorded
+uch3,3,2,60,24,9 to 12,15,0:09:52,aca,cstriatus,na,17,,gra.det,16,Sonia,not recorded
+uch3,3,2,60,24,9 to 12,16,0:10:20,sca,sspinus,ip,11,,scra.sma.exc,95,Sonia,not recorded
+uch3,3,2,60,24,15 to 18,17,0:15:00,aca,cstriatus,na,15,,gra.det,3,Sonia,not recorded
+uch3,3,2,60,24,15 to 18,18,0:15:12,aca,cstriatus,na,12,,gra.det,24,Sonia,not recorded
+uch3,3,2,60,24,15 to 18,19,0:16:16,sca,sspinus,ip,12,,scra.sma.exc,19,Sonia,not recorded
+uch3,3,2,60,24,15 to 18,20,0:16:31,aca,cstriatus,na,10,,gra.det,9,Sonia,not recorded
+uch3,3,2,60,24,15 to 18,21,0:17:11,aca,cstriatus,na,14,,gra.det,1,Sonia,not recorded
+uch3,3,2,60,24,21 to 24,22,0:22:43,aca,anigrofuscus,na,8,,gra.det,19,Sonia,not recorded
+uch3,3,2,60,24,21 to 24,23,0:23:42,aca,cstriatus,na,17,,gra.det,10,Sonia,not recorded
+uch3,3,2,60,24,21 to 24,24,0:23:48,aca,cstriatus,na,17,,gra.det,3,Sonia,not recorded
+uch3,3,2,60,24,27 to 30,25,0:27:04,sca,sspinus,ip,12,,scra.sma.exc,4,Sonia,not recorded
+uch3,3,2,60,24,27 to 30,26,0:27:15,aca,cstriatus,na,14,,gra.det,3,Sonia,not recorded
+uch3,3,2,60,24,27 to 30,27,0:27:54,aca,anigricans,na,12,,gra.det,7,Sonia,not recorded
+uch3,3,2,60,24,27 to 30,28,0:28:50,aca,cstriatus,na,11,,gra.det,4,Sonia,not recorded
+uch3,4,1,60,24,22 to 25,1,0:22:01,aca,cstriatus,na,15,,gra.det,1,Sonia,not recorded
+uch3,4,1,60,24,22 to 25,2,0:22:23,aca,cstriatus,na,15,,gra.det,13,Sonia,not recorded
+uch3,4,1,60,24,22 to 25,3,0:23:08,aca,cstriatus,na,14,,gra.det,21,Sonia,not recorded
+uch3,4,1,60,24,22 to 25,4,0:23:40,aca,cstriatus,na,13,,gra.det,18,Sonia,not recorded
+uch3,4,1,60,24,22 to 25,5,0:23:44,aca,cstriatus,na,14,,gra.det,29,Sonia,not recorded
+uch3,4,1,60,24,22 to 25,6,0:23:47,aca,cstriatus,na,14,,gra.det,56,Sonia,not recorded
+uch3,4,1,60,24,22 to 25,7,0:24:48,aca,cstriatus,na,17,,gra.det,10,Sonia,not recorded
+uch3,4,1,60,24,28 to 31,8,0:28:03,aca,cstriatus,na,17,,gra.det,10,Sonia,not recorded
+uch3,4,1,60,24,28 to 31,9,0:28:09,aca,cstriatus,na,15,,gra.det,13,Sonia,not recorded
+uch3,4,1,60,24,28 to 31,10,0:28:47,aca,cstriatus,na,12,,gra.det,7,Sonia,not recorded
+uch3,4,1,60,24,28 to 31,11,0:29:06,aca,cstriatus,na,13,,gra.det,20,Sonia,not recorded
+uch3,4,1,60,24,28 to 31,12,0:29:09,aca,cstriatus,na,13,,gra.det,17,Sonia,not recorded
+uch3,4,1,60,24,28 to 31,13,0:29:16,aca,anigrofuscus,na,10,,gra.det,85,Sonia,not recorded
+uch3,4,1,60,24,28 to 31,14,0:29:16,sca,sschlegeli,ip,13,,scra.sma.exc,73,Sonia,not recorded
+uch3,4,1,60,24,28 to 31,15,0:30:21,aca,cstriatus,na,13,,gra.det,17,Sonia,not recorded
+uch3,4,1,60,24,34 to 37,16,0:34:27,aca,cstriatus,na,13,,gra.det,8,Sonia,not recorded
+uch3,4,1,60,24,34 to 37,17,0:34:52,aca,cstriatus,na,12,,gra.det,23,Sonia,not recorded
+uch3,4,1,60,24,34 to 37,18,0:35:40,aca,cstriatus,na,13,,gra.det,14,Sonia,not recorded
+uch3,4,1,60,24,34 to 37,19,0:35:55,aca,cstriatus,na,12,,gra.det,13,Sonia,not recorded
+uch3,4,1,60,24,40 to 43,20,0:40:00,aca,anigrofuscus,na,10,,gra.det,4,Sonia,not recorded
+uch3,4,1,60,24,40 to 43,21,0:40:00,sca,sschlegeli,ip,13,,scra.sma.exc,93,Sonia,not recorded
+uch3,4,1,60,24,40 to 43,22,0:40:12,aca,cstriatus,na,14,,gra.det,22,Sonia,not recorded
+uch3,4,1,60,24,40 to 43,23,0:40:14,aca,anigrofuscus,na,10,,gra.det,77,Sonia,not recorded
+uch3,4,1,60,24,40 to 43,24,0:40:17,aca,cstriatus,na,12,,gra.det,20,Sonia,not recorded
+uch3,4,1,60,24,40 to 43,25,0:40:22,aca,anigrofuscus,na,9,,gra.det,34,Sonia,not recorded
+uch3,4,1,60,24,40 to 43,26,0:40:25,aca,cstriatus,na,13,,gra.det,37,Sonia,not recorded
+uch3,4,1,60,24,40 to 43,27,0:40:28,aca,cstriatus,na,14,,gra.det,13,Sonia,not recorded
+uch3,4,1,60,24,40 to 43,28,0:41:09,aca,anigrofuscus,na,10,,gra.det,110,Sonia,not recorded
+uch3,4,1,60,24,40 to 43,29,0:41:51,aca,cstriatus,na,12,,gra.det,35,Sonia,not recorded
+uch3,4,2,60,24,0 to 3,30,0:00:22,aca,cstriatus,na,15,,gra.det,12,Sonia,not recorded
+uch3,4,2,60,24,0 to 3,31,0:00:52,aca,cstriatus,na,15,,gra.det,16,Sonia,not recorded
+uch3,4,2,60,24,0 to 3,32,0:01:48,aca,cstriatus,na,15,,gra.det,7,Sonia,not recorded
+uch3,4,2,60,24,6 to 9,33,0:06:30,aca,anigrofuscus,na,10,,gra.det,33,Sonia,not recorded
+uch3,4,2,60,24,6 to 9,34,0:06:57,aca,cstriatus,na,13,,gra.det,19,Sonia,not recorded
+uch3,4,2,60,24,12 to 15,35,0:12:04,aca,cstriatus,na,13,,gra.det,8,Sonia,not recorded
+uch3,4,2,60,24,12 to 15,36,0:12:11,aca,cstriatus,na,13,,gra.det,9,Sonia,not recorded
+uch3,4,2,60,24,12 to 15,37,0:12:17,aca,cstriatus,na,12,,gra.det,13,Sonia,not recorded
+uch3,4,2,60,24,12 to 15,38,0:12:52,sca,sschlegeli,ip,17,,scra.sma.exc,87,Sonia,not recorded
+uch3,4,2,60,24,12 to 15,39,0:12:54,aca,cstriatus,na,13,,gra.det,16,Sonia,not recorded
+uch3,4,2,60,24,12 to 15,40,0:13:00,aca,cstriatus,na,13,,gra.det,5,Sonia,not recorded
+uch3,4,2,60,24,12 to 15,41,0:13:26,aca,cstriatus,na,16,,gra.det,21,Sonia,not recorded
+uch3,4,2,60,24,12 to 15,42,0:13:26,aca,cstriatus,na,13,,gra.det,17,Sonia,not recorded
+uch3,4,2,60,24,12 to 15,43,0:13:27,aca,anigrofuscus,na,10,,gra.det,13,Sonia,not recorded
+uch3,4,2,60,24,18 to 21,44,0:18:00,aca,cstriatus,na,15,,gra.det,69,Sonia,not recorded
+uch3,4,2,60,24,18 to 21,45,0:18:00,aca,cstriatus,na,14,,gra.det,69,Sonia,not recorded
+uch3,4,2,60,24,18 to 21,46,0:18:06,aca,cstriatus,na,13,,gra.det,22,Sonia,not recorded
+uch3,4,2,60,24,18 to 21,47,0:18:09,aca,anigrofuscus,na,12,,gra.det,30,Sonia,not recorded
+uch3,4,2,60,24,18 to 21,48,0:18:25,aca,cstriatus,na,13,,gra.det,15,Sonia,not recorded
+uch3,4,2,60,24,18 to 21,49,0:18:29,aca,anigrofuscus,na,12,,gra.det,21,Sonia,not recorded
+uch3,4,2,60,24,18 to 21,50,0:18:28,aca,cstriatus,na,12,,gra.det,14,Sonia,not recorded
+uch3,4,2,60,24,18 to 21,51,0:19:35,aca,cstriatus,na,12,,gra.det,10,Sonia,not recorded
+uch3,4,2,60,24,18 to 21,52,0:19:35,aca,cstriatus,na,13,,gra.det,40,Sonia,not recorded
+uch3,4,2,60,24,18 to 21,53,0:19:51,aca,cstriatus,na,13,,gra.det,21,Sonia,not recorded
+uch3,5,1,99,24,6 to 9,1,0:07:04,aca,cstriatus,na,14,,gra.det,16,sonia,0:07:18
+uch3,5,1,99,24,6 to 9,2,0:08:04,sca,sspinus,IP,13,,scra.sma.exc,5,sonia,0:08:11
+uch3,5,1,99,24,6 to 9,3,0:08:10,sca,sspinus,IP,12,,scra.sma.exc,1,sonia,0:08:11
+uch3,5,1,99,24,12 to 15,4,0:13:15,sca,sspinus,IP,13,,scra.sma.exc,8,sonia,0:13:21
+uch3,5,1,99,24,12 to 15,5,0:13:20,sca,sspinus,IP,13,,scra.sma.exc,14,sonia,0:13:29
+uch3,5,1,99,24,12 to 15,6,0:13:40,sca,sniger,TP,22,,scra.sma.exc,16,sonia,0:14:00
+uch3,5,1,99,24,12 to 15,7,0:13:42,sca,sspinus,IP,15,,scra.sma.exc,7,sonia,0:13:45
+uch3,5,1,99,24,12 to 15,8,0:14:40,aca,anigrofuscus,na,11,,gra.det,23,sonia,0:14:54
+uch3,5,1,99,24,12 to 15,9,0:14:47,sca,sspinus,IP,15,,scra.sma.exc,22,sonia,0:14:57
+uch3,5,1,99,24,12 to 15,10,0:14:48,aca,anigrofuscus,na,11,,gra.det,11,sonia,0:14:58
+uch3,5,1,99,24,18 to 21,11,0:19:36,sca,sspinus,IP,13,,scra.sma.exc,4,sonia,0:19:41
+uch3,5,1,99,24,18 to 21,12,0:20:04,aca,cstriatus,na,14,,gra.det,4,sonia,0:20:12
+uch3,5,1,99,24,18 to 21,13,0:20:09,sca,sspinus,IP,13,,scra.sma.exc,1,sonia,0:20:15
+uch3,5,1,99,24,24 to 27,14,0:25:30,sca,sspinus,IP,12,,scra.sma.exc,1,sonia,0:25:31
+uch3,5,1,99,24,24 to 27,15,0:25:33,aca,anigrofuscus,na,11,,gra.det,67,sonia,0:26:03
+uch3,5,1,99,24,24 to 27,16,0:25:33,aca,anigrofuscus,na,11,,gra.det,114,sonia,0:26:22
+uch3,5,1,99,24,24 to 27,17,0:25:35,sca,sspinus,IP,12,,scra.sma.exc,64,sonia,0:26:23
+uch3,5,1,99,24,24 to 27,18,0:25:36,sca,sspinus,IP,13,,scra.sma.exc,66,sonia,0:26:02
+uch3,5,1,99,24,24 to 27,19,0:25:56,sca,sspinus,IP,12,,scra.sma.exc,5,sonia,0:26:02
+uch3,5,1,99,24,24 to 27,20,0:26:06,sca,sschlegeli,IP,13,,scra.sma.exc,27,sonia,0:26:22
+uch3,5,1,99,24,24 to 27,21,0:26:08,sca,sspinus,IP,14,,scra.sma.exc,20,sonia,0:26:24
+uch3,5,1,99,24,24 to 27,22,0:26:08,sca,sspinus,IP,14,,scra.sma.exc,13,sonia,0:26:24
+uch3,5,1,99,24,24 to 27,23,0:26:19,aca,anigrofuscus,na,11,,gra.det,5,sonia,0:26:22
+uch3,5,1,99,24,24 to 27,24,0:26:22,sca,sspinus,IP,14,,scra.sma.exc,22,sonia,0:26:51
+uch3,5,1,99,24,24 to 27,25,0:26:42,aca,cstriatus,na,14,,gra.det,7,sonia,0:26:54
+uch3,5,1,99,24,24 to 27,26,0:26:53,aca,cstriatus,na,15,,gra.det,3,sonia,0:26:58
+uch3,5,1,99,24,30 to 33,27,0:27:00,aca,anigrofuscus,na,11,,gra.det,11,sonia,0:30:10
+uch3,5,1,99,24,30 to 33,28,0:27:00,sca,sspinus,IP,14,,scra.sma.exc,16,sonia,0:30:10
+uch3,5,1,99,24,30 to 33,29,0:27:00,sca,sspinus,IP,10,,scra.sma.exc,21,sonia,0:30:13
+uch3,5,1,99,24,30 to 33,30,0:30:06,sca,sspinus,IP,12,,scra.sma.exc,22,sonia,0:30:19
+uch3,5,1,99,24,30 to 33,31,0:30:12,sca,sspinus,IP,14,,scra.sma.exc,5,sonia,0:30:15
+uch3,5,1,99,24,30 to 33,32,0:30:14,aca,cstriatus,na,11,,gra.det,17,sonia,0:30:31
+uch3,5,1,99,24,30 to 33,33,0:30:15,sca,csordidus,TP,25,,scra.sma.exc,4,sonia,0:30:20
+uch3,5,1,99,24,30 to 33,34,0:30:23,sca,sspinus,IP,15,,scra.sma.exc,2,sonia,0:30:29
+uch3,5,1,99,24,30 to 33,35,0:30:24,sca,sspinus,IP,16,,scra.sma.exc,55,sonia,0:30:53
+uch3,5,1,99,24,30 to 33,36,0:30:24,sca,sspinus,IP,14,,scra.sma.exc,10,sonia,0:30:29
+uch3,5,1,99,24,30 to 33,37,0:31:31,aca,cstriatus,na,15,,gra.det,2,sonia,0:31:36
+uch3,5,1,99,24,30 to 33,38,0:31:41,sca,sspinus,IP,16,,scra.sma.exc,6,sonia,0:31:45
+uch3,5,1,99,24,30 to 33,39,0:31:58,sca,sspinus,IP,16,,scra.sma.exc,31,sonia,0:32:11
+uch3,5,1,99,24,30 to 33,40,0:32:10,sca,sspinus,IP,16,,scra.sma.exc,43,sonia,0:32:41
+uch3,5,1,99,24,30 to 33,41,0:32:14,sca,sspinus,IP,13,,scra.sma.exc,26,sonia,0:32:27
+uch3,5,1,99,24,30 to 33,42,0:32:34,aca,cstriatus,na,12,,gra.det,4,sonia,0:32:41
+uch3,5,1,99,24,30 to 33,43,0:32:48,sca,cbleekeri,IP,13,,scra.sma.exc,3,sonia,0:33:00
+uch3,5,1,99,24,36 to 39,44,0:36:14,sca,sspinus,IP,12,,scra.sma.exc,6,sonia,0:36:18
+uch3,5,1,99,24,36 to 39,45,0:36:18,sca,sschlegeli,IP,12,,scra.sma.exc,45,sonia,0:36:43
+uch3,5,1,99,24,36 to 39,46,0:36:19,sca,sspinus,IP,12,,scra.sma.exc,15,sonia,0:36:32
+uch3,5,1,99,24,36 to 39,47,0:37:10,aca,anigrofuscus,na,11,,gra.det,8,sonia,0:37:17
+uch3,5,1,99,24,36 to 39,48,0:37:38,aca,anigrofuscus,na,13,,gra.det,1,sonia,0:37:45
+uch3,5,1,99,24,36 to 39,49,0:37:41,aca,cstriatus,na,12,,gra.det,1,sonia,0:37:43
+uch3,5,2,99,24,0 to 3,50,0:00:34,aca,cstriatus,na,15,,gra.det,2,sonia,0:39:00
+uch3,5,2,99,24,0 to 3,51,0:02:45,sca,sspinus,IP,13,,scra.sma.exc,25,sonia,0:03:09
+uch3,5,2,99,24,6 to 9,no fish,no fish,no fish,no fish,no fish,no fish,no fish,no fish,no fish,sonia,no fish
+uch4,1,1,95,24,36 to 39,49,0:36:00,aca,anigrofuscus,na,10,,gra.det,101,sonia,0:36:50
+uch4,1,1,95,24,36 to 39,50,0:36:32,aca,anigrofuscus,na,9,,gra.det,19,sonia,0:36:44
+uch4,1,1,95,24,36 to 39,51,0:36:41,aca,anigrofuscus,na,8,,gra.det,8,sonia,0:36:49
+uch4,1,1,95,24,36 to 39,52,0:37:20,aca,cstriatus,na,14,,gra.det,19,sonia,0:37:36
+uch4,1,1,95,24,36 to 39,53,0:37:29,aca,cstriatus,na,12,,gra.det,8,sonia,0:37:34
+uch4,1,1,95,24,36 to 39,54,0:38:52,aca,anigrofuscus,na,10,,gra.det,4,sonia,not recorded
+uch4,1,2,95,24,0 to 3,55,0:00:06,sca,sschlegeli,TP,20,,scra.sma.exc,7,sonia,0:15:00
+uch4,1,2,95,24,0 to 3,56,0:00:12,aca,cstriatus,na,12,,gra.det,5,sonia,0:16:00
+uch4,1,2,95,24,0 to 3,57,0:00:12,aca,cstriatus,na,15,,gra.det,8,sonia,0:27:00
+uch4,1,2,95,24,0 to 3,58,0:00:20,sca,sniger,TP,21,,scra.sma.exc,1,sonia,0:27:00
+uch4,1,2,95,24,0 to 3,59,0:00:22,aca,cstriatus,na,14,,gra.det,4,sonia,0:28:00
+uch4,1,2,95,24,6 to 9,60,0:07:10,aca,cstriatus,na,11,,gra.det,2,sonia,0:07:17
+uch4,1,2,95,24,12 to 15,61,0:12:52,aca,cstriatus,na,14,,gra.det,17,sonia,0:13:08
+uch4,1,2,95,24,12 to 15,62,0:14:32,aca,anigrofuscus,na,8,,gra.det,12,sonia,0:14:39
+uch4,1,2,95,24,12 to 15,63,0:14:42,aca,cstriatus,na,12,,gra.det,3,sonia,0:14:44
+uch4,1,2,95,24,12 to 15,64,0:14:44,aca,cstriatus,na,14,,gra.det,7,sonia,0:14:48
+uch4,1,2,95,24,12 to 15,65,0:14:47,aca,nlituratus,na,25,,browser,4,sonia,0:14:55
+uch4,1,2,95,24,12 to 15,66,0:14:53,aca,cstriatus,na,12,,gra.det,10,sonia,0:15:07
+uch4,1,2,95,24,18 to 21,67,0:18:27,aca,cstriatus,na,12,,gra.det,55,sonia,0:19:07
+uch4,1,2,95,24,18 to 21,68,0:18:33,sca,csordidus,IP,14,,scra.sma.exc,1,sonia,0:18:42
+uch4,1,2,95,24,18 to 21,69,0:19:08,aca,cstriatus,na,12,,gra.det,23,sonia,0:19:18
+uch4,1,2,95,24,18 to 21,70,0:19:21,sca,sschlegeli,IP,20,,scra.sma.exc,13,sonia,0:19:37
+uch4,1,2,95,24,18 to 21,71,0:19:22,sca,sschlegeli,IP,12,,scra.sma.exc,8,sonia,0:19:29
+uch4,1,2,95,24,18 to 21,72,0:19:37,aca,anigrofuscus,na,10,,gra.det,6,sonia,0:19:47
+uch4,1,2,95,24,18 to 21,73,0:19:58,aca,cstriatus,na,12,,gra.det,21,sonia,0:20:17
+uch4,1,2,95,24,18 to 21,74,0:20:46,aca,cstriatus,na,10,,gra.det,19,sonia,0:21:00
+uch4,1,2,95,24,18 to 21,75,0:20:51,aca,cstriatus,na,12,,gra.det,15,sonia,0:21:02
+uch4,1,2,95,24,24 to 27,76,0:25:02,aca,cstriatus,na,10,,gra.det,7,sonia,0:25:07
+uch4,1,2,95,24,30 to 33,77,0:30:46,aca,cstriatus,na,14,,gra.det,12,sonia,0:30:55
+uch4,1,2,95,24,30 to 33,78,0:31:11,aca,cstriatus,na,12,,gra.det,6,sonia,0:31:15
+uch4,1,2,95,24,30 to 33,79,0:32:22,aca,cstriatus,na,16,,gra.det,29,sonia,0:32:54
+uch4,1,2,95,24,30 to 33,80,0:32:56,aca,cstriatus,na,11,,gra.det,8,sonia,0:33:03
+uch4,1,2,95,24,30 to 33,81,0:32:56,aca,cstriatus,na,11,,gra.det,7,sonia,0:33:39
+uch4,1,2,95,24,30 to 33,82,0:32:57,aca,cstriatus,na,14,,gra.det,3,sonia,0:33:03
+uch4,1,2,95,24,36 to 39,83,0:38:13,aca,cstriatus,na,12,,gra.det,40,sonia,0:38:42
+uch4,1,2,95,24,36 to 39,84,0:38:39,aca,anigrofuscus,na,11,,gra.det,33,sonia,0:38:52
+uch4,2,1,97,24,28 to 31,1,0:28:55,aca,cstriatus,na,14,,gra.det,18,sonia,0:29:13
+uch4,2,1,97,24,28 to 31,2,0:29:02,aca,cstriatus,na,15,,gra.det,15,sonia,0:29:14
+uch4,2,1,97,24,28 to 31,3,0:29:30,aca,cstriatus,na,14,,gra.det,42,sonia,0:29:56
+uch4,2,1,97,24,28 to 31,4,0:29:53,aca,cstriatus,na,14,,gra.det,25,sonia,0:30:13
+uch4,2,1,97,24,28 to 31,5,0:30:15,aca,cstriatus,na,14,,gra.det,2,sonia,0:30:17
+uch4,2,1,97,24,28 to 31,6,0:30:27,aca,cstriatus,na,14,,gra.det,12,sonia,0:30:47
+uch4,2,1,97,24,28 to 31,7,0:30:42,aca,cstriatus,na,14,,gra.det,13,sonia,0:31:22
+uch4,2,1,97,24,28 to 31,8,0:30:53,aca,anigrofuscus,na,11,,gra.det,26,sonia,0:31:07
+uch4,2,1,97,24,34 to 37,9,0:35:08,aca,anigrofuscus,na,8,,gra.det,44,sonia,0:35:26
+uch4,2,1,97,24,34 to 37,10,0:34:51,aca,anigrofuscus,na,8,,gra.det,49,sonia,0:35:14
+uch4,2,1,97,24,34 to 37,11,0:36:41,aca,cstriatus,na,12,,gra.det,4,sonia,0:36:46
+uch4,2,1,97,24,40 to 43,12,0:40:20,aca,cstriatus,na,12,,gra.det,2,sonia,0:40:22
+uch4,2,1,97,24,40 to 43,13,0:40:54,aca,cstriatus,na,14,,gra.det,14,sonia,0:41:09
+uch4,2,1,97,24,40 to 43,14,0:41:25,aca,cstriatus,na,14,,gra.det,71,sonia,0:42:17
+uch4,2,1,97,24,40 to 43,15,0:41:52,aca,anigrofuscus,na,10,,gra.det,48,sonia,0:42:19
+uch4,2,1,97,24,40 to 43,16,0:42:46,aca,cstriatus,na,13,,gra.det,26,sonia,0:43:00
+uch4,2,1,97,24,40 to 43,17,0:42:46,sca,csordidus,IP,12,,scra.sma.exc,28,sonia,0:43:13
+uch4,2,1,97,24,40 to 43,18,0:42:48,sca,csordidus,IP,13,,scra.sma.exc,6,sonia,0:43:07
+uch4,2,1,97,24,40 to 43,19,0:42:50,sca,sschlegeli,IP,14,,scra.sma.exc,8,sonia,0:43:06
+uch4,2,1,97,24,40 to 43,20,0:42:55,sca,csordidus,IP,14,,scra.sma.exc,5,sonia,0:43:12
+uch4,2,2,97,24,3 to 6,21,0:03:27,aca,cstriatus,na,14,,gra.det,21,sonia,0:03:37
+uch4,2,2,97,24,3 to 6,22,0:04:29,aca,anigrofuscus,na,11,,gra.det,14,sonia,0:04:39
+uch4,2,2,97,24,3 to 6,23,0:04:43,sca,sschlegeli,IP,16,,scra.sma.exc,4,sonia,0:04:50
+uch4,2,2,97,24,3 to 6,24,0:04:50,sca,sschlegeli,IP,11,,scra.sma.exc,6,sonia,0:04:58
+uch4,2,2,97,24,3 to 6,25,0:04:55,aca,anigrofuscus,na,10,,gra.det,47,sonia,0:05:33
+uch4,2,2,97,24,3 to 6,26,0:05:05,aca,cstriatus,na,14,,gra.det,15,sonia,0:05:14
+uch4,2,2,97,24,3 to 6,27,0:05:08,aca,anigrofuscus,na,10,,gra.det,39,sonia,0:05:39
+uch4,2,2,97,24,9 to 12,28,0:10:26,aca,anigrofuscus,na,10,,gra.det,44,sonia,0:10:50
+uch4,2,2,97,24,9 to 12,29,0:10:41,aca,cstriatus,na,12,,gra.det,30,sonia,0:11:02
+uch4,2,2,97,24,15 to 18,30,0:15:16,aca,cstriatus,na,12,,gra.det,7,sonia,0:15:23
+uch4,2,2,97,24,15 to 18,31,0:16:49,sca,sschlegeli,IP,12,,scra.sma.exc,6,sonia,0:16:58
+uch4,2,2,97,24,15 to 18,32,0:16:50,sca,csordidus,IP,12,,scra.sma.exc,5,sonia,0:16:59
+uch4,2,2,97,24,15 to 18,33,0:16:50,sca,csordidus,IP,10,,scra.sma.exc,3,sonia,0:16:59
+uch4,2,2,97,24,15 to 18,34,0:16:51,sca,csordidus,IP,14,,scra.sma.exc,4,sonia,0:17:00
+uch4,2,2,97,24,15 to 18,35,0:16:51,aca,anigricans,na,10,,gra.det,99,sonia,0:17:47
+uch4,2,2,97,24,15 to 18,36,0:17:06,sca,csordidus,IP,12,,scra.sma.exc,55,sonia,0:17:43
+uch4,2,2,97,24,15 to 18,37,0:17:06,sca,csordidus,IP,12,,scra.sma.exc,68,sonia,0:17:44
+uch4,2,2,97,24,15 to 18,38,0:17:07,sca,csordidus,IP,12,,scra.sma.exc,55,sonia,0:17:56
+uch4,2,2,97,24,15 to 18,39,0:17:07,sca,spsittacus,IP,13,,scra.sma.exc,107,sonia,0:17:57
+uch4,2,2,97,24,15 to 18,40,0:17:07,sca,spsittacus,IP,13,,scra.sma.exc,50,sonia,0:17:44
+uch4,2,2,97,24,15 to 18,41,0:17:08,aca,anigrofuscus,na,10,,gra.det,92,sonia,0:17:47
+uch4,2,2,97,24,15 to 18,42,0:17:08,aca,anigrofuscus,na,10,,gra.det,94,sonia,0:17:48
+uch4,2,2,97,24,15 to 18,43,0:17:25,aca,anigrofuscus,na,10,,gra.det,63,sonia,0:17:47
+uch4,2,2,97,24,15 to 18,44,0:17:41,aca,anigrofuscus,na,10,,gra.det,73,sonia,0:18:10
+uch4,2,2,97,24,15 to 18,45,0:17:55,aca,cstriatus,na,14,,gra.det,6,sonia,0:18:02
+uch4,2,2,97,24,21 to 24,46,0:21:00,aca,cstriatus,na,14,,gra.det,72,sonia,0:21:52
+uch4,2,2,97,24,21 to 24,47,0:22:15,sca,sschlegeli,TP,20,,scra.sma.exc,2,sonia,0:22:19
+uch4,2,2,97,24,21 to 24,48,0:21:17,aca,cstriatus,na,12,,gra.det,4,sonia,0:22:23
+uch4,2,2,97,24,21 to 24,49,0:22:21,sca,csordidus,IP,12,,scra.sma.exc,3,sonia,0:22:30
+uch4,2,2,97,24,21 to 24,50,0:22:21,sca,csordidus,IP,10,,scra.sma.exc,1,sonia,0:22:24
+uch4,2,2,97,24,21 to 24,51,0:22:25,aca,cstriatus,na,13,,gra.det,2,sonia,0:22:33
+uch4,2,2,97,24,21 to 24,52,0:22:34,aca,anigrofuscus,na,10,,gra.det,5,sonia,0:22:39
+uch4,2,2,97,24,21 to 24,53,0:23:48,aca,cstriatus,na,13,,gra.det,14,sonia,0:24:03
+uch4,2,2,97,24,21 to 24,54,0:23:56,aca,cstriatus,na,13,,gra.det,6,sonia,0:24:05
+uch4,2,2,97,24,27 to 30,55,0:27:00,sca,csordidus,IP,14,,scra.sma.exc,38,sonia,0:27:37
+uch4,2,2,97,24,27 to 30,56,0:27:00,sca,csordidus,IP,13,,scra.sma.exc,40,sonia,0:27:37
+uch4,2,2,97,24,27 to 30,57,0:27:00,sca,csordidus,IP,12,,scra.sma.exc,50,sonia,0:27:37
+uch4,2,2,97,24,27 to 30,58,0:27:00,sca,csordidus,IP,12,,scra.sma.exc,30,sonia,0:27:37
+uch4,2,2,97,24,27 to 30,59,0:27:00,sca,spsittacus,IP,10,,scra.sma.exc,38,sonia,0:27:37
+uch4,2,2,97,24,27 to 30,60,0:27:00,sca,csordidus,IP,10,,scra.sma.exc,32,sonia,0:27:37
+uch4,2,2,97,24,27 to 30,61,0:27:00,sca,csordidus,IP,10,,scra.sma.exc,30,sonia,0:27:37
+uch4,2,2,97,24,27 to 30,62,0:27:05,aca,cstriatus,na,14,,gra.det,1,sonia,0:27:07
+uch4,2,2,97,24,27 to 30,63,0:27:18,aca,anigrofuscus,na,10,,gra.det,65,sonia,0:27:53
+uch4,2,2,97,24,27 to 30,64,0:27:25,aca,anigrofuscus,na,11,,gra.det,37,sonia,0:27:53
+uch4,2,2,97,24,27 to 30,65,0:28:03,sca,spsittacus,IP,10,,scra.sma.exc,11,sonia,0:28:09
+uch4,2,2,97,24,27 to 30,66,0:28:29,aca,cstriatus,na,12,,gra.det,58,sonia,0:29:13
+uch4,2,2,97,24,27 to 30,67,0:28:30,sca,csordidus,IP,11,,scra.sma.exc,50,sonia,0:30:03
+uch4,2,2,97,24,27 to 30,68,0:28:40,sca,csordidus,IP,12,,scra.sma.exc,25,sonia,0:30:03
+uch4,2,2,97,24,27 to 30,69,0:28:40,sca,spsittacus,IP,10,,scra.sma.exc,52,sonia,0:30:03
+uch4,2,2,97,24,27 to 30,70,0:28:40,sca,spsittacus,IP,10,,scra.sma.exc,52,sonia,0:30:03
+uch4,2,2,97,24,27 to 30,71,0:28:40,sca,csordidus,IP,12,,scra.sma.exc,54,sonia,0:29:58
+uch4,2,2,97,24,27 to 30,72,0:28:40,sca,csordidus,IP,12,,scra.sma.exc,15,sonia,0:29:05
+uch4,2,2,97,24,27 to 30,73,0:29:08,sca,csordidus,IP,14,,scra.sma.exc,14,sonia,0:29:32
+uch4,2,2,97,24,27 to 30,74,0:29:08,sca,spsittacus,IP,11,,scra.sma.exc,10,sonia,0:29:21
+uch4,3,1,80,24,22 to 25,1,0:22:27,aca,cstriatus,na,12,,gra.det,16,sonia,0:22:43
+uch4,3,1,80,24,22 to 25,2,0:23:47,aca,anigrofuscus,na,10,,gra.det,22,sonia,0:24:06
+uch4,3,1,80,24,22 to 25,3,0:23:49,sca,csordidus,IP,12,,scra.sma.exc,14,sonia,0:24:07
+uch4,3,1,80,24,22 to 25,4,0:23:49,sca,csordidus,TP,20,,scra.sma.exc,6,sonia,0:23:57
+uch4,3,1,80,24,22 to 25,5,0:24:13,aca,anigrofuscus,na,10,,gra.det,4,sonia,0:24:18
+uch4,3,1,80,24,28 to 31,6,0:30:08,aca,cstriatus,na,14,,gra.det,24,sonia,0:30:28
+uch4,3,1,80,24,34 to 37,7,0:34:13,aca,cstriatus,na,14,,gra.det,13,sonia,0:34:31
+uch4,3,1,80,24,34 to 37,8,0:34:27,aca,cstriatus,na,14,,gra.det,13,sonia,0:34:37
+uch4,3,1,80,24,34 to 37,9,0:34:42,aca,anigrofuscus,na,10,,gra.det,4,sonia,0:34:50
+uch4,3,1,80,24,34 to 37,10,0:35:14,aca,cstriatus,na,14,,gra.det,7,sonia,0:35:26
+uch4,3,1,80,24,34 to 37,11,0:36:01,aca,cstriatus,na,14,,gra.det,18,sonia,0:36:20
+uch4,3,1,80,24,34 to 37,12,0:36:37,aca,anigrofuscus,na,11,,gra.det,30,sonia,0:37:06
+uch4,3,1,80,24,40 to 43,13,0:40:31,aca,cstriatus,na,14,,gra.det,30,sonia,0:40:56
+uch4,3,1,80,24,40 to 43,14,0:41:13,aca,cstriatus,na,14,,gra.det,42,sonia,0:41:39
+uch4,3,1,80,24,40 to 43,15,0:41:59,aca,cstriatus,na,14,,gra.det,41,sonia,0:42:29
+uch4,3,2,80,24,3 to 6,16,0:03:00,aca,cstriatus,na,14,,gra.det,39,sonia,0:03:45
+uch4,3,2,80,24,3 to 6,17,0:03:50,aca,cstriatus,na,14,,gra.det,32,sonia,0:04:14
+uch4,3,2,80,24,3 to 6,18,0:03:52,aca,anigrofuscus,na,10,,gra.det,18,sonia,0:04:05
+uch4,3,2,80,24,3 to 6,19,0:03:53,aca,cstriatus,na,13,,gra.det,8,sonia,0:04:02
+uch4,3,2,80,24,3 to 6,20,0:04:04,sig,spunctatus,na,18,,gra.det,14,sonia,0:04:21
+uch4,3,2,80,24,3 to 6,21,0:04:11,aca,anigrofuscus,na,10,,gra.det,52,sonia,0:04:46
+uch4,3,2,80,24,3 to 6,22,0:04:28,aca,cstriatus,na,12,,gra.det,15,sonia,0:04:40
+uch4,3,2,80,24,3 to 6,23,0:05:21,sca,schameleon,IP,14,,scra.sma.exc,2,sonia,0:05:29
+uch4,3,2,80,24,3 to 6,24,0:05:21,aca,cstriatus,na,14,,gra.det,8,sonia,0:05:30
+uch4,3,2,80,24,3 to 6,25,0:05:35,aca,cstriatus,na,16,,gra.det,11,sonia,0:05:48
+uch4,3,2,80,24,9 to 12,26,0:09:06,aca,cstriatus,na,12,,gra.det,71,sonia,0:09:52
+uch4,3,2,80,24,9 to 12,27,0:09:42,aca,cstriatus,na,12,,gra.det,16,sonia,0:09:51
+uch4,3,2,80,24,9 to 12,28,0:11:08,aca,cstriatus,na,15,,gra.det,18,sonia,0:11:26
+uch4,3,2,80,24,9 to 12,29,0:11:41,aca,cstriatus,na,15,,gra.det,7,sonia,0:11:52
+uch4,3,2,80,24,15 to 18,30,0:15:00,aca,cstriatus,na,15,,gra.det,25,sonia,0:15:24
+uch4,3,2,80,24,15 to 18,31,0:15:40,aca,cstriatus,na,15,,gra.det,30,sonia,0:16:57
+uch4,3,2,80,24,15 to 18,32,0:15:53,sca,sschlegeli,IP,13,,scra.sma.exc,2,sonia,0:15:55
+uch4,3,2,80,24,15 to 18,33,0:16:49,aca,cstriatus,na,14,,gra.det,24,sonia,0:17:13
+uch4,3,2,80,24,21 to 24,34,0:21:01,aca,cstriatus,na,11,,gra.det,6,sonia,0:21:09
+uch4,4,1,65,24,20 to 23,1,0:22:27,aca,cstriatus,na,12,,gra.det,4,Sonia,not recorded
+uch4,4,1,65,24,20 to 23,2,0:22:30,aca,anigrofuscus,na,9,,gra.det,15,Sonia,not recorded
+uch4,4,1,65,24,20 to 23,3,0:22:39,aca,cstriatus,na,15,,gra.det,35,Sonia,not recorded
+uch4,4,1,65,24,26 to 29,4,0:28:49,aca,anigrofuscus,na,9,,gra.det,24,Sonia,not recorded
+uch4,4,1,65,24,32 to 35 ,5,0:33:15,aca,nlituratus,na,17,,browser,2,Sonia,not recorded
+uch4,4,1,65,24,38 to 41,no fish,no fish,no fish,no fish,no fish,no fish,no fish,no fish,0,Sonia,not recorded
+uch4,4,2,65,24,3 to 6,6,0:03:00,sca,schameleon,tp,18,,scra.sma.exc,7,Sonia,not recorded
+uch4,4,2,65,24,3 to 6,7,0:03:00,sca,sspinus,ip,10,,scra.sma.exc,51,Sonia,not recorded
+uch4,4,2,65,24,3 to 6,8,0:03:00,aca,anigrofuscus,na,10,,gra.det,12,Sonia,not recorded
+uch4,4,2,65,24,3 to 6,9,0:03:20,sca,csordidus,ip,13,,scra.sma.exc,6,Sonia,not recorded
+uch4,4,2,65,24,3 to 6,10,0:03:23,aca,cstriatus,na,15,,gra.det,1,Sonia,not recorded
+uch4,4,2,65,24,3 to 6,11,0:03:25,aca,nlituratus,na,17,,browser,13,Sonia,not recorded
+uch4,4,2,65,24,3 to 6,12,0:03:42,aca,anigrofuscus,na,9,,gra.det,27,Sonia,not recorded
+uch4,4,2,65,24,3 to 6,13,0:03:54,sca,schameleon,tp,18,,scra.sma.exc,4,Sonia,not recorded
+uch4,4,2,65,24,3 to 6,14,0:04:33,sca,sspinus,ip,12,,scra.sma.exc,16,Sonia,not recorded
+uch4,4,2,65,24,3 to 6,15,0:05:57,sca,sspinus,ip,12,,scra.sma.exc,8,Sonia,not recorded
+uch4,4,2,65,24,9 to 12,16,0:10:23,aca,anigrofuscus,na,8,,gra.det,31,Sonia,not recorded
+uch4,4,2,65,24,9 to 12,17,0:15:10,aca,cstriatus,na,11,,gra.det,12,Sonia,not recorded
+uch4,4,2,65,24,15 to 18,18,0:15:19,aca,cstriatus,na,15,,gra.det,9,Sonia,not recorded
+uch4,4,2,65,24,15 to 18,19,0:16:45,sca,csordidus,ip,12,,scra.sma.exc,9,Sonia,not recorded
+uch4,4,2,65,24,15 to 18,20,0:17:39,aca,anigrofuscus,na,10,,gra.det,10,Sonia,not recorded
+uch4,4,2,65,24,15 to 18,21,0:17:42,sca,sspinus,ip,12,,scra.sma.exc,28,Sonia,not recorded
+uch4,4,2,65,24,21 to 24,22,0:21:42,aca,cstriatus,na,10,,gra.det,10,Sonia,not recorded
+uch4,4,2,65,24,21 to 24,23,0:21:42,aca,anigrofuscus,na,10,,gra.det,2,Sonia,not recorded
+uch4,4,2,65,24,21 to 24,24,0:23:01,aca,cstriatus,na,10,,gra.det,14,Sonia,not recorded
+uch4,4,2,65,24,21 to 24,25,0:23:15,sca,schameleon,tp,17,,scra.sma.exc,15,Sonia,not recorded
+uch4,5,1,100,24,17 to 20,1,0:17:49,aca,cstriatus,na,15,,gra.det,23,sonia,0:18:09
+uch4,5,1,100,24,23 to 26,2,0:24:29,aca,cstriatus,na,15,,gra.det,9,sonia,0:24:39
+uch4,5,1,100,24,29 to 32,3,0:29:27,aca,nlituratus,na,23,,browser,5,sonia,0:29:35
+uch4,5,1,100,24,29 to 32,4,0:31:03,aca,cstriatus,na,15,,gra.det,37,sonia,0:31:30
+uch4,5,1,100,24,35 to 38,5,0:37:43,aca,cstriatus,na,15,,gra.det,29,sonia,0:37:59
+uch4,5,2,100,24,0 to 3,6,0:00:48,sca,csordidus,IP,12,,scra.sma.exc,20,sonia,0:39:26
+uch4,5,2,100,24,0 to 3,7,0:00:59,aca,cstriatus,na,10,,gra.det,1,sonia,0:01:05
+uch4,5,2,100,24,0 to 3,8,0:01:32,aca,anigrofuscus,na,10,,gra.det,6,sonia,0:01:38
+uch4,5,2,100,24,6 to 9,9,0:08:41,sca,sschlegeli,IP,12,,scra.sma.exc,24,sonia,0:09:02
+uch4,5,2,100,24,12 to 15,no fish,no fish,no fish,no fish,no fish,no fish,no fish,no fish,0,sonia,no fish
+uch4,5,2,100,24,18 to 21,10,0:19:22,sca,sschlegeli,IP,20,,scra.sma.exc,1,sonia,0:19:28
+uch4,5,2,100,24,18 to 21,11,0:19:25,aca,cstriatus,na,12,,gra.det,6,sonia,0:19:31
+uch5,1,1,96,24,22 to 25,1,0:22:15,aca,anigricans,na,11,,gra.det,14,sonia,not recorded
+uch5,1,1,96,24,22 to 25,2,0:22:12,aca,cstriatus,na,14,,gra.det,10,sonia,not recorded
+uch5,1,1,96,24,22 to 25,3,0:22:22,aca,anigrofuscus,na,10,,gra.det,14,sonia,not recorded
+uch5,1,1,96,24,22 to 25,4,0:22:38,aca,cstriatus,na,14,,gra.det,48,sonia,not recorded
+uch5,1,1,96,24,22 to 25,5,0:22:42,aca,cstriatus,na,14,,gra.det,20,sonia,not recorded
+uch5,1,1,96,24,22 to 25,6,0:23:13,aca,anigrofuscus,na,9,,gra.det,6,sonia,not recorded
+uch5,1,1,96,24,22 to 25,7,0:23:24,aca,cstriatus,na,14,,gra.det,7,sonia,not recorded
+uch5,1,1,96,24,22 to 25,8,0:23:37,aca,anigricans,na,10,,gra.det,2,sonia,not recorded
+uch5,1,1,96,24,22 to 25,9,0:23:37,aca,anigrofuscus,na,10,,gra.det,10,sonia,not recorded
+uch5,1,1,96,24,22 to 25,10,0:24:56,aca,anigrofuscus,na,9,,gra.det,4,sonia,not recorded
+uch5,1,1,96,24,28 to 31,11,0:28:00,aca,anigrofuscus,na,9,,gra.det,44,sonia,not recorded
+uch5,1,1,96,24,28 to 31,12,0:28:08,aca,anigricans,na,12,,gra.det,14,sonia,not recorded
+uch5,1,1,96,24,28 to 31,13,0:28:12,aca,nlituratus,na,19,,browser,8,sonia,not recorded
+uch5,1,1,96,24,28 to 31,14,0:28:36,aca,anigrofuscus,na,10,,gra.det,7,sonia,not recorded
+uch5,1,1,96,24,28 to 31,15,0:30:28,aca,cstriatus,na,13,,gra.det,9,sonia,not recorded
+uch5,1,1,96,24,28 to 31,16,0:30:29,aca,cstriatus,na,12,,gra.det,21,sonia,not recorded
+uch5,1,1,96,24,34 to 37,17,0:34:01,aca,cstriatus,na,14,,gra.det,26,sonia,not recorded
+uch5,1,1,96,24,34 to 37,18,0:33:59,aca,anigrofuscus,na,10,,gra.det,68,sonia,not recorded
+uch5,1,1,96,24,34 to 37,19,0:35:14,aca,cstriatus,na,13,,gra.det,8,sonia,not recorded
+uch5,1,1,96,24,34 to 37,20,0:36:35,aca,cstriatus,na,13,,gra.det,13,sonia,not recorded
+uch5,1,1,96,24,40 to 43,21,0:40:00,aca,cstriatus,na,15,,gra.det,6,sonia,not recorded
+uch5,1,1,96,24,40 to 43,22,0:40:27,aca,cstriatus,na,12,,gra.det,72,sonia,not recorded
+uch5,1,1,96,24,40 to 43,23,0:41:17,aca,anigrofuscus,na,10,,gra.det,42,sonia,not recorded
+uch5,1,1,96,24,40 to 43,24,0:41:17,aca,anigrofuscus,na,10,,gra.det,18,sonia,not recorded
+uch5,1,1,96,24,40 to 43,25,0:42:13,aca,anigricans,na,12,,gra.det,25,sonia,not recorded
+uch5,1,1,96,24,40 to 43,26,0:42:49,aca,cstriatus,na,13,,gra.det,2,sonia,not recorded
+uch5,1,2,96,24,3 to 6,27,0:03:11,aca,cstriatus,na,13,,gra.det,2,sonia,not recorded
+uch5,1,2,96,24,3 to 6,28,0:03:51,aca,anigrofuscus,na,10,,gra.det,2,sonia,not recorded
+uch5,1,2,96,24,3 to 6,29,0:04:12,aca,cstriatus,na,12,,gra.det,14,sonia,not recorded
+uch5,1,2,96,24,3 to 6,30,0:04:26,aca,anigricans,na,12,,gra.det,10,sonia,not recorded
+uch5,1,2,96,24,3 to 6,31,0:04:40,aca,cstriatus,na,14,,gra.det,10,sonia,not recorded
+uch5,1,2,96,24,3 to 6,32,0:04:41,aca,cstriatus,na,12,,gra.det,3,sonia,not recorded
+uch5,1,2,96,24,3 to 6,33,0:04:46,aca,anigricans,na,12,,gra.det,12,sonia,not recorded
+uch5,1,2,96,24,3 to 6,34,0:05:08,aca,cstriatus,na,12,,gra.det,28,sonia,not recorded
+uch5,1,2,96,24,9 to 12,35,0:09:00,sca,csordidus,na,16,,scra.sma.exc,7,sonia,not recorded
+uch5,1,2,96,24,9 to 12,36,0:09:12,aca,anigricans,na,12,,gra.det,14,sonia,not recorded
+uch5,1,2,96,24,9 to 12,37,0:09:13,aca,cstriatus,na,12,,gra.det,31,sonia,not recorded
+uch5,1,2,96,24,9 to 12,38,0:09:11,aca,anigrofuscus,na,11,,gra.det,2,sonia,not recorded
+uch5,1,2,96,24,9 to 12,39,0:09:14,aca,cstriatus,na,12,,gra.det,10,sonia,not recorded
+uch5,1,2,96,24,9 to 12,40,0:09:18,aca,anigricans,na,12,,gra.det,5,sonia,not recorded
+uch5,1,2,96,24,9 to 12,41,0:09:19,aca,anigricans,na,13,,gra.det,14,sonia,not recorded
+uch5,1,2,96,24,9 to 12,42,0:10:10,sca,csordidus,ip,15,,scra.sma.exc,8,sonia,not recorded
+uch5,1,2,96,24,9 to 12,43,0:10:30,aca,cstriatus,na,13,,gra.det,2,sonia,not recorded
+uch5,1,2,96,24,9 to 12,44,0:10:41,aca,anigricans,na,12,,gra.det,39,sonia,not recorded
+uch5,1,2,96,24,9 to 12,45,0:10:53,sca,csordidus,ip,13,,scra.sma.exc,10,sonia,not recorded
+uch5,1,2,96,24,9 to 12,46,0:10:52,aca,anigrofuscus,na,10,,gra.det,13,sonia,not recorded
+uch5,1,2,96,24,9 to 12,47,0:10:58,sca,sschlegeli,ip,12,,scra.sma.exc,29,sonia,not recorded
+uch5,1,2,96,24,9 to 12,48,0:11:00,aca,cstriatus,na,15,,gra.det,19,sonia,not recorded
+uch5,1,2,96,24,9 to 12,49,0:11:04,aca,cstriatus,na,15,,gra.det,58,sonia,not recorded
+uch5,1,2,96,24,9 to 12,50,0:11:12,sca,csordidus,ip,12,,scra.sma.exc,11,sonia,not recorded
+uch5,1,2,96,24,9 to 12,51,0:11:30,aca,cstriatus,na,15,,gra.det,17,sonia,not recorded
+uch5,1,2,96,24,15 to 18,52,0:14:55,aca,cstriatus,na,14,,gra.det,24,sonia,not recorded
+uch5,1,2,96,24,15 to 18,53,0:15:06,aca,anigrofuscus,na,9,,gra.det,79,sonia,not recorded
+uch5,1,2,96,24,15 to 18,54,0:15:10,aca,anigricans,na,12,,gra.det,5,sonia,not recorded
+uch5,1,2,96,24,15 to 18,55,0:15:11,sca,csordidus,ip,15,,scra.sma.exc,27,sonia,not recorded
+uch5,1,2,96,24,15 to 18,56,0:15:11,sca,csordidus,ip,12,,scra.sma.exc,39,sonia,not recorded
+uch5,1,2,96,24,15 to 18,57,0:15:13,sca,csordidus,ip,12,,scra.sma.exc,47,sonia,not recorded
+uch5,1,2,96,24,15 to 18,58,0:15:18,aca,anigrofuscus,na,10,,gra.det,15,sonia,not recorded
+uch5,1,2,96,24,15 to 18,59,0:15:29,sca,sschlegeli,ip,13,,scra.sma.exc,93,sonia,not recorded
+uch5,1,2,96,24,15 to 18,60,0:15:57,aca,anigricans,na,10,,gra.det,6,sonia,not recorded
+uch5,1,2,96,24,15 to 18,61,0:16:12,sca,csordidus,ip,15,,scra.sma.exc,7,sonia,not recorded
+uch5,1,2,96,24,15 to 18,62,0:16:37,sca,sschlegeli,ip,13,,scra.sma.exc,4,sonia,not recorded
+uch5,1,2,96,24,15 to 18,63,0:16:42,aca,cstriatus,na,13,,gra.det,14,sonia,not recorded
+uch5,1,2,96,24,15 to 18,64,0:16:42,sca,csordidus,na,12,,scra.sma.exc,6,sonia,not recorded
+uch5,1,2,96,24,15 to 18,65,0:17:11,aca,cstriatus,na,15,,gra.det,27,sonia,not recorded
+uch5,1,2,96,24,15 to 18,66,0:17:19,aca,anigrofuscus,na,10,,gra.det,11,sonia,not recorded
+uch5,1,2,96,24,15 to 18,67,0:17:22,sca,csordidus,ip,13,,scra.sma.exc,2,sonia,not recorded
+uch5,1,2,96,24,15 to 18,68,0:17:38,sca,csordidus,ip,13,,scra.sma.exc,4,sonia,not recorded
+uch5,1,2,96,24,15 to 18,69,0:17:42,sca,sschlegeli,ip,13,,scra.sma.exc,32,sonia,not recorded
+uch5,1,2,96,24,15 to 18,70,0:17:42,sca,csordidus,ip,12,,scra.sma.exc,8,sonia,not recorded
+uch5,1,2,96,24,15 to 18,71,0:17:42,sca,csordidus,ip,13,,scra.sma.exc,9,sonia,not recorded
+uch5,1,2,96,24,15 to 18,72,0:17:42,sca,csordidus,ip,5,,scra.sma.exc,10,sonia,not recorded
+uch5,1,2,96,24,21 to 24,73,0:21:00,aca,anigricans,na,11,,gra.det,37,sonia,not recorded
+uch5,1,2,96,24,21 to 24,74,0:21:16,aca,cstriatus,na,13,,gra.det,11,sonia,not recorded
+uch5,1,2,96,24,21 to 24,75,0:21:19,sca,sspinus,ip,13,,scra.sma.exc,11,sonia,not recorded
+uch5,1,2,96,24,21 to 24,76,0:21:27,aca,anigrofuscus,na,10,,gra.det,2,sonia,not recorded
+uch5,1,2,96,24,21 to 24,77,0:21:27,aca,cstriatus,na,15,,gra.det,2,sonia,not recorded
+uch5,1,2,96,24,21 to 24,78,0:21:30,sca,csordidus,ip,15,,scra.sma.exc,30,sonia,not recorded
+uch5,1,2,96,24,21 to 24,79,0:21:32,sca,csordidus,ip,15,,scra.sma.exc,6,sonia,not recorded
+uch5,1,2,96,24,21 to 24,80,0:21:32,sca,csordidus,ip,15,,scra.sma.exc,25,sonia,not recorded
+uch5,1,2,96,24,21 to 24,81,0:21:35,sca,sspinus,ip,13,,scra.sma.exc,89,sonia,not recorded
+uch5,1,2,96,24,21 to 24,82,0:22:05,aca,anigricans,na,10,,gra.det,8,sonia,not recorded
+uch5,1,2,96,24,21 to 24,83,0:22:07,sca,csordidus,ip,13,,scra.sma.exc,2,sonia,not recorded
+uch5,1,2,96,24,21 to 24,84,0:22:07,sca,csordidus,ip,12,,scra.sma.exc,5,sonia,not recorded
+uch5,1,2,96,24,21 to 24,85,0:22:11,aca,cstriatus,na,14,,gra.det,4,sonia,not recorded
+uch5,1,2,96,24,21 to 24,86,0:22:19,sca,csordidus,ip,14,,scra.sma.exc,1,sonia,not recorded
+uch5,1,2,96,24,21 to 24,87,0:23:06,sca,sspinus,ip,13,,scra.sma.exc,103,sonia,not recorded
+uch5,1,2,96,24,21 to 24,88,0:23:07,aca,anigrofuscus,na,10,,gra.det,60,sonia,not recorded
+uch5,1,2,96,24,21 to 24,89,0:23:34,aca,cstriatus,na,12,,gra.det,14,sonia,not recorded
+uch5,1,2,96,24,21 to 24,90,0:23:39,aca,cstriatus,na,13,,gra.det,17,sonia,not recorded
+uch5,2,2,98,24,15 to 18,1,0:15:10,aca,cstriatus,na,12,,gra.det,8,Rob,not recorded
+uch5,2,2,98,24,15 to 18,2,0:16:09,aca,cstriatus,na,12,,gra.det,18,Rob,not recorded
+uch5,2,2,98,24,15 to 18,3,0:16:15,aca,nlituratus,na,19,,browser,7,Rob,not recorded
+uch5,2,2,98,24,15 to 18,4,0:17:56,aca,cstriatus,na,13,,gra.det,17,Rob,not recorded
+uch5,2,2,98,24,21 to 24,5,0:21:00,aca,cstriatus,na,11,,gra.det,9,Rob,not recorded
+uch5,2,2,98,24,21 to 24,6,0:22:40,aca,cstriatus,na,10,,gra.det,23,Rob,not recorded
+uch5,2,2,98,24,27 to 30,7,0:27:00,aca,cstriatus,na,9,,gra.det,26,Rob,not recorded
+uch5,2,2,98,24,27 to 30,8,0:27:57,aca,cstriatus,na,11,,gra.det,19,Rob,not recorded
+uch5,2,2,98,24,27 to 30,9,0:29:12,aca,cstriatus,na,11,,gra.det,19,Rob,not recorded
+uch5,2,2,98,24,33 to 36,10,0:34:28,aca,cstriatus,na,12,,gra.det,28,Rob,not recorded
+uch5,2,2,98,24,33 to 36,11,0:35:39,aca,cstriatus,na,11,,gra.det,1,Rob,not recorded
+uch5,2,2,98,24,33 to 36,12,0:35:40,sca,spsittacus,IP,9,,scra.sma.exc,4,Rob,not recorded
+uch5,2,2,98,24,33 to 36,13,0:35:51,aca,anigrofuscus,na,9,,gra.det,12,Rob,not recorded
+uch5,2,2,98,24,33 to 36,14,0:35:51,sca,sspinus,ip,11,,scra.sma.exc,15,Rob,not recorded
+uch5,2,2,98,24,39 to 42,15,0:39:00,aca,cstriatus,na,13,,gra.det,8,Rob,not recorded
+uch5,2,2,98,24,39 to 42,16,0:39:00,sca,sspinus,ip,12,,scra.sma.exc,25,Rob,not recorded
+uch5,2,2,98,24,39 to 42,17,0:39:00,aca,cstriatus,na,9,,gra.det,23,Rob,not recorded
+uch5,2,2,98,24,39 to 42,18,0:39:03,aca,cstriatus,na,12,,gra.det,5,Rob,not recorded
+uch5,2,2,98,24,39 to 42,19,0:39:05,aca,cstriatus,na,11,,gra.det,9,Rob,not recorded
+uch5,2,2,98,24,39 to 42,20,0:39:08,sca,csordidus,ip,10,,scra.sma.exc,15,Rob,not recorded
+uch5,2,2,98,24,39 to 42,21,0:39:15,aca,cstriatus,na,12,,gra.det,8,Rob,not recorded
+uch5,2,2,98,24,39 to 42,22,0:39:18,aca,cstriatus,na,12,,gra.det,14,Rob,not recorded
+uch5,2,2,98,24,39 to 42,23,0:39:24,aca,cstriatus,na,11,,gra.det,4,Rob,not recorded
+uch5,2,2,98,24,39 to 42,24,0:39:29,sca,csordidus,ip,9,,scra.sma.exc,1,Rob,not recorded
+uch5,2,2,98,24,39 to 42,25,0:39:42,aca,anigrofuscus,na,10,,gra.det,48,Rob,not recorded
+uch5,2,2,98,24,39 to 42,26,0:39:49,sca,sspinus,ip,9,,scra.sma.exc,21,Rob,not recorded
+uch5,2,2,98,24,39 to 42,27,0:39:59,aca,cstriatus,na,12,,gra.det,6,Rob,not recorded
+uch5,2,2,98,24,39 to 42,28,0:40:00,aca,cstriatus,na,13,,gra.det,20,Rob,not recorded
+uch5,2,2,98,24,39 to 42,29,0:40:08,sca,sspinus,ip,9,,scra.sma.exc,124,Rob,not recorded
+uch5,2,2,98,24,39 to 42,30,0:40:11,aca,anigrofuscus,na,10,,gra.det,30,Rob,not recorded
+uch5,2,2,98,24,39 to 42,31,0:40:45,aca,cstriatus,na,12,,gra.det,41,Rob,not recorded
+uch5,2,2,98,24,39 to 42,32,0:41:42,aca,cstriatus,na,11,,gra.det,4,Rob,not recorded
+uch5,2,2,98,24,39 to 42,33,0:41:46,sca,sspinus,ip,9,,scra.sma.exc,24,Rob,not recorded
+uch5,2,3,98,24,3 to 6,34,0:03:24,aca,cstriatus,na,12,,gra.det,7,Rob,not recorded
+uch5,2,3,98,24,3 to 6,35,0:04:13,aca,anigrofuscus,na,9,,gra.det,21,Rob,not recorded
+uch5,2,3,98,24,3 to 6,36,0:04:14,aca,anigrofuscus,na,10,,gra.det,55,Rob,not recorded
+uch5,2,3,98,24,3 to 6,37,0:05:12,aca,cstriatus,na,12,,gra.det,11,Rob,not recorded
+uch5,2,3,98,24,3 to 6,38,0:05:17,aca,cstriatus,na,14,,gra.det,13,Rob,not recorded
+uch5,2,3,98,24,3 to 6,39,0:05:29,aca,cstriatus,na,12,,gra.det,7,Rob,not recorded
+uch5,2,3,98,24,3 to 6,40,0:05:37,aca,cstriatus,na,11,,gra.det,19,Rob,not recorded
+uch5,2,3,98,24,9 to 12,41,0:09:00,aca,cstriatus,na,12,,gra.det,10,Rob,not recorded
+uch5,2,3,98,24,9 to 12,42,0:09:47,aca,cstriatus,na,12,,gra.det,14,Rob,not recorded
+uch5,2,3,98,24,9 to 12,43,0:09:55,aca,cstriatus,na,11,,gra.det,13,Rob,not recorded
+uch5,2,3,98,24,9 to 12,44,0:11:22,aca,cstriatus,na,10,,gra.det,11,Rob,not recorded
+uch5,2,3,98,24,15 to 18,45,0:15:34,aca,cstriatus,na,12,,gra.det,3,Rob,not recorded
+uch5,2,3,98,24,15 to 18,46,0:16:00,aca,cstriatus,na,11,,gra.det,40,Rob,not recorded
+uch5,2,3,98,24,15 to 18,47,0:16:29,aca,cstriatus,na,11,,gra.det,3,Rob,not recorded
+uch5,2,3,98,24,15 to 18,48,0:16:54,aca,cstriatus,na,12,,gra.det,5,Rob,not recorded
+uch5,3,2,60,24,10 to 13,1,0:10:04,sca,sspinus,tp,17,,scra.sma.exc,40,Sonia,not recorded
+uch5,3,2,60,24,10 to 13,2,0:10:10,aca,zscopas,na,12,,gra.det,30,Sonia,not recorded
+uch5,3,2,60,24,10 to 13,3,0:11:01,sca,sspinus,tp,17,,scra.sma.exc,23,Sonia,not recorded
+uch5,3,2,60,24,10 to 13,4,0:11:26,sca,sspinus,tp,17,,scra.sma.exc,2,Sonia,not recorded
+uch5,3,2,60,24,16 to 19,5,0:17:29,sca,sspinus,tp,17,,scra.sma.exc,84,Sonia,not recorded
+uch5,3,2,60,24,22 to 25,6,0:23:17,sca,sspinus,tp,17,,scra.sma.exc,14,Sonia,not recorded
+uch5,3,2,60,24,22 to 25,7,0:24:13,sca,sspinus,tp,17,,scra.sma.exc,1,Sonia,not recorded
+uch5,3,2,60,24,28 to 31,8,0:29:17,sca,sniger,tp,25,,scra.sma.exc,2,Sonia,not recorded
+uch5,3,2,60,24,28 to 31,9,0:29:27,aca,cstriatus,na,15,,gra.det,2,Sonia,not recorded
+uch5,3,2,60,24,28 to 31,10,0:29:47,aca,cstriatus,na,15,,gra.det,2,Sonia,not recorded
+uch5,3,2,60,24,28 to 31,11,0:30:47,aca,cstriatus,na,15,,gra.det,2,Sonia,not recorded
+uch5,3,2,60,24,34 to 37,12,0:35:13,aca,cstriatus,na,15,,gra.det,4,Sonia,not recorded
+uch5,3,2,60,24,34 to 37,13,0:35:52,aca,zscopas,na,10,,gra.det,10,Sonia,not recorded
+uch5,3,2,60,24,40 to 43,14,0:41:04,sca,sniger,tp,24,,scra.sma.exc,13,Sonia,not recorded
+uch5,3,2,60,24,40 to 43,15,0:41:09,aca,zscopas,na,11,,gra.det,2,Sonia,not recorded
+uch5,3,2,60,24,40 to 43,16,0:41:19,aca,cstriatus,na,14,,gra.det,7,Sonia,not recorded
+uch5,3,2,60,24,40 to 43,17,0:41:22,sca,sspinus,tp,17,,scra.sma.exc,2,Sonia,not recorded
+uch5,3,2,60,24,40 to 43,18,0:41:44,aca,cstriatus,na,12,,gra.det,4,Sonia,not recorded
+uch5,3,2,60,24,40 to 43,19,0:42:15,sca,sniger,tp,24,,scra.sma.exc,12,Sonia,not recorded
+uch5,3,3,60,24,3 to 6,20,0:03:00,aca,nlituratus,na,22,,browser,5,Sonia,not recorded
+uch5,3,3,60,24,3 to 6,21,0:03:01,aca,cstriatus,na,17,,gra.det,6,Sonia,not recorded
+uch5,3,3,60,24,3 to 6,22,0:03:11,sca,sniger,tp,24,,scra.sma.exc,3,Sonia,not recorded
+uch5,3,3,60,24,3 to 6,23,0:03:22,aca,zscopas,na,10,,gra.det,2,Sonia,not recorded
+uch5,3,3,60,24,3 to 6,24,0:03:26,aca,cstriatus,na,12,,gra.det,2,Sonia,not recorded
+uch5,3,3,60,24,9 to 12,25,0:11:50,aca,cstriatus,na,14,,gra.det,19,Sonia,not recorded
+uch5,4,1,97,24,21 to 24,1,0:21:12,aca,cstriatus,na,13,,gra.det,10,sonia,0:22:19
+uch5,4,1,97,24,21 to 24,2,0:21:20,aca,anigricans,na,11,,gra.det,3,sonia,0:21:28
+uch5,4,1,97,24,21 to 24,3,0:22:08,aca,cstriatus,na,12,,gra.det,3,sonia,0:22:14
+uch5,4,1,97,24,21 to 24,4,0:22:11,aca,cstriatus,na,12,,gra.det,6,sonia,0:22:18
+uch5,4,1,97,24,21 to 24,5,0:23:14,aca,cstriatus,na,12,,gra.det,9,sonia,0:23:21
+uch5,4,1,97,24,21 to 24,6,0:23:43,aca,cstriatus,na,14,,gra.det,4,sonia,0:23:49
+uch5,4,1,97,24,27 to 30,7,0:27:20,aca,nlituratus,na,28,,browser,2,sonia,0:27:30
+uch5,4,1,97,24,27 to 30,8,0:27:22,aca,cstriatus,na,14,,gra.det,10,sonia,0:27:32
+uch5,4,1,97,24,27 to 30,9,0:28:37,aca,cstriatus,na,13,,gra.det,3,sonia,0:28:47
+uch5,4,1,97,24,27 to 30,10,0:29:21,aca,nlituratus,na,28,,browser,6,sonia,0:29:42
+uch5,4,1,97,24,27 to 30,11,0:29:27,aca,cstriatus,na,12,,gra.det,12,sonia,0:29:32
+uch5,4,1,97,24,33 to 36,12,0:33:52,aca,nlituratus,na,23,,browser,3,sonia,0:33:59
+uch5,4,1,97,24,33 to 36,13,0:34:03,aca,cstriatus,na,13,,gra.det,2,sonia,0:34:07
+uch5,4,1,97,24,33 to 36,14,0:34:20,aca,cstriatus,na,12,,gra.det,5,sonia,0:34:27
+uch5,4,1,97,24,33 to 36,15,0:34:32,aca,cstriatus,na,12,,gra.det,4,sonia,0:34:38
+uch5,4,1,97,24,33 to 36,16,0:34:32,aca,cstriatus,na,13,,gra.det,4,sonia,0:34:36
+uch5,4,1,97,24,33 to 36,17,0:34:39,aca,cstriatus,na,13,,gra.det,18,sonia,0:34:55
+uch5,4,1,97,24,33 to 36,18,0:35:15,aca,cstriatus,na,14,,gra.det,7,sonia,0:35:23
+uch5,4,1,97,24,39 to 42,19,0:39:09,aca,cstriatus,na,15,,gra.det,16,sonia,0:39:19
+uch5,4,1,97,24,39 to 42,20,0:39:12,aca,anigricans,na,13,,gra.det,60,sonia,0:39:43
+uch5,4,1,97,24,39 to 42,21,0:39:22,aca,cstriatus,na,12,,gra.det,4,sonia,0:39:29
+uch5,4,1,97,24,39 to 42,22,0:39:52,aca,anigricans,na,12,,gra.det,2,sonia,0:40:00
+uch5,4,1,97,24,39 to 42,23,0:40:29,aca,cstriatus,na,13,,gra.det,2,sonia,0:40:36
+uch5,4,1,97,24,39 to 42,24,0:41:07,aca,cstriatus,na,12,,gra.det,3,sonia,0:41:15
+uch5,4,1,97,24,39 to 42,25,0:41:47,aca,anigricans,na,12,,gra.det,28,sonia,0:42:07
+uch5,4,1,97,24,39 to 42,26,0:41:50,aca,anigricans,na,12,,gra.det,2,sonia,0:41:57
+uch5,4,1,97,24,39 to 42,27,0:41:57,aca,cstriatus,na,14,,gra.det,1,sonia,0:42:07
+uch5,4,2,97,24,3 to 6,28,0:03:01,aca,anigricans,na,12,,gra.det,8,sonia,0:03:09
+uch5,4,2,97,24,3 to 6,29,0:03:25,aca,cstriatus,na,12,,gra.det,2,sonia,0:03:28
+uch5,4,2,97,24,3 to 6,30,0:03:32,aca,cstriatus,na,15,,gra.det,4,sonia,0:03:34
+uch5,4,2,97,24,3 to 6,31,0:04:31,aca,cstriatus,na,12,,gra.det,1,sonia,0:04:48
+uch5,4,2,97,24,9 to 12,32,0:09:51,aca,cstriatus,na,14,,gra.det,3,sonia,0:09:57
+uch5,4,2,97,24,9 to 12,33,0:10:05,aca,cstriatus,na,13,,gra.det,3,sonia,0:10:15
+uch5,4,2,97,24,9 to 12,34,0:10:28,aca,cstriatus,na,13,,gra.det,7,sonia,0:10:37
+uch5,4,2,97,24,15 to 18,35,0:15:06,aca,cstriatus,na,14,,gra.det,1,sonia,0:15:09
+uch5,4,2,97,24,15 to 18,36,0:15:33,sca,sforsteni,TP,22,,scra.sma.exc,20,sonia,0:15:51
+uch5,4,2,97,24,15 to 18,37,0:16:08,aca,cstriatus,na,14,,gra.det,8,sonia,0:16:15
+uch5,4,2,97,24,15 to 18,38,0:16:44,aca,cstriatus,na,15,,gra.det,5,sonia,0:16:49
+uch5,4,2,97,24,15 to 18,39,0:16:58,sca,csordidus,IP,15,,scra.sma.exc,1,sonia,0:17:04
+uch5,4,2,97,24,15 to 18,40,0:16:59,sca,sforsteni,TP,22,,scra.sma.exc,1,sonia,0:17:06
+uch5,4,2,97,24,15 to 18,41,0:17:10,sca,sforsteni,TP,22,,scra.sma.exc,1,sonia,0:17:15
+uch5,4,2,97,24,15 to 18,42,0:17:21,aca,anigricans,na,12,,gra.det,5,sonia,0:17:26
+uch5,4,2,97,24,21 to 24,43,0:21:10,sca,sforsteni,TP,22,,scra.sma.exc,15,sonia,0:21:33
+uch5,4,2,97,24,21 to 24,44,0:21:24,aca,cstriatus,na,14,,gra.det,12,sonia,0:21:28
+uch5,4,2,97,24,21 to 24,45,0:22:08,sca,sforsteni,TP,22,,scra.sma.exc,5,sonia,0:22:26
+uch5,4,2,97,24,21 to 24,46,0:23:34,aca,cstriatus,na,13,,gra.det,7,sonia,0:23:40
+uch5,4,2,97,24,21 to 24,47,0:23:48,sca,sforsteni,IP,17,,scra.sma.exc,4,sonia,0:24:06
+uch5,4,2,97,24,21 to 24,48,0:23:52,aca,cstriatus,na,13,,gra.det,8,sonia,0:24:00
+uch5,5,1,91,24,18 to 21,1,0:18:06,aca,anigricans,na,10,,gra.det,1,sonia,not recorded
+uch5,5,1,91,24,18 to 21,2,0:18:47,aca,anigricans,na,10,,gra.det,13,sonia,not recorded
+uch5,5,1,91,24,18 to 21,3,0:19:31,aca,cstriatus,na,12,,gra.det,26,sonia,not recorded
+uch5,5,1,91,24,18 to 21,4,0:20:29,aca,cstriatus,na,13,,gra.det,31,sonia,not recorded
+uch5,5,1,91,24,18 to 21,5,0:20:33,aca,anigricans,na,12,,gra.det,52,sonia,not recorded
+uch5,5,1,91,24,24 to 27,6,0:24:00,sca,csordidus,ip,14,,scra.sma.exc,1,sonia,not recorded
+uch5,5,1,91,24,24 to 27,7,0:24:31,aca,cstriatus,na,12,,gra.det,7,sonia,not recorded
+uch5,5,1,91,24,24 to 27,8,0:24:39,aca,cstriatus,na,12,,gra.det,13,sonia,not recorded
+uch5,5,1,91,24,24 to 27,9,0:25:03,aca,cstriatus,na,15,,gra.det,5,sonia,not recorded
+uch5,5,1,91,24,24 to 27,10,0:25:08,aca,zscopas,na,9,,gra.det,64,sonia,not recorded
+uch5,5,1,91,24,24 to 27,11,0:25:08,aca,anigrofuscus,na,10,,gra.det,4,sonia,not recorded
+uch5,5,1,91,24,24 to 27,12,0:25:16,aca,anigrofuscus,na,10,,gra.det,17,sonia,not recorded
+uch5,5,1,91,24,24 to 27,13,0:25:23,sca,sniger,tp,34,,scra.sma.exc,16,sonia,not recorded
+uch5,5,1,91,24,24 to 27,14,0:25:55,aca,anigrofuscus,na,8,,gra.det,8,sonia,not recorded
+uch5,5,1,91,24,24 to 27,15,0:26:55,aca,anigrofuscus,na,9,,gra.det,9,sonia,not recorded
+uch5,5,1,91,24,30 to 33,16,0:30:00,sca,spsittacus,ip,11,,scra.sma.exc,1,sonia,not recorded
+uch5,5,1,91,24,30 to 33,17,0:30:16,sca,sspinus,ip,10,,scra.sma.exc,25,sonia,not recorded
+uch5,5,1,91,24,30 to 33,18,0:30:20,sca,sspinus,ip,10,,scra.sma.exc,9,sonia,not recorded
+uch5,5,1,91,24,30 to 33,19,0:30:23,sca,sspinus,tp,17,,scra.sma.exc,54,sonia,not recorded
+uch5,5,1,91,24,30 to 33,20,0:30:31,aca,cstriatus,na,13,,gra.det,28,sonia,not recorded
+uch5,5,1,91,24,30 to 33,21,0:30:49,sca,spsittacus,tp,17,,scra.sma.exc,11,sonia,not recorded
+uch5,5,1,91,24,30 to 33,22,0:30:50,sca,spsittacus,ip,9,,scra.sma.exc,3,sonia,not recorded
+uch5,5,1,91,24,30 to 33,23,0:30:57,sca,csordidus,ip,12,,scra.sma.exc,5,sonia,not recorded
+uch5,5,1,91,24,30 to 33,24,0:30:54,sca,sspinus,ip,10,,scra.sma.exc,91,sonia,not recorded
+uch5,5,1,91,24,30 to 33,25,0:31:00,aca,anigrofuscus,na,10,,gra.det,5,sonia,not recorded
+uch5,5,1,91,24,30 to 33,26,0:31:03,aca,cstriatus,na,13,,gra.det,11,sonia,not recorded
+uch5,5,1,91,24,30 to 33,27,0:31:12,aca,cstriatus,na,13,,gra.det,46,sonia,not recorded
+uch5,5,1,91,24,30 to 33,28,0:31:14,aca,zscopas,na,9,,gra.det,37,sonia,not recorded
+uch5,5,1,91,24,30 to 33,29,0:31:24,aca,cstriatus,na,13,,gra.det,1,sonia,not recorded
+uch5,5,1,91,24,30 to 33,30,0:31:41,sca,sspinus,ip,10,,scra.sma.exc,48,sonia,not recorded
+uch5,5,1,91,24,30 to 33,31,0:31:48,sca,csordidus,ip,13,,scra.sma.exc,38,sonia,not recorded
+uch5,5,1,91,24,30 to 33,32,0:31:48,sca,csordidus,ip,12,,scra.sma.exc,13,sonia,not recorded
+uch5,5,1,91,24,30 to 33,33,0:31:55,aca,anigrofuscus,na,10,,gra.det,7,sonia,not recorded
+uch5,5,1,91,24,30 to 33,34,0:32:04,aca,anigrofuscus,na,9,,gra.det,83,sonia,not recorded
+uch5,5,1,91,24,30 to 33,35,0:32:21,aca,cstriatus,na,12,,gra.det,9,sonia,not recorded
+uch5,5,1,91,24,30 to 33,36,0:32:22,sca,sspinus,ip,10,,scra.sma.exc,36,sonia,not recorded
+uch5,5,1,91,24,30 to 33,37,0:32:24,sca,spsittacus,ip,12,,scra.sma.exc,43,sonia,not recorded
+uch5,5,1,91,24,30 to 33,38,0:32:24,sca,spsittacus,ip,9,,scra.sma.exc,4,sonia,not recorded
+uch5,5,1,91,24,30 to 33,39,0:32:38,aca,cstriatus,na,13,,gra.det,29,sonia,not recorded
+uch5,5,1,91,24,36 to 39,40,0:37:23,aca,cstriatus,na,14,,gra.det,5,sonia,not recorded
+uch5,5,1,91,24,36 to 39,41,0:37:54,sca,csordidus,ip,14,,scra.sma.exc,1,sonia,not recorded
+uch5,5,2,91,24,0 to 3,42,0:00:04,aca,anigricans,na,12,,gra.det,2,sonia,not recorded
+uch5,5,2,91,24,0 to 3,43,0:00:04,sca,spsittacus,tp,16,,scra.sma.exc,5,sonia,not recorded
+uch5,5,2,91,24,0 to 3,44,0:00:05,aca,zscopas,na,10,,gra.det,15,sonia,not recorded
+uch5,5,2,91,24,0 to 3,45,0:00:27,sca,sspinus,ip,12,,scra.sma.exc,14,sonia,not recorded
+uch5,5,2,91,24,0 to 3,46,0:00:30,sca,csordidus,ip,12,,scra.sma.exc,10,sonia,not recorded
+uch5,5,2,91,24,0 to 3,47,0:00:31,sca,sspinus,ip,9,,scra.sma.exc,31,sonia,not recorded
+uch5,5,2,91,24,0 to 3,48,0:02:33,aca,cstriatus,na,13,,gra.det,13,sonia,not recorded
+uch5,5,2,91,24,0 to 3,49,0:02:40,aca,anigrofuscus,na,11,,gra.det,34,sonia,not recorded
+uch5,5,2,91,24,0 to 3,50,0:02:43,aca,cstriatus,na,13,,gra.det,22,sonia,not recorded
+uch5,5,2,91,24,0 to 3,51,0:02:49,aca,anigrofuscus,na,11,,gra.det,12,sonia,not recorded
+uch5,5,2,91,24,6 to 9,52,0:06:07,aca,anigricans,na,12,,gra.det,48,sonia,not recorded
+uch5,5,2,91,24,6 to 9,53,0:06:47,aca,nlituratus,na,27,,browser,38,sonia,not recorded
+uch5,5,2,91,24,6 to 9,54,0:06:49,aca,cstriatus,na,12,,gra.det,2,sonia,not recorded
+uch5,5,2,91,24,6 to 9,55,0:07:12,aca,anigricans,na,11,,gra.det,11,sonia,not recorded
+uch5,5,2,91,24,6 to 9,56,0:07:33,aca,cstriatus,na,12,,gra.det,53,sonia,not recorded
+uch5,5,2,91,24,6 to 9,57,0:07:36,aca,zscopas,na,10,,gra.det,28,sonia,not recorded
+uch5,5,2,91,24,6 to 9,58,0:07:53,aca,cstriatus,na,13,,gra.det,12,sonia,not recorded
+uch5,5,2,91,24,6 to 9,59,0:08:37,aca,anigricans,na,11,,gra.det,32,sonia,not recorded
+uch5,5,2,91,24,6 to 9,60,0:08:38,sca,spsittacus,tp,18,,scra.sma.exc,16,sonia,not recorded
+uch5,5,2,91,24,6 to 9,61,0:08:49,sca,csordidus,ip,12,,scra.sma.exc,7,sonia,not recorded
+uch5,5,2,91,24,6 to 9,62,0:08:54,sca,csordidus,ip,15,,scra.sma.exc,4,sonia,not recorded
+uch5,5,2,91,24,12 to 15,63,0:12:00,aca,cstriatus,na,14,,gra.det,15,sonia,not recorded
+uch5,5,2,91,24,12 to 15,64,0:12:40,aca,cstriatus,na,13,,gra.det,2,sonia,not recorded
+uch5,5,2,91,24,12 to 15,65,0:12:59,aca,anigricans,na,14,,gra.det,43,sonia,not recorded
+uch5,5,2,91,24,12 to 15,66,0:13:27,aca,cstriatus,na,13,,gra.det,45,sonia,not recorded
+uch5,5,2,91,24,12 to 15,67,0:14:01,aca,anigrofuscus,na,11,,gra.det,40,sonia,not recorded
+uch5,5,2,91,24,12 to 15,68,0:14:02,aca,cstriatus,na,12,,gra.det,5,sonia,not recorded
+uch5,5,2,91,24,12 to 15,69,0:14:05,sca,csordidus,ip,14,,scra.sma.exc,10,sonia,not recorded
+uch5,5,2,91,24,12 to 15,70,0:14:20,aca,cstriatus,na,14,,gra.det,9,sonia,not recorded
+uch5,5,2,91,24,12 to 15,71,0:14:27,aca,anigricans,na,11,,gra.det,4,sonia,not recorded
+uch5,5,2,91,24,12 to 15,72,0:14:38,aca,cstriatus,na,13,,gra.det,13,sonia,not recorded
+uch5,5,2,91,24,12 to 15,73,0:14:40,sca,csordidus,ip,14,,scra.sma.exc,23,sonia,not recorded
+uch5,5,2,91,24,12 to 15,74,0:14:40,aca,zscopas,na,10,,gra.det,11,sonia,not recorded
+uch5,5,2,91,24,12 to 15,75,0:14:40,aca,anigrofuscus,na,10,,gra.det,22,sonia,not recorded
+uch5,5,2,91,24,12 to 15,76,0:14:47,sca,spsittacus,tp,18,,scra.sma.exc,5,sonia,not recorded
+uch5,5,2,91,24,12 to 15,77,0:14:43,aca,cstriatus,na,13,,gra.det,6,sonia,not recorded
+uch5,5,2,91,24,18 to 21,78,0:18:00,sca,spsittacus,tp,18,,scra.sma.exc,13,sonia,not recorded
+uch5,5,2,91,24,18 to 21,79,0:18:18,sca,csordidus,ip,15,,scra.sma.exc,5,sonia,not recorded
+uch5,5,2,91,24,18 to 21,80,0:18:34,sca,spsittacus,tp,18,,scra.sma.exc,23,sonia,not recorded
+uch5,5,2,91,24,18 to 21,81,0:19:34,aca,cstriatus,na,12,,gra.det,8,sonia,not recorded
+uch5,5,2,91,24,18 to 21,82,0:19:46,sca,csordidus,ip,12,,scra.sma.exc,6,sonia,not recorded
+uch5,5,2,91,24,18 to 21,83,0:20:16,aca,cstriatus,na,12,,gra.det,1,sonia,not recorded
+uch5,5,2,91,24,18 to 21,84,0:20:19,aca,cstriatus,na,13,,gra.det,21,sonia,not recorded
+uch5,5,2,91,24,18 to 21,85,0:20:40,aca,anigrofuscus,na,12,,gra.det,20,sonia,not recorded
+uch5,5,2,91,24,18 to 21,86,0:20:40,aca,anigrofuscus,na,12,,gra.det,7,sonia,not recorded
