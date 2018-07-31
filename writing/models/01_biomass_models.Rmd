@@ -64,9 +64,9 @@ h$pristine.dummy<-ifelse(h$management=='Unfished', 1, 0)
 # we use 2 dummy variables for 3 levels
 
 ## convert biomass to log10
-h$grazerlog10<-log10(h$grazer+1)
-h$scraperlog10<-log10(h$scraper+1)
-h$browserlog10<-log10(h$browser+1)
+h$grazerlog10<-log10(h$`Herbivore Grazer`+1)
+h$scraperlog10<-log10(h$`Herbivore Scraper` +1)
+h$browserlog10<-log10(h$`Herbivore Browser`+1)
 
 # testing model fit
 m<-lmer(grazerlog10 ~ hard.coral + macroalgae * complexity + management + ## fixed
@@ -83,7 +83,7 @@ summary(m)
 #### GRAZER BIOMASS MODELS
 
 ## drop 0 grazer site
-h<-h[h$grazer > 0,]
+h<-h[h$`Herbivore Grazer` > 0,]
 
 m.grazer<-lmer(grazerlog10 ~ hard.coral + macroalgae * complexity + fish.dummy + pristine.dummy + ## fixed
           (1 | dataset/reef) , ## random, nested = reefs within datasets
@@ -119,5 +119,31 @@ axis(2)
 par(xpd=T)
 text(x=-0.5, y=1000, label='Hard coral effect', font=2)
 legend('topright', legend=c('Grazer', 'Scraper', 'Browser'), col=c(1,2,3), lty=1)
-
 ```
+
+#Now plot macroalgae for grazers
+
+```{r, echo=FALSE, include=TRUE, messages=FALSE, fig.cap='Grazer model effects'}
+
+## NOW PLOT PREDICTIONS
+nd<-data.frame(macroalgae = seq(min(h$macroalgae), max(h$macroalgae), length.out=30),
+                  hard.coral = 0, complexity = 0, fish.dummy = 0, pristine.dummy=0)
+
+## predict grazer biomass for hard coral effect, holding every other covariate constant
+p.grazer<-predict(object=m.grazer, newdata = nd, re.form=NA)
+
+plot(nd$macroalgae, p.grazer, type='l',col=1, axes=F, ylab='Log10 Biomass (kg/ha)', xlab='Macroalgae cover (%)', ylim=c(1, 4))
+axis(1, at = seq(min(h$macroalgae), max(h$macroalgae), length.out=5), 
+     labels= round(seq(min(pred$macroalgae), max(pred$macroalgae), length.out=5), 0))
+axis(2)
+
+par(xpd=T)
+text(x=-0.5, y=1000, label='Macroalgae effect', font=2)
+legend('topright', legend=c('Grazer', 'Scraper', 'Browser'), col=c(1,2,3), lty=1)
+```
+#Plot 
+
+\newpage
+### Browsers
+&nbsp;
+

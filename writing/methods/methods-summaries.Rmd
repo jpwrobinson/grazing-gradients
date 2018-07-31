@@ -7,7 +7,12 @@ output: pdf_document
 ## Grazer and benthic survey methods
 
 #### Seychelles
-
+  A total of 21 reefs were surveyed in the inner islands of the Seychelles over three years: 1994, 2005, and 2011.The habitat types encompassed by the surveys include carbonate fringing reefs, granitic rocky reefs with coral growth and patch reef habitats on a sand, rubble, or rock base. In 1994 and 2005, there were 16 replicate sites surveyed, whereas in 2011, only 8 replicate sites were surveyed, as a power analysis indicated that only 8 replicates were needed. Each replicate survey was conducted as a 7m radius circular point count. Replicate survey points were haphazardly located on the reef slope at least 15m away from each other.  Overall, the surveys covered up to 0.5km of reef from and 2,500m^2 of reef habitat.
+  Fish surveys focused on diurnal, non-crypic (>8cm), reef-associated fish. The total length (TL) of individuals was estimated to the nearest centimeter and the abundance of each species within a point count survey area (153.94 m^2) was recorded and averaged over sites. The accuracy of TL measurements was calibrated by estimating the length of sections of PVC pipe and comparing it to their known length prior to data collection each day. 
+  Benthic habitat surveys were also conducted within each point count area. The percent cover of live hard coral, soft coral, macroalgae, sand, rubble, and rock was estimated as a rapid assessment. The structural complexity of the reef as a value on a six-point scale was also visually estimated. 
+  
+  
+  
 #### GBR
 The ecological assessment of the GBR was done between November 2010 and January 2011. Five mid-shelf reefs near the city of Townsville were surveyed by splitting them into 3 wave exposed and 3 wave sheltered sites. Each of these 6 sites were split up again along a zonal gradient into 3 zones - crest (2-3m depth), slope (7-9m depth), and flat (100m distance from crest). Each zone was surveyed with 4 50m-transects. The experimental setup yielded in 72 transects per reef and 360 for all 5 reefs combined.
 
