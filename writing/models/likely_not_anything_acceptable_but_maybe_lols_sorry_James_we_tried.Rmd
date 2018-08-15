@@ -69,11 +69,15 @@ h$scraperlog10<-log10(h$'Herbivore Scraper' +1)
 h$browserlog10<-log10(h$'Herbivore Browser'+1)
 
 # testing model fit
-m<-lmer(grazerlog10 ~ hard.coral + macroalgae * complexity + management + ## fixed
+m<-lmer(grazerlog10 ~ hard.coral + macroalgae + complexity + management + ## fixed
           (1 | dataset/reef) , ## random, nested = reefs within datasets
                 data = h)
 summary(m)
 ```
+
+
+
+
 
 \newpage
 ### Grazers
@@ -85,12 +89,14 @@ summary(m)
 ## drop 0 grazer site
 h<-h[h$`Herbivore Grazer` > 0,]
 
-m.grazer<-lmer(grazerlog10 ~ hard.coral + macroalgae * complexity + fish.dummy + pristine.dummy + ## fixed
+m.grazer<-lmer(grazerlog10 ~ macroalgae + complexity + fish.dummy + pristine.dummy + ## fixed
           (1 | dataset/reef) , ## random, nested = reefs within datasets
                 data = h)
 summary(m.grazer)
 
 ```
+
+
 
 ```{r, echo=FALSE, include=TRUE, messages=FALSE, fig.cap='Grazer model residuals'}
 ## model diagnostic plots - grazer biomass
@@ -111,7 +117,7 @@ grazer_nd_hc<-data.frame(hard.coral = seq(min(h$hard.coral), max(h$hard.coral), 
 ## predict grazer biomass for hard coral effect, holding every other covariate constant
 p.grazer.hc<-predict(object=m.grazer, newdata = grazer_nd_hc, re.form=NA)
 
-plot(grazer_nd_hc$hard.coral, p.grazer, type='l',col=1, axes=F, ylab='Log10 Biomass (kg/ha)', xlab='Hard coral cover (%)', ylim=c(1, 4))
+plot(grazer_nd_hc$hard.coral, p.grazer.hc, type='l',col=1, axes=F, ylab='Log10 Biomass (kg/ha)', xlab='Hard coral cover (%)', ylim=c(1, 4))
 axis(1, at = seq(min(h$hard.coral), max(h$hard.coral), length.out=5), 
      labels= round(seq(min(pred$hard.coral), max(pred$hard.coral), length.out=5), 0))
 axis(2)
