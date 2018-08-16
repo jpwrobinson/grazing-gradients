@@ -49,10 +49,26 @@ bite$bite.rate<-with(bite, as.numeric(as.character(total.bites))/survey.secs*60*
 bite<-bite[!is.infinite(bite$bite.rate),]
 aggregate(bite.rate ~ Family, bite, mean)
 
+## SUMMARIES
+unique(bite$species) ## n = 22
+table(bite$Family)
+hist(bite$survey.secs)
+
+
+
 pdf(file='figures/explore/bite_rates_bysize.pdf')
 ggplot(bite, aes(size.tl, bite.rate)) + geom_point() + facet_wrap(~Family) + ylim(0, 25000) + labs(x='total length (cm)', y = 'bites per hour')
+ggplot(bite[bite$Family == 'Acanthurid',], aes(size.tl, bite.rate)) + geom_point() + facet_wrap(~species) + ylim(0, 25000) + labs(x='total length (cm)', y = 'bites per hour')
+ggplot(bite[bite$Family == 'Scarid',], aes(size.tl, bite.rate)) + geom_point() + facet_wrap(~species) + ylim(0, 25000) + labs(x='total length (cm)', y = 'bites per hour')
+ggplot(bite[bite$Family == 'Siganid',], aes(size.tl, bite.rate)) + geom_point() + facet_wrap(~species) + ylim(0, 25000) + labs(x='total length (cm)', y = 'bites per hour')
 dev.off()
 
-
+pdf(file='figures/explore/bite_rates_byspecies.pdf')
+sp<-data.frame(table(bite$species))
+sp$Family<-bite$Family[match(sp$Var1, bite$species)]
+ggplot(sp, aes(reorder(Var1,Freq), Freq, fill=Family)) + 
+	geom_bar(stat = 'identity') + coord_flip() + labs(x = 'Species', y = 'Number of observations') +
+	theme(legend.position = c(0.75, 0.25))
+dev.off()
 
 
