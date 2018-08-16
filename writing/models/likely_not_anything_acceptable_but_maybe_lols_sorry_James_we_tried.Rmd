@@ -12,7 +12,7 @@ output:
 ```{r, echo=FALSE, include=FALSE, messages=FALSE}
 
 # package loads
-library(ggplot2); library(visreg); library(lme4); library(dplyr); library(tidyr)
+library(ggplot2); library(visreg); library(lme4); library(dplyr); library(tidyr); library(MuMIn)
 theme_set(theme_bw())
 
 # data load
@@ -156,11 +156,11 @@ legend('topright', legend=c('Grazer', 'Scraper', 'Browser'), col=c(1,2,3), lty=1
 #### BROWSER BIOMASS MODELS
 
 ## drop 0 grazer site
-h<-h[h$`Herbivore Browser` > 0,]
+h_browser<-h[h$`Herbivore Browser` > 0,]
 
 m.browser<-lmer(browserlog10 ~ hard.coral + macroalgae * complexity + fish.dummy + pristine.dummy + ## fixed
           (1 | dataset/reef) , ## random, nested = reefs within datasets
-                data = h)
+                data = h_browser)
 summary(m.browser)
 
 ```
