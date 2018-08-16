@@ -8,7 +8,7 @@
 [16] "svulpinus"    "anigrofuscus" "naso"         "sspinus"      "sforsteni"   
 [21] "spsittacus"   "spunctatus"  
 
-These are mostly scraper (scarid) and grazer (acanthurid), with 4 siganid species. Most observations are also scraper (241) and grazer (541), with only 5 siganids observed. Dominated by C. striatus (n = 340) and C. Sordidus (130), with all other species < 100 observations.
+These are mostly scraper (scarid) and grazer (acanthurid), with 4 siganid species. Most observations are also scraper (241) and grazer (541), with only 5 siganids observed. Dominated by ctenochaetus striatus (n = 340) and chlorurus Sordidus (130), with all other species < 100 observations.
 
 Survey times are very short, with median = 10 seconds and max = 60 seconds. Sonia pointed out that this is an inflated measure of grazing pressure, as it does not reflect inter-foray distances (i.e. pauses between grazing, movement between grazing areas).
 
