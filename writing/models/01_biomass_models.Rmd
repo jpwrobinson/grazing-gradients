@@ -43,15 +43,14 @@ h <- pred %>%
                          hard.coral, macroalgae, complexity) %>%
           summarise(biom = mean(biom)) 
 
-
-#ggplot(h, aes(x = hard.coral, y = biom, col=FG)) + geom_point()
-#ggplot(h, aes(management, log10(biom+1), fill=FG)) + geom_boxplot()
-#hist(h$biom[h$FG == 'Herbivore Scraper'])
+## assign seychelles 2017 with mean complexity values for now - needs fixed
+pred$complexity[pred$dataset == 'Seychelles' & pred$date == 2017] <- mean(pred$complexity)
 
 
 h<- spread(h, FG, biom, fill=0)
 colnames(h)[11:13]<-c('browser', 'grazer', 'scraper')
 h<-as.data.frame(h)
+
 
 #cor(h$hard.coral, h$complexity)
 #cor(h$hard.coral, h$macroalgae)
