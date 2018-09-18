@@ -14,6 +14,7 @@ chagos<-read.csv('data/raw-data/csv/chagos_complexity.csv')
 
 ## fix sites which have more info in the unique id
 ## this all follows from clean_merge_benthic_data.R naming scheme
+chagos$Island<-as.character(chagos$Island)
 chagos$Island[chagos$Unique_site_transect == 'Great Chagos BankSouth BrotherExposed1']<-'South Brother (E1)'
 chagos$Island[chagos$Unique_site_transect == 'Great Chagos BankSouth BrotherExposed2']<-'South Brother (E2)'
 chagos$Island[chagos$Unique_site_transect == 'Great Chagos BankEagleSheltered1']<-'Eagle (S1)'
@@ -26,8 +27,12 @@ chagos$Island[chagos$Unique_site_transect == 'SalamonIle AnglaisSheltered3']<-'I
 
 ## Maldives
 head(pred %>% filter(dataset == 'Maldives'))
+maldives$Island<-str_replace_all(maldives$Island, 'Vodamuloo', 'Vodamulaa')
+
 maldives$unique.id<-with(maldives, paste(Island, 'Huvadhoo', sep='.'))
 colnames(maldives)<-c('dataset', 'reef', 'habitat', 'site', 'depth', 'transect', 'complexity', 'unique.id')
+
+
 
 ## average across replicates
 maldives<-maldives %>% group_by(dataset, reef, site, unique.id) %>% summarise(complexity = mean(complexity))

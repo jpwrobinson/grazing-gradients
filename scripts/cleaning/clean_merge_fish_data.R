@@ -82,7 +82,7 @@ chagos$species[chagos$species=='Scarus falcippinis']<-'Scarus falcipinnis'
 ## fix chlororus
 chagos$species<-str_replace_all(chagos$species, 'Chlororus', 'Chlorurus')
 chagos$species<-as.factor(chagos$species)
-unique(chagos$species)
+
 
 ## GBR CLEANING FOR MERGE ##
 ## create new habitat, site and depth vars

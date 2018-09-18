@@ -3,6 +3,11 @@ title: "Models 1 - Herbivore biomass gradients"
 output:
   html_document:
     df_print: paged
+    fig_width: 7
+    fig_height: 6
+    fig_caption: true
+    css: style.css
+    theme: sandstone
   html_notebook: default
   pdf_document: default
 ---
@@ -54,18 +59,24 @@ h<-as.data.frame(h)
 ```
 
 #### Predictor dataframe
+***
 
 We expect herbivore biomass to be predicted by hard coral cover, macroalgal cover, complexity, and fishing pressure. These 4 covariates are not correlated (Figure 1), so models will not be biased by collinearity issues. We are scaling covariates to a mean of 0 and standard deviation of 1, which is recommended for multimodel selection approaches, and allows for meaningful comparisons of effect sizes when covariates are on different scales (e.g. benthic cover % vs. habitat complexity).
 
+<br><br>
+
 Additional covariates to consider may be disturbance history, oceanic productivity, and wave energy (Heenan et al. 2016, Proceedings), but these are probably not available for all UVC sites.
 
-```{r, echo=FALSE, include=TRUE, messages=FALSE, fig.cap='Correlation between unscaled explanatory covariates', fig.height=6, fig.width=6}
+<br><br>
+
+```{r, echo=FALSE, include=TRUE, messages=FALSE, fig.cap='Figure 1: Correlation between unscaled explanatory covariates', fig.height=6, fig.width=6, fig.align='center'}
 source('../../scripts/functions/plot-cor-functions.R')
 pairs2(data.frame(h$hard.coral, h$macroalgae, h$complexity, h$management), 
        lower.panel=panel.smooth2, upper.panel = panel.cor)
 ```
+<br><br>
 
-```{r, echo=FALSE, include=TRUE, messages=FALSE, fig.cap='Correlation between scaled explanatory covariates', fig.height=4, fig.width=4}
+```{r, echo=FALSE, include=TRUE, messages=FALSE}
 
 ## scale vars to keep covariate means = 0. This is helpful for comparing effect sizes when covariates are on different scales.
 h$hard.coral <- scale(h$hard.coral)
@@ -93,7 +104,7 @@ h$browserlog10<-log10(h$browser+1)
 ---- 
 
 # Grazer models
-&nbsp;
+***
 
 Now fitting models to grazers, with scaled continuous covariates and dummy categorical covariates. We will account for non-independence of islands and sites (i.e. correlated biomass estimates within a region) with random effect structures. 
 
@@ -102,6 +113,8 @@ Fitted model is:
 grazerlog10 ~ fixed(hard.coral + macroalgae * complexity + fished + pristine) + random(dataset/reef)
 
 where grazerlog10 is grazer biomass (log10 scale), fished indicates if a site is protected or fished, and pristine indicates if a site is pristine (i.e. remote Chagos reefs). Random effect is varying intercepts for each reef, nested in each dataset.
+
+<br><br>
 
 ```{r, echo=FALSE, include=FALSE, messages=FALSE}
 #### GRAZER BIOMASS MODELS
@@ -115,7 +128,7 @@ m.grazer<-lmer(grazerlog10 ~ hard.coral + macroalgae * complexity + fish.dummy +
 
 ```
 
-```{r, echo=FALSE, include=TRUE, messages=FALSE, fig.cap='Grazer model diagnostics - residuals and fitted values'}
+```{r, echo=FALSE, include=TRUE, messages=FALSE, fig.align = 'center', fig.cap='Figure 2: Grazer model diagnostics - residuals and fitted values'}
 ## model diagnostic plots - grazer biomass
 par(mfrow=c(2,2), mar=c(5,4,2,2))
 hist(resid(m.grazer), main = 'model residuals', xlab='Residuals', cex.main=0.8)
@@ -125,13 +138,18 @@ plot(predict(m.grazer), h$grazerlog10, xlab='Predicted biomass', ylab='Observed 
 
 ```
 
+<br><br>
+
 Model residuals are approx. normal (though fail a shapiro test), while model predictions are reasonable. Note clustering of predictions around 1-2 observed biomass. Suggests that commonly-observed biomass values are not well predicted by habitat or fishing. Also note positive residual relationship, indicating that small biomass values are underpredicted and large biomass are overpredicted. 
+
+<br><br>
 
 Next step, examing model estimated effects by visualizing change in biomass across observed gradients in explanatory covariates.
 
 \newpage
 
 ### Benthic effects
+***
 
 ```{r, echo=FALSE, include=FALSE, messages=FALSE}
 
@@ -170,7 +188,7 @@ p.complex<-predict(object=m.grazer, newdata = nd, re.form=NA)
 
 ```
 
-```{r, echo=FALSE, include=TRUE, messages=FALSE}
+```{r, echo=FALSE, include=TRUE, messages=FALSE, fig.align='center', fig.cap = 'Figure 3: Benthic effects on grazers', fig.width=9, fig.height=4}
 
 ## create plot for benthic cover predictions. We will add all benthic predictions to the same figure panel using multiple panels
 par(mfrow=c(1,3), mar=c(4,2,1,1), oma=c(0,2, 0,0))
@@ -200,17 +218,18 @@ title('Complexity')
 mtext(2, text= 'Biomass (log10 kg/ha)', outer=TRUE, line=0.5)
 
 ```
-&nbsp;
+<br><br>
 
 * Macroalgae has the strongest effect on grazer biomass, which declined from ```r round(10^p.algae[1], 0)``` kg/ha at 0% cover to ```r round(10^p.algae[30], 0)``` kg/ha at ```r round(max(pred$macroalgae), 0)``` % cover.
 
-* Complexity has a moderate effect on grazer biomass, which increased from ```r round(10^p.complex[1], 0)``` kg/ha at 0% cover to ```r round(10^p.complex[30], 0)``` kg/ha at ```r round(max(pred$complexity), 0)```  complexity.
+* Complexity has a moderate effect on grazer biomass, which increased from ```r round(10^p.complex[1], 0)``` kg/ha at 0 complexity to ```r round(10^p.complex[30], 0)``` kg/ha at ```r round(max(pred$complexity), 0)```  complexity.
 
 * Hard coral has the weakest effect on grazer biomass, which increased from ```r round(10^p.coral[1], 0)``` kg/ha at 0% cover to ```r round(10^p.coral[30], 0)``` kg/ha at ```r round(max(pred$hard.coral), 0)``` % cover.
 
 \newpage
 
 ### Fishing effects
+***
 
 ```{r, echo=FALSE, include=FALSE, messages=FALSE}
 
@@ -235,7 +254,13 @@ nd<-nd[c(3,1,2),]
 
 ```
 
-```{r, echo=FALSE, include=TRUE, messages=FALSE, fig.width=4}
+* Pristine reefs have the highest grazer biomass, at ```r round(10^nd$p.fish[nd$categories=='Pristine'], 0)``` kg/ha.
+
+* Protected and fished reefs have similar biomass levels, at ```r round(10^nd$p.fish[nd$categories=='Protected'], 0)``` kg/ha on protected reefs and ```r round(10^nd$p.fish[nd$categories=='Fished'], 0)``` kg/ha on fished reefs.
+
+<br><br>
+
+```{r, echo=FALSE, include=TRUE, messages=FALSE, fig.align='center', fig.cap='Figure 4: fishing effects on grazers', fig.width=4, fig.height=4}
 ## 2. create plot for fishing predictions. 
 par(mfrow=c(1,1), mar=c(2,4,1,1), oma=c(0,0,0,0))
 plot(c(1,2,3), nd$p.fish, cex=2, col = cols[c(4,5,6)],pch=16, axes=F, ylab='Log10 Biomass (kg/ha)', xlab='', ylim=c(1, 3))
@@ -245,11 +270,7 @@ axis(2)
 
 ```
 
-&nbsp;
-
-* Pristine reefs have the highest grazer biomass, at ```r round(10^nd$p.fish[nd$categories=='Pristine'], 0)``` kg/ha.
-
-* Protected and fished reefs have similar biomass levels, at ```r round(10^nd$p.fish[nd$categories=='Protected'], 0)``` kg/ha on protected reefs and ```r round(10^nd$p.fish[nd$categories=='Fished'], 0)``` kg/ha on fished reefs.
+<br><br>
 
 \newpage
 
