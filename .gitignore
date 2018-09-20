@@ -1,8 +1,7 @@
-.Rproj.user/shared/notebooks/paths
-.Rproj.user
+*.Rproj.user/shared/notebooks/paths
+*.Rproj.user
 *.Rhistory
-.RData
-.Ruserdata
+*.Ruserdata
 *DS_Store
 *sublime-project
 *sublime-workspace
