@@ -1,0 +1,302 @@
+Region,Genus,Species,Phase,TL,Bites,min,sec,time,Bite rate
+Al lith,Cetoscarus,bicolor,IP,32,18,4,57,04:57,3.64
+Al lith,Cetoscarus,bicolor,IP,30,29,5,4,05:04,5.72
+Al lith,Cetoscarus,bicolor,TP,40,27,6,1,06:01,4.49
+Al lith,Cetoscarus,bicolor,TP,42,14,4,44,04:44,2.96
+KAUST,Cetoscarus,bicolor,IP,31,11,3,14,03:14,3.40
+KAUST,Cetoscarus,bicolor,TP,42,6,3,8,03:08,1.91
+KAUST,Cetoscarus,bicolor,IP,26,9,3,7,03:07,2.89
+KAUST,Cetoscarus,bicolor,IP,23,16,4,9,04:09,3.86
+KAUST,Cetoscarus,bicolor,IP,27,15,3,1,03:01,4.97
+KAUST,Cetoscarus,bicolor,IP,19,16,3,1,03:01,5.30
+KAUST,Cetoscarus,bicolor,IP,29,11,3,58,03:58,2.77
+KAUST,Cetoscarus,bicolor,IP,24,13,3,3,03:03,4.26
+KAUST,Cetoscarus,bicolor,IP,21,17,3,4,03:04,5.54
+KAUST,Cetoscarus,bicolor,IP,13,32,3,2,03:02,10.55
+KAUST,Cetoscarus,bicolor,IP,29,11,3,4,03:04,3.59
+KAUST,Cetoscarus,bicolor,IP,34,9,3,50,03:50,2.35
+KAUST,Cetoscarus,bicolor,IP,21,27,3,43,03:43,7.26
+KAUST,Cetoscarus,bicolor,IP,32,14,3,2,03:02,4.62
+KAUST,Cetoscarus,bicolor,TP,46,6,3,9,03:09,1.90
+KAUST,Cetoscarus,bicolor,IP,29,16,3,11,03:11,5.03
+KAUST,Cetoscarus,bicolor,IP,28,18,3,53,03:53,4.64
+KAUST,Cetoscarus,bicolor,IP,31,11,3,12,03:12,3.44
+KAUST,Cetoscarus,bicolor,IP,25,21,3,32,03:32,5.94
+KAUST,Cetoscarus,bicolor,IP,30,17,3,1,03:01,5.64
+KAUST,Cetoscarus,bicolor,,36,12,3,27,03:27,3.48
+KAUST,Cetoscarus,bicolor,,33,15,3,52,03:52,3.88
+KAUST,Chlorurus,genozonatus,TP,30,38,3,8,03:08,12.13
+KAUST,Chlorurus,genozonatus,TP,27,36,3,13,03:13,11.19
+KAUST,Chlorurus,genozonatus,IP,27,37,3,4,03:04,12.07
+KAUST,Chlorurus,genozonatus,IP,26,33,3,8,03:08,10.53
+KAUST,Chlorurus,genozonatus,,25,41,3,11,03:11,12.88
+KAUST,Chlorurus,genozonatus,,28,34,3,7,03:07,10.91
+KAUST,Chlorurus,genozonatus,,27,39,3,1,03:01,12.93
+KAUST,Chlorurus,genozonatus,,22,44,3,8,03:08,14.04
+KAUST,Chlorurus,genozonatus,,25,36,3,0,03:00,12.00
+KAUST,Chlorurus,genozonatus,,24,33,3,0,03:00,11.00
+KAUST,Chlorurus,genozonatus,,29,29,3,3,03:03,9.51
+KAUST,Chlorurus,genozonatus,,23,36,3,14,03:14,11.13
+KAUST,Chlorurus,genozonatus,,30,30,3,6,03:06,9.68
+Al lith,Chlorurus,gibbus,TP,43,17,3,21,03:21,5.07
+KAUST,Chlorurus,gibbus,IP,30,19,3,19,03:19,5.73
+KAUST,Chlorurus,gibbus,IP,14,31,3,4,03:04,10.11
+KAUST,Chlorurus,gibbus,IP,32,16,3,10,03:10,5.05
+KAUST,Chlorurus,gibbus,IP,28,30,3,21,03:21,8.96
+KAUST,Chlorurus,gibbus,IP,24,16,3,55,03:55,4.09
+KAUST,Chlorurus,gibbus,TP,31,12,3,1,03:01,3.98
+KAUST,Chlorurus,gibbus,TP,38,5,3,12,03:12,1.56
+KAUST,Chlorurus,gibbus,TP,29,16,3,7,03:07,5.13
+KAUST,Chlorurus,gibbus,IP,33,19,3,1,03:01,6.30
+KAUST,Chlorurus,gibbus,IP,15,47,3,15,03:15,14.46
+KAUST,Chlorurus,gibbus,TP,36,19,3,1,03:01,6.30
+KAUST,Chlorurus,gibbus,IP,16,35,3,13,03:13,10.88
+KAUST,Chlorurus,gibbus,IP,13,48,3,11,03:11,15.08
+KAUST,Chlorurus,gibbus,IP,25,34,3,4,03:04,11.09
+KAUST,Chlorurus,gibbus,,18,43,3,22,03:22,12.77
+KAUST,Chlorurus,gibbus,,33,17,3,1,03:01,5.64
+KAUST,Chlorurus,gibbus,,37,13,3,7,03:07,4.17
+KAUST,Chlorurus,gibbus,,21,24,3,5,03:05,7.78
+KAUST,Chlorurus,gibbus,,40,11,3,9,03:09,3.49
+KAUST,Chlorurus,gibbus,,26,15,3,3,03:03,4.92
+KAUST,Chlorurus,gibbus,,35,16,3,0,03:00,5.33
+KAUST,Chlorurus,gibbus,,36,12,3,10,03:10,3.79
+KAUST,Chlorurus,gibbus,,20,32,3,32,03:32,9.06
+KAUST,Chlorurus,gibbus,,33,16,3,8,03:08,5.11
+KAUST,Chlorurus,gibbus,,32,13,3,1,03:01,4.31
+KAUST,Chlorurus,gibbus,,19,35,3,7,03:07,11.23
+KAUST,Chlorurus,gibbus,,25,26,3,5,03:05,8.43
+KAUST,Chlorurus,gibbus,,24,21,3,5,03:05,6.81
+KAUST,Chlorurus,gibbus,,39,9,3,8,03:08,2.87
+KAUST,Chlorurus,gibbus,,19,27,3,1,03:01,8.95
+Al lith,Chlorurus,sordidus,IP,19,41,3,4,03:04,13.37
+Al lith,Chlorurus,sordidus,IP,16,50,3,3,03:03,16.39
+Al lith,Chlorurus,sordidus,IP,16,41,3,40,03:40,11.18
+Al lith,Chlorurus,sordidus,IP,18,69,3,39,03:39,18.90
+Al lith,Chlorurus,sordidus,TP,24,42,4,9,04:09,10.12
+Al lith,Chlorurus,sordidus,TP,26,38,4,6,04:06,9.27
+Al lith,Chlorurus,sordidus,IP,21,39,3,51,03:51,10.13
+Al lith,Chlorurus,sordidus,TP,24,27,2,53,02:53,9.36
+Al lith,Chlorurus,sordidus,TP,22,32,3,27,03:27,9.28
+Al lith,Chlorurus,sordidus,TP,24,42,3,58,03:58,10.59
+Al lith,Chlorurus,sordidus,TP,23,43,3,29,03:29,12.34
+KAUST,Chlorurus,sordidus,TP,21,32,4,57,04:57,6.46
+KAUST,Chlorurus,sordidus,IP,14,43,3,6,03:06,13.87
+KAUST,Chlorurus,sordidus,TP,19,29,3,44,03:44,7.77
+KAUST,Chlorurus,sordidus,IP,15,47,5,11,05:11,9.07
+KAUST,Chlorurus,sordidus,IP,17,73,4,15,04:15,17.18
+KAUST,Chlorurus,sordidus,IP,19,61,3,58,03:58,15.38
+KAUST,Chlorurus,sordidus,TP,22,67,4,36,04:36,14.57
+KAUST,Chlorurus,sordidus,IP,14,60,4,3,04:03,14.81
+KAUST,Chlorurus,sordidus,IP,9,72,3,39,03:39,19.73
+KAUST,Chlorurus,sordidus,IP,14,86,3,5,03:05,27.89
+KAUST,Chlorurus,sordidus,TP,22,32,4,29,04:29,7.14
+KAUST,Chlorurus,sordidus,IP,15,82,3,19,03:19,24.72
+KAUST,Chlorurus,sordidus,IP,14,75,3,38,03:38,20.64
+KAUST,Chlorurus,sordidus,IP,18,61,3,3,03:03,20.00
+KAUST,Chlorurus,sordidus,TP,23,43,3,10,03:10,13.58
+KAUST,Chlorurus,sordidus,IP,18,52,3,5,03:05,16.86
+KAUST,Chlorurus,sordidus,TP,19,22,4,9,04:09,5.30
+KAUST,Chlorurus,sordidus,IP,18,64,3,2,03:02,21.10
+KAUST,Chlorurus,sordidus,TP,21,43,3,3,03:03,14.10
+KAUST,Chlorurus,sordidus,TP,22,51,3,2,03:02,16.81
+KAUST,Chlorurus,sordidus,TP,20,46,3,4,03:04,15.00
+KAUST,Chlorurus,sordidus,TP,24,22,3,46,03:46,5.84
+KAUST,Chlorurus,sordidus,TP,21,32,3,1,03:01,10.61
+KAUST,Chlorurus,sordidus,IP,20,54,3,0,03:00,18.00
+KAUST,Chlorurus,sordidus,IP,18,52,3,8,03:08,16.60
+KAUST,Chlorurus,sordidus,TP,20,53,3,24,03:24,15.59
+KAUST,Hipposcarus,harid,IP,16,37,3,48,03:48,9.74
+KAUST,Hipposcarus,harid,IP,23,18,3,17,03:17,5.48
+KAUST,Hipposcarus,harid,IP,22,34,3,7,03:07,10.91
+KAUST,Hipposcarus,harid,TP,29,15,3,1,03:01,4.97
+KAUST,Hipposcarus,harid,IP,17,48,3,19,03:19,14.47
+KAUST,Hipposcarus,harid,IP,23,12,3,1,03:01,3.98
+KAUST,Hipposcarus,harid,IP,20,24,3,9,03:09,7.62
+KAUST,Hipposcarus,harid,IP,20,38,3,1,03:01,12.60
+KAUST,Hipposcarus,harid,IP,22,35,3,4,03:04,11.41
+KAUST,Hipposcarus,harid,IP,16,43,3,7,03:07,13.80
+KAUST,Hipposcarus,harid,IP,14,52,3,27,03:27,15.07
+KAUST,Hipposcarus,harid,IP,23,27,3,5,03:05,8.76
+KAUST,Hipposcarus,harid,IP,17,36,3,4,03:04,11.74
+KAUST,Hipposcarus,harid,IP,19,45,3,3,03:03,14.75
+KAUST,Hipposcarus,harid,IP,23,18,3,4,03:04,5.87
+KAUST,Hipposcarus,harid,IP,21,26,3,1,03:01,8.62
+KAUST,Hipposcarus,harid,TP,34,18,3,58,03:58,4.54
+KAUST,Hipposcarus,harid,TP,21,28,3,3,03:03,9.18
+KAUST,Hipposcarus,harid,IP,22,17,3,5,03:05,5.51
+KAUST,Hipposcarus,harid,IP,14,34,3,9,03:09,10.79
+KAUST,Hipposcarus,harid,TP,30,15,3,6,03:06,4.84
+KAUST,Hipposcarus,harid,TP,31,11,3,13,03:13,3.42
+KAUST,Hipposcarus,harid,IP,22,31,3,3,03:03,10.16
+KAUST,Hipposcarus,harid,IP,18,41,3,2,03:02,13.52
+KAUST,Hipposcarus,harid,IP,21,43,3,6,03:06,13.87
+KAUST,Hipposcarus,harid,IP,26,25,3,2,03:02,8.24
+KAUST,Hipposcarus,harid,IP,21,23,3,41,03:41,6.24
+KAUST,Hipposcarus,harid,IP,25,34,3,41,03:41,9.23
+KAUST,Hipposcarus,harid,IP,23,19,3,4,03:04,6.20
+KAUST,Hipposcarus,harid,IP,28,29,3,0,03:00,9.67
+Al lith,Scarus,ferrugenius,IP,20,45,3,9,03:09,14.29
+Al lith,Scarus,ferrugenius,TP,25,59,4,33,04:33,12.97
+Al lith,Scarus,ferrugenius,TP,27,44,3,47,03:47,11.63
+KAUST,Scarus,ferrugenius,TP,26,30,3,29,03:29,8.61
+KAUST,Scarus,ferrugenius,IP,16,44,3,2,03:02,14.51
+KAUST,Scarus,ferrugenius,IP,26,67,5,3,05:03,13.27
+KAUST,Scarus,ferrugenius,IP,23,58,3,5,03:05,18.81
+Al lith,Scarus,ferrugenius,IP,24,104,5,0,05:00,20.80
+Al lith,Scarus,ferrugenius,IP,19,79,4,23,04:23,18.02
+Al lith,Scarus,ferrugenius,IP,21,133,5,48,05:48,22.93
+Al lith,Scarus,ferrugenius,IP,22,120,5,41,05:41,21.11
+Al lith,Scarus,ferrugenius,TP,31,90,5,16,05:16,17.09
+Al lith,Scarus,ferrugenius,TP,33,96,5,5,05:05,18.89
+Al lith,Scarus,ferrugenius,IP,24,118,4,5,04:05,28.90
+Al lith,Scarus,ferrugenius,IP,16,71,3,42,03:42,19.19
+Al lith,Scarus,ferrugenius,IP,17,123,4,27,04:27,27.64
+KAUST,Scarus,ferrugenius,IP,18,68,3,12,03:12,21.25
+KAUST,Scarus,ferrugenius,IP,24,41,4,12,04:12,9.76
+KAUST,Scarus,ferrugenius,IP,9,108,3,3,03:03,35.41
+KAUST,Scarus,ferrugenius,IP,12,96,3,52,03:52,24.83
+KAUST,Scarus,ferrugenius,IP,23,66,4,48,04:48,13.75
+KAUST,Scarus,ferrugenius,TP,31,71,3,36,03:36,19.72
+KAUST,Scarus,ferrugenius,IP,24,73,3,13,03:13,22.69
+KAUST,Scarus,ferrugenius,TP,32,29,3,16,03:16,8.88
+KAUST,Scarus,ferrugenius,IP,19,74,3,25,03:25,21.66
+KAUST,Scarus,ferrugenius,IP,23,53,3,1,03:01,17.57
+KAUST,Scarus,ferrugenius,TP,26,46,3,19,03:19,13.87
+KAUST,Scarus,ferrugenius,IP,16,51,3,1,03:01,16.91
+KAUST,Scarus,ferrugenius,IP,21,61,3,10,03:10,19.26
+KAUST,Scarus,ferrugenius,IP,18,51,3,14,03:14,15.77
+KAUST,Scarus,ferrugenius,TP,32,50,3,1,03:01,16.57
+KAUST,Scarus,ferrugenius,IP,13,69,3,6,03:06,22.26
+KAUST,Scarus,ferrugenius,TP,28,39,3,5,03:05,12.65
+KAUST,Scarus,ferrugenius,TP,33,36,3,1,03:01,11.93
+KAUST,Scarus,ferrugenius,IP,17,73,4,2,04:02,18.10
+KAUST,Scarus,ferrugenius,IP,19,69,4,3,04:03,17.04
+Al lith,Scarus,frenatus,TP,23,151,6,4,06:04,24.89
+Al lith,Scarus,frenatus,IP,20,134,4,48,04:48,27.92
+Al lith,Scarus,frenatus,IP,17,162,5,57,05:57,27.23
+Al lith,Scarus,frenatus,TP,23,126,4,58,04:58,25.37
+Al lith,Scarus,frenatus,IP,16,134,4,3,04:03,33.09
+Al lith,Scarus,frenatus,TP,24,71,4,23,04:23,16.20
+Al lith,Scarus,frenatus,IP,23,117,4,35,04:35,25.53
+Al lith,Scarus,frenatus,IP,21,93,4,52,04:52,19.11
+Al lith,Scarus,frenatus,IP,15,106,4,6,04:06,25.85
+Al lith,Scarus,frenatus,TP,21,128,4,25,04:25,28.98
+KAUST,Scarus,frenatus,IP,14,87,3,21,03:21,25.97
+KAUST,Scarus,frenatus,IP,15,96,3,32,03:32,27.17
+KAUST,Scarus,frenatus,IP,17,90,3,2,03:02,29.67
+KAUST,Scarus,frenatus,IP,16,132,4,7,04:07,32.06
+KAUST,Scarus,frenatus,TP,27,26,3,28,03:28,7.50
+KAUST,Scarus,frenatus,IP,19,87,3,34,03:34,24.39
+KAUST,Scarus,frenatus,IP,16,73,3,0,03:00,24.33
+KAUST,Scarus,frenatus,TP,25,72,4,6,04:06,17.56
+KAUST,Scarus,frenatus,TP,25,33,3,5,03:05,10.70
+KAUST,Scarus,frenatus,IP,17,74,3,0,03:00,24.67
+KAUST,Scarus,frenatus,IP,24,82,3,3,03:03,26.89
+KAUST,Scarus,frenatus,IP,23,78,3,14,03:14,24.12
+KAUST,Scarus,frenatus,IP,15,68,3,0,03:00,22.67
+KAUST,Scarus,frenatus,TP,24,49,3,0,03:00,16.33
+KAUST,Scarus,frenatus,IP,22,42,3,16,03:16,12.86
+KAUST,Scarus,frenatus,TP,29,31,3,19,03:19,9.35
+KAUST,Scarus,frenatus,IP,18,64,3,19,03:19,19.30
+KAUST,Scarus,frenatus,TP,24,25,3,6,03:06,8.06
+KAUST,Scarus,frenatus,IP,19,56,3,1,03:01,18.56
+KAUST,Scarus,frenatus,IP,24,54,3,11,03:11,16.96
+KAUST,Scarus,frenatus,IP,18,67,3,6,03:06,21.61
+KAUST,Scarus,frenatus,IP,20,58,3,11,03:11,18.22
+KAUST,Scarus,fuscopurpureus,IP,20,40,3,2,03:02,13.19
+KAUST,Scarus,fuscopurpureus,IP,23,33,3,25,03:25,9.66
+KAUST,Scarus,fuscopurpureus,TP,30,46,3,35,03:35,12.84
+KAUST,Scarus,fuscopurpureus,TP,27,29,3,0,03:00,9.67
+KAUST,Scarus,fuscopurpureus,IP,29,38,3,0,03:00,12.67
+KAUST,Scarus,fuscopurpureus,TP,28,48,3,1,03:01,15.91
+KAUST,Scarus,fuscopurpureus,IP,21,75,3,6,03:06,24.19
+KAUST,Scarus,fuscopurpureus,IP,18,59,3,2,03:02,19.45
+KAUST,Scarus,fuscopurpureus,,15,87,4,1,04:01,21.66
+KAUST,Scarus,fuscopurpureus,,26,34,3,34,03:34,9.53
+KAUST,Scarus,fuscopurpureus,,30,41,3,2,03:02,13.52
+KAUST,Scarus,fuscopurpureus,,31,38,3,8,03:08,12.13
+KAUST,Scarus,fuscopurpureus,,18,55,3,3,03:03,18.03
+KAUST,Scarus,fuscopurpureus,,20,62,3,0,03:00,20.67
+KAUST,Scarus,fuscopurpureus,,23,47,3,1,03:01,15.58
+KAUST,Scarus,fuscopurpureus,,24,68,4,9,04:09,16.39
+KAUST,Scarus,fuscopurpureus,,29,34,3,18,03:18,10.30
+KAUST,Scarus,fuscopurpureus,,27,51,3,40,03:40,13.91
+KAUST,Scarus,fuscopurpureus,,19,74,3,6,03:06,23.87
+KAUST,Scarus,fuscopurpureus,,19,53,3,10,03:10,16.74
+KAUST,Scarus,fuscopurpureus,,17,48,3,1,03:01,15.91
+KAUST,Scarus,fuscopurpureus,,23,55,3,1,03:01,18.23
+KAUST,Scarus,fuscopurpureus,,20,48,3,0,03:00,16.00
+KAUST,Scarus,fuscopurpureus,,23,39,3,2,03:02,12.86
+KAUST,Scarus,fuscopurpureus,,28,47,3,43,03:43,12.65
+KAUST,Scarus,fuscopurpureus,,30,32,3,14,03:14,9.90
+KAUST,Scarus,fuscopurpureus,,25,58,3,9,03:09,18.41
+KAUST,Scarus,fuscopurpureus,,16,55,3,2,03:02,18.13
+KAUST,Scarus,niger,TP,25,158,4,52,04:52,32.47
+KAUST,Scarus,niger,TP,26,102,4,4,04:04,25.08
+Al lith,Scarus,niger,TP,28,187,5,1,05:01,37.28
+Al lith,Scarus,niger,IP,17,214,5,46,05:46,37.11
+Al lith,Scarus,niger,TP,25,177,5,21,05:21,33.08
+Al lith,Scarus,niger,IP,18,186,4,58,04:58,37.45
+Al lith,Scarus,niger,TP,29,151,5,47,05:47,26.11
+Al lith,Scarus,niger,IP,22,201,5,2,05:02,39.93
+KAUST,Scarus,niger,IP,17,108,3,2,03:02,35.60
+KAUST,Scarus,niger,TP,26,72,3,11,03:11,22.62
+KAUST,Scarus,niger,IP,17,212,3,37,03:37,58.62
+KAUST,Scarus,niger,IP,21,101,3,6,03:06,32.58
+KAUST,Scarus,niger,TP,24,67,3,58,03:58,16.89
+KAUST,Scarus,niger,IP,16,94,3,1,03:01,31.16
+KAUST,Scarus,niger,IP,24,111,4,11,04:11,26.53
+KAUST,Scarus,niger,IP,20,63,3,9,03:09,20.00
+KAUST,Scarus,niger,TP,24,88,3,1,03:01,29.17
+KAUST,Scarus,niger,TP,26,87,3,30,03:30,24.86
+KAUST,Scarus,niger,TP,27,71,3,3,03:03,23.28
+KAUST,Scarus,niger,IP,17,107,3,4,03:04,34.89
+KAUST,Scarus,niger,IP,16,141,3,11,03:11,44.29
+KAUST,Scarus,niger,IP,17,147,3,9,03:09,46.67
+KAUST,Scarus,niger,IP,19,94,3,1,03:01,31.16
+KAUST,Scarus,niger,IP,13,114,4,4,04:04,28.03
+KAUST,Scarus,niger,IP,16,109,3,1,03:01,36.13
+KAUST,Scarus,niger,IP,14,87,3,38,03:38,23.94
+KAUST,Scarus,niger,IP,20,50,3,23,03:23,14.78
+KAUST,Scarus,niger,TP,27,32,3,0,03:00,10.67
+KAUST,Scarus,niger,IP,17,78,3,12,03:12,24.38
+KAUST,Scarus,niger,IP,19,108,3,21,03:21,32.24
+KAUST,Scarus,niger,IP,22,74,3,3,03:03,24.26
+KAUST,Scarus,niger,IP,20,98,3,0,03:00,32.67
+KAUST,Scarus,niger,IP,22,93,3,4,03:04,30.33
+KAUST,Scarus,niger,TP,26,96,3,5,03:05,31.14
+KAUST,Scarus,niger,TP,29,63,3,0,03:00,21.00
+KAUST,Scarus,psittacus,TP,21,72,3,9,03:09,22.86
+KAUST,Scarus,psittacus,IP,14,129,3,29,03:29,37.03
+KAUST,Scarus,psittacus,TP,19,84,3,4,03:04,27.39
+KAUST,Scarus,psittacus,TP,19,52,3,10,03:10,16.42
+KAUST,Scarus,psittacus,TP,19,59,3,10,03:10,18.63
+KAUST,Scarus,psittacus,TP,17,14,3,7,03:07,4.49
+KAUST,Scarus,psittacus,TP,19,29,3,2,03:02,9.56
+KAUST,Scarus,psittacus,TP,20,42,4,1,04:01,10.46
+KAUST,Scarus,psittacus,TP,20,55,3,8,03:08,17.55
+KAUST,Scarus,psittacus,TP,21,76,3,16,03:16,23.27
+KAUST,Scarus,psittacus,IP,17,114,3,8,03:08,36.38
+KAUST,Scarus,psittacus,IP,14,129,3,7,03:07,41.39
+KAUST,Scarus,psittacus,IP,13,138,3,4,03:04,45.00
+KAUST,Scarus,psittacus,,12,127,3,1,03:01,42.10
+KAUST,Scarus,psittacus,,19,78,3,8,03:08,24.89
+KAUST,Scarus,psittacus,,19,113,4,2,04:02,28.02
+KAUST,Scarus,psittacus,,18,101,3,59,03:59,25.36
+KAUST,Scarus,psittacus,,20,81,3,12,03:12,25.31
+KAUST,Scarus,psittacus,,15,64,3,7,03:07,20.53
+KAUST,Scarus,psittacus,,16,83,3,6,03:06,26.77
+KAUST,Scarus,psittacus,,15,90,3,6,03:06,29.03
+KAUST,Scarus,psittacus,,21,77,3,25,03:25,22.54
+KAUST,Scarus,psittacus,,20,69,3,2,03:02,22.75
+KAUST,Scarus,psittacus,,17,65,3,0,03:00,21.67
+KAUST,Scarus,psittacus,,16,54,3,4,03:04,17.61
+KAUST,Scarus,psittacus,,16,83,3,0,03:00,27.67
+KAUST,Scarus,psittacus,,19,117,4,13,04:13,27.75
+KAUST,Scarus,psittacus,,20,72,3,1,03:01,23.87
+KAUST,Scarus,psittacus,,22,81,3,5,03:05,26.27
+KAUST,Scarus,psittacus,,14,90,3,8,03:08,28.72
+KAUST,Scarus,psittacus,,18,97,3,6,03:06,31.29
+KAUST,Scarus,psittacus,,15,116,3,0,03:00,38.67
+KAUST,Scarus,psittacus,,20,68,3,2,03:02,22.42
