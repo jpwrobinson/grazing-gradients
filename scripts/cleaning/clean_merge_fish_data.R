@@ -39,18 +39,18 @@ maldives$FG[maldives$Species=='Chlorurus enneacanthus']<-'Herbivore Scraper'
 ## unknown: Pomacentrus philippinus
 ## remaining are non-herbivores
 
-## keep only herb species
-chagos<-chagos[grepl('Herb*', chagos$FG),]
-unique(chagos$FG)
+# ## keep only herb species
+# chagos<-chagos[grepl('Herb*', chagos$FG),]
+# unique(chagos$FG)
 
-gbr<-gbr[grepl('Herb*', gbr$FG),]
-unique(gbr$FG)
+# gbr<-gbr[grepl('Herb*', gbr$FG),]
+# unique(gbr$FG)
 
-seychelles<-seychelles[grepl('Herb*', seychelles$FG),]
-unique(seychelles$FG)
+# seychelles<-seychelles[grepl('Herb*', seychelles$FG),]
+# unique(seychelles$FG)
 
-maldives<-maldives[grepl('Herb*', maldives$FG),]
-unique(maldives$FG)
+# maldives<-maldives[grepl('Herb*', maldives$FG),]
+# unique(maldives$FG)
 
 
 
@@ -155,8 +155,11 @@ gbr$species<-as.character(gbr$species)
 maldives$species<-as.character(maldives$species)
 seychelles$species<-as.character(seychelles$species)
 
-### merge and drop non-herbivores
+### merge and save full dataset for fishable biomass
 herb<-rbind(chagos, gbr, seychelles, maldives)
+save(herb, file='data/wio_gbr_fish_master.Rdata')
+
+## and drop non-herbivores for grazing models
 herb<-herb[grepl('Herb*', herb$FG),]
 
 save(herb, file='data/wio_gbr_herb_master.Rdata')

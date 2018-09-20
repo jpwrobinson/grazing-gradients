@@ -62,6 +62,9 @@ bite<-rbind(redsea, indonesia, gbr)
 bite$sp<-with(bite, paste(Genus, Species))
 ## in UVC data?
 bite$UVC<-ifelse(bite$sp %in% sp$species, 'TRUE', 'FALSE')
+# add FG information
+bite$FG<-sp$FG[match(bite$sp, sp$species)]
+
 
 uniques(bite$sp[bite$UVC == TRUE]) ## 30 species
 uniques(bite$sp[bite$UVC == FALSE]) ## 8 species
@@ -71,7 +74,7 @@ uniques(bite$sp[bite$UVC == FALSE]) ## 8 species
 # [4] "Scarus fuscopurpureus" "NA quoyi"              "NA russelli"          
 # [7] "NA "                   "NA muricatum"   
 
-## double check missing species are GONE
+## double check missing species are not in UVC under a different spelling
 sp[grepl('genoz', sp$sp),]
 sp[grepl('gib', sp$sp),]
 sp[grepl('ferr', sp$sp),]
