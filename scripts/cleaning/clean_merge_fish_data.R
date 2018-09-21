@@ -79,6 +79,8 @@ chagos$species<-as.character(chagos$species)
 chagos$species<-firstup(chagos$species)
 ## fix scarus falcipinnis
 chagos$species[chagos$species=='Scarus falcippinis']<-'Scarus falcipinnis'
+## fix scaris frenatus
+chagos$species[chagos$species=='Scaris frenatus']<-'Scarus frenatus'
 ## fix chlororus
 chagos$species<-str_replace_all(chagos$species, 'Chlororus', 'Chlorurus')
 chagos$species<-as.factor(chagos$species)

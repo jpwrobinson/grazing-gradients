@@ -61,18 +61,33 @@ ggplot(bite, aes(TL, Bite.rate, col = FG)) + geom_point(alpha=0.5, size = 1) + f
 ***
 
 <br><br>
-Aim is to build a predictive model that estimates the bite rate of each fish in the UVC dataset, given its species and, for scrapers, its size.
+
+Aim is to build a predictive model that estimates the bite rate of each fish in the UVC dataset, given its species and, for scrapers, its size. Model distributions will be set according to the bite rate distributions, which are all left-skewed. When data are continuous and not normally distributed (Figure 3; grazers and scrapers), we'll use the flexible Gamma distribution.
+
 <br><br>
+
+```{r,echo=FALSE, eval = FALSE, messages = FALSE, fig.align='center', fig.cap='Figure 3: histogram of bite rates by functional group', fig.width=7, fig.height = 4}
+
+par(mfrow=c(1,3), mar=c(2,2,2,2))
+hist(bite$Bite.rate[bite$FG == 'Herbivore Grazer'], xlab='Bites per minute', main = 'Grazers')
+hist(bite$Bite.rate[bite$FG == 'Herbivore Scraper'], xlab='Bites per minute', main = 'Scrapers')
+hist(bite$Bite.rate[bite$FG == 'Herbivore Browser'], xlab='Bites per minute', main = 'Browsers')
+
+```
+
 
 #### Grazer model
 ***
 
-Grazer function is cropping/consumption of turf algae. We infer this function from the total bite rate of the grazer community, and assume all bites are the same size. Thus, the predictive model estimates bite rates by species and families. We can use a hierarchical Bayesian model to predict new levels (i.e. species), based on their genus
+Grazer function is cropping/consumption of turf algae. We infer this function from the total bite rate of the grazer community, and assume all bites are the same size. Thus, the predictive model estimates bite rates by species and families. We can use a hierarchical Bayesian model to predict new levels (i.e. species), based on their genus.
 
 <br><br>
 
-$bite = Normal(\mu, \sigma)$
-$\mu = X + species_i + family_j + genus_k$
+$bite = Gamma(\mu, \theta)$
+
+$log(\mu) = X + species_i + family_j + genus_k$
+
+<br><br>
 
 where X is the intercept, for ```r uniques(bite$sp[bite$FG == 'Herbivore Grazer'])``` species in ```r uniques(bite$Genus[bite$FG == 'Herbivore Grazer'])``` genera
 
@@ -83,23 +98,24 @@ where X is the intercept, for ```r uniques(bite$sp[bite$FG == 'Herbivore Grazer'
 
 grazers<-droplevels(bite[bite$FG == 'Herbivore Grazer',])
 colnames(grazers)[colnames(grazers) == 'Bite.rate']<-'biterate'
-bite.prior=mean(grazers$Bite.rate) ## 30.85
+bite.prior=mean(grazers$biterate) ## 30.85
 
 graze.m<-map2stan(
         alist(
-          biterate ~ dnorm(mu, sigma),
-          mu ~ a + X1[sp] + X2[Genus], 
+          biterate ~ dgamma2(mu, scale),
+          log(mu) ~ a + X1[sp] + X2[Genus], 
           X1[sp] ~ dnorm(0, sigmar),
           X2[Genus] ~ dnorm(0, sigmar2),
           a ~ dnorm(30.85, 10),
-          c(sigma, sigmar, sigmar2) ~ dcauchy(0, 1)
+          scale ~ dexp(2),
+          c(sigmar, sigmar2) ~ dcauchy(0, 1)
         ),
         data=grazers, iter = 3000, chains =1)
 
 save(grazers, graze.m, file = '../../results/models/bites_grazers.Rdata')
 ```
 
-```{r, echo=FALSE, eval = TRUE, messages = FALSE}
+```{r, echo=FALSE, eval = TRUE, messages = FALSE, include = FALSE}
 
 ## evaluating predictions for each species
 load('../../results/models/bites_grazers.Rdata')
@@ -112,10 +128,9 @@ pred.mean<-data.frame(median = apply(link.obs.sp, 2, median))
 pred.PI<-apply(link.obs.sp, 2, PI, prob = 0.95)
 pred.mean$upper<-pred.PI[2,]
 pred.mean$lower<-pred.PI[1,]
-pred.mean$sp <- d.pred$sp; pred.mean$Genus <- d.pred$Genus
-pred.mean$sp<- factor(pred.mean$sp, level = rev(levels(pred.mean$sp)))
-pred.mean$Genus<- factor(pred.mean$Genus, level = rev(levels(pred.mean$Genus)))
-
+pred.mean$class <- d.pred$sp #pred.mean$Genus <- d.pred$Genus
+pred.mean$class<- factor(pred.mean$class, level = rev(levels(pred.mean$class)))
+pred.mean$preds<-'Species'
 
 ## Predictions for genus, removing species effect
 d.pred <- data.frame(Genus = unique(grazers$Genus), sp = 'NA')
@@ -126,13 +141,202 @@ pred.mean.genus<-data.frame(median = apply(link.obs.genus, 2, median))
 pred.PI<-apply(link.obs.genus, 2, PI, prob = 0.95)
 pred.mean.genus$upper<-pred.PI[2,]
 pred.mean.genus$lower<-pred.PI[1,]
-pred.mean.genus$Genus <- d.pred$Genus
-pred.mean.genus$Genus<- factor(pred.mean.genus$Genus, level = rev(levels(pred.mean.genus$Genus)))
-pred.mean.genus
+pred.mean.genus$class <- d.pred$Genus
+pred.mean.genus$class<- factor(pred.mean.genus$class, level = rev(levels(pred.mean.genus$class)))
+pred.mean.genus$preds<-'Genus'
 
-g1<-ggplot(pred.mean, aes(sp, median, col=Genus)) + geom_pointrange(aes(ymin = lower, ymax = upper)) + coord_flip() + theme(legend.position = 'NULL') + labs( x = '', y = '', title = 'Grazers')
-
-g2<-ggplot(pred.mean.genus, aes(Genus, median, col=Genus)) + geom_pointrange(aes(ymin = lower, ymax = upper)) + coord_flip() + theme(legend.position = 'NULL') + labs( x = '', y = 'Bites per minute')
-
-grid.arrange(g1, g2, nrow = 2)
+p<-rbind(pred.mean, pred.mean.genus)
+p$col<-grazers$Genus[match(p$class, grazers$sp)]
+p$col[p$preds == 'Genus']<-grazers$Genus[match(p$class[p$preds == 'Genus'], grazers$Genus)]
 ```
+
+```{r,echo=FALSE,fig.align='center', fig.cap = 'Figure 4: Grazer bite rates by genera and species. Points are median posterior predictions, with 95% certainty intervals.', fig.width= 8, fig.height = 5}
+
+ggplot(p, aes(class, median, col=col)) + geom_pointrange(aes(ymin = lower, ymax = upper)) + coord_flip() + theme(legend.position = 'NULL') + labs( x = '', y = 'Bites per minute', title = 'Grazers') + facet_wrap(~preds, scales='free_y')
+
+```
+
+***
+
+<br><br>
+
+Species-level predictions are very tight, but genera have higher uncertainty. Interesting to see how these compare with browser estimates - from a prediction perspective, is there any benefit in separating these groups? Function is determined by bite volumes and algal specificity, so obviously need to keep functions separate.
+
+
+
+#### Scraper model
+***
+
+Scraper function is removal of dead coral substrate, endolithic material, and detritus. We infer this function from the total bite rate of the scraper community, and accounting for changes in bite scar volume with size. Thus, the predictive model estimates bite rates by species, families, and size. We can use a hierarchical Bayesian model to predict new levels (i.e. species), based on their genus.
+
+<br><br>
+
+$bite = Gamma(\mu, \theta)$
+
+$log(\mu) = X + B*size + species_i + family_j + genus_k$
+
+<br><br>
+
+where X is the intercept, for ```r uniques(bite$sp[bite$FG == 'Herbivore Scraper'])``` species in ```r uniques(bite$Genus[bite$FG == 'Herbivore Scraper'])``` genera
+
+<br><br>
+
+
+```{r, echo=FALSE, eval = FALSE, messages = FALSE}
+
+scrapers<-droplevels(bite[bite$FG == 'Herbivore Scraper',])
+colnames(scrapers)[colnames(scrapers) == 'Bite.rate']<-'biterate'
+bite.prior=mean(scrapers$biterate) ## 22.15
+
+scrape.m<-map2stan(
+        alist(
+          biterate ~ dgamma2(mu, scale),
+          log(mu) ~ a + B*TL + X1[sp] + X2[Genus], 
+          X1[sp] ~ dnorm(0, sigmar),
+          X2[Genus] ~ dnorm(0, sigmar2),
+          a ~ dnorm(22.15, 10),
+          B ~ dnorm(0, 5),
+          scale ~ dexp(2),
+          c(sigmar, sigmar2) ~ dcauchy(0, 1)
+        ),
+        data=scrapers, iter = 3000, chains =1)
+
+save(scrapers, scrape.m, file = '../../results/models/bites_scrapers.Rdata')
+```
+
+***
+
+For scrapers, there is strong variation in bite rates among species, but less among genera. This suggests that predicting unobserved species may be easier for this FG, though scrapers were well covered for bite rate data. Scarus have the highest growth rates, with some species exceeding 40 bites per minute (S. spinus, globiceps, and viridifucatus). Correcting these rates to volumes grazed is important, so we shouldn't interpret these patterns yet.
+
+<br><br>
+
+```{r, echo=FALSE, eval = TRUE, messages = FALSE, include =FALSE}
+
+## evaluating predictions for each species
+load('../../results/models/bites_scrapers.Rdata')
+
+## Predictions for species, with genus effect
+d.pred <-data.frame(sp = unique(scrapers$sp), TL = mean(scrapers$TL))
+d.pred$Genus<-scrapers$Genus[match(d.pred$sp, scrapers$sp)]
+link.obs.sp<-link(scrape.m, n = 1000, data = as.list(d.pred))
+pred.mean<-data.frame(median = apply(link.obs.sp, 2, median))
+pred.PI<-apply(link.obs.sp, 2, PI, prob = 0.95)
+pred.mean$upper<-pred.PI[2,]
+pred.mean$lower<-pred.PI[1,]
+pred.mean$class <- d.pred$sp #pred.mean$Genus <- d.pred$Genus
+pred.mean$class<- factor(pred.mean$class, level = rev(levels(pred.mean$class)))
+pred.mean$preds<-'Species'
+
+## Predictions for genus, removing species effect
+d.pred <- data.frame(Genus = unique(scrapers$Genus), sp = 'NA', TL = mean(scrapers$TL))
+a.sp.zero = matrix(0, 1000, 28)
+link.obs.genus<-link(scrape.m, n = 1000, data = as.list(d.pred), replace= list(X1= a.sp.zero))
+pred.mean.genus<-data.frame(median = apply(link.obs.genus, 2, median))
+pred.PI<-apply(link.obs.genus, 2, PI, prob = 0.95)
+pred.mean.genus$upper<-pred.PI[2,]
+pred.mean.genus$lower<-pred.PI[1,]
+pred.mean.genus$class <- d.pred$Genus
+pred.mean.genus$class<- factor(pred.mean.genus$class, level = rev(levels(pred.mean.genus$class)))
+pred.mean.genus$preds<-'Genus'
+
+p<-rbind(pred.mean, pred.mean.genus)
+p$col<-scrapers$Genus[match(p$class, scrapers$sp)]
+p$col[p$preds == 'Genus']<-scrapers$Genus[match(p$class[p$preds == 'Genus'], scrapers$Genus)]
+
+```
+
+```{r, echo=F, fig.align='center', fig.cap = 'Figure 5: Scraper bite rates by genera and species. Points are median posterior predictions, with 95% certainty intervals.', fig.width= 8, fig.height = 5}
+
+ggplot(p, aes(class, median, col=col)) + geom_pointrange(aes(ymin = lower, ymax = upper)) + coord_flip() + theme(legend.position = 'NULL') + labs( x = '', y = 'Bites per minute', title = 'Scrapers') + facet_wrap(~preds, scales='free_y')
+
+```
+***
+
+Size effects were also relative strong, with bite rates decreasing by 50% from the smallest to largest individuals. High uncertainty in this relationship suggests there are important species-specific size differences here, but we have not accounted for these.
+
+<br><br>
+
+```{r, echo=FALSE, eval = TRUE, messages = FALSE, include=F}
+## size effects
+d.pred <- data.frame(Genus = 'NA', sp = 'NA', TL = seq(min(scrapers$TL), max(scrapers$TL), length.out =30))
+a.sp.zero = matrix(0, 1000, 28); a.genus.zero = matrix(0, 1000, 4)
+link.obs.size<-link(scrape.m, n = 1000, data = as.list(d.pred), replace= list(X1= a.sp.zero, X2 = a.genus.zero))
+pred.mean.size<-data.frame(median = apply(link.obs.size, 2, median))
+pred.PI<-apply(link.obs.size, 2, PI, prob = 0.95)
+pred.mean.size$upper<-pred.PI[2,]
+pred.mean.size$lower<-pred.PI[1,]
+pred.mean.size$TL<-d.pred$TL
+
+```
+
+```{r,echo=F, fig.align='center', fig.cap = 'Figure 6: Scraper bite rates by size. Lines are median posterior predictions with 95% certainty intervals.', fig.width= 8, fig.height = 4}
+
+ggplot(pred.mean.size, aes(TL, median)) + geom_line() + 
+      geom_line(data = pred.mean.size, aes(TL, upper), linetype='dotted') +
+      geom_line(data = pred.mean.size, aes(TL, lower), linetype='dotted') + 
+      labs(x = 'Total length (cm)', y = 'Bites per minute')
+
+```
+
+***
+
+#### Browser model
+
+Browser function is removal/consumption of macroalgae. We infer this function from the total bite rate of the browser community, and assume all bites are the same size. Thus, the predictive model estimates bite rates by 2 genera. We can use a hierarchical Bayesian model to predict new levels (i.e. species), based on their genus. Note there are only 2 species and 2 genera, so only fitting a genera model, and we are missing observations of any siganid species (these are high biomass on macroalgal reefs).
+
+<br><br>
+
+$bite = Normal(\mu, \sigma)$
+
+$\mu = X + species_i + family_j + genus_k$
+
+<br><br>
+
+where X is the intercept, for ```r uniques(bite$sp[bite$FG == 'Herbivore Browser'])``` species in ```r uniques(bite$Genus[bite$FG == 'Herbivore Browser'])``` genera
+
+<br><br>
+
+
+```{r, echo=FALSE, eval = FALSE, messages = FALSE}
+
+browsers<-droplevels(bite[bite$FG == 'Herbivore Browser',])
+colnames(browsers)[colnames(browsers) == 'Bite.rate']<-'biterate'
+bite.prior=mean(browsers$biterate) ## 11.98
+
+browse.m<-map2stan(
+        alist(
+          biterate ~ dnorm(mu, sigma),
+          mu ~ a + X2[Genus], 
+          #X1[sp] ~ dnorm(0, sigmar),
+          X2[Genus] ~ dnorm(0, sigmar2),
+          a ~ dnorm(11.98, 10),
+          c(sigma, sigmar2) ~ dcauchy(0, 1)
+        ),
+        data=browsers, iter = 3000, chains =1)
+
+save(browsers, browse.m, file = '../../results/models/bites_browsers.Rdata')
+```
+
+```{r, echo=FALSE, eval = TRUE, messages = FALSE, include=F}
+
+## evaluating predictions for each species
+load('../../results/models/bites_browsers.Rdata')
+
+## Predictions for genus
+d.pred <- data.frame(Genus = unique(browsers$Genus))
+link.obs.genus<-link(browse.m, n = 1000, data = as.list(d.pred))
+pred.mean.genus<-data.frame(median = apply(link.obs.genus, 2, median))
+pred.PI<-apply(link.obs.genus, 2, PI, prob = 0.95)
+pred.mean.genus$upper<-pred.PI[2,]
+pred.mean.genus$lower<-pred.PI[1,]
+pred.mean.genus$class <- d.pred$Genus
+pred.mean.genus$class<- factor(pred.mean.genus$class, level = rev(levels(pred.mean.genus$class)))
+
+```
+
+```{r,echo=F, fig.align='center', fig.cap = 'Figure 7: Browser bite rates by genera and species. Points are median posterior predictions, with 95% certainty intervals.', fig.width= 8, fig.height = 5}
+
+ggplot(pred.mean.genus, aes(class, median, col=class)) + geom_pointrange(aes(ymin = lower, ymax = upper)) + coord_flip() + theme(legend.position = 'NULL') + labs( x = '', y = 'Bites per minute', title = 'Browsers')
+
+```
+
