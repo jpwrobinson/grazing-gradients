@@ -55,8 +55,54 @@ gbr<-gbr[,c(1,2,12,3:11)]
 
 colnames(gbr)[11]<-'Bite.rate'
 
-## merge datasets
-bite<-rbind(redsea, indonesia, gbr)
+
+# ------------------------------------ #
+	### CLEANING GRABA-LANDRY DATASET ###
+# ------------------------------------ #
+gra<-read.csv('data/bite-rates/raw/Graba-Landry_feeding_obs.csv')
+## drop columns that can't be merged
+gra$Date<-NULL
+gra$Observer<-NULL
+gra$Temperature<-NULL
+gra$Grp_Size<-NULL
+gra$Mixed_Grp<-NULL
+gra$Start_Time<-NULL
+gra$End_Time<-NULL
+gra$minutes.60<-NULL
+gra$add_to_.seconds<-NULL
+gra$total_divided_by_60<-NULL
+gra$Trial_Time<-NULL
+gra$X<-NULL
+gra$X.1<-NULL
+## fix species names
+gra$Species<-str_split_fixed(gra$Species, '_', 2)[,2]
+
+## fix 2 species names
+gra$Species[gra$Species == 'olivaceous']<-'olivaceus'
+gra$Species[gra$Species == 'velliferum']<-'veliferum'
+
+## add genus info from UVC list
+gra$Genus<-sp$genus[match(gra$Species, sp$sp)]
+
+gra$Phase<-NA
+gra$dataset<-'GBR-Landry'
+gra$Region<-'GBR'
+colnames(gra)[colnames(gra) == 'Size']<-'TL'
+colnames(gra)[colnames(gra) == 'Time']<-'time'
+colnames(gra)[colnames(gra) == 'minutes']<-'min'
+colnames(gra)[colnames(gra) == 'seconds']<-'sec'
+colnames(gra)[colnames(gra) == 'Total_Bites']<-'Bites'
+colnames(gra)[colnames(gra) == 'Bites_per_minute']<-'Bite.rate'
+colnames(gra)[colnames(gra) == 'Site']<-'Reef'
+
+## reorder columns
+gra <- gra[, c(12,1,9,2,10,3,7,5,6,4,8,11)]
+
+
+# ------------------------------------ #
+	### MERGE DATASETS ###
+# ------------------------------------ #
+bite<-rbind(redsea, indonesia, gbr, gra)
 
 ## add species column
 bite$sp<-with(bite, paste(Genus, Species))
@@ -66,13 +112,13 @@ bite$UVC<-ifelse(bite$sp %in% sp$species, 'TRUE', 'FALSE')
 bite$FG<-sp$FG[match(bite$sp, sp$species)]
 
 
-uniques(bite$sp[bite$UVC == TRUE]) ## 30 species
+uniques(bite$sp[bite$UVC == TRUE]) ## 39 species
 uniques(bite$sp[bite$UVC == FALSE]) ## 8 species
 
-# > unique(bite$sp[bite$UVC == FALSE]) ## 8 species
-# [1] "Chlorurus genozonatus" "Chlorurus gibbus"      "Scarus ferrugenius"   
-# [4] "Scarus fuscopurpureus" "NA quoyi"              "NA russelli"          
-# [7] "NA "                   "NA muricatum"   
+# > unique(bite$sp[bite$UVC == FALSE]) ## 10 species
+#  [1] "Chlorurus genozonatus" "Chlorurus gibbus"      "Scarus ferrugenius"   
+#  [4] "Scarus fuscopurpureus" "NA quoyi"              "NA russelli"          
+#  [7] "NA "                   "NA muricatum"         
 
 ## double check missing species are not in UVC under a different spelling
 sp[grepl('genoz', sp$sp),]
@@ -82,6 +128,7 @@ sp[grepl('fusco', sp$sp),]
 sp[grepl('quoy', sp$sp),]
 sp[grepl('russ', sp$sp),]
 sp[grepl('muri', sp$sp),]
+
 
 
 

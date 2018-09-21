@@ -1,0 +1,32 @@
+---
+title: "Models 2 - Bite rates and grazing functions"
+output:
+  html_document:
+    df_print: paged
+    fig_width: 7
+    fig_height: 6
+    fig_caption: true
+    css: style.css
+    theme: sandstone
+  html_notebook: default
+  pdf_document: default
+---
+
+```{r global_options, include=FALSE}
+knitr::opts_chunk$set(fig.pos = 'H')  ## Hold figure positions
+```
+
+#### Report contains models for converting grazing biomass to functions
+
+-----
+
+&nbsp;
+
+```{r, echo=FALSE, include=FALSE, messages=FALSE}
+
+# package loads
+library(ggplot2); library(funk); library(lme4); library(dplyr); library(tidyr)
+theme_set(theme_sleek())
+
+# data load
+load("../../data/bite_rate_clean.Rdata")
