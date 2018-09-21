@@ -1,5 +1,15 @@
 # grazing-gradients
 
+## Meeting 5 - 21st Sept 2018 - biomass models
+
+Jeneen, Jan, James discussed first model results. Decided to improve benthic + fishing predictors by considering alt. regimes (turf, sand, rubble) and fishable biomass gradient. 
+
+James received bite rate data. Working on bite rate predictive model.
+
+Next steps in [#14](/../../issues/14)
+
+*summer was great*
+
 ## Meeting 4 - 30th May 2018 - bite rate literature and Rmd collaborating
 
 *Tasks*
