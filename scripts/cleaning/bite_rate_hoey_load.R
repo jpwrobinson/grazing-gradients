@@ -130,7 +130,11 @@ sp[grepl('russ', sp$sp),]
 sp[grepl('muri', sp$sp),]
 
 
-
+## fix format of times
+bite$time<-paste0('00:', bite$time)
+bite$time<-strptime(bite$time, format = "%H:%M:%S")
+bite$time<-format(bite$time, format = "%H:%M:%S")
+head(bite)
 
 ## checked. now save bite, filtered for UVC species
 bite<-bite %>% filter(UVC == TRUE)

@@ -20,13 +20,81 @@ knitr::opts_chunk$set(fig.pos = 'H')  ## Hold figure positions
 
 -----
 
-&nbsp;
+<br><br>
 
-```{r, echo=FALSE, include=FALSE, messages=FALSE}
+```{r, echo=FALSE, include=F, messages=FALSE}
 
 # package loads
-library(ggplot2); library(funk); library(lme4); library(dplyr); library(tidyr)
+library(ggplot2); library(funk); library(lme4); library(dplyr); library(tidyr); library(rethinking)
 theme_set(theme_sleek())
 
 # data load
-load("../../data/bite_rate_clean.Rdata")
+bite<-read.csv("../../data/bite-rates/bite_rate_clean.csv")
+
+```
+
+Bite data were collected by Andy Hoey in the Red Sea, Indonesia, and GBR. Alexia Graba-Landry collected additional acanthurid and siganid/naso observations in the GBR. Data are underwater feeding observations that record the number of bites by herbivorous fish. 
+
+```{r, eval = F}
+Across the dataset, ```r dim(bite)[1]``` fishes were observed, including ```r uniques(bite$sp)``` species from ```r uniques(bite$Genus)``` families. Observation times ranged from ```r min(bite$time)``` minutes to ```r max(bite$time)``` minutes, and averaged ```r mean(bite$time)``` minutes.
+```
+<br><br>
+
+***
+
+```{r, echo=FALSE, include = TRUE, messages = FALSE, fig.cap='Figure 1: observed bite rates by functional group and region',  fig.align = 'center', fig.height = 5, fig.width = 8}
+
+ggplot(bite, aes(TL, Bite.rate, col = dataset)) + geom_point(alpha=0.5) + facet_wrap(~FG) +
+      labs(x = 'Total length (cm)', y = 'Bites per minute')
+```
+<br><br>
+
+***
+
+<br><br>
+```{r, echo=FALSE, include = T, messages = FALSE, fig.cap='Figure 2: observed bite rates by functional group and species',  fig.align = 'center', fig.height = 5, fig.width = 9}
+
+ggplot(bite, aes(TL, Bite.rate, col = FG)) + geom_point(alpha=0.5, size = 1) + facet_wrap(~sp) +
+      labs(x = 'Total length (cm)', y = 'Bites per minute') + 
+      theme(legend.position = "NULL", strip.text.x = element_text(size = 7))
+```
+
+***
+
+<br><br>
+Aim is to build a predictive model that estimates the bite rate of each fish in the UVC dataset, given its species and, for scrapers, its size.
+<br><br>
+
+#### Grazer model
+
+Grazer function is cropping/consumption of turf algae. We infer this function from the total bite rate of the grazer community, and assume all bites are the same size. Thus, the predictive model estimates bite rates by species and families. We can use a hierarchical Bayesian model to predict new levels (i.e. species), based on their family.
+
+<br><br>
+
+$bite ~ X + species_i | family_j$
+
+where X is the intercept, for ```r uniques(bite$sp[bite$FG == 'Herbivore Grazer'])``` species in ```r uniques(bite$Genus[bite$FG == 'Herbivore Grazer'])``` families.
+
+<br><br>
+
+
+
+```{r, echo=FALSE, eval = FALSE, messages = FALSE}
+
+grazers<-bite[bite$FG == 'Herbivore Grazer',]
+bite.prior=mean(grazers$Bite.rate) ## 30.85
+
+graze.m<-map2stan(
+        alist(
+          Bite.rate ~ dnorm(mu, sigma),
+          mu ~ X + X1[sp], #+ X2[family],
+          X ~ dnorm(30.85, 10),
+          X1[sp] ~ dnorm(0, sigmar),
+          #X2[family] ~ dnorm(0, sigmar2),
+          c(sigma, sigmar) ~ dcauchy(0, 1)
+        ),
+        data=grazers, iter = 3000, chains =1)
+
+
+
+```
