@@ -46,6 +46,9 @@ macroalgae<-c('Sargassum', 'Asparagopsis', 'Caulerpa', 'Galaxora',
 		'Lobophyta', 'turtle.grass', 'Halimeda', 'Turbinaria_macroalgae', 
 		'Dictyota' , 'Dictyopteris', 'Padina',  'seagrass')
 hard.coral<-benthic.cats[c(22:53, 57:65)]; hard.coral
+rubblerubble<-c('Rubble')
+
+benthic.cats [-c(22:53, 57:65)]
 
 seychelles$benthic<-ifelse(seychelles$taxa %in% hard.coral,  'hard.coral', NA)
 # seychelles$benthic<-ifelse(seychelles$taxa %in% turf, 'turf', seychelles$benthic)
@@ -397,6 +400,10 @@ pred$complexity<-complex$complexity[match(pred$unique.id, complex$unique.id)]
 ## any NAs?
 dim(pred[is.na(pred$complexity),]) # NOPE
 
+
+### NOW ADD FISHABLE BIOMASS (kg/ha)
+load(file = 'data/wio_gbr_fishable_biom.Rdata')
+pred$fish.biom<-biom$biom[match(pred$unique.id, biom$unique.id)]
 
 
 ## final data tidying - add dates for chagos and switch to years for other sites
