@@ -24,6 +24,7 @@ redsea<-cbind(Region = redsea[,1], Reef = rep(NA,dim(redsea)[1]), redsea[,2:11])
 	### CLEANING INDONESIA DATASET ###
 # ------------------------------------ #
 indonesia<-read.csv('data/bite-rates/raw/hoey_indonesia.csv')
+indonesia <- indonesia[!is.na(indonesia$bite.rate..bites.min.),]
 indonesia$dataset<-'indonesia'
 indonesia$Water.temp<-NULL
 colnames(indonesia)[10]<-'Bite.rate'
@@ -55,11 +56,14 @@ gbr<-gbr[,c(1,2,12,3:11)]
 
 colnames(gbr)[11]<-'Bite.rate'
 
+gbr$min[is.na(gbr$min)]<-gbr$sec[is.na(gbr$min)]/60
+
 
 # ------------------------------------ #
 	### CLEANING GRABA-LANDRY DATASET ###
 # ------------------------------------ #
 gra<-read.csv('data/bite-rates/raw/Graba-Landry_feeding_obs.csv')
+gra <- gra[!is.na(gra$Total_Bites),]
 ## drop columns that can't be merged
 gra$Date<-NULL
 gra$Observer<-NULL
@@ -78,11 +82,13 @@ gra$X.1<-NULL
 gra$Species<-str_split_fixed(gra$Species, '_', 2)[,2]
 
 ## fix 2 species names
-gra$Species[gra$Species == 'olivaceous']<-'olivaceus'
-gra$Species[gra$Species == 'velliferum']<-'veliferum'
+gra$Species[which(gra$Species == 'olivaceous')]<-'olivaceus'
+gra$Species[which(gra$Species == 'velliferum')]<-'veliferum'
 
 ## add genus info from UVC list
 gra$Genus<-sp$genus[match(gra$Species, sp$sp)]
+
+## fix entries without minutes
 
 gra$Phase<-NA
 gra$dataset<-'GBR-Landry'
@@ -129,12 +135,13 @@ sp[grepl('quoy', sp$sp),]
 sp[grepl('russ', sp$sp),]
 sp[grepl('muri', sp$sp),]
 
+## how many species in UVC are not in bites?
+missing<-sp[!(sp$species %in% bite$sp),] ### 63 species
+with(missing, table(FG))
 
-## fix format of times
-bite$time<-paste0('00:', bite$time)
-bite$time<-strptime(bite$time, format = "%H:%M:%S")
-bite$time<-format(bite$time, format = "%H:%M:%S")
-head(bite)
+
+## add time format for plotting
+bite$total.sec<-bite$min * 30 + bite$sec
 
 ## checked. now save bite, filtered for UVC species
 bite<-bite %>% filter(UVC == TRUE)

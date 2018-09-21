@@ -25,7 +25,7 @@ knitr::opts_chunk$set(fig.pos = 'H')  ## Hold figure positions
 ```{r, echo=FALSE, include=F, messages=FALSE}
 
 # package loads
-library(ggplot2); library(funk); library(lme4); library(dplyr); library(tidyr); library(rethinking)
+library(ggplot2); library(funk); library(gridExtra); library(dplyr); library(tidyr); library(rethinking)
 theme_set(theme_sleek())
 
 # data load
@@ -33,12 +33,11 @@ bite<-read.csv("../../data/bite-rates/bite_rate_clean.csv")
 
 ```
 
-Bite data were collected by Andy Hoey in the Red Sea, Indonesia, and GBR. Alexia Graba-Landry collected additional acanthurid and siganid/naso observations in the GBR. Data are underwater feeding observations that record the number of bites by herbivorous fish. 
+Bite data were collected by Andy Hoey in the Red Sea, Indonesia, and GBR. Alexia Graba-Landry collected additional acanthurid and siganid/naso observations in the GBR. Data are underwater feeding observations that record the number of bites by herbivorous fish. Across the dataset, ```r dim(bite)[1]``` fishes were observed, including ```r uniques(bite$sp)``` species from ```r uniques(bite$Genus)``` families. Observation times ranged from ```r min(bite$total.sec)/60``` minutes to ```r max(bite$total.sec)/60``` minutes, and averaged ```r round(mean(bite$total.sec)/60, 2)``` minutes.
 
-```{r, eval = F}
-Across the dataset, ```r dim(bite)[1]``` fishes were observed, including ```r uniques(bite$sp)``` species from ```r uniques(bite$Genus)``` families. Observation times ranged from ```r min(bite$time)``` minutes to ```r max(bite$time)``` minutes, and averaged ```r mean(bite$time)``` minutes.
-```
 <br><br>
+
+After matching these data to UVC species, we have information for 39 species. Therefore, 63 species do not have bite observations and will require family or genus level predictions. These species are 13 browsers, 42 grazers, and 8 scrapers.
 
 ***
 
@@ -66,35 +65,74 @@ Aim is to build a predictive model that estimates the bite rate of each fish in 
 <br><br>
 
 #### Grazer model
+***
 
-Grazer function is cropping/consumption of turf algae. We infer this function from the total bite rate of the grazer community, and assume all bites are the same size. Thus, the predictive model estimates bite rates by species and families. We can use a hierarchical Bayesian model to predict new levels (i.e. species), based on their family.
-
-<br><br>
-
-$bite ~ X + species_i | family_j$
-
-where X is the intercept, for ```r uniques(bite$sp[bite$FG == 'Herbivore Grazer'])``` species in ```r uniques(bite$Genus[bite$FG == 'Herbivore Grazer'])``` families.
+Grazer function is cropping/consumption of turf algae. We infer this function from the total bite rate of the grazer community, and assume all bites are the same size. Thus, the predictive model estimates bite rates by species and families. We can use a hierarchical Bayesian model to predict new levels (i.e. species), based on their genus
 
 <br><br>
 
+$bite = Normal(\mu, \sigma)$
+$\mu = X + species_i + family_j + genus_k$
+
+where X is the intercept, for ```r uniques(bite$sp[bite$FG == 'Herbivore Grazer'])``` species in ```r uniques(bite$Genus[bite$FG == 'Herbivore Grazer'])``` genera
+
+<br><br>
 
 
 ```{r, echo=FALSE, eval = FALSE, messages = FALSE}
 
-grazers<-bite[bite$FG == 'Herbivore Grazer',]
+grazers<-droplevels(bite[bite$FG == 'Herbivore Grazer',])
+colnames(grazers)[colnames(grazers) == 'Bite.rate']<-'biterate'
 bite.prior=mean(grazers$Bite.rate) ## 30.85
 
 graze.m<-map2stan(
         alist(
-          Bite.rate ~ dnorm(mu, sigma),
-          mu ~ X + X1[sp], #+ X2[family],
-          X ~ dnorm(30.85, 10),
+          biterate ~ dnorm(mu, sigma),
+          mu ~ a + X1[sp] + X2[Genus], 
           X1[sp] ~ dnorm(0, sigmar),
-          #X2[family] ~ dnorm(0, sigmar2),
-          c(sigma, sigmar) ~ dcauchy(0, 1)
+          X2[Genus] ~ dnorm(0, sigmar2),
+          a ~ dnorm(30.85, 10),
+          c(sigma, sigmar, sigmar2) ~ dcauchy(0, 1)
         ),
         data=grazers, iter = 3000, chains =1)
 
+save(grazers, graze.m, file = '../../results/models/bites_grazers.Rdata')
+```
+
+```{r, echo=FALSE, eval = TRUE, messages = FALSE}
+
+## evaluating predictions for each species
+load('../../results/models/bites_grazers.Rdata')
+
+## Predictions for species, with genus effect
+d.pred <-data.frame(sp = unique(grazers$sp))
+d.pred$Genus<-grazers$Genus[match(d.pred$sp, grazers$sp)]
+link.obs.sp<-link(graze.m, n = 1000, data = as.list(d.pred))
+pred.mean<-data.frame(median = apply(link.obs.sp, 2, median))
+pred.PI<-apply(link.obs.sp, 2, PI, prob = 0.95)
+pred.mean$upper<-pred.PI[2,]
+pred.mean$lower<-pred.PI[1,]
+pred.mean$sp <- d.pred$sp; pred.mean$Genus <- d.pred$Genus
+pred.mean$sp<- factor(pred.mean$sp, level = rev(levels(pred.mean$sp)))
+pred.mean$Genus<- factor(pred.mean$Genus, level = rev(levels(pred.mean$Genus)))
 
 
+## Predictions for genus, removing species effect
+d.pred <- data.frame(Genus = unique(grazers$Genus), sp = 'NA')
+a.sp.zero = matrix(0, 1000, 9)
+
+link.obs.genus<-link(graze.m, n = 1000, data = as.list(d.pred), replace= list(X1= a.sp.zero))
+pred.mean.genus<-data.frame(median = apply(link.obs.genus, 2, median))
+pred.PI<-apply(link.obs.genus, 2, PI, prob = 0.95)
+pred.mean.genus$upper<-pred.PI[2,]
+pred.mean.genus$lower<-pred.PI[1,]
+pred.mean.genus$Genus <- d.pred$Genus
+pred.mean.genus$Genus<- factor(pred.mean.genus$Genus, level = rev(levels(pred.mean.genus$Genus)))
+pred.mean.genus
+
+g1<-ggplot(pred.mean, aes(sp, median, col=Genus)) + geom_pointrange(aes(ymin = lower, ymax = upper)) + coord_flip() + theme(legend.position = 'NULL') + labs( x = '', y = '', title = 'Grazers')
+
+g2<-ggplot(pred.mean.genus, aes(Genus, median, col=Genus)) + geom_pointrange(aes(ymin = lower, ymax = upper)) + coord_flip() + theme(legend.position = 'NULL') + labs( x = '', y = 'Bites per minute')
+
+grid.arrange(g1, g2, nrow = 2)
 ```
