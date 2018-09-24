@@ -224,7 +224,7 @@ axis(2)
 add_label(0.01, 0.1, font = 2, label ='Macroalgae')
 
 ## plot rubble predictions
-plot(cont.pred.master$rubble, p.algae, type='l',col = cols[2],lwd=2, axes=F, ylab='', xlab='Benthic cover (%)', ylim=c(1, 2))
+plot(cont.pred.master$rubble, p.rubble, type='l',col = cols[2],lwd=2, axes=F, ylab='', xlab='Benthic cover (%)', ylim=c(1, 2))
 axis(1, at = seq(min(h$rubble), max(h$rubble), length.out=5), 
      labels= round(seq(min(pred$rubble), max(pred$rubble), length.out=5), 0))
 axis(2)
@@ -410,7 +410,7 @@ axis(2)
 add_label(0.01, 0.1, font = 2, label ='Macroalgae')
 
 ## plot rubble predictions
-plot(cont.pred.master$rubble, p.algae, type='l',col = cols[2],lwd=2, axes=F, ylab='', xlab='Benthic cover (%)', ylim=c(1, 2))
+plot(cont.pred.master$rubble, p.rubble, type='l',col = cols[2],lwd=2, axes=F, ylab='', xlab='Benthic cover (%)', ylim=c(1, 2))
 axis(1, at = seq(min(h$rubble), max(h$rubble), length.out=5), 
      labels= round(seq(min(pred$rubble), max(pred$rubble), length.out=5), 0))
 axis(2)
@@ -498,6 +498,192 @@ axis(2)
 
 \newpage
 
+# Scraper models
+***
+
+<br><br>
+
+```{r, echo=FALSE, include=FALSE, messages=FALSE}
+#### SCRAPER BIOMASS MODELS
+
+## drop 0 scraper site
+h<-h[h$scraper > 0,]
+
+m.scraper<-lmer(scraperlog10 ~ hard.coral + macroalgae + complexity + rubble + fish.biom + fish.dummy + pristine.dummy + ## fixed
+          (1 | dataset/reef) , ## random, nested = reefs within datasets
+                data = h)
+print(summary(m.scraper),  digits = 2, signif.stars = FALSE)
+```
+
+```{r, echo=FALSE, include=TRUE, messages=FALSE, fig.align = 'center', fig.cap='Figure : Scraper model diagnostics - residuals and fitted values'}
+## model diagnostic plots - scraper biomass
+par(mfrow=c(2,2), mar=c(5,4,2,2))
+hist(resid(m.scraper), main = 'model residuals', xlab='Residuals', cex.main=0.8)
+plot(resid(m.scraper), fitted(m.scraper), xlab='Residuals', ylab= 'Fitted values', pch=16,col=alpha('black', 0.5), cex.main=0.8)
+plot(resid(m.scraper), h$scraperlog10, xlab='Residuals', ylab= 'Observed biomass', pch=16,col=alpha('black', 0.5), cex.main=0.8)
+plot(predict(m.scraper), h$scraperlog10, xlab='Predicted biomass', ylab='Observed biomass', pch=16, col=alpha('black', 0.5), cex.main=0.8)
+
+```
+
+<br><br>
+
+Model residuals are normally distributed, slight clustering in fitted vs. residuals plot does not appear alarming. Note clustering of predictions around 2-3 observed biomass, suggesting that commonly-observed biomass values are not well predicted by habitat or fishing. The positive residual relationship, underprediction of small biomass values and overprediction of large biomass values, echoed by the positive between predicted and observed values.
+
+\newpage
+
+### Benthic effects
+***
+
+```{r, echo=FALSE, include=FALSE, messages=FALSE}
+
+## NOW PLOT PREDICTIONS
+
+## Note that to use the prediction function here, the variable names in pred.master must match the variable names in the fitted dataset (the one called 'h').
+cont.pred.master<-data.frame(hard.coral = seq(min(h$hard.coral), max(h$hard.coral), length.out=30),
+                             macroalgae = seq(min(h$macroalgae), max(h$macroalgae), length.out=30),
+                             rubble = seq(min(h$rubble), max(h$rubble), length.out=30),
+                             complexity = seq(min(h$complexity), max(h$complexity), length.out=30),
+                             fish.biom = 0,
+                   fish.dummy = 0, pristine.dummy=0)
+
+## 1. predict scraper biomass for hard coral effect, holding every other covariate constant
+nd<-cont.pred.master
+## set non-focal benthic covariates to 0
+nd$macroalgae <- 0; nd$complexity <-0; nd$rubble <- 0
+p.coral<-predict(object=m.scraper, newdata = nd, re.form=NA)
+
+## 2. predict grazer biomass for macroalgae effect, holding every other covariate constant
+nd<-cont.pred.master
+## set non-focal benthic covariates to 0
+nd$hard.coral <- 0; nd$complexity <-0; nd$rubble <- 0
+p.algae<-predict(object=m.scraper, newdata = nd, re.form=NA)
+
+## 3. predict grazer biomass for rubble effect, holding every other covariate constant
+nd<-cont.pred.master
+## set non-focal benthic covariates to 0
+nd$hard.coral <- 0; nd$complexity <-0; nd$macroalgae <- 0
+p.rubble<-predict(object=m.scraper, newdata = nd, re.form=NA)
+
+## 4. predict grazer biomass for complexity effect, holding every other covariate constant
+nd<-cont.pred.master
+## set non-focal benthic covariates to 0
+nd$macroalgae <- 0; nd$hard.coral <-0; nd$rubble <- 0
+p.complex<-predict(object=m.scraper, newdata = nd, re.form=NA)
+
+```
+
+```{r, echo=FALSE, include=TRUE, messages=FALSE, fig.align='center', fig.cap = 'Figure: Benthic effects on scrapers', fig.width=9, fig.height=6}
+
+## create plot for benthic cover predictions. We will add all benthic predictions to the same figure panel using multiple panels
+par(mfrow=c(2,2), mar=c(4,2,1,1), oma=c(0,2, 0,0))
+
+## plot coral predictions
+plot(cont.pred.master$hard.coral, p.coral, type='l',col = cols[1],lwd=2, axes=F, ylab='Log10 Biomass (kg/ha)', xlab='Benthic cover (%)', ylim=c(1, 2))
+axis(1, at = seq(min(h$hard.coral), max(h$hard.coral), length.out=5), 
+     labels= round(seq(min(pred$hard.coral), max(pred$hard.coral), length.out=5), 0))
+axis(2)
+add_label(0.01, 0.1, font = 2, label ='Hard coral')
+
+## plot macroalgal predictions
+plot(cont.pred.master$macroalgae, p.algae, type='l',col = cols[2],lwd=2, axes=F, ylab='', xlab='Benthic cover (%)', ylim=c(1, 2))
+axis(1, at = seq(min(h$macroalgae), max(h$macroalgae), length.out=5), 
+     labels= round(seq(min(pred$macroalgae), max(pred$macroalgae), length.out=5), 0))
+axis(2)
+add_label(0.01, 0.1, font = 2, label ='Macroalgae')
+
+## plot rubble predictions
+plot(cont.pred.master$rubble, p.rubble, type='l',col = cols[2],lwd=2, axes=F, ylab='', xlab='Benthic cover (%)', ylim=c(1, 2))
+axis(1, at = seq(min(h$rubble), max(h$rubble), length.out=5), 
+     labels= round(seq(min(pred$rubble), max(pred$rubble), length.out=5), 0))
+axis(2)
+add_label(0.01, 0.1, font = 2, label ='Rubble')
+
+## plot complexity predictions
+plot(cont.pred.master$complexity, p.complex, type='l',col = cols[3],lwd=2, axes=F, ylab='', xlab='Habitat complexity', ylim=c(1, 2))
+axis(1, at = seq(min(h$complexity), max(h$complexity), length.out=5), 
+     labels= round(seq(min(pred$complexity), max(pred$complexity), length.out=5), 0))
+axis(2)
+add_label(0.01, 0.1, font = 2, label ='Complexity')
+
+## label y axis
+mtext(2, text= 'Biomass (log10 kg/ha)', outer=TRUE, line=0.5)
+
+```
+<br><br>
+
++ SOMEHOW I CAN'T GET THOSE CURVES TO SHOW
+
+* Macroalgae has the weakest effect on scraper biomass, which declined from ```r round(10^p.algae[1], 0)``` kg/ha at 0% cover to ```r round(10^p.algae[30], 0)``` kg/ha at ```r round(max(pred$macroalgae), 0)``` % cover.
+
+* Complexity has the strongest effect on scraper biomass, which increased from ```r round(10^p.complex[1], 0)``` kg/ha at 0 complexity to ```r round(10^p.complex[30], 0)``` kg/ha at ```r round(max(pred$complexity), 0)```  complexity.
+
+* Hard coral has a moderate effect on grazer biomass, which increased from ```r round(10^p.coral[1], 0)``` kg/ha at 0% cover to ```r round(10^p.coral[30], 0)``` kg/ha at ```r round(max(pred$hard.coral), 0)``` % cover.
+
+
+\newpage
+
+### Fishing effects
+***
+
+```{r, echo=FALSE, include=FALSE, messages=FALSE}
+
+# we need a new prediction data frame for the fishing effects, which are categorical.
+## Let's use expand.grid to get all combinations of fishing variables, holding benthic covariates to 0
+cat.pred.master<-expand.grid(hard.coral = 0,
+                             macroalgae = 0,
+                             complexity = 0, rubble = 0, fish.biom = 0,
+                             fish.dummy = c(0,1), pristine.dummy=c(0,1))
+
+## Wait. this is wrong. We don't have fished AND pristine sites (duh). Let's drop that row.
+cat.pred.master<-cat.pred.master[-4,]
+
+## 1. predict grazer biomass for fishing effects
+nd<-cat.pred.master
+nd$p.fish<-predict(object=m.scraper, newdata = nd, re.form=NA)
+
+## It's easier to add these variables into the predictor variable, so we know which fishing categories they correspond to
+nd$categories<-c('Protected', 'Fished', 'Pristine') 
+
+## let's reorder to have a fishing gradient
+nd<-nd[c(3,1,2),]
+
+## get fish biom range
+fish.master<-data.frame(hard.coral = 0, macroalgae = 0, rubble = 0, complexity = 0, fish.dummy = 0, pristine.dummy = 0,
+                          fish.biom = seq(min(h$fish.biom), max(h$fish.biom), length.out = 30))
+
+## 2. predict grazer biomass for fishing biomass gradient
+fish.master$p.fish<-predict(object=m.scraper, newdata = fish.master, re.form=NA)
+
+```
+
+* Pristine reefs have the highest scraper biomass, at ```r round(10^nd$p.fish[nd$categories=='Pristine'], 0)``` kg/ha.
+
+* Protected reefs have a scraper biomass of ```r round(10^nd$p.fish[nd$categories=='Protected'], 0)``` kg/ha while fished reefs show a scraper biomass of ```r round(10^nd$p.fish[nd$categories=='Fished'], 0)``` kg/ha.
+
+* As expected, scraper biomass increases with fishable biomass
+
+<br><br>
+
+```{r, echo=FALSE, include=TRUE, messages=FALSE, fig.align='center', fig.cap='Figure: fishing effects on scrapers', fig.width=4, fig.height=4}
+
+## 2. create plot for fishing predictions. 
+par(mfrow=c(1,1), mar=c(2,4,1,1), oma=c(0,0,0,0))
+plot(c(1,2,3), nd$p.fish, cex=2, col = cols[c(4,5,6)],pch=16, axes=F, ylab='Log10 Biomass (kg/ha)', xlab='', ylim=c(1, 3))
+axis(1, at = c(1,2,3), labels= nd$categories)
+axis(2)
+
+plot(fish.master$fish.biom, fish.master$p.fish, cex=2, axes=F, ylab='', xlab='Fishable biomass (kg/ha)', ylim=c(1, 2.5), type='l')
+axis(1, at = seq(min(h$fish.biom), max(h$fish.biom), length.out=5), 
+     labels= comma(round(seq(min(pred$fish.biom), max(pred$fish.biom), length.out=5), 0)))
+axis(2)
+
+```
+
+<br><br>
+
+\newpage
+
+
 #### Effect sizes across feeding groups
 
 ***
@@ -528,13 +714,13 @@ g2<-plot_model(m.browser, arg = 'est', pred.type = 'fe', axis.labels = rev(labs$
            sort.est = T, show.values =T,value.offset = .3) + ggtitle('Browsers')
 
 ## repeat for scrapers
-#od<-sort(fixef(m.scraper), decreasing=T)
-#od<-od[-which(names(od) == '(Intercept)')]
+od<-sort(fixef(m.scraper), decreasing=T)
+od<-od[-which(names(od) == '(Intercept)')]
 
-#g3<-plot_model(m.scraper, arg = 'est', pred.type = 'fe', axis.labels = rev(labs$lab[match(names(od), labs$model)]),
-#           sort.est = T, show.values =T,value.offset = .3) + ggtitle('Scrapers')
+g3<-plot_model(m.scraper, arg = 'est', pred.type = 'fe', axis.labels = rev(labs$lab[match(names(od), labs$model)]),
+           sort.est = T, show.values =T,value.offset = .3) + ggtitle('Scrapers')
 
-grid.arrange(g1, g2, nrow = 2)
+grid.arrange(g1, g2, g3, nrow = 3)
 ```
 
 
