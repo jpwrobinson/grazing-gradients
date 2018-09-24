@@ -720,7 +720,7 @@ od<-od[-which(names(od) == '(Intercept)')]
 g3<-plot_model(m.scraper, arg = 'est', pred.type = 'fe', axis.labels = rev(labs$lab[match(names(od), labs$model)]),
            sort.est = T, show.values =T,value.offset = .3) + ggtitle('Scrapers')
 
-grid.arrange(g1, g2, g3, nrow = 3)
+grid.arrange(g1, g2, g3, nrow = 1, ncol=3)
 ```
 
 
