@@ -53,13 +53,14 @@ benthic.cats [-c(22:53, 57:65)]
 seychelles$benthic<-ifelse(seychelles$taxa %in% hard.coral,  'hard.coral', NA)
 # seychelles$benthic<-ifelse(seychelles$taxa %in% turf, 'turf', seychelles$benthic)
 seychelles$benthic<-ifelse(seychelles$taxa %in% macroalgae, 'macroalgae', seychelles$benthic)
+seychelles$benthic<-ifelse(seychelles$taxa %in% rubblerubble, 'rubble', seychelles$benthic)
 
 ## save complexity for later
 seychelles.complex<-seychelles %>% filter(taxa == 'struc.complexity')
 seychelles.complex$unique.id<-with(seychelles.complex, paste(date, site, sep='.'))
 
-## subset to hard coral + MA
-seychelles<-seychelles %>% filter(benthic %in% c('hard.coral', 'macroalgae'))
+## subset to hard coral + MA + rubble
+seychelles<-seychelles %>% filter(benthic %in% c('hard.coral', 'macroalgae', 'rubble'))
 
 ## change to numeric
 seychelles$value<-as.numeric(seychelles$value)
@@ -104,11 +105,13 @@ other<-c('Fungia', 'Soft Coral Encrusting', 'Zoanthid', 'Hydroid', 'Ascidian',
 	'Heliopora', 'Soft Coral Table')
 non.ma<-c('CCA', 'EAM')
 macroalgae<-'Macroalgae'
+rubblerubble<-c('Rubble')
 
 maldives$benthic<-ifelse(maldives$taxa %in% other, 'other', 'hard.coral')
 maldives$benthic<-ifelse(maldives$taxa %in% availsubtrate, 'availablesubtrate', maldives$benthic)
 maldives$benthic<-ifelse(maldives$taxa %in% non.ma, 'non.ma', maldives$benthic)
 maldives$benthic<-ifelse(maldives$taxa %in% macroalgae, 'macroalgae', maldives$benthic)
+maldives$benthic<-ifelse(maldives$taxa %in% rubblerubble, 'rubble', maldives$benthic)
 
 ## now aggregate by benthic category
 maldives <- maldives %>% group_by(dataset, site, date, reef, transect, depth, benthic) %>%
@@ -120,8 +123,8 @@ maldives %>% group_by(dataset, site, date, reef, transect, depth) %>%
 
 ## need to check Maarehaa transect 6 = 2 depths.
 
-## keep only total coral and macroalgae
-maldives <- maldives %>% filter(benthic %in% c('hard.coral', 'macroalgae'))
+## keep only total coral and macroalgae and rubble
+maldives <- maldives %>% filter(benthic %in% c('hard.coral', 'macroalgae', 'rubble'))
 
 
 ## add ID
@@ -167,6 +170,7 @@ chagos$depth<-as.integer(chagos$depth)
 ## identify benthic vars of interest
 chagos$benthic<-ifelse(chagos$taxa == 'Total hard coral cover', 'hard.coral', NA)
 chagos$benthic<-ifelse(chagos$taxa %in% c('Halimeda'), 'macroalgae', chagos$benthic)
+chagos$benthic<-ifelse(chagos$taxa %in% c('Rubble'), 'rubble', chagos$benthic)
 
 
 
@@ -176,8 +180,8 @@ chagos <- chagos %>% group_by(dataset, site, date, reef, transect, depth, benthi
 			summarise(value = sum(value))
 chagos$value[is.na(chagos$value)]<-0
 
-## keep only total coral and macroalgae
-chagos <- chagos %>% filter(benthic %in% c('hard.coral', 'macroalgae'))
+## keep only total coral,  macroalgae, rubble
+chagos <- chagos %>% filter(benthic %in% c('hard.coral', 'macroalgae', 'rubble'))
 
 ### repeat for chagos 2 - Morgan Pratchett data
 
@@ -196,6 +200,7 @@ colnames(chagos2)<-c('reef', 'site','depth', 'transect', 'taxa', 'value', 'datas
 ## identify benthic vars of interest
 chagos2$benthic<-ifelse(chagos2$taxa == 'Total.hard.coral.cover', 'hard.coral', NA)
 chagos2$benthic<-ifelse(chagos2$taxa == 'Algae', 'macroalgae', chagos2$benthic)
+chagos2$benthic<-ifelse(chagos2$taxa == 'Rubble', 'rubble', chagos2$benthic)
 
 ## sum benthic categories 
 chagos2$value<-as.numeric(chagos2$value)
@@ -204,7 +209,7 @@ chagos2 <- chagos2 %>% group_by(dataset, site, reef, transect, depth, benthic) %
 chagos2$value[is.na(chagos2$value)]<-0
 
 ## keep only total coral and macroalgae
-chagos2 <- chagos2 %>% filter(benthic %in% c('hard.coral', 'macroalgae'))
+chagos2 <- chagos2 %>% filter(benthic %in% c('hard.coral', 'macroalgae', 'rubble'))
 
 # change factors to characters
 chagos2$site<-as.character(chagos2$site)
@@ -240,7 +245,7 @@ gbr <- gather(gbr, taxa, value, -date, -reef, -site.number, -habitat, -depth, -t
 gbr$dataset<-'GBR'
 gbr$site<-paste0(gbr$reef, gbr$site.number)
 
-
+unique(gbr$taxa)
 ## estimates are already percent cover
 ## need to group taxa for simpler comparison across datasets + benthic gradients
 availsubtrate<-c('Pavement', 'Sand', 'Rubble', 'Bare.Substrate')
@@ -249,10 +254,12 @@ availsubtrate<-c('Pavement', 'Sand', 'Rubble', 'Bare.Substrate')
 # 	'Heliopora', 'Soft Coral Table')
 turf<-c('Turf', 'Turfs', 'CCA.1', 'Filimentous.Green','Ulva', 'CCA', 'EAM') 
 macroalgae<-c('Unidentified.Macroalgae', 'Halimeda','Macroalgae')
+rubble<-c('Rubble')
 
 gbr$benthic[gbr$taxa %in% availsubtrate]<- 'availablesubtrate'
 gbr$benthic[gbr$taxa %in% macroalgae]<- 'macroalgae'
 gbr$benthic[gbr$taxa %in% turf]<- 'turf'
+gbr$benthic[gbr$taxa %in% rubble]<- 'rubble'
 gbr$benthic[gbr$taxa == 'Total.hard.coral.cover']<- 'hard.coral'
 
 ## drop missing categories (i.e. non coral, algal or substrate groups)
@@ -264,8 +271,8 @@ gbr <- gbr %>% group_by(dataset, site, date, reef, transect, depth, benthic) %>%
 
 gbr$value[is.na(gbr$value)]<-0
 
-## keep only total coral and macroalgae
-gbr <- gbr %>% filter(benthic %in% c('hard.coral', 'macroalgae'))
+## keep only total coral and macroalgae and rubble
+gbr <- gbr %>% filter(benthic %in% c('hard.coral', 'macroalgae', 'rubble'))
 
 ## add ID
 gbr$unique.id<-with(gbr, paste(site, reef, sep='.'))
@@ -355,6 +362,11 @@ pred$macroalgae[pred$dataset=='Seychelles']<-seychelles$cover[seychelles$benthic
 pred$macroalgae[pred$dataset=='Maldives']<-maldives$cover[maldives$benthic=='macroalgae'][match(pred$unique.id[pred$dataset=='Maldives'], maldives$unique.id[maldives$benthic=='macroalgae'])]
 pred$macroalgae[pred$dataset=='GBR']<-gbr$cover[gbr$benthic=='macroalgae'][match(pred$unique.id[pred$dataset=='GBR'], gbr$unique.id[gbr$benthic=='macroalgae'])]
 pred$macroalgae[pred$dataset=='Chagos']<-chagos$cover[chagos$benthic=='macroalgae'][match(pred$unique.id[pred$dataset=='Chagos'], chagos$unique.id[chagos$benthic=='macroalgae'])]
+
+pred$rubble[pred$dataset=='Seychelles']<-seychelles$cover[seychelles$benthic=='rubble'][match(pred$unique.id[pred$dataset=='Seychelles'], seychelles$unique.id[seychelles$benthic=='rubble'])]
+pred$rubble[pred$dataset=='Maldives']<-maldives$cover[maldives$benthic=='rubble'][match(pred$unique.id[pred$dataset=='Maldives'], maldives$unique.id[maldives$benthic=='rubble'])]
+pred$rubble[pred$dataset=='GBR']<-gbr$cover[gbr$benthic=='rubble'][match(pred$unique.id[pred$dataset=='GBR'], gbr$unique.id[gbr$benthic=='rubble'])]
+pred$rubble[pred$dataset=='Chagos']<-chagos$cover[chagos$benthic=='rubble'][match(pred$unique.id[pred$dataset=='Chagos'], chagos$unique.id[chagos$benthic=='rubble'])]
 
 
 ## checking matching works

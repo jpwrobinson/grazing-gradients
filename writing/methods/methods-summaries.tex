@@ -1,0 +1,205 @@
+\documentclass[]{article}
+\usepackage{lmodern}
+\usepackage{amssymb,amsmath}
+\usepackage{ifxetex,ifluatex}
+\usepackage{fixltx2e} % provides \textsubscript
+\ifnum 0\ifxetex 1\fi\ifluatex 1\fi=0 % if pdftex
+  \usepackage[T1]{fontenc}
+  \usepackage[utf8]{inputenc}
+\else % if luatex or xelatex
+  \ifxetex
+    \usepackage{mathspec}
+  \else
+    \usepackage{fontspec}
+  \fi
+  \defaultfontfeatures{Ligatures=TeX,Scale=MatchLowercase}
+\fi
+% use upquote if available, for straight quotes in verbatim environments
+\IfFileExists{upquote.sty}{\usepackage{upquote}}{}
+% use microtype if available
+\IfFileExists{microtype.sty}{%
+\usepackage{microtype}
+\UseMicrotypeSet[protrusion]{basicmath} % disable protrusion for tt fonts
+}{}
+\usepackage[margin=1in]{geometry}
+\usepackage{hyperref}
+\hypersetup{unicode=true,
+            pdfborder={0 0 0},
+            breaklinks=true}
+\urlstyle{same}  % don't use monospace font for urls
+\usepackage{graphicx,grffile}
+\makeatletter
+\def\maxwidth{\ifdim\Gin@nat@width>\linewidth\linewidth\else\Gin@nat@width\fi}
+\def\maxheight{\ifdim\Gin@nat@height>\textheight\textheight\else\Gin@nat@height\fi}
+\makeatother
+% Scale images if necessary, so that they will not overflow the page
+% margins by default, and it is still possible to overwrite the defaults
+% using explicit options in \includegraphics[width, height, ...]{}
+\setkeys{Gin}{width=\maxwidth,height=\maxheight,keepaspectratio}
+\IfFileExists{parskip.sty}{%
+\usepackage{parskip}
+}{% else
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{6pt plus 2pt minus 1pt}
+}
+\setlength{\emergencystretch}{3em}  % prevent overfull lines
+\providecommand{\tightlist}{%
+  \setlength{\itemsep}{0pt}\setlength{\parskip}{0pt}}
+\setcounter{secnumdepth}{0}
+% Redefines (sub)paragraphs to behave more like sections
+\ifx\paragraph\undefined\else
+\let\oldparagraph\paragraph
+\renewcommand{\paragraph}[1]{\oldparagraph{#1}\mbox{}}
+\fi
+\ifx\subparagraph\undefined\else
+\let\oldsubparagraph\subparagraph
+\renewcommand{\subparagraph}[1]{\oldsubparagraph{#1}\mbox{}}
+\fi
+
+%%% Use protect on footnotes to avoid problems with footnotes in titles
+\let\rmarkdownfootnote\footnote%
+\def\footnote{\protect\rmarkdownfootnote}
+
+%%% Change title format to be more compact
+\usepackage{titling}
+
+% Create subtitle command for use in maketitle
+\newcommand{\subtitle}[1]{
+  \posttitle{
+    \begin{center}\large#1\end{center}
+    }
+}
+
+\setlength{\droptitle}{-2em}
+
+  \title{}
+    \pretitle{\vspace{\droptitle}}
+  \posttitle{}
+    \author{}
+    \preauthor{}\postauthor{}
+    \date{}
+    \predate{}\postdate{}
+  
+
+\begin{document}
+
+\subsection{Grazer and benthic survey
+methods}\label{grazer-and-benthic-survey-methods}
+
+\begin{center}\rule{0.5\linewidth}{\linethickness}\end{center}
+
+\paragraph{Survey methods}\label{survey-methods}
+
+Fish surveys were point counts (Seychelles) or belt transects (Maldives,
+Chagos, GBR) conducted on hard-bottom reef habitat at 8-10m depth. Point
+counts of 7 m radius\ldots{}DETAILS. Belt transects \ldots{}..Large
+mobile fishes were surveyd in 5 x 50 m transects and small site-attached
+species were recorded with 2 x 50m transects. For both survey types, all
+diurnal, non-crypic (\textgreater{}8cm) reef-associated fish were
+counted and sized to the nearest centimetre (total length, TL). TL
+measurements were calibrated by estimating the length of sections of PVC
+pipe and comparing it to their known length prior to data collection
+each day. All fish sizes (total length, cm) were then converted to body
+mass (grams) using published length \textasciitilde{} weight
+relationships (Froese \& Pauly 2017), and standardized by survey area as
+kg hectare\textsuperscript{-1}.
+
+Following fish surveys, benthic habitat composition was surveyed with 50
+m line transects in every region. Benthos composition was recorded by
+noting the benthic taxa directly under the transect line at 50 cm
+intervals (line intercept method, REF). Taxa were grouped into broad
+functional groups (e.g.~CCA, macroalgae, turf algae) and, if they were
+hard corals, identified to genus level. The structural complexity of the
+reef was visually estimated on a six-point scale, ranging from 0 (no
+vertical relief) to 5 (complex habitat with caves and overhangs)
+(Polunin \& Roberts 1993).
+
+Observation error and bias were minimized because one observer (NAJG)
+performed all surveys, except for benthic surveys in Seychelles (SW).
+Point counts and belt transects give comparable biomass estimates (REF).
+
+\paragraph{Region details}\label{region-details}
+
+In Seychelles, 21 reefs were surveyed in 2008, 2014, and 2017. Sites
+were located on two inhabited islands (Mahe, Praslin) and were
+stratified to include carbonate fringing reefs, granitic rocky reefs
+with coral growth, and patch reef habitats on a sand, rubble, or rock
+base (Fig MAP). Counts were replicated at each site, with 16 surveys
+conducted in 2008 and 8 surveys in 2011, 2014 and 2017. Power analysis
+indicated that only 8 replicates were needed (REF), and thus we only
+considered surveys from 8 replicates per site per survey year. Replicate
+survey points were haphazardly located on the reef slope at least 15m
+away from each other. Overall, the surveys covered up to 0.5km of reef
+front and 2,500m\textsuperscript{2} of reef habitat.
+
+In the GBR, surveys were conducted between November 2010 and January
+2011. Five mid-shelf reefs near the city of Townsville were surveyed by
+splitting them into 3 wave exposed and 3 wave sheltered sites. Each of
+these 6 sites were split up again along a zonal gradient into 3 zones -
+crest (2-3m depth), slope (7-9m depth), and flat (100m distance from
+crest). Each zone was surveyed with four transects, thus giving 72
+transects per reef (four replicates for three wave zones nested in 6
+sites per reef) and 360 total transects.
+
+In Chagos, surveys were conducted in 2010 at 25 sites on 4 atolls (Fig
+MAP). Belt transects were placed at yadda yadda yadda. Four replicates
+transects conducted at each site.
+
+In Maldives, surveys were conducted in 2013 at 11 sites on 1 atoll (Fig
+MAP).
+
+\paragraph{Herbivore feeding
+observations}\label{herbivore-feeding-observations}
+
+Feeding observations of Indo-Pacific herbivores provided species-level
+estimates on bite rates and, for scrapers, bite volumes. Surveys were
+conducted in the Red Sea (AH), Indonesia (AH), and GBR (AH and AGL).
+DETAILS NEEDED. For each observed fish, we estimated the average feeding
+rate (bites per minute). For scrapers, we also estimated the average
+bite scar size.
+
+\paragraph{Ecological variable
+processing}\label{ecological-variable-processing}
+
+Herbivore species were categorised as grazers, scrapers or browsers
+according to published diet observations (REF). Fish biomass estimates
+were averaged across replicates at each site to give the total biomass
+(kg ha\textsuperscript{-1}) of each functional feeding group (grazers,
+scrapers, browsers), and these estimates formed the basis of all
+subsequent analyses.
+
+Explanatory covariates were derived from fish and benthic surveys.
+First, to account for fishing effects ranging from pristine Chagos reefs
+to heavily-exploited Seychelles reefs, we estimated total community
+biomass as a proxy for exploitation pressure. Fishable biomass
+JUSTIFICATION (REF). Second, benthic surveys provided site-level
+estimates of benthic composition. We estimated the site-level cover for
+four major habitat-forming groups (live hard coral, macroalgae, sand,
+and rubblerubble), and structural complexity, by averaging across
+replicates at each site. To understand the range of benthic habitat
+types across the dataset, we conducted a PCA to identify common habitat
+groupings (i.e.~benthic regimes) (Jouffray et al. 2015). Prior to
+statistical modelling, we scaled and centered all continuous covariates
+to a mean of zero and standard deviation of one, and converted the
+categorical protection covariate to two dummy variables (fished -
+protected, fished - pristine) (Schielzeth 2010).
+
+\paragraph{Biomass analysis}\label{biomass-analysis}
+
+We used linear mixed effects to model to examine variation in herbivore
+biomass along gradients in benthic habitat composition and fishing
+intensity. Benthic fixed effects were hard coral, macroalgae, sand,
+rubble and structural complexity, and fishing fixed effects were
+fishable biomass and fishing protection. Models were fitted separately
+for each functional feeding group for normally distributed errors, and
+biomass was log\_10\_ transformed. Parameter estimates were extracted to
+compare effect sizes of each explanatory covariate, and fitted
+relationships were visualized with model predictions that excluded
+random effects.
+
+\paragraph{Grazing function analysis}\label{grazing-function-analysis}
+
+Bite rate estimates were used to convert fish biomass to fish function.
+
+
+\end{document}
