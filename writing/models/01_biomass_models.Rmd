@@ -578,28 +578,28 @@ p.complex<-predict(object=m.scraper, newdata = nd, re.form=NA)
 par(mfrow=c(2,2), mar=c(4,2,1,1), oma=c(0,2, 0,0))
 
 ## plot coral predictions
-plot(cont.pred.master$hard.coral, p.coral, type='l',col = cols[1],lwd=2, axes=F, ylab='Log10 Biomass (kg/ha)', xlab='Benthic cover (%)', ylim=c(1, 2))
+plot(cont.pred.master$hard.coral, p.coral, type='l',col = cols[1],lwd=2, axes=F, ylab='Log10 Biomass (kg/ha)', xlab='Benthic cover (%)', ylim=c(2,3))
 axis(1, at = seq(min(h$hard.coral), max(h$hard.coral), length.out=5), 
      labels= round(seq(min(pred$hard.coral), max(pred$hard.coral), length.out=5), 0))
 axis(2)
 add_label(0.01, 0.1, font = 2, label ='Hard coral')
 
 ## plot macroalgal predictions
-plot(cont.pred.master$macroalgae, p.algae, type='l',col = cols[2],lwd=2, axes=F, ylab='', xlab='Benthic cover (%)', ylim=c(1, 2))
+plot(cont.pred.master$macroalgae, p.algae, type='l',col = cols[2],lwd=2, axes=F, ylab='', xlab='Benthic cover (%)', ylim=c(2, 3))
 axis(1, at = seq(min(h$macroalgae), max(h$macroalgae), length.out=5), 
      labels= round(seq(min(pred$macroalgae), max(pred$macroalgae), length.out=5), 0))
 axis(2)
 add_label(0.01, 0.1, font = 2, label ='Macroalgae')
 
 ## plot rubble predictions
-plot(cont.pred.master$rubble, p.rubble, type='l',col = cols[2],lwd=2, axes=F, ylab='', xlab='Benthic cover (%)', ylim=c(1, 2))
+plot(cont.pred.master$rubble, p.rubble, type='l',col = cols[2],lwd=2, axes=F, ylab='', xlab='Benthic cover (%)', ylim=c(2, 3))
 axis(1, at = seq(min(h$rubble), max(h$rubble), length.out=5), 
      labels= round(seq(min(pred$rubble), max(pred$rubble), length.out=5), 0))
 axis(2)
 add_label(0.01, 0.1, font = 2, label ='Rubble')
 
 ## plot complexity predictions
-plot(cont.pred.master$complexity, p.complex, type='l',col = cols[3],lwd=2, axes=F, ylab='', xlab='Habitat complexity', ylim=c(1, 2))
+plot(cont.pred.master$complexity, p.complex, type='l',col = cols[3],lwd=2, axes=F, ylab='', xlab='Habitat complexity', ylim=c(2, 3))
 axis(1, at = seq(min(h$complexity), max(h$complexity), length.out=5), 
      labels= round(seq(min(pred$complexity), max(pred$complexity), length.out=5), 0))
 axis(2)
@@ -611,13 +611,13 @@ mtext(2, text= 'Biomass (log10 kg/ha)', outer=TRUE, line=0.5)
 ```
 <br><br>
 
-+ SOMEHOW I CAN'T GET THOSE CURVES TO SHOW
+* Hard coral has a moderate effect on grazer biomass, which increased from ```r round(10^p.coral[1], 0)``` kg/ha at 0% cover to ```r round(10^p.coral[30], 0)``` kg/ha at ```r round(max(pred$hard.coral), 0)``` % cover.
 
 * Macroalgae has the weakest effect on scraper biomass, which declined from ```r round(10^p.algae[1], 0)``` kg/ha at 0% cover to ```r round(10^p.algae[30], 0)``` kg/ha at ```r round(max(pred$macroalgae), 0)``` % cover.
 
-* Complexity has the strongest effect on scraper biomass, which increased from ```r round(10^p.complex[1], 0)``` kg/ha at 0 complexity to ```r round(10^p.complex[30], 0)``` kg/ha at ```r round(max(pred$complexity), 0)```  complexity.
+* Rubble has a moderate effect on scraper biomass, which increased from ```r round(10^p.rubble[1], 0)``` kg/ha at 0 complexity to ```r round(10^p.rubble[30], 0)``` kg/ha at ```r round(max(pred$rubble), 0)```  % cover.
 
-* Hard coral has a moderate effect on grazer biomass, which increased from ```r round(10^p.coral[1], 0)``` kg/ha at 0% cover to ```r round(10^p.coral[30], 0)``` kg/ha at ```r round(max(pred$hard.coral), 0)``` % cover.
+* Complexity has the strongest effect on scraper biomass, which increased from ```r round(10^p.complex[1], 0)``` kg/ha at 0 complexity to ```r round(10^p.complex[30], 0)``` kg/ha at ```r round(max(pred$complexity), 0)```  complexity.
 
 
 \newpage
@@ -672,7 +672,7 @@ plot(c(1,2,3), nd$p.fish, cex=2, col = cols[c(4,5,6)],pch=16, axes=F, ylab='Log1
 axis(1, at = c(1,2,3), labels= nd$categories)
 axis(2)
 
-plot(fish.master$fish.biom, fish.master$p.fish, cex=2, axes=F, ylab='', xlab='Fishable biomass (kg/ha)', ylim=c(1, 2.5), type='l')
+plot(fish.master$fish.biom, fish.master$p.fish, cex=2, axes=F, ylab='', xlab='Fishable biomass (kg/ha)', ylim=c(2, 3.5), type='l')
 axis(1, at = seq(min(h$fish.biom), max(h$fish.biom), length.out=5), 
      labels= comma(round(seq(min(pred$fish.biom), max(pred$fish.biom), length.out=5), 0)))
 axis(2)
