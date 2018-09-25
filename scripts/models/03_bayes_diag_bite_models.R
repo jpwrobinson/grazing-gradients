@@ -11,7 +11,7 @@ load('results/models/bites_grazers.Rdata')
 post<-extract.samples(graze.m)
 
 species<-data.frame(post)[,1:9]; colnames(species)<-as.character(unique(grazers$sp))
-fam<-data.frame(post)[, 10:15]; colnames(fam)<-c(as.character(unique(grazers$Genus)))
+fam<-data.frame(post)[, 10:14]; colnames(fam)<-c(as.character(unique(grazers$Genus)))
 dat<-data.frame(post)[,15:17]; colnames(dat)<-as.character(unique(grazers$dataset))
 scal<-data.frame(post)[,18:22]; colnames(scal)<- c('intercept', 'scale', 'sigma.species', 'sigma.genus', 'sigma.dataset')
 
