@@ -688,9 +688,11 @@ axis(2)
 
 ***
 
-Because covariates were scaled and centered, we can directly compare effect sizes among models and among covariates with different scales (e.g. fishable biomass and percent cover).
+Because covariates were scaled and centered, we can directly compare effect sizes among models and among covariates with different scales (e.g. fishable biomass and percent cover). Pristine reefs - Chagos - are the strongest predictor of biomass, with higher biomass of all 3 FGs. These estimates were highly uncertain, indicative of high site-level variability in biomass. Fishable biomass was consistently strong positive influence on FG biomass, as was rubble, which outweighed hard coral cover as a predictor for all FGs.
 
-```{r, include =T, echo = F, messages=F, fig.caption = 'Figure 7: relative effect of fishing and benthic covariates', fig.width = 4, fig.height = 6, fig.align = 'center'}
+Macroalgae had positive effects on browser biomass, and negative effects on grazer and scraper biomass, while complexity was negatively associated with all 3 FGs. On inhabited reefs, fishing had significant negative effects on biomass, though the effect of protection was weaker than that of reef isolation (i.e. remote/pristine Chagos).
+
+```{r, include =T, echo = F, messages=F, fig.caption = 'Figure 7: relative effect of fishing and benthic covariates', fig.width = 12, fig.height = 4, fig.align = 'center'}
 
 library(sjlabelled)
 
