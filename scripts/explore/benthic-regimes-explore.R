@@ -2,6 +2,11 @@
 # Use multivariate analysis to look at any benthic regimes across the entire dataset and within regions
 # Created: September 24, 2018
  
+
+# TO DO
+# look into K-means clustering
+# does the data need to be scaled? 
+
 setwd("~/Documents/git_repos/grazing-gradients")
 rm(list=ls()) 
 
@@ -16,7 +21,7 @@ library(gridExtra)
 library(factoextra)
 library(ggbiplot)
 library(ggfortify)
-
+library(purrr)
 
 # load data
 load("data/wio_herb_benthic_merged.Rdata")
@@ -103,7 +108,7 @@ p
 autoplot(pred_pca, loadings = TRUE, loadings.label = TRUE,
          data = pred, colour = 'dataset') + theme
 
-# K-means clustering?
+# K-means clustering?? (need to look into this)
 autoplot(kmeans(pred[-1], 4), data = pred, # 4 means? How to decide on this?
          label = TRUE, label.size = 3, frame = TRUE) + theme
 kmeans(pred[-1], 4)
@@ -114,12 +119,59 @@ kmeans(pred[-1], 4)
 ############################################################
 ### PCA for each Region ###
 
-# split intro regions
-pred %>%
-  group_by(dataset) %>%
-  nest() %>%
-  select(data) %>%
-  unlist(recursive = F) %>%
+# put back rownames for conversion
+ha <- pred
+ha$unique.id <- rownames(pred) # assign sites as rownames
+head(pred)
+
+# split into regions
+haha <- ha %>% 
+  group_by(dataset) %>% 
+  do(data = (.)) %>% 
+  select(data) %>% 
   map(identity)
+head(haha)
+str(haha)
 
+chagos <- haha$data[[1]]
+GBR <- haha$data[[2]]
+maldives <- haha$data[[3]]
+seychelles <- haha$data[[4]]
 
+# Ready for vegan 
+tidy.DATA = function(DATA){
+  ha <- as.data.frame(DATA)
+  rownames(ha) <- ha$unique.id # assign sites as rownames
+  haha <- ha %>% select(-unique.id, -dataset) # get rid of redundant columns
+  haha <- data.frame(haha)
+  return(haha)
+  
+}
+
+chagos <- tidy.DATA(chagos)
+GBR <-tidy.DATA(GBR)
+maldives <- tidy.DATA(maldives)
+seychelles <- tidy.DATA(seychelles)
+
+# PCA
+chagos_pca <- prcomp(chagos, scale.=TRUE) 
+GBR_pca <- prcomp(GBR, scale.=TRUE) 
+maldives_pca <- prcomp(maldives, scale.=TRUE) 
+seychelles_pca <- prcomp(seychelles, scale.=TRUE) 
+
+# Scree plot
+fviz_eig(chagos_pca) 
+fviz_eig(GBR_pca) 
+fviz_eig(maldives_pca) 
+fviz_eig(seychelles_pca) 
+
+# Biplot
+autoplot(chagos_pca, loadings = TRUE, loadings.label = TRUE) + 
+  theme + ggtitle("Chagos")
+autoplot(GBR_pca, loadings = TRUE, loadings.label = TRUE) + 
+  theme + ggtitle("GBR")
+autoplot(maldives_pca, loadings = TRUE, loadings.label = TRUE) + 
+  theme + ggtitle("Maldives")
+autoplot(seychelles_pca, loadings = TRUE, loadings.label = TRUE) + 
+  theme + ggtitle("Seychelles")
+############################################################
