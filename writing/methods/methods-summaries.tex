@@ -83,36 +83,38 @@
 
 \begin{document}
 
-\subsection{Grazer and benthic survey
-methods}\label{grazer-and-benthic-survey-methods}
+\subsection{Ecological surveys}\label{ecological-surveys}
 
 \begin{center}\rule{0.5\linewidth}{\linethickness}\end{center}
 
 \paragraph{Survey methods}\label{survey-methods}
 
-Fish surveys were point counts (Seychelles) or belt transects (Maldives,
-Chagos, GBR) conducted on hard-bottom reef habitat at 8-10m depth. Point
-counts of 7 m radius\ldots{}DETAILS. Belt transects \ldots{}..Large
-mobile fishes were surveyd in 5 x 50 m transects and small site-attached
-species were recorded with 2 x 50m transects. For both survey types, all
+Fish surveys were point counts of 7 m radius (Seychelles) or belt
+transects of 50 m length (Maldives, Chagos, GBR) conducted on
+hard-bottom reef habitat at 8-10 m depth. Surveys were designed to to
+minimize diver avoidance or attraction. In point counts, large mobile
+species were censused before smaller reef-dwelling species. In belt
+transects, large mobile fishes were surveyed in one direction for a 5 m
+transect width, and small site-attached species were recorded in the
+opposite direction for a 2 m transect width. For both survey types, all
 diurnal, non-crypic (\textgreater{}8cm) reef-associated fish were
 counted and sized to the nearest centimetre (total length, TL). TL
 measurements were calibrated by estimating the length of sections of PVC
 pipe and comparing it to their known length prior to data collection
 each day. All fish sizes (total length, cm) were then converted to body
 mass (grams) using published length \textasciitilde{} weight
-relationships (Froese \& Pauly 2017), and standardized by survey area as
-kg hectare\textsuperscript{-1}.
+relationships (Froese \& Pauly 2017), and standardized by survey area to
+give species-level biomass estimates that were comparable across
+datasets (kg hectare\textsuperscript{-1}).
 
 Following fish surveys, benthic habitat composition was surveyed with 50
-m line transects in every region. Benthos composition was recorded by
-noting the benthic taxa directly under the transect line at 50 cm
-intervals (line intercept method, REF). Taxa were grouped into broad
-functional groups (e.g.~CCA, macroalgae, turf algae) and, if they were
-hard corals, identified to genus level. The structural complexity of the
-reef was visually estimated on a six-point scale, ranging from 0 (no
-vertical relief) to 5 (complex habitat with caves and overhangs)
-(Polunin \& Roberts 1993).
+m line transects. Benthos composition was recorded by noting the benthic
+taxa directly under the transect line at 50 cm intervals (line intercept
+method, REF). Taxa were grouped into broad functional groups (e.g.~CCA,
+macroalgae, turf algae) and, if they were hard corals, identified to
+genus level. The structural complexity of the reef was visually
+estimated on a six-point scale, ranging from 0 (no vertical relief) to 5
+(complex habitat with caves and overhangs) (Polunin \& Roberts 1993).
 
 Observation error and bias were minimized because one observer (NAJG)
 performed all surveys, except for benthic surveys in Seychelles (SW).
@@ -153,8 +155,9 @@ observations}\label{herbivore-feeding-observations}
 
 Feeding observations of Indo-Pacific herbivores provided species-level
 estimates on bite rates and, for scrapers, bite volumes. Surveys were
-conducted in the Red Sea (AH), Indonesia (AH), and GBR (AH and AGL).
-DETAILS NEEDED. For each observed fish, we estimated the average feeding
+conducted in the Red Sea (AH), Indonesia (AH), and GBR (AH and AGL). We
+only analysed feeding observations for species observed in the UVC
+dataset (39). For each observed fish, we estimated the average feeding
 rate (bites per minute). For scrapers, we also estimated the average
 bite scar size.
 
@@ -184,6 +187,10 @@ to a mean of zero and standard deviation of one, and converted the
 categorical protection covariate to two dummy variables (fished -
 protected, fished - pristine) (Schielzeth 2010).
 
+\subsection{Statistical analyses}\label{statistical-analyses}
+
+\begin{center}\rule{0.5\linewidth}{\linethickness}\end{center}
+
 \paragraph{Biomass analysis}\label{biomass-analysis}
 
 We used linear mixed effects to model to examine variation in herbivore
@@ -199,7 +206,54 @@ random effects.
 
 \paragraph{Grazing function analysis}\label{grazing-function-analysis}
 
-Bite rate estimates were used to convert fish biomass to fish function.
+Fish functions were defined separately for each functional feeding
+group, and feeding observations used to convert UVC observations to one
+of three grazing functions. We used a Bayesian hierarchical modelling
+framework that estimate species- and genera-level functional rates,
+which allowed us to estimate grazing for UVC species which were not
+observed in feeding surveys (63). For grazers, which feed on turf and
+other filamentous algal material, herbivory maintains turf in cropped
+states that are expected to be benign states for coral recruitment.
+Grazing function was quantified in terms of potential feeding intensity,
+measured as the total number of bites per hour. Feeding observations
+were modelled with species- and genera-specific bite rates:
+
+\(bite_rate = Gamma(\mu, \theta)\)
+\(log(\mu) = X + species_i + genus_j\)
+
+Grazing bite rates were unrelated to body size (Fig. SX), and thus we
+did not consider potential size differences in functional rates.
+
+For scrapers and excavators, `scraping' of endolithic and detrital
+material exposes substrate and promotes coral recruitment. Scraping
+function was quantified in terms of area of substrate removed per hour.
+Feeding observations provided estimates of bite rates and average scar
+sizes (scar\_area), which we modelled with species- and genera-specific
+grazing rates.
+
+\(bite = Gamma(\mu, \theta)\)
+\(log(\mu) = X + B*TL + species_i + genus_j\)
+
+\(scar_area = Gamma(\mu, \theta)\)
+\(log(\mu) = X + B*TL + species_i + genus_j\)
+
+\(area_removed = Normal(\mu, \sigma)\) \(\mu = X + ??\)
+
+By including size (TL) as an explanatory covariate, our model accounted
+for body size effects, as scar sizes increased with body size (Fig. SX)
+and bite rates decreased with body size (Fig. SX).
+
+For browsers, consumption of established macroalgae acts to suppress
+macroalgal growth (REF), though grazing can be inhibited at hig
+macroalgal densities (Hoey \& Bellwood 2011). Browsing function was
+quantified in terms of algal material removed per hour. Feeding
+observations provided estimates of bite rates and ????. Browsing feeding
+observations were limited to two species from two genera, so we only
+fitted genera-specific random effects:
+
+\(bite = Normal(\mu, \sigma)\)
+
+\(\mu = X + genus_j\)
 
 
 \end{document}
