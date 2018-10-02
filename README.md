@@ -1,5 +1,14 @@
 # grazing-gradients
 
+## Meeting 6 - 4th Oct 2018 - biomass models, main text Figure, introduction
+
+Jeneen, Jan, James:
+
+* discuss biomass models. Need to create main text figure - what should this look like?
+* Bite rate data and converting biomass to function
+* Introduction + framing of the paper
+
+
 ## Meeting 5 - 21st Sept 2018 - biomass models
 
 Jeneen, Jan, James discussed first model results. Decided to improve benthic + fishing predictors by considering alt. regimes (turf, sand, rubble) and fishable biomass gradient. 
