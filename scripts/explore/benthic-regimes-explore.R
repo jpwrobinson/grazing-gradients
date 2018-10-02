@@ -3,10 +3,6 @@
 # Created: September 24, 2018
  
 
-# TO DO
-# look into K-means clustering
-# does the data need to be scaled? 
-
 setwd("~/Documents/git_repos/grazing-gradients")
 rm(list=ls()) 
 
@@ -82,7 +78,8 @@ theme<-theme(panel.background = element_blank(),
              plot.margin=unit(c(1,1,1,1),"line"))
 
 # PCA: 2 dimensions
-pred_pca <- prcomp(pred[-1], scale.=TRUE) # take out the dataset column
+pred_pca <- prcomp(pred[-1], # take out the dataset column
+                   scale=TRUE) # scale the data
 pred_pca
 
 plot(pred_pca$x[,1], pred_pca$x[,2])
@@ -108,8 +105,8 @@ p
 autoplot(pred_pca, loadings = TRUE, loadings.label = TRUE,
          data = pred, colour = 'dataset') + theme
 
-# K-means clustering?? (need to look into this)
-autoplot(kmeans(pred[-1], 4), data = pred, # 4 means? How to decide on this?
+# K-means clustering with PCA (plots the 4 groupings on the PCA)
+autoplot(kmeans(pred[-1], 4), data = pred, # 4 means because we have four island groups 
          label = TRUE, label.size = 3, frame = TRUE) + theme
 kmeans(pred[-1], 4)
 ############################################################
@@ -154,10 +151,10 @@ maldives <- tidy.DATA(maldives)
 seychelles <- tidy.DATA(seychelles)
 
 # PCA
-chagos_pca <- prcomp(chagos, scale.=TRUE) 
-GBR_pca <- prcomp(GBR, scale.=TRUE) 
-maldives_pca <- prcomp(maldives, scale.=TRUE) 
-seychelles_pca <- prcomp(seychelles, scale.=TRUE) 
+chagos_pca <- prcomp(chagos, scale=TRUE) 
+GBR_pca <- prcomp(GBR, scale=TRUE) 
+maldives_pca <- prcomp(maldives, scale=TRUE) 
+seychelles_pca <- prcomp(seychelles, scale=TRUE) 
 
 # Scree plot
 fviz_eig(chagos_pca) 
