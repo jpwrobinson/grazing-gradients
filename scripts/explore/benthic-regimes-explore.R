@@ -163,12 +163,14 @@ fviz_eig(maldives_pca)
 fviz_eig(seychelles_pca) 
 
 # Biplot
-autoplot(chagos_pca, loadings = TRUE, loadings.label = TRUE) + 
+g1<-autoplot(chagos_pca, loadings = TRUE, loadings.label = TRUE) + 
   theme + ggtitle("Chagos")
-autoplot(GBR_pca, loadings = TRUE, loadings.label = TRUE) + 
+g2<-autoplot(GBR_pca, loadings = TRUE, loadings.label = TRUE) + 
   theme + ggtitle("GBR")
-autoplot(maldives_pca, loadings = TRUE, loadings.label = TRUE) + 
+g3<-autoplot(maldives_pca, loadings = TRUE, loadings.label = TRUE) + 
   theme + ggtitle("Maldives")
-autoplot(seychelles_pca, loadings = TRUE, loadings.label = TRUE) + 
+g4<-autoplot(seychelles_pca, loadings = TRUE, loadings.label = TRUE) + 
   theme + ggtitle("Seychelles")
+
+grid.arrange(g1,g2,g3,g4, nrow=2)
 ############################################################
