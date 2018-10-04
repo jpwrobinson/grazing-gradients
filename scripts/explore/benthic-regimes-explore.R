@@ -175,19 +175,14 @@ fviz_eig(maldives_pca)
 fviz_eig(seychelles_pca) 
 
 # Biplot
-autoplot(chagos_pca, loadings = TRUE, loadings.label = TRUE) + 
+p <- autoplot(chagos_pca, loadings = TRUE, loadings.label = TRUE) + 
   theme + ggtitle("Chagos")
-autoplot(GBR_pca, loadings = TRUE, loadings.label = TRUE) + 
+p1 <- autoplot(GBR_pca, loadings = TRUE, loadings.label = TRUE) + 
   theme + ggtitle("GBR")
-autoplot(maldives_pca, loadings = TRUE, loadings.label = TRUE) + 
+p2 <- autoplot(maldives_pca, loadings = TRUE, loadings.label = TRUE) + 
   theme + ggtitle("Maldives")
-autoplot(seychelles_pca, loadings = TRUE, loadings.label = TRUE) + 
+p3 <- autoplot(seychelles_pca, loadings = TRUE, loadings.label = TRUE) + 
   theme + ggtitle("Seychelles")
-
-
-
-
-
 
 pdf(file='figures/explore/benthic_byregion_PCA_2D.pdf', height=12, width=18)
 
