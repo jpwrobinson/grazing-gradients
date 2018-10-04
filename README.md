@@ -4,10 +4,13 @@
 
 Jeneen, Jan, James:
 
-* discuss biomass models. Need to create main text figure - what should this look like?
-* Bite rate data and converting biomass to function
-* Introduction + framing of the paper
+* discuss biomass models. Need to create main text figure - what should this look like? *4 PANEL, Jeneen on it.*
+* Bite rate data and converting biomass to function *Explained and waiting on Andy's comments*
+* Introduction + framing of the paper *Brainstorm needed*
 
+*Jan also starting first results paragraph*
+
+***
 
 ## Meeting 5 - 21st Sept 2018 - biomass models
 
@@ -17,7 +20,11 @@ James received bite rate data. Working on bite rate predictive model.
 
 Next steps in [#14](/../../issues/14)
 
+***
+
 *summer was great*
+
+***
 
 ## Meeting 4 - 30th May 2018 - bite rate literature and Rmd collaborating
 
@@ -27,6 +34,7 @@ Next steps in [#14](/../../issues/14)
 * Bite rate literature - what's the species count at? What kind of data do we have?
 * Bite rate functions - lots of (slightly) different functions. Carbon intake, bioerosion, consumption rates. What are we most interested in? Perhaps focus on biomass for now and convert later when the patterns are clearer.
 
+***
 
 ## Meeting 3 - 23rd May 2018 - checking in with Rmd and data questions, and bite rate literature search
 
@@ -37,6 +45,8 @@ Next steps in [#14](/../../issues/14)
 * Bite rate literature - propose keeping master sheet of bite rate studies by species
 
 It's pretty difficult to transition from R to Rmarkdown, and writing text next to code. R-markdown is very powerful (I only use the basics): here's [R Studio's Rmarkdown cheatsheet](https://www.rstudio.com/wp-content/uploads/2015/02/rmarkdown-cheatsheet.pdf)
+
+***
 
 ## Meeting 2 - 15th May 2018 - R markdown for reproducible notebooks and reports
 
@@ -137,6 +147,8 @@ length.cm = length of fish (cm)
 mass.g = weight of fish (grams)   
 biomass.kgha = biomass of fish in kg per hectare   
 abundance.500m2 = abundance of fish in 500 m^2   
+
+***
 
 ## Meeting 1 - 2nd May 2018 - Github setup
 
