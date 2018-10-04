@@ -18,6 +18,8 @@ library(factoextra)
 library(ggbiplot)
 library(ggfortify)
 library(purrr)
+library(pca3d)
+source("scripts/functions/multiplot.R")
 
 # load data
 load("data/wio_herb_benthic_merged.Rdata")
@@ -75,7 +77,9 @@ theme<-theme(panel.background = element_blank(),
              axis.text.x=element_text(colour="black"),
              axis.text.y=element_text(colour="black"),
              axis.ticks=element_line(colour="black"),
-             plot.margin=unit(c(1,1,1,1),"line"))
+             plot.margin=unit(c(1,1,1,1),"line"),
+             plot.title=element_text(size=18),
+             axis.title=element_text(size=14))
 
 # PCA: 2 dimensions
 pred_pca <- prcomp(pred[-1], # take out the dataset column
@@ -101,14 +105,22 @@ p<-ggplot(df_out,aes(x=PC1,y=PC2, colour=group))
 p<-p+geom_point() + theme + xlab(percentage[1]) + ylab(percentage[2])
 p
 
-# Biplot
+# Biplot: 2D
+pdf(file='figures/explore/benthic_allregions_PCA_2D.pdf', height=7, width=10)
+
 autoplot(pred_pca, loadings = TRUE, loadings.label = TRUE,
          data = pred, colour = 'dataset') + theme
+
+dev.off()
 
 # K-means clustering with PCA (plots the 4 groupings on the PCA)
 autoplot(kmeans(pred[-1], 4), data = pred, # 4 means because we have four island groups 
          label = TRUE, label.size = 3, frame = TRUE) + theme
 kmeans(pred[-1], 4)
+
+# 3D plot of PC1, PC2, PC3 (have to use a different package, makes an interactive plot)
+pca3d(pred_pca, group=pred$dataset, legend="topright", biplot=TRUE)
+snapshotPCA3d(file="figures/explore/benthic_allregions_PCA_3D.png")
 ############################################################
 
 
@@ -163,12 +175,18 @@ fviz_eig(maldives_pca)
 fviz_eig(seychelles_pca) 
 
 # Biplot
-autoplot(chagos_pca, loadings = TRUE, loadings.label = TRUE) + 
+p <- autoplot(chagos_pca, loadings = TRUE, loadings.label = TRUE) + 
   theme + ggtitle("Chagos")
-autoplot(GBR_pca, loadings = TRUE, loadings.label = TRUE) + 
+p1 <- autoplot(GBR_pca, loadings = TRUE, loadings.label = TRUE) + 
   theme + ggtitle("GBR")
-autoplot(maldives_pca, loadings = TRUE, loadings.label = TRUE) + 
+p2 <- autoplot(maldives_pca, loadings = TRUE, loadings.label = TRUE) + 
   theme + ggtitle("Maldives")
-autoplot(seychelles_pca, loadings = TRUE, loadings.label = TRUE) + 
+p3 <- autoplot(seychelles_pca, loadings = TRUE, loadings.label = TRUE) + 
   theme + ggtitle("Seychelles")
+
+pdf(file='figures/explore/benthic_byregion_PCA_2D.pdf', height=12, width=18)
+
+multiplot(p,p1,p2,p3, cols=2)
+
+dev.off()
 ############################################################
