@@ -776,8 +776,12 @@ g3<-plot_model(m.scraper, arg = 'est', pred.type = 'fe', axis.labels = rev(labs$
 grid.arrange(g1, g2, g3, nrow = 1, ncol=3)
 ```
 
+#### Figure 2
 
-**Now redo benthic and fishing effect plots, but with points (fish categorical) and lines (benthic and fish biomass) for each FG**
+fig 2 chunk in here
 
+#### Results paragraph 1
+
+results text in here
 
 ----
