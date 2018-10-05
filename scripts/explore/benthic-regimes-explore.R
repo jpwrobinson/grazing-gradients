@@ -19,6 +19,7 @@ library(ggbiplot)
 library(ggfortify)
 library(purrr)
 library(pca3d)
+library(ggpubr)
 source("scripts/functions/multiplot.R")
 
 # load data
@@ -119,8 +120,20 @@ autoplot(kmeans(pred[-1], 4), data = pred, # 4 means because we have four island
 kmeans(pred[-1], 4)
 
 # 3D plot of PC1, PC2, PC3 (have to use a different package, makes an interactive plot)
-pca3d(pred_pca, group=pred$dataset, legend="topright", biplot=TRUE)
+pca3d(pred_pca, group=pred$dataset, legend="topright", biplot=TRUE) 
 snapshotPCA3d(file="figures/explore/benthic_allregions_PCA_3D.png")
+
+# Multipanel plot of 2D PC1, PC2, and PC3
+p <- autoplot(pred_pca, loadings = TRUE, loadings.label = TRUE,
+         data = pred, colour = 'dataset', x=1, y=2) + theme+ guides(colour=FALSE)
+p1 <- autoplot(pred_pca, loadings = TRUE, loadings.label = TRUE,
+         data = pred, colour = 'dataset', x=2, y=3) + theme+ guides(colour=FALSE)
+p2 <- autoplot(pred_pca, loadings = TRUE, loadings.label = TRUE,
+         data = pred, colour = 'dataset',x=1, y=3) + theme
+
+# Have to use ggsave or you get a blank page at the beginning 
+ggarrange(p, p1, p2, nrow=3, ncol=1,common.legend=TRUE, legend="bottom")
+ggsave(file='figures/explore/benthic_allregions_PCA_2D_AllPCs.pdf', height=13, width=9)
 ############################################################
 
 
