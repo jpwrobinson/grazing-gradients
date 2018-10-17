@@ -13,7 +13,7 @@ cleanbib()
 cite_options(citation_format = "pandoc", check.entries=TRUE)    
 ```
 
-To find all of the citation styles, fork this repo to your account: [github.com/Styles](github.com/Styles)
+To find all of the citation styles, fork this repo to your account: github.com/Styles
 
 Then, clone it to your computer through terminal:
 ```
