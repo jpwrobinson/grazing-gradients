@@ -1,5 +1,35 @@
 # grazing-gradients
 
+## Referencing with Rmarkdown
+
+We can use bibtex files and csl style files to generate reference lists in an R markdown document. Every reference software can export a bibtex library that contains unique 'citekeys' - we'll export our grazing-gradient library from Mendeley and keep the bibtex file in this repo.
+
+To make stuff work - make sure that you have done the following in RStudio:
+
+```
+install.packages(c('knitcitations', 'bibtex', 'citr'))  
+library(knitcitations); library(bibtex); library(citr)	
+cleanbib()  
+cite_options(citation_format = "pandoc", check.entries=TRUE)    
+```
+
+To find all of the citation styles, fork this repo to your account: github.com/Styles
+
+Then, clone it to your computer through terminal:
+```
+git clone https://github.com/jpwrobinson/styles.git
+```
+
+Now, you have all of the citations styles locally on your computer - find the one that you'd like to use (e.g. Global Change Biology), and then copy that .csl file (e.g. global-change-biology.csl) into your PROJECT_NAME/ms (manuscript) folder. This way it can be directly sourced while knitting the document.
+
+What about cite while you write options? The ```citr``` library now does this for R Studio. Copied from https://libscie.github.io/rmarkdown-workshop/handout.html
+
+"citr is an R package that provides an easy-to-use RStudio addin that facilitates inserting citations. The addin will automatically look up the Bib(La)TeX-file(s) specified in the YAML front matter. The references for the inserted citations are automatically added to the documents reference section.
+
+Once citr is installed (install.packages("citr")) and you have restarted your R session, the addin appears in the menus and you can define a keyboard shortcut to call the addin."
+
+***
+
 ## Meeting 6 - 4th Oct 2018 - biomass models, main text Figure, introduction
 
 Jeneen, Jan, James:

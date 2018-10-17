@@ -1,0 +1,70 @@
+---
+title: ""
+output: html_document
+bibliography: grazer-library.bib
+csl: coral-reefs.csl
+---
+
+Title: Herbivore biomass decouples from grazing function along benthic and fishing gradients
+
+Authors:
+
+Affiliations: 
+
+
+
+#### Introduction
+
+*Species have certain functions. Lots of species comprise functional assemblages. Assemblage structure can vary naturally along gradients in habitat suitability, or because of anthropongeic activities that selectively remove individuals. Understanding shifts in function, particularly at small scales, is necessary for predicting changes in ecosystem function under increasing anthropogenic pressures.*
+
+​	On tropical coral reefs, top-down control of algal organisms and promotion of calcifying coral taxa are key functions that are primarily performed by herbivorous fishes (Bellwood et al. 2004, REF). Several decades of feeding observations indicate that herbivorous fishes are comprised of three main functional roles that are defined by their feeding morphology and behaviours (Bellwood & Choat 1990, Polunin 1995, Green & Bellwood 2009). Cropping species graze filamentous turf algae and promote coral settlement and growth by maintaining cropped algal states, leaving coral substrate intact (REF). Scraping parrotfish graze dead coral substrate to consume detritus and endolithial material, with larger species further defined as excavators which target live coral and remove larger portions of hard substrate (Bonaldo et al. 2014, Russ et al. 2015). Browsing species are macroalgal specialists and so are less directly linked to coral dominance. Browsers feed on established fleshy algal taxa (Chong-Seng et al. 2015) and can thus suppress macroalgal development, and can potentially revert macroalgal-dominated reefs to coral-dominated states (Bellwood et al. 2006). 
+
+​	Combined, these three grazing functions are considered essential for the maintenance of coral-dominated states against background chronic stressors which cause coral and fish populations to decline (Bellwood et al. 2004, REF, REF). Algae can proliferate in the absence of grazing pressure (Mumby, Burkepile), and correlative analyses of fished reef ecosystems have identified grazing biomass thresholds below which reefs become algal dominated (Graham et al. 2015, Jouffray et al. 2015, Robinson et al. 2018a). Because herbivore populations are overexploited across the tropics (Edwards et al. 2014), it is therefore implied that grazing functions are comprimised on most inhabited reefs. However, fishing effects can be compounded by bottom-up structuring of herbivore assemblages (Russ et al. 2015). Differences in habitat associations among individual taxa can cause biomass distributions to vary among neigbouring habitat types (Doropoulus et al. 2013), and cause herbivore populations to reorganize in response to changes in benthic composition (REF, Gilmour et al. 2013). For example, cropper and scraper biomass is maximised on reefs with intact coral architecture (REF, Heenan et al. 2016), but also on reefs with high availability of algal material and dead coral substrate (Wilson et al. 2006, Gilmour et al. 2013, Robinson et al. 2018b). For browsing species which associate with macroalgal habitats (Wilson REF, Chong-Seng et al. 2012), variation in grazing biomass has been linked to reef zone on coral-dominated habitats (Hoey et al. 2013) and to the macroalgal density of seaweed habitats (Hoey & Bellwood 2011, Robinson et al. 2018). Thus, herbivore assemblage structure is mediated by both habitat composition and fishing intensity. At larger scales, such as across reef regions, disentangling bottom-up processes from disrupting anthropogenic influences such as fishing will provide a framework for measuring differences in grazing capacity.
+
+​	Patterns in grazing biomass are widely used to imply changes in herbivore functioning (REF, REF, Robinson et al. 2018a). However, biomass data overlook size- and species-specific differences in feeding roles (REF), and can be improved by integrating information on feeding rates to estimate grazing processes (REF). For example, habitat-mediated shifts in the structure of parrotfish assemblages correspond to shifts in rates of bioerosion, turf grazing, and coral predation (Hoey et al. 2008), while high sediment loads can suppress feeding activity of grazers (Goatley & Bellwood 2012, Goatley et al. 2016) and browsers XYZ. Because feeding rates scale allometrically with body size (Lokrantz et al. 2008, Nash et al. 2013), the functional role provided by larger individuals is disproportionately large (Bonaldo & Bellwood 2008) and so fishing which removes larger individuals and species (Edwards et al. 2014, Taylor et al. 2014) may have particularly strong effects on grazing function. In the Indo-Pacific, size-selective fishing of scraping and excavating parrotfish has been linked to declines in bioerosion rates (Bellwood et al. 2003, 2011) and XYZ. Grazing functions of smaller cropper and browser species do not appear to be impacted by fishing (REF), which may be superseded by habitat effects (REF).
+
+​	Accounting for size- and species-differences in grazing rates can improve correlative models of grazing, benthic community composition, and fishing (Mumby 2006, Steneck et al. 2018). These models are improved because grazing processes account for differences in species composition and size structure that might be due to either benthic habitat effects (bottom-up) or fishing effects (top-down), which implies that biomass ~ function relationships can become decoupled. Decoupling may be particularly problematic for large-scale correlative analyses of reefs exposed to substantial variation in fishing intesnity and habitat composition. Despite the critical role of herbivory in shaping reef condition (REF), the direction and strength of biomass ~ function relationships under different habitat and fishing regimes remain unmeasured. 
+
+​	Here, we combine underwater visual census (UVC) data with herbivore feeding observations to assess the relationship between herbivory, benthic habitat and fishing intensity. UVC data were collected at reefs in four Indo-Pacific regions, spanning a benthic gradient from coral to macroalgal dominance and a fishing gradient spanning X-Y fishable biomass. Surveyed reefs include habitats that experienced macroalgal regime shifts after climate-driven coral bleaching (Graham et al. 2015), and range in exploitation intensity from open-access fisheries to marine protected areas and near-pristine wilderness areas (Graham & McClanahan 2014). We fitted linear mixed effects models to examine variation in the biomass of three major functional feeding groups (grazers, scrapers, browsers) along benthic and fishing gradients. By converting grazer biomass to three grazing functions (turf grazing intensity, bioerosion, macroalgal consumption) and refitting biomass predictive model structures, we assess potential decoupling of biomass from grazing function.
+
+
+
+
+
+
+
+***
+
+## Discussion points
+
+***
+
+Future reefs:
+
+- benthic regimes likely non-coral dominated. What is herbivore function?
+- fishing more important (^^ human population) and more reliant on low TLs. How does function shift ?
+
+Caveats:
+
+- benthic regimes. No information on turfs. These may be common regimes on bleached reefs (Goatley et al. (2016, Ecol Society)).
+
+- importance of sediment (Tebbett et al. in press, check w/ Bellwood lab)
+
+- functional differences within FGs leads to huge functional redundancy, espec. for browsers (Bellwood et al. 2009, Streit et al. 2015, Verges et al. 2015) (lots of herb ones?)
+
+The effectiveness of browsers in removing established macroalgae is unclear (Suchley et al. 2016), particularly when macroalgae reaches high densities (Hoey & Bellwood 2011).
+
+The use of grazer biomass as a proxy for grazing function ignores  (REF) particularly at large scales where the feeding observations required to convert biomass to functional rates are unavailable. 
+
+
+
+Similarly, different species may perform different functional roles within the same group (Streit et al. 2015), while the degree of morphological, diet, and foraging specialization can vary significantly among related species (Bellwood et al. 2012 microniche paper, Brandl et al. 2015), to the extent that entire functions may be provided by a single species (Bellwood et al. 2006, Hoey & Bellwood 2009, Mouillot?). Such distinctions further confound the use of biomass as a proxy for function, in ways which we were unable to measure here.
+
+# References
+
+
+```{r, echo=F, include=T, message=F}
+## exporting session info for the supplementary material
+tab<-sessionInfo()
+write.txt(tab, file = 'tables/sup_table_sessioninfo.txt')
+```
