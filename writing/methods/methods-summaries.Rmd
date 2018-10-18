@@ -13,9 +13,7 @@ Fish surveys were point counts of 7 m radius (Seychelles) or belt transects of 5
 
 <br><br>
 
-Following fish surveys, benthic habitat composition was surveyed with 50 m line transects. Benthos composition was recorded by noting the benthic taxa directly under the transect line at 50 cm intervals (line intercept method, REF). Taxa were grouped into broad functional groups (e.g. CCA, macroalgae, turf algae) and, if they were hard corals, identified to genus level. The structural complexity of the reef was visually estimated on a six-point scale, ranging from 0 (no vertical relief) to 5 (complex habitat with caves and overhangs) (Polunin & Roberts 1993). 
-
-Observation error and bias were minimized because one observer (NAJG) performed all surveys, except for benthic surveys in Seychelles (SW). Point counts and belt transects give comparable biomass estimates (REF).
+Following fish surveys, benthic habitat composition was surveyed with 50 m line transects. Benthos composition was recorded by noting the benthic taxa directly under the transect line at 50 cm intervals (line intercept method, REF). Taxa were grouped into broad functional groups (e.g. CCA, macroalgae, turf algae) and, if they were hard corals, identified to genus level. The structural complexity of the reef was visually estimated on a six-point scale, ranging from 0 (no vertical relief) to 5 (complex habitat with caves and overhangs) (Polunin & Roberts 1993). Observation error and bias were minimized because one observer (NAJG) performed all surveys, except for benthic surveys in Seychelles (SW). Although we combined two UVC methods to estimate fish biomass, point counts and belt transects give comparable biomass estimates (REF).
 
 #### Region details
 
@@ -23,39 +21,36 @@ In Seychelles, 21 reefs were surveyed in 2008, 2014, and 2017. Sites were locate
 
 <br><br>
 
-In the GBR, surveys were conducted between November 2010 and January 2011. Five mid-shelf reefs near the city of Townsville were surveyed by splitting them into 3 wave exposed and 3 wave sheltered sites. Each of these 6 sites were split up again along a zonal gradient into 3 zones - crest (2-3m depth), slope (7-9m depth), and flat (100m distance from crest). Each zone was surveyed with four transects, thus giving 72 transects per reef (four replicates for three wave zones nested in 6 sites per reef) and 360 total transects.
+In the GBR, five reefs were surveyed in 2010 and 2011. Sites were stratified to include 3 wave exposed and 3 wave sheltered sites, and each of these 6 sites were further divided into reef slope (7-9m depth), reef crest (2-3m depth), and reef flat (100m distance from crest). Each location was surveyed with four transects, thus giving 72 transects per reef (four replicates for three wave zones nested in six sites per reef) and 360 total transects.
+
+<!... is it reasonable to include crest and flat locations? Other regions are reef slope. Also a depth issue. ...>
 
 <br><br>
 
-In Chagos, surveys were conducted in 2010 at 25 sites on 4 atolls (Fig MAP). Belt transects were placed at yadda yadda yadda.  Four replicates transects conducted at each site. 
+In Chagos, 25 reefs were surveyed in 2010. Sites were located on four uninhabited atolls (Fig MAP). Belt transects were placed at yadda yadda yadda.  Four replicates transects conducted at each site. 
 
-In Maldives, surveys were conducted in 2013 at 11 sites on 1 atoll (Fig MAP).
+In Maldives, 11 reefs were surveyed in 2013. Sites were located on one atoll, and stratified according to wave exposure?? (Fig MAP).
 
 #### Herbivore feeding observations
 
-Feeding observations of Indo-Pacific herbivores provided species-level estimates on bite rates and, for scrapers, bite volumes. Surveys were conducted in the Red Sea (AH), Indonesia (AH), and GBR (AH and AGL). We only analysed feeding observations for species observed in the UVC dataset (39). For each observed fish, we estimated the average feeding rate (bites per minute). For scrapers, we also estimated the average bite scar size. Our approach uses in situ feeding observations and thus an individuals' functional impact is defined by its feeding intensity (bite rate) but accounts for variation in feeding frequency (the timing and distance of feeding forays) (Nash et al. 2013). 
+Feeding observations of Indo-Pacific herbivores provided species-level estimates on bite rates and, for scrapers, bite volumes. Surveys were conducted in the Red Sea (AH), Indonesia (AH), and GBR (AH and AGL). We only analysed feeding observations for species observed in the UVC dataset (39). For each observed fish, we estimated the average feeding rate (bites per minute). For scrapers, we also estimated the average bite scar size. We define an individuals' functional impact by its feeding intensity (bite rate) but, by using in situ feeding observations that track fish forays, our approach accounts for variation in feeding frequency (the timing and distance of feeding forays) (Nash et al. 2013). 
 
 #### Ecological variable processing
 
-Herbivore species were categorised as grazers, scrapers and excavators, or browsers according to published diet observations (REF) and observations of feeding behaviours (Green & Bellwood 2009). Croppers were defined as species feeding primarily on turf algae (REF), scraper and excavator species fed primarily on exposed coral substrate (REF), and browsers fed primarily on established macroalgae (REF) (Table SX). Fish biomass estimates were averaged across replicates at each site to give the total biomass (kg ha^-1^) of each functional feeding group (grazers, scrapers, browsers), and these estimates formed the basis of all subsequent analyses.
+Herbivore species were categorised as grazers, scrapers and excavators, or browsers according to published diet observations (Froese & Pauly 2015) and observations of feeding behaviours (Green & Bellwood 2009). Croppers were defined as species feeding primarily on turf algae (REF), scraper and excavator species fed primarily on exposed coral substrate (REF), and browsers fed primarily on established macroalgae (REF) (Table SX). Fish biomass estimates were averaged across replicates at each site to give the total biomass (kg ha^-1^) of each functional feeding group (grazers, scrapers, browsers), and these estimates formed the basis of all subsequent analyses.
 
-Explanatory covariates were derived from fish and benthic surveys. First, to account for fishing effects ranging from pristine Chagos reefs to heavily-exploited Seychelles reefs, we estimated total community biomass as a proxy for exploitation pressure. Fishable biomass is highly sensitive to exploitation pressure and, in the Indian Ocean, is predicted by human populations, access to markets, and fisheries management (McClanahan et al. 2016). Second, benthic surveys provided site-level estimates of benthic composition. We estimated the site-level cover for four major habitat-forming groups (live hard coral, macroalgae, sand, and rubblerubble), and structural complexity, by averaging across replicates at each site. To understand the range of benthic habitat types across the dataset, we conducted a PCA to identify common habitat groupings (i.e. benthic regimes) (Jouffray et al. 2015). Prior to statistical modelling, we scaled and centered all continuous covariates to a mean of zero and standard deviation of one, and converted the categorical protection covariate into two dummy variables (fished - protected, fished - pristine) (Schielzeth 2010).
-
-## Statistical analyses
-***
-
-#### Biomass analysis
-
-We used linear mixed effects to model to examine variation in herbivore biomass along gradients in benthic habitat composition and fishing intensity. Benthic fixed effects were hard coral, macroalgae, sand, rubble and structural complexity, and fishing fixed effects were fishable biomass and fishing protection. Models were fitted separately for each functional feeding group for normally distributed errors, and biomass was log_10_ transformed. Parameter estimates were extracted to compare effect sizes of each explanatory covariate, and fitted relationships were visualized with model predictions that excluded random effects.
-
-#### Grazing function analysis
-
-Fish functions were defined separately for each functional feeding group, and feeding observations used to convert UVC observations to one of three grazing functions. We used a Bayesian hierarchical modelling framework that estimate species- and genera-level functional rates, which allowed us to estimate grazing for UVC species which were not observed in feeding surveys (63). For croppers, which feed on turf and other filamentous algal material, herbivory maintains turf in cropped states that are expected to be benign states for coral recruitment. Cropper function was quantified in terms of potential feeding intensity, measured as the total number of bites per hour and standardized by individual mass (REF). The predictive model accounted for species- and genera-specific bite rates:
+We defined grazing functions separately for each functional group, and used feeding observations to convert UVC observations into the total grazing potential of croppers, scrapers, and browsers. We used a Bayesian hierarchical modelling framework that estimate species- and genera-level functional rates, which allowed us to estimate grazing for UVC species which were not observed in feeding surveys (63). Cropper function was quantified in terms of potential feeding intensity, measured as the total number of bites per hour and derived from a predictive model which accounted for species- and genera-specific bite rates:
 
 $bite_rate = Gamma(\mu, \theta)$
 $log(\mu) = X + species_i + genus_j$
 
-For scrapers and excavators, 'scraping' of endolithic and detrital material exposes substrate and promotes coral recruitment. Scraping function was quantified in terms of area of substrate removed per hour. Feeding observations provided estimates of bite rates and average scar sizes (scar_area), which we modelled with species- and genera-specific grazing rates.
+We estimated the grazing rate of each cropper observed in UVCs, and used allometric relationships to convert bite rates into grams of carbon removed through EAM consumption (Marshell & Mumby 2015). From Van Rooij et al. (1998), daily carbon intake was linked to body mass as
+
+$grams carbon = 0.0342 * body mass^0.816$
+
+which we then divided by the predicted number of bites per day to produce an estimate of grams carbon consumed per minute by each cropper fish observed in UVCs. We summed estimates within each UVC survey and averaged across surveys to give site-level estimates of potential cropping function.
+
+For scrapers and excavators, we defined the potential scraping function in terms of area of substrate removed per hour. Feeding observations provided estimates of bite rates and average scar sizes (scar_area), which we modelled with species- and genera-specific grazing rates.
 
 $bite = Gamma(\mu, \theta)$
 $log(\mu) = X + B*TL + species_i + genus_j$
@@ -66,7 +61,7 @@ $log(\mu) = X + B*TL + species_i + genus_j$
 $area_removed = Normal(\mu, \sigma)$
 $\mu = X + ??$
 
-By including size (TL) as an explanatory covariate, our model accounted for body size effects, as scar sizes increased with body size (Fig. SX) and bite rates decreased with body size (Fig. SX).
+By including size (TL) as an explanatory covariate, our model accounted for body size effects, as scar sizes increased with body size (Fig. SX) and bite rates decreased with body size (Fig. SX). UVC observations were converted to area removed per minute, summed within surveys, and averaged to give site-level estimates of potential scraping function.
 
 Browsing function was quantified in terms of mass standardized bites, thereby quantifying the potential grazing impact of browsers in removing macroalgal material (Verges et al. 2012). Feeding observations provided estimates of bite rates for two genera, which we fitted as random effects:
 
@@ -76,3 +71,9 @@ $\mu = X + genus_j$
 
 Using predictions for species, genera, or average browser bite rates, we converted UVC browser observations into a mass standardized bite rate (bites *x* kg), summed browser grazing impact per survey, and averaged estimates to produce site-level estimates of browser function. 
 
+Explanatory covariates were derived from fish and benthic surveys. First, to account for fishing effects ranging from pristine Chagos reefs to heavily-exploited Seychelles reefs, we estimated total community biomass as a proxy for exploitation pressure. Fishable biomass is highly sensitive to exploitation pressure and, in the Indian Ocean, is predicted by human populations, access to markets, and fisheries management (McClanahan et al. 2016). Second, benthic surveys provided site-level estimates of benthic composition. We estimated the site-level cover for four major habitat-forming groups (live hard coral, macroalgae, sand, and rubblerubble), and structural complexity, by averaging across replicates at each site. To understand the range of benthic habitat types across the dataset, we conducted a PCA to identify common habitat groupings (i.e. benthic regimes) (Jouffray et al. 2015). Prior to statistical modelling, we scaled and centered all continuous covariates to a mean of zero and standard deviation of one, and converted the categorical protection covariate into two dummy variables (fished - protected, fished - pristine) (Schielzeth 2010).
+
+## Statistical analyses
+***
+
+We used linear mixed effects to model to examine variation in herbivore biomass and functional impact along gradients in benthic habitat composition and fishing intensity. Benthic fixed effects were hard coral, macroalgae, sand, rubble and structural complexity, and fishing fixed effects were fishable biomass and fishing protection. Models were fitted separately for each functional feeding group for normally distributed errors, and biomass was log_10_ transformed. Parameter estimates were extracted to compare effect sizes of each explanatory covariate, and fitted relationships were visualized with model predictions that excluded random effects. Finally, we estimated the potential decoupling of biomass from function by regressing biomass ~ function for each functional group and extracting the model fit. 
