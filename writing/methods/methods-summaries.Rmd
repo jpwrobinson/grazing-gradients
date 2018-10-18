@@ -66,7 +66,6 @@ By including size (TL) as an explanatory covariate, our model accounted for body
 Browsing function was quantified in terms of mass standardized bites, thereby quantifying the potential grazing impact of browsers in removing macroalgal material (Verges et al. 2012). Feeding observations provided estimates of bite rates for two genera, which we fitted as random effects:
 
 $bite = Normal(\mu, \sigma)$
-
 $\mu = X + genus_j$
 
 Using predictions for species, genera, or average browser bite rates, we converted UVC browser observations into a mass standardized bite rate (bites *x* kg), summed browser grazing impact per survey, and averaged estimates to produce site-level estimates of browser function. 
