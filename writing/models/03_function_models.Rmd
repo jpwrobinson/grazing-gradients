@@ -87,11 +87,11 @@ h <- grazers %>%
         group_by(dataset, date, reef, site, management, transect, 
                  unique.id, depth, FG,
                          hard.coral, macroalgae, rubble, substrate, complexity, fish.biom) %>%
-          summarise(cropping = sum(cropping)) %>%
+          summarise(cropping = sum(cropping), biom=sum(biomass.kgha)) %>%
   ## mean cropping across transects at each site
           group_by(dataset, date, reef, site, management, unique.id, depth, FG,
                          hard.coral, macroalgae,  rubble, substrate, complexity, fish.biom) %>%
-          summarise(cropping = mean(cropping)) 
+          summarise(cropping = mean(cropping), biom=mean(biom)) 
 
 g3<-ggplot(h, aes(reorder(reef, cropping, FUN=median), cropping, fill=dataset)) + geom_boxplot() + xlab('Reef') + ylab('kg carbon removed per day') 
 ```
@@ -100,3 +100,8 @@ g3<-ggplot(h, aes(reorder(reef, cropping, FUN=median), cropping, fill=dataset)) 
 g3 + coord_flip()
 ```
 
+As for decoupling, cropping function is strongly predicted by biomass. Is this because species turnover due to fishing and benthos is minimal? Or because species-specific differences in cropping rate are minimal? Or because we cannot accurately measure algal consumption, so we are simply converting biomass by a constant multiplier?
+
+```{r, include =T, echo= F, messages=F, warning=F,fig.cap='Figure 3: relationship between cropping function and cropper biomass', fig.height=6, fig.width=6, fig.align='center'}
+ggplot(h, aes(log10(cropping), log10(biom), col=dataset)) +geom_point() + ylab('Biomass (log10 kg/ha)') + xlab('log10 kg carbon removed per day') 
+```

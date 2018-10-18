@@ -76,7 +76,6 @@ Additional covariates to consider may be disturbance history, oceanic productivi
 <br><br>
 
 ```{r, echo=FALSE, include=TRUE, messages=FALSE, fig.cap='Figure 1: Correlation between unscaled explanatory covariates', fig.height=6, fig.width=6, fig.align='center'}
-source('../../scripts/functions/plot-cor-functions.R')
 pairs2(data.frame(h$hard.coral, h$macroalgae, h$rubble, h$substrate, h$complexity, h$management, h$fish.biom), 
        lower.panel=panel.smooth2, upper.panel = panel.cor)
 ```
