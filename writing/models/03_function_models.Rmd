@@ -1,0 +1,102 @@
+
+---
+title: "Models 3 - Herbivore function gradients"
+output:
+  html_document:
+    df_print: paged
+    fig_width: 7
+    fig_height: 6
+    fig_caption: true
+    css: style.css
+    theme: sandstone
+  html_notebook: default
+  pdf_document: default
+---
+
+```{r global_options, include=FALSE}
+knitr::opts_chunk$set(fig.pos = 'H')  ## Hold figure positions
+```
+
+#### Cropping - turf removal by small grazers
+
+```{r, include = T, message=F, echo=F}
+library(tidyverse); library(funk); library(gridExtra); library(here)
+options(scipen=999)
+#setwd(here('grazing-gradients/writing/models'))
+
+## bite predictions for each species
+grazer.bites<-read.csv('../../results/functions/grazer_bites_predicted.csv')
+
+# UVC data load
+load("../../data/wio_herb_benthic_merged.Rdata")
+grazers<-pred %>% filter(FG == 'Herbivore Grazer')
+## add genera column
+grazers$genus<-str_split_fixed(grazers$species, pattern = '\\ ', n=2)[,1]
+
+## match bite rate for each species. 
+grazers$bite.rate<-grazer.bites$median[match(grazers$species, grazer.bites$class)]
+## if species is missing, use genera
+grazers$bite.rate[is.na(grazers$bite.rate)]<-
+          grazer.bites$median[match(grazers$genus[is.na(grazers$bite.rate)], grazer.bites$class)]
+## if genera is missing, use global mean
+grazers$bite.rate[is.na(grazers$bite.rate)]<-grazer.bites$median[grazer.bites$preds == 'global.mean']
+
+## how many global means in analysis?
+t<-data.frame(table(grazers$bite.rate))
+grazer.bites$freq<-t$Freq[match(grazer.bites$median, t$Var1)]
+g1<-ggplot(grazer.bites, aes(class, freq)) + 
+        geom_bar(stat='identity', fill = 'DarkGreen') + coord_flip() +
+        labs(x = 'Prediction level', y = 'Total abundance in UVC dataset') + 
+        geom_text(aes(class, freq, label = paste(round(median,2), 'bites/min')), size=2, hjust=0) +
+        scale_x_discrete(limits = rev(levels(grazer.bites$class))) + lims(y=c(0, 12000))
+
+## how much biomass is global mean in analysis?
+t<-aggregate(biomass.kgha ~ bite.rate, grazers, sum)
+grazer.bites$freq<-t$biomass.kgha[match(grazer.bites$median, t$bite.rate)]
+g2<-ggplot(grazer.bites, aes(class, freq)) + 
+        geom_bar(stat='identity', fill = 'DarkGreen') + coord_flip() +
+        labs(x = 'Prediction level', y = 'Total biomass in UVC dataset (kg/ha)') + 
+        geom_text(aes(class, freq, label = paste(round(median,2), 'bites/min')), size=2, hjust=0) +
+        scale_x_discrete(limits = rev(levels(grazer.bites$class))) + lims(y=c(0, 30000))
+
+## what proportion biomass is global means?
+prop.global<-t$biomass.kgha[t$bite.rate == grazer.bites$median[grazer.bites$class == 'global.mean']]/sum(t$biomass.kgha)*100
+## 20.6%
+```
+
+After matching UVC species to feeding observations, we get an idea of how much abundance and biomass we can confidently assign to species and genera level bite rate estimates. Global means (i.e. no species or genera information) were required for 20 species, which together comprised 20% of biomass in the dataset. These species were in the genera Plectroglyphidodon, Pomacentrus, Stegastes, Centropyge, Dischistodus, and Chrysiptera.
+
+```{r, include =T, echo= F, messages=F, warning=F,fig.cap='Figure 1: Bite rates assigned to cropping species', fig.height=6, fig.width=6, fig.align='center'}
+theme_set(theme_sleek())
+grid.arrange(g1, g2, top = 'Prediction levels used for cropper species')
+```
+
+UVC biomass estimates were converted to kg carbon of algal material removed per day using 1) species bite rate; 2) individual mass; 3) expected algal consumption rate. Methods are outlined in [methods-summarise.Rmd](../methods-summarise.Rmd) and [02_bite-rate-models.Rmd](../models/02_bite-rate-models.Rmd).
+
+GBR reefs have exceptional grazing rates  at 2000-6000 kg C day^-1^, while other regions have lower and more consistent grazing <1000 kg C day^-1^. 
+
+```{r, include=T, echo=F}
+## now convert bite rate to algal consumption based on biomass
+grazers$g.carbon.day<-0.0342 * grazers$mass.g^0.816
+## multiply by bite rate to correct gram per min by feeding frequency, and change to kg
+grazers$cropping<-grazers$g.carbon.day/1000 * grazers$bite.rate*60*12
+
+# estimate mean total cropping function per site
+h <- grazers %>% 
+  ## sum cropping in each transect
+        group_by(dataset, date, reef, site, management, transect, 
+                 unique.id, depth, FG,
+                         hard.coral, macroalgae, rubble, substrate, complexity, fish.biom) %>%
+          summarise(cropping = sum(cropping)) %>%
+  ## mean cropping across transects at each site
+          group_by(dataset, date, reef, site, management, unique.id, depth, FG,
+                         hard.coral, macroalgae,  rubble, substrate, complexity, fish.biom) %>%
+          summarise(cropping = mean(cropping)) 
+
+g3<-ggplot(h, aes(reorder(reef, cropping, FUN=median), cropping, fill=dataset)) + geom_boxplot() + xlab('Reef') + ylab('kg carbon removed per day') 
+```
+
+```{r, include =T, echo= F, messages=F, warning=F,fig.cap='Figure 2: Variation in cropping function among reefs', fig.height=6, fig.width=6, fig.align='center'}
+g3 + coord_flip()
+```
+

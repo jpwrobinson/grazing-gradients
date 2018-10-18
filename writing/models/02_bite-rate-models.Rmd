@@ -167,9 +167,26 @@ pred.mean.genus$class <- d.pred$Genus
 pred.mean.genus$class<- factor(pred.mean.genus$class, level = rev(levels(pred.mean.genus$class)))
 pred.mean.genus$preds<-'Genus'
 
-p<-rbind(pred.mean, pred.mean.genus)
-p$col<-grazers$Genus[match(p$class, grazers$sp)]
-p$col[p$preds == 'Genus']<-grazers$Genus[match(p$class[p$preds == 'Genus'], grazers$Genus)]
+## Predictions for global mean, removing species and genus effect
+d.pred <- data.frame(Genus = 'NA', sp = 'NA', dataset = 'NA')
+a.sp.zero = matrix(0, 1000, 9)
+a.genus.zero = matrix(0, 1000, 5)
+a.dataset.zero = matrix(0, 1000, 3)
+
+link.obs.mean<-link(graze.m, n = 1000, data = as.list(d.pred), replace= list(X1= a.sp.zero, X2 = a.genus.zero, X3 = a.dataset.zero))
+pred.global<-data.frame(median = apply(link.obs.mean, 2, median))
+pred.PI<-apply(link.obs.mean, 2, PI, prob = 0.95)
+pred.global$upper<-pred.PI[2,]
+pred.global$lower<-pred.PI[1,]
+pred.global$class <- 'global.mean'
+pred.global$preds<-'global.mean'
+
+p<-rbind(pred.mean, pred.mean.genus, pred.global)
+p$col<-grazers$mean[match(p$class, grazers$sp)]
+p$col[p$preds == 'Genus']<-grazers$col[match(p$class[p$preds == 'Genus'], grazers$mean)]
+p$col[p$preds == 'Genus']<-'black'
+
+write.csv(p, file = '../../results/functions/grazer_bites_predicted.csv')
 ```
 
 ```{r,echo=FALSE,fig.align='center', fig.cap = 'Figure 5: Grazer bite rates by genera and species. Points are median posterior predictions, with 95% certainty intervals.', fig.width= 8, fig.height = 5}
@@ -183,7 +200,6 @@ ggplot(p, aes(class, median, col=col)) + geom_pointrange(aes(ymin = lower, ymax 
 <br><br>
 
 Species-level predictions are very tight, but genera have higher uncertainty (Figure 5). Interesting to see how these compare with browser estimates - from a prediction perspective, is there any benefit in separating these groups? Function is determined by bite volumes and algal specificity, so obviously need to keep functions separate.
-
 
 <br><br>
 
