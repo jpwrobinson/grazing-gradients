@@ -22,7 +22,7 @@ knitr::opts_chunk$set(fig.pos = 'H')  ## Hold figure positions
 ```{r, include = T, message=F, echo=F}
 library(tidyverse); library(funk); library(gridExtra); library(here)
 options(scipen=999)
-#setwd(here('grazing-gradients/writing/models'))
+# setwd(here('grazing-gradients/writing/models'))
 
 ## bite predictions for each species
 grazer.bites<-read.csv('../../results/functions/grazer_bites_predicted.csv')
@@ -78,22 +78,34 @@ GBR reefs have exceptional grazing rates  at 2000-6000 kg C day^-1^, while other
 ```{r, include=T, echo=F}
 ## now convert bite rate to algal consumption based on biomass
 grazers$g.carbon.day<-0.0342 * grazers$mass.g^0.816
-## multiply by bite rate to correct gram per min by feeding frequency, and change to kg
-grazers$cropping<-grazers$g.carbon.day/1000 * grazers$bite.rate*60*12
+## divide by daily bite rate to get grams carbon per bite 
+grazers$carbon.per.bite<-grazers$g.carbon.day/(grazers$bite.rate*60*12)
+## scale up to estimate grams consumed per minute
+grazers$cropping<-grazers$carbon.per.bite * grazers$bite.rate
 
 # estimate mean total cropping function per site
 h <- grazers %>% 
   ## sum cropping in each transect
         group_by(dataset, date, reef, site, management, transect, 
-                 unique.id, depth, FG,
+                 unique.id, depth, FG, transect.area,
                          hard.coral, macroalgae, rubble, substrate, complexity, fish.biom) %>%
           summarise(cropping = sum(cropping), biom=sum(biomass.kgha)) %>%
   ## mean cropping across transects at each site
-          group_by(dataset, date, reef, site, management, unique.id, depth, FG,
+          group_by(dataset, date, reef, site, management, unique.id, depth, FG, transect.area,
                          hard.coral, macroalgae,  rubble, substrate, complexity, fish.biom) %>%
-          summarise(cropping = mean(cropping), biom=mean(biom)) 
+          summarise(cropping.gram.ha = mean(cropping), biom=mean(biom)) 
 
-g3<-ggplot(h, aes(reorder(reef, cropping, FUN=median), cropping, fill=dataset)) + geom_boxplot() + xlab('Reef') + ylab('kg carbon removed per day') 
+## correct cropping to per hectare
+## for surveys = 100m2, which is when abundance.500m2 = 5
+h$cropping.gram.ha[which(h$transect.area == 100)] <- h$cropping.gram.ha[which(h$transect.area == 100)]/0.01 
+## for surveys = 250m2, which is when abundance.500m2 = 2
+h$cropping.gram.ha[which(h$transect.area == 250)] <- h$cropping.gram.ha[which(h$transect.area == 250)]/0.025 
+## for surveys = 153.9m2, which is when abundance.500m2 = 3.24806 (Seychelles)
+h$cropping.gram.ha[is.na(h$transect.area)] <- h$cropping.gram.ha[is.na(h$transect.area)]/0.01539 
+
+
+
+g3<-ggplot(h, aes(reorder(reef, cropping.gram.ha, FUN=median), cropping.gram.ha, fill=dataset)) + geom_boxplot() + xlab('Reef') + ylab('algae removed (grams/ha/minute)') 
 ```
 
 ```{r, include =T, echo= F, messages=F, warning=F,fig.cap='Figure 2: Variation in cropping function among reefs', fig.height=6, fig.width=6, fig.align='center'}
@@ -103,5 +115,8 @@ g3 + coord_flip()
 As for decoupling, cropping function is strongly predicted by biomass. Is this because species turnover due to fishing and benthos is minimal? Or because species-specific differences in cropping rate are minimal? Or because we cannot accurately measure algal consumption, so we are simply converting biomass by a constant multiplier?
 
 ```{r, include =T, echo= F, messages=F, warning=F,fig.cap='Figure 3: relationship between cropping function and cropper biomass', fig.height=6, fig.width=6, fig.align='center'}
-ggplot(h, aes(log10(cropping), log10(biom), col=dataset)) +geom_point() + ylab('Biomass (log10 kg/ha)') + xlab('log10 kg carbon removed per day') 
+ggplot(h, aes(log10(cropping.gram.ha), log10(biom), col=dataset)) +geom_point() + ylab('Biomass (log10 kg/ha)') + xlab('log10 algae removed (grams/ha/minute)') 
 ```
+
+pairs2(data.frame(h$hard.coral, h$macroalgae, h$rubble, h$substrate, h$complexity, h$management, h$fish.biom, h$cropping.gram.ha), 
+       lower.panel=panel.smooth2, upper.panel = panel.cor)
