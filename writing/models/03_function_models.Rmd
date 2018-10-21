@@ -106,6 +106,10 @@ h$cropping.gram.ha[is.na(h$transect.area)] <- h$cropping.gram.ha[is.na(h$transec
 
 
 g3<-ggplot(h, aes(reorder(reef, cropping.gram.ha, FUN=median), cropping.gram.ha, fill=dataset)) + geom_boxplot() + xlab('Reef') + ylab('algae removed (grams/ha/minute)') 
+
+g4<-ggplot(h, aes( log10(biom),log10(cropping.gram.ha), col=dataset)) +geom_point() + xlab('Biomass (log10 kg/ha)') + ylab('log10 algae removed (grams/ha/minute)') 
+
+g5<-ggplot(h, aes(biom,cropping.gram.ha, col=dataset)) +geom_point() + xlab('Biomass (kg/ha)') + ylab('algae removed (grams/ha/minute)') 
 ```
 
 ```{r, include =T, echo= F, messages=F, warning=F,fig.cap='Figure 2: Variation in cropping function among reefs', fig.height=6, fig.width=6, fig.align='center'}
@@ -115,8 +119,62 @@ g3 + coord_flip()
 As for decoupling, cropping function is strongly predicted by biomass. Is this because species turnover due to fishing and benthos is minimal? Or because species-specific differences in cropping rate are minimal? Or because we cannot accurately measure algal consumption, so we are simply converting biomass by a constant multiplier?
 
 ```{r, include =T, echo= F, messages=F, warning=F,fig.cap='Figure 3: relationship between cropping function and cropper biomass', fig.height=6, fig.width=6, fig.align='center'}
-ggplot(h, aes(log10(cropping.gram.ha), log10(biom), col=dataset)) +geom_point() + ylab('Biomass (log10 kg/ha)') + xlab('log10 algae removed (grams/ha/minute)') 
+grid.arrange(g4, g5)
 ```
 
-pairs2(data.frame(h$hard.coral, h$macroalgae, h$rubble, h$substrate, h$complexity, h$management, h$fish.biom, h$cropping.gram.ha), 
-       lower.panel=panel.smooth2, upper.panel = panel.cor)
+```{r, include=F}
+pairs2(data.frame(h$hard.coral, h$macroalgae, h$rubble, h$substrate, h$complexity, h$management, h$fish.biom, h$cropping.gram.ha), lower.panel=panel.smooth2, upper.panel = panel.cor)
+```
+
+
+#### Browsing - macroalgal removal
+
+```{r, include = T, message=F, echo=F}
+library(tidyverse); library(funk); library(gridExtra); library(here)
+options(scipen=999)
+# setwd(here('grazing-gradients/writing/models'))
+
+## bite predictions for each species
+browser.bites<-read.csv('../../results/functions/browser_bites_predicted.csv')
+
+# UVC data load
+load("../../data/wio_herb_benthic_merged.Rdata")
+grazers<-pred %>% filter(FG == 'Herbivore Browser')
+## add genera column
+grazers$genus<-str_split_fixed(grazers$species, pattern = '\\ ', n=2)[,1]
+
+## match bite rate for each species. 
+grazers$bite.rate<-browser.bites$median[match(grazers$species, browser.bites$class)]
+## if species is missing, use genera
+grazers$bite.rate[is.na(grazers$bite.rate)]<-
+          browser.bites$median[match(grazers$genus[is.na(grazers$bite.rate)], browser.bites$class)]
+## if genera is missing, use global mean
+grazers$bite.rate[is.na(grazers$bite.rate)]<-browser.bites$median[browser.bites$preds == 'global.mean']
+
+## how many global means in analysis?
+t<-data.frame(table(grazers$bite.rate))
+browser.bites$freq<-t$Freq[match(browser.bites$median, t$Var1)]
+g1<-ggplot(browser.bites, aes(class, freq)) + 
+        geom_bar(stat='identity', fill = 'DarkGreen') + coord_flip() +
+        labs(x = 'Prediction level', y = 'Total abundance in UVC dataset') + 
+        geom_text(aes(class, freq, label = paste(round(median,2), 'bites/min')), size=2, hjust=0) +
+        scale_x_discrete(limits = rev(levels(browser.bites$class))) + lims(y=c(0, 3000))
+
+## how much biomass is global mean in analysis?
+t<-aggregate(biomass.kgha ~ bite.rate, grazers, sum)
+browser.bites$freq<-t$biomass.kgha[match(browser.bites$median, t$bite.rate)]
+g2<-ggplot(browser.bites, aes(class, freq)) + 
+        geom_bar(stat='identity', fill = 'DarkGreen') + coord_flip() +
+        labs(x = 'Prediction level', y = 'Total biomass in UVC dataset (kg/ha)') + 
+        geom_text(aes(class, freq, label = paste(round(median,2), 'bites/min')), size=2, hjust=0) +
+        scale_x_discrete(limits = rev(levels(browser.bites$class))) + lims(y=c(0, 40000))
+
+## what proportion biomass is global means?
+prop.global<-t$biomass.kgha[t$bite.rate == browser.bites$median[browser.bites$class == 'global.mean']]/sum(t$biomass.kgha)*100
+## 44.0%
+```
+
+```{r, include =T, echo= F, messages=F, warning=F,fig.cap='Figure 4: Bite rates assigned to browsing species', fig.height=6, fig.width=6, fig.align='center'}
+theme_set(theme_sleek())
+grid.arrange(g1, g2, top = 'Prediction levels used for browser species')
+```
