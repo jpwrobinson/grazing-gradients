@@ -78,8 +78,10 @@ GBR reefs have exceptional grazing rates  at 2000-6000 kg C day^-1^, while other
 ```{r, include=T, echo=F}
 ## now convert bite rate to algal consumption based on biomass
 grazers$g.carbon.day<-0.0342 * grazers$mass.g^0.816
+## now convert bite rate to total bites per day
+grazers$daily.bites<-grazers$bite.rate*60*12
 ## divide by daily bite rate to get grams carbon per bite 
-grazers$carbon.per.bite<-grazers$g.carbon.day/(grazers$bite.rate*60*12)
+grazers$carbon.per.bite<-grazers$g.carbon.day/(grazers$daily.bites)
 ## scale up to estimate grams consumed per minute
 grazers$cropping<-grazers$carbon.per.bite * grazers$bite.rate
 
@@ -102,7 +104,6 @@ h$cropping.gram.ha[which(h$transect.area == 100)] <- h$cropping.gram.ha[which(h$
 h$cropping.gram.ha[which(h$transect.area == 250)] <- h$cropping.gram.ha[which(h$transect.area == 250)]/0.025 
 ## for surveys = 153.9m2, which is when abundance.500m2 = 3.24806 (Seychelles)
 h$cropping.gram.ha[is.na(h$transect.area)] <- h$cropping.gram.ha[is.na(h$transect.area)]/0.01539 
-
 
 
 g3<-ggplot(h, aes(reorder(reef, cropping.gram.ha, FUN=median), cropping.gram.ha, fill=dataset)) + geom_boxplot() + xlab('Reef') + ylab('algae removed (grams/ha/minute)') 
@@ -129,6 +130,8 @@ pairs2(data.frame(h$hard.coral, h$macroalgae, h$rubble, h$substrate, h$complexit
 
 #### Browsing - macroalgal removal
 
+Browser bite rates were derived from 2 species in 2 genera. As such, most UVC species were assigned global mean bite rate estimates (Figure 4). However, by biomass, species in the Naso genus accounted for the majority of bite rates, and were assigned genera-level bite rate estimates. ```r, prop.global```% of biomass was assigned global bite rates.
+
 ```{r, include = T, message=F, echo=F}
 library(tidyverse); library(funk); library(gridExtra); library(here)
 options(scipen=999)
@@ -139,20 +142,20 @@ browser.bites<-read.csv('../../results/functions/browser_bites_predicted.csv')
 
 # UVC data load
 load("../../data/wio_herb_benthic_merged.Rdata")
-grazers<-pred %>% filter(FG == 'Herbivore Browser')
+browsers<-pred %>% filter(FG == 'Herbivore Browser')
 ## add genera column
-grazers$genus<-str_split_fixed(grazers$species, pattern = '\\ ', n=2)[,1]
+browsers$genus<-str_split_fixed(browsers$species, pattern = '\\ ', n=2)[,1]
 
 ## match bite rate for each species. 
-grazers$bite.rate<-browser.bites$median[match(grazers$species, browser.bites$class)]
+browsers$bite.rate<-browser.bites$median[match(browsers$species, browser.bites$class)]
 ## if species is missing, use genera
-grazers$bite.rate[is.na(grazers$bite.rate)]<-
-          browser.bites$median[match(grazers$genus[is.na(grazers$bite.rate)], browser.bites$class)]
+browsers$bite.rate[is.na(browsers$bite.rate)]<-
+          browser.bites$median[match(browsers$genus[is.na(browsers$bite.rate)], browser.bites$class)]
 ## if genera is missing, use global mean
-grazers$bite.rate[is.na(grazers$bite.rate)]<-browser.bites$median[browser.bites$preds == 'global.mean']
+browsers$bite.rate[is.na(browsers$bite.rate)]<-browser.bites$median[browser.bites$preds == 'global.mean']
 
 ## how many global means in analysis?
-t<-data.frame(table(grazers$bite.rate))
+t<-data.frame(table(browsers$bite.rate))
 browser.bites$freq<-t$Freq[match(browser.bites$median, t$Var1)]
 g1<-ggplot(browser.bites, aes(class, freq)) + 
         geom_bar(stat='identity', fill = 'DarkGreen') + coord_flip() +
@@ -161,7 +164,7 @@ g1<-ggplot(browser.bites, aes(class, freq)) +
         scale_x_discrete(limits = rev(levels(browser.bites$class))) + lims(y=c(0, 3000))
 
 ## how much biomass is global mean in analysis?
-t<-aggregate(biomass.kgha ~ bite.rate, grazers, sum)
+t<-aggregate(biomass.kgha ~ bite.rate, browsers, sum)
 browser.bites$freq<-t$biomass.kgha[match(browser.bites$median, t$bite.rate)]
 g2<-ggplot(browser.bites, aes(class, freq)) + 
         geom_bar(stat='identity', fill = 'DarkGreen') + coord_flip() +
@@ -177,4 +180,49 @@ prop.global<-t$biomass.kgha[t$bite.rate == browser.bites$median[browser.bites$cl
 ```{r, include =T, echo= F, messages=F, warning=F,fig.cap='Figure 4: Bite rates assigned to browsing species', fig.height=6, fig.width=6, fig.align='center'}
 theme_set(theme_sleek())
 grid.arrange(g1, g2, top = 'Prediction levels used for browser species')
+```
+
+UVC biomass estimates were converted to mass standardized bite rates (Bellwood et al. 2006, Bennet & Bellwood 2011, Verges et al. 2012) using 1) species bite rate and 2) individual mass (kg). However, because >90% of dataset biomass is assigned a bite rate ~10 bites/min, this means that mass standardized bite rates just represents 10*biomass. So, biomass and function are (almost) perfectly correlated.
+
+We can't really measure this relationship without more browsing feeding information, particularly on siganids (rabbitfish) and platax (batfish) which are unrepresented as genera. Especially important to get siganid info. as these are high biomass at Seychelles macroalgal sites and not really detected anywhere else - implications for browsing function after bleaching. 
+
+
+```{r, include=T, echo=F}
+## now convert bite rate to mass standardized bite rates
+browsers$browsing<-browsers$bite.rate * (browsers$mass.g/1000)
+
+# estimate mean total browsing function per site
+h <- browsers %>% 
+  ## sum browsing in each transect
+        group_by(dataset, date, reef, site, management, transect, 
+                 unique.id, depth, FG, transect.area,
+                         hard.coral, macroalgae, rubble, substrate, complexity, fish.biom) %>%
+          summarise(browsing = sum(browsing), biom=sum(biomass.kgha)) %>%
+  ## mean browsing across transects at each site
+          group_by(dataset, date, reef, site, management, unique.id, depth, FG, transect.area,
+                         hard.coral, macroalgae,  rubble, substrate, complexity, fish.biom) %>%
+          summarise(browsing = mean(browsing), biom=mean(biom)) 
+
+## correct browsing to per hectare
+## for surveys = 100m2, which is when abundance.500m2 = 5
+h$browsing[which(h$transect.area == 100)] <- h$browsing[which(h$transect.area == 100)]/0.01 
+## for surveys = 250m2, which is when abundance.500m2 = 2
+h$browsing[which(h$transect.area == 250)] <- h$browsing[which(h$transect.area == 250)]/0.025 
+## for surveys = 153.9m2, which is when abundance.500m2 = 3.24806 (Seychelles)
+h$browsing[is.na(h$transect.area)] <- h$browsing[is.na(h$transect.area)]/0.01539 
+
+
+g3<-ggplot(h, aes(reorder(reef, browsing, FUN=median), browsing, fill=dataset)) + geom_boxplot() + xlab('Reef') + ylab('mass-standardized bite rates (bites * kg per minute per ha)') 
+
+g4<-ggplot(h, aes( log10(biom),log10(browsing), col=dataset)) +geom_point() + xlab('Biomass (log10 kg/ha)') + ylab('log10 bites * kg per minute') 
+
+g5<-ggplot(h, aes(biom, browsing, col=dataset)) +geom_point() + xlab('Biomass (kg/ha)') + ylab('mass-standardized bites (bites * kg per minute per ha)') + xlim(c(0,500)) + ylim(c(0, 5000))
+```
+
+```{r, include =T, echo= F, messages=F, warning=F,fig.cap='Figure 5: Variation in browsing function among reefs', fig.height=6, fig.width=6, fig.align='center'}
+g3 + coord_flip()
+```
+
+```{r, include =T, echo= F, messages=F, warning=F,fig.cap='Figure 6: relationship between browsing function and browser biomass', fig.height=6, fig.width=6, fig.align='center'}
+grid.arrange(g4, g5)
 ```
