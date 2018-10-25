@@ -1,5 +1,26 @@
 # grazing-gradients
 
+## Grazing functions - update
+
+I've applied current best practice for estimating cropping and browsing functions. We are waiting on Andy Hoey for bite size data but I think he's in the field just now. Just to summarise what's going on:
+
+Cropper bite rates do not scale with body size, but we expect bite volume to increase with body mass. Marshell & Mumby (2015, J. Exp. Mar. Biol.) estimated algal consumption according to the energy requirements of herbivorous fish, which they took from a 1998 study of Caribbean fish and algal food quality (van Rooij et al. J. Fish. Biol.). Basically, cropping function can be worked out by:
+
+1. predict daily algal consumption for a fish of given mass
+2. scale up the hourly bite rate up to estimate number of bites in one day
+3. estimate the algae consumed per bite
+4. estimate the algae consumed per hour per hectare, given the observed bite rate
+
+If you do this, cropping function is pretty much predicted by biomass, and bite rate information doesn't add much information to grazing function. But this is best practice - so it will be good to demonstrate why in situ feeding observations are really important.
+
+For browsers, we don't have good information on nutritional quality of macroalgae. Best practice here is to estimate the mass standardized bite rate (Bellwood in several papers). This is just bite rate * body mass. Because we have very little species-level information on browser bites rates, this ends up with a very tight relationship between biomass and browsing function. Again, highlights the need for in situ feeding studies in different locations.
+
+I expect the scraper function analysis will be strongest. This function is most well-studied, and we have feeding observations for 24 out of 27 observed species already.
+
+Compile [03_function_models.Rmd](writing/models/03_function_models.Rmd) to see the figures behind this update.
+
+***
+
 ## Referencing with Rmarkdown
 
 We can use bibtex files and csl style files to generate reference lists in an R markdown document. Every reference software can export a bibtex library that contains unique 'citekeys' - we'll export our grazing-gradient library from Mendeley and keep the bibtex file in this repo.
