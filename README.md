@@ -1,6 +1,6 @@
 # grazing-gradients
 
-## Grazing functions - update
+## Grazing functions - update 25th Oct 2018
 
 I've applied current best practice for estimating cropping and browsing functions. We are waiting on Andy Hoey for bite size data but I think he's in the field just now. Just to summarise what's going on:
 
