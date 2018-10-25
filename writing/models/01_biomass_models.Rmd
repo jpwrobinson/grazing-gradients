@@ -25,7 +25,8 @@ knitr::opts_chunk$set(fig.pos = 'H')  ## Hold figure positions
 ```{r, echo=FALSE, include=FALSE, messages=FALSE}
 
 # package loads
-library(ggplot2); library(visreg); library(lme4); library(dplyr); library(tidyr); library(scales); library(sjPlot); library(gridExtra)
+library(ggplot2); library(visreg); library(lme4); library(dplyr); library(tidyr); library(scales); library(sjPlot); library(gridExtra); 
+library(funk)
 theme_set(theme_bw())
 
 ## labelling function
@@ -134,6 +135,9 @@ m.grazer<-lmer(grazerlog10 ~ hard.coral + macroalgae + rubble + substrate + comp
           (1 | dataset/reef) , ## random, nested = reefs within datasets
                 data = h)
 #print(summary(m.grazer),  digits = 2, signif.stars = FALSE)
+
+save(m.grazer, file = '../../results/models/biomass_m.grazers.Rdata')
+
 ```
 
 ```{r, echo=FALSE, include=TRUE, messages=FALSE, fig.align = 'center', fig.cap='Figure 2: Grazer model diagnostics - residuals and fitted values'}
@@ -343,6 +347,7 @@ m.browser<-lmer(browserlog10 ~ hard.coral + macroalgae + complexity + rubble + s
           (1 | dataset/reef) , ## random, nested = reefs within datasets
                 data = h)
 print(summary(m.browser),  digits = 2, signif.stars = FALSE)
+save(m.browser, file = '../../results/models/biomass_m.browsers.Rdata')
 ```
 
 ```{r, echo=FALSE, include=TRUE, messages=FALSE, fig.align = 'center', fig.cap='Figure 5: Browser model diagnostics - residuals and fitted values'}
@@ -546,6 +551,8 @@ m.scraper<-lmer(scraperlog10 ~ hard.coral + macroalgae + complexity + rubble + s
           (1 | dataset/reef) , ## random, nested = reefs within datasets
                 data = h)
 print(summary(m.scraper),  digits = 2, signif.stars = FALSE)
+
+save(m.scraper, file = '../../results/models/biomass_m.scrapers.Rdata')
 ```
 
 ```{r, echo=FALSE, include=TRUE, messages=FALSE, fig.align = 'center', fig.cap='Figure 8: Scraper model diagnostics - residuals and fitted values'}
@@ -609,6 +616,7 @@ nd$macroalgae <- 0; nd$hard.coral <-0; nd$rubble <- 0; nd$complexity <- 0
 p.substrate<-predict(object=m.scraper, newdata = nd, re.form=NA)
 
 
+save(cont.pred.master, file = '../../results/models/biomass_m.predictions.Rdata')
 ```
 
 
@@ -703,6 +711,8 @@ nd<-nd[c(3,1,2),]
 
 ## 2. predict scraper biomass for fishing biomass gradient
 fish.master$p.fish<-predict(object=m.scraper, newdata = fish.master, re.form=NA)
+
+save(fish.master, file = '../../results/models/biomass_fishing.effect.predictions.Rdata')
 ```
 
 * Pristine reefs have the highest scraper biomass, at ```r round(10^nd$p.fish[nd$categories=='Pristine'], 0)``` kg/ha.
@@ -777,7 +787,14 @@ grid.arrange(g1, g2, g3, nrow = 1, ncol=3)
 
 #### Figure 2
 
-fig 2 chunk in here
+```{r, include =T, echo = F, messages=F, fig.caption = 'Figure 12. Biomass model results: a. Relative effect sizes of each FG. b. macroalgae. c.available substrate. d. fishable biomass.', fig.width = 12, fig.height = 4, fig.align = 'center'}
+
+
+#panel 1: relative effect sizes of each FG
+
+
+
+```
 
 #### Results paragraph 1
 
