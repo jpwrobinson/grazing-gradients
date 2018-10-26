@@ -1,4 +1,7 @@
 
+
+pdf(file = "figure 2. 4 panels.pdf", 10, 7)
+
 ## load models and predictions
 
 load("~/git_repos/grazing-gradients/results/models/biomass_m.browsers.Rdata")
@@ -65,4 +68,6 @@ add_label(0.01, 0.1, font = 2, label ='Fishable biomass')
 mtext(2, text= 'Biomass (log10 kg/ha)', outer=TRUE, line=0.5)
 
 print(g4, vp=vp.BottomRight)
+
+dev.off()
 
