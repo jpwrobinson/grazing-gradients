@@ -123,6 +123,41 @@ As for decoupling, cropping function is strongly predicted by biomass. Is this b
 grid.arrange(g4, g5)
 ```
 
+What about grazers where we have good feeding information? Global means are assigned to >50% of individuals, and 1/3 of UVC biomass. We can drop the global mean estimates to assess whether grazing function *would* decouple from biomass, when species information is resolved.
+
+```{r, include=T, echo=F, fig.cap='Figure ??: biomass and function relationship for grazers with bite rate data', fig.height=6, fig.width=6, fig.align='center'}
+
+grazers$class<-grazer.bites$class[match(grazers$bite.rate,grazer.bites$median)]
+
+# estimate mean total cropping function per site
+h <- grazers %>% 
+  ## filter for bite rate data
+  filter(class != 'global.mean') %>%
+  ## sum cropping in each transect
+        group_by(dataset, date, reef, site, management, transect, 
+                 unique.id, depth, FG, transect.area,
+                         hard.coral, macroalgae, rubble, substrate, complexity, fish.biom) %>%
+          summarise(cropping = sum(cropping), biom=sum(biomass.kgha)) %>%
+  ## mean cropping across transects at each site
+          group_by(dataset, date, reef, site, management, unique.id, depth, FG, transect.area,
+                         hard.coral, macroalgae,  rubble, substrate, complexity, fish.biom) %>%
+          summarise(cropping.gram.ha = mean(cropping), biom=mean(biom)) 
+
+## correct cropping to per hectare
+## for surveys = 100m2, which is when abundance.500m2 = 5
+h$cropping.gram.ha[which(h$transect.area == 100)] <- h$cropping.gram.ha[which(h$transect.area == 100)]/0.01 
+## for surveys = 250m2, which is when abundance.500m2 = 2
+h$cropping.gram.ha[which(h$transect.area == 250)] <- h$cropping.gram.ha[which(h$transect.area == 250)]/0.025 
+## for surveys = 153.9m2, which is when abundance.500m2 = 3.24806 (Seychelles)
+h$cropping.gram.ha[is.na(h$transect.area)] <- h$cropping.gram.ha[is.na(h$transect.area)]/0.01539 
+
+g4<-ggplot(h, aes( log10(biom),log10(cropping.gram.ha), col=dataset)) +geom_point() + xlab('Biomass (log10 kg/ha)') + ylab('log10 algae removed (grams/ha/minute)') 
+
+g5<-ggplot(h, aes(biom,cropping.gram.ha, col=dataset)) +geom_point() + xlab('Biomass (kg/ha)') + ylab('algae removed (grams/ha/minute)') 
+
+grid.arrange(g4, g5, nrow=2)
+```
+
 ```{r, include=F}
 pairs2(data.frame(h$hard.coral, h$macroalgae, h$rubble, h$substrate, h$complexity, h$management, h$fish.biom, h$cropping.gram.ha), lower.panel=panel.smooth2, upper.panel = panel.cor)
 ```
