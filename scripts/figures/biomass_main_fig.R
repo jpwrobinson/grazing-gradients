@@ -1,6 +1,6 @@
 
 
-pdf(file = "figure 2. 4 panels.pdf", 10, 7)
+pdf(file = "figures/final/figure2_panels.pdf", 10, 7)
 
 ## load models and predictions
 
@@ -12,7 +12,9 @@ load("~/git_repos/grazing-gradients/results/models/biomass_m.predictions.Rdata")
 
 require(gridExtra)
 library(grid)
-
+library(lme4)
+library(sjPlot)
+library(tidyverse)
 
 
 #####################################################################
