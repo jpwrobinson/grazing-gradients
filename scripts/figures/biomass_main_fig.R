@@ -1,6 +1,6 @@
 
 
-pdf(file = "figures/final/figure2_panels.pdf", 10, 7)
+pdf(file = "scripts/figures/figure2_panels.pdf", 10, 7)
 
 ## load models and predictions
 
@@ -56,14 +56,14 @@ cont.pred.master<-data.frame(hard.coral = seq(min(h$hard.coral), max(h$hard.cora
 #Macroalgae
 nd.b<-cont.pred.master
 ## set non-focal benthic covariates to 0
-nd.b$hard.coral <- 0; nd$complexity <-0; nd$rubble <- 0; nd$substrate <- 0
+nd.b$hard.coral <- 0; nd.b$complexity <-0; nd.b$rubble <- 0; nd.b$substrate <- 0
 p.algae.b<-predict(object=m.browser, newdata = nd.b, re.form=NA)
 
 
 #substrate
 nd.b<-cont.pred.master
 ## set non-focal benthic covariates to 0
-nd.b$macroalgae <- 0; nd$hard.coral <-0; nd$rubble <- 0; nd$complexity <- 0
+nd.b$macroalgae <- 0; nd.b$hard.coral <-0; nd.b$rubble <- 0; nd.b$complexity <- 0
 p.substrate.b<-predict(object=m.browser, newdata = nd.b, re.form=NA)
 
 
@@ -204,3 +204,6 @@ g4
 #bring in all figs in 1 pannel
 
 grid.arrange(g1, g2, g3, g4)
+
+dev.off()
+
