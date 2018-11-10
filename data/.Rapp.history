@@ -1,2 +1,0 @@
-load("/Users/robins64/Documents/git_repos/grazing-gradients/data/wio_gbr_herb_master.Rdata")
-head(herb)

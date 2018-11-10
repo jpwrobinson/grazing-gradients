@@ -269,6 +269,10 @@ mtext(2, text= 'Biomass (log10 kg/ha)', outer=TRUE, line=0.5)
 
 * Hard coral has the weakest effect on grazer biomass, which increased from ```r round(10^p.coral[1], 0)``` kg/ha at 0% cover to ```r round(10^p.coral[30], 0)``` kg/ha at ```r round(max(pred$hard.coral), 0)``` % cover.
 
+* Rubble has a moderate effect on grazer biomass, which increased from ```r round(10^p.rubble[1], 0)``` kg/ha at 0% cover to ```r round(10^p.rubble[30], 0)``` kg/ha at ```r round(max(pred$rubble), 0)``` % cover.
+
+* Available substrate has a strong effect on grazer biomass, which declined from ```r round(10^p.substrate[1], 0)``` kg/ha at 0 % available substrate to ```r round(10^p.substrate[30], 0)``` kg/ha at ```r round(max(pred$substrate), 0)```  % available substrate.
+
 \newpage
 
 ### Fishing effects
@@ -308,7 +312,7 @@ fish.master$p.fish<-predict(object=m.grazer, newdata = fish.master, re.form=NA)
 
 * Protected and fished reefs have similar biomass levels, at ```r round(10^nd$p.fish[nd$categories=='Protected'], 0)``` kg/ha on protected reefs and ```r round(10^nd$p.fish[nd$categories=='Fished'], 0)``` kg/ha on fished reefs.
 
-* As expected, grazer biomass increases with fishable biomass
+* As expected, grazer biomass increases with fishable biomass.
 
 <br><br>
 
@@ -469,9 +473,13 @@ mtext(2, text= 'Biomass (log10 kg/ha)', outer=TRUE, line=0.5)
 
 * Hard coral has the strongest effect on browser biomass, which declined from ```r round(10^p.coral[1], 0)```(52) kg/ha at 0% cover to ```r round(10^p.coral[30], 0)``` (27)kg/ha at ```r round(max(pred$hard.coral), 0)```(92) % cover.
 
-* Macroalgae has a moderate effect on browser biomass, which increased from ```r round(10^p.algae[1], 0)``` kg/ha at 0 complexity to ```r round(10^p.algae[30], 0)``` kg/ha at ```r round(max(pred$macroalgae), 0)```  %cover.
+* Macroalgae has a moderate effect on browser biomass, which increased from ```r round(10^p.algae[1], 0)``` kg/ha at 0 complexity to ```r round(10^p.algae[30], 0)``` kg/ha at ```r round(max(pred$macroalgae), 0)```  % cover.
 
-* Complexity has the weakest effect on browser biomass, which increased from ```r round(10^p.complex[1], 0)``` kg/ha at 0% cover to ```r round(10^p.complex[30], 0)``` kg/ha at ```r round(max(pred$complexity), 0)``` complexity.
+* Rubble has a strong effect on browser biomass, which declined from ```r round(10^p.rubble[1], 0)``` kg/ha at 0% cover to ```r round(10^p.rubble[30], 0)``` kg/ha at ```r round(max(pred$rubble), 0)``` % cover.
+
+* Complexity has the strongest effect on browser biomass, which increased from ```r round(10^p.complex[1], 0)``` kg/ha at 0 complexity to ```r round(10^p.complex[30], 0)``` kg/ha at ```r round(max(pred$complexity), 0)```  complexity.
+
+* Available substrate has a moderate effect on browser biomass, which declined from ```r round(10^p.substrate[1], 0)``` kg/ha at 0 % available substrate to ```r round(10^p.substrate[30], 0)``` kg/ha at ```r round(max(pred$substrate), 0)```  % available substrate.
 
 \newpage
 
@@ -678,6 +686,7 @@ mtext(2, text= 'Biomass (log10 kg/ha)', outer=TRUE, line=0.5)
 
 * Complexity has the strongest effect on scraper biomass, which increased from ```r round(10^p.complex[1], 0)``` kg/ha at 0 complexity to ```r round(10^p.complex[30], 0)``` kg/ha at ```r round(max(pred$complexity), 0)```  complexity.
 
+* Available substrate has a strong effect on scraper biomass, which increased from ```r round(10^p.substrate[1], 0)``` kg/ha at 0 % available substrate to ```r round(10^p.substrate[30], 0)``` kg/ha at ```r round(max(pred$substrate), 0)```  % available substrate.
 
 \newpage
 
@@ -798,6 +807,14 @@ grid.arrange(g1, g2, g3, nrow = 1, ncol=3)
 
 #### Results paragraph 1
 
-results text in here
+Our fitted generalised linear mixed model showed differentiating effects for each functional group.
+
+Increasing cover of macroalgae (Fig. 2a) negatively affected biomasses of both herbivore grazers and scrapers, while it slightly elevated that of browsers. Grazer biomass declined from 59 kg/ha at 0% cover to 26 kg/ha at 51 % cover and scraper biomass declined from 265 kg/ha at 0% macroalgae cover to 216 kg/ha at 51 % cover. Browser biomass increased from 47 kg/ha at 0 % macroalgae cover to 66 kg/ha at 51 % cover.
+
+Increasing cover of available substrate (Fig.2b) positively affected herbivore grazers and scrapers, while it negatively affected brower biomass. Grazer biomass increased from 41 kg/ha at 0 % available substrate to 120 kg/ha at 88 % available substrate and scraper biomass increased from 205 kg/ha at 0 % available substrate to 469 kg/ha at 88 % available substrate. Browser biomass declined from 57 kg/ha at 0 % available substrate to 33 kg/ha at 88 % available substrate.
+
+As biomasses of grazers, scrapers, and browsers increased, so did the fishable biomass (Fig. 2c) of each group. This effect was strongly pronounced for browsers, while that for grazers and scrapers was comparable.
+
+Effect sizes (Fig. 2d) expectedly also varied across the three functional groups. Herbivore grazers...
 
 ----
