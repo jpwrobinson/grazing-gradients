@@ -728,7 +728,7 @@ save(fish.master, file = '../../results/models/biomass_fishing.effect.prediction
 
 * Protected reefs have a scraper biomass of ```r round(10^nd$p.fish[nd$categories=='Protected'], 0)``` kg/ha while fished reefs show a scraper biomass of ```r round(10^nd$p.fish[nd$categories=='Fished'], 0)``` kg/ha.
 
-* As expected, scraper biomass increases with fishable biomass
+* Fishable biomass for scrapers ranges from ```r round(range(fish.master$p.fish[fish.master$model == 'grazers']), digits =0) ``` 
 
 <br><br>
 
@@ -813,8 +813,8 @@ Increasing cover of macroalgae (Fig. 2a) negatively affected biomasses of both h
 
 Increasing cover of available substrate (Fig.2b) positively affected herbivore grazers and scrapers, while it negatively affected brower biomass. Grazer biomass increased from 41 kg/ha at 0 % available substrate to 120 kg/ha at 88 % available substrate and scraper biomass increased from 205 kg/ha at 0 % available substrate to 469 kg/ha at 88 % available substrate. Browser biomass declined from 57 kg/ha at 0 % available substrate to 33 kg/ha at 88 % available substrate.
 
-As biomasses of grazers, scrapers, and browsers increased, so did the fishable biomass (Fig. 2c) of each group. This effect was strongly pronounced for browsers, while that for grazers and scrapers was comparable.
+As biomasses of grazers, scrapers, and browsers increased, so did the fishable biomass (Fig. 2c) of each group. This effect was strongly pronounced for browsers, while that for grazers and scrapers was comparable. Grazer biomass increased from 52 kg/ha to 120 kg/ha and scraper biomass increased from 222 kg/ha to 1582 kg/ha across the fishable biomass gradient. Browser biomass increased from 44 kg/ha to 134 kg/ha across the fishable biomass gradient.
 
-Effect sizes (Fig. 2d) expectedly also varied across the three functional groups. Herbivore grazers...
+Effect sizes (Fig. 2d) expectedly also varied between the three functional groups. The order in which predictors are mentioned is according to the effect size from strongest to weakest. Grazer biomass was positively affected by pristine reefs, available substrate, fishable biomass, structural complexity, and rubble cover. Macroalgae cover, fished reefs, and hard coral cover negatively affected grazer biomass. Scraper biomass was positively affected by pristine reefs, fishable biomass, available substrate, structural complexity, and rubble cover. Fished reefs, macroalgae cover, and hard coral cover negatively affected scraper biomass. Browser biomass was positively affected by pristine reefs, structural complexity, and rubble cover. Fished reefs, Macroalgae cover, and hard coral cover negatively affected browser biomass.
 
 ----
