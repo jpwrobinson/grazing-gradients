@@ -1,4 +1,6 @@
 
+library(here)
+setwd(here('grazing-gradients'))
 
 pdf(file = "figures/figure2_panels.pdf", width=15, height=4)
 
@@ -17,6 +19,9 @@ library(sjPlot)
 library(tidyverse)
 library(cowplot)
 library(ggplot2)
+library(funk)
+library(scales)
+
 
 ## organize data to make 1st 2 panels for macroalgae and substrate#########
 
@@ -59,6 +64,10 @@ h$pristine.dummy<-ifelse(h$management=='Unfished', 1, 0)
 h$grazerlog10<-log10(h$grazer+1)
 h$scraperlog10<-log10(h$scraper +1)
 h$browserlog10<-log10(h$browser+1)
+
+## ------------------------------------------------ ##
+      ## Now model predictions for covariates of interest ##
+## ------------------------------------------------ ##
 
 #####################################################################
 #GRAZERS
@@ -137,26 +146,10 @@ p.substrate.s<-predict(object=m.scraper, newdata = nd.s, re.form=NA)
 
 
 
-#########################################################################
-##########################################################
-################################
-#### Make effect size panel and next 2 panels for macroalgae and substrate
 
-
-#Panel 1: relative effect sizes of each FG (merged pic )
-
-labs<-data.frame(lab=c('Hard coral', 'Macroalgae', 'Rubble', 'Available substrate', 'Complexity', 'Fishable biomass', 'Fished',   'Pristine'),
-                 model=c('hard.coral', 'macroalgae', 'rubble', 'substrate','complexity', 'fish.biom', 'fish.dummy', 'pristine.dummy'))
-
-## extract correct order of names according to increasing parameter estimate size
-od<-sort(fixef(m.grazer), decreasing=T)
-od<-od[-which(names(od) == '(Intercept)')]
-
-g1 <- plot_models(m.scraper, m.grazer, m.browser, legend.title = "", 
-                  m.labels=c("Grazer", "Scraper", "Browser"),
-                  axis.labels = rev(labs$lab[match(names(od), labs$model)])) +
-          theme(legend.position=c(0.6, 0.4)) 
-
+## ------------------------------------------------ ##
+  #### Make 2 panels for macroalgae and substrate
+## ------------------------------------------------ ##
 
 #Panel 2: macroalgae
 p.algae.g <- as.data.frame(p.algae.g)
@@ -176,15 +169,6 @@ colnames(p.algae.s)[1] <- "y"
 p.algae <- rbind(p.algae.g, p.algae.b, p.algae.s)
 p.algae <- cbind(p.algae, cont.pred.master$macroalgae)
 colnames(p.algae)[3] <- "x"
-
-
-g2 <- ggplot(p.algae, aes(x, y, group=model, color = model)) + 
-        geom_line() + 
-        labs(title = "") +
-        guides(col=F) +
-        xlab("Macroalgae (%)") + ylab("Log10 Biomass (kg/ha)")
-
-
 
 
 #Panel 3: available substrate
@@ -207,17 +191,9 @@ p.substrate <- cbind(p.substrate, cont.pred.master$substrate)
 colnames(p.substrate)[3] <- "x"
 
 
-g3 <- ggplot(p.substrate, aes(x, y, group=model, color = model)) + 
-        geom_line() + 
-        labs(title = "") +
-        guides(col=F) +
-        xlab("Available substrate") + ylab("")
-
-
-
-###############################
-############### arrange fishable biomass data for last panel
-#Panel 4: fishable biomass
+## ------------------------------------------------ ##
+## arrange fishable biomass data for last panel 4: fishable biomass ##
+## ------------------------------------------------ ##
 
 # we need a new prediction data frame for the fishing effects, which are categorical.
 ## Let's use expand.grid to get all combinations of fishing variables, holding benthic covariates to 0
@@ -243,26 +219,81 @@ fish.master.b$p.fish<-predict(object=m.browser, newdata = fish.master.b, re.form
 fish.master.s$p.fish<-predict(object=m.scraper, newdata = fish.master.s, re.form=NA)
 
 
-fish.master.g$model <- "grazer"
-fish.master.b$model <- "browser"
-fish.master.s$model <- "scraper"
+fish.master.g$model <- "grazers"
+fish.master.b$model <- "browsers"
+fish.master.s$model <- "scrapers"
 
-fish.master <- rbind(fish.master.b, fish.master.g, fish.master.s)
+fish.master <- rbind(fish.master.g, fish.master.b, fish.master.s)
 colnames(fish.master)[8] <- "x"
 colnames(fish.master)[9] <- "y"
 
-#### plot all the models on one graph 
+## -------------- ## ## -------------- ## ## -------------- ## ## -------------- ##
+          ## ------------ NOW PLOTTING FIGURES -------------- ## 
+## -------------- ## ## -------------- ## ## -------------- ## ## -------------- ##
+
+## setup formatting information
+
+linewidth = 4
+pal <- wesanderson::wes_palette("Zissou1", 21, type = "continuous")
+cols<-c(pal[5], pal[12], pal[18])
+cols.named<-c('grazers' = pal[5], 'scrapers' = pal[12], 'browsers' = pal[18])
+theme_set(theme_sleek())
+
+## axis units
+ma.lab<-data.frame(labels = round(seq(min(pred$macroalgae), max(pred$macroalgae), length.out=5), 0),
+                    breaks = seq(min(h$macroalgae), max(h$macroalgae), length.out=5))
+substrate.lab<-data.frame(labels = round(seq(min(pred$substrate), max(pred$substrate), length.out=5), 0),
+                    breaks = seq(min(h$substrate), max(h$substrate), length.out=5))
+fishable.lab<-data.frame(labels = round(seq(min(pred$fish.biom), max(pred$fish.biom), length.out=5), 0),
+                    breaks = seq(min(h$fish.biom), max(h$fish.biom), length.out=5))
+
+
+#Panel 1: relative effect sizes of each FG (merged pic )
+
+labs<-data.frame(lab=c('Hard coral', 'Macroalgae', 'Rubble', 'Available substrate', 'Complexity', 'Fishable biomass', 'Fished',   'Pristine'),
+                 model=c('hard.coral', 'macroalgae', 'rubble', 'substrate','complexity', 'fish.biom', 'fish.dummy', 'pristine.dummy'))
+
+## extract correct order of names according to increasing parameter estimate size
+od<-sort(fixef(m.scraper), decreasing=T)
+od<-od[-which(names(od) == '(Intercept)')]
+
+## careful here for legend: colours defined by order of models, but other panels is defined by alphabetical order
+g1 <- plot_models(m.grazer, m.scraper, m.browser, legend.title = "", 
+                  m.labels=c("Grazer", "Scraper", "Browser"), 
+                  colors=cols) +
+                  #axis.labels = rev(labs$lab[match(names(od), labs$model)])) +
+          theme(legend.position=c(0.7, 0.4)) 
+
+
+g2 <- ggplot(p.algae, aes(x, y,  color = factor(model))) + 
+        geom_line(size=linewidth) + 
+        labs(title = "") +
+        scale_color_manual(values = cols.named) +
+        scale_x_continuous(breaks = ma.lab$breaks, labels = ma.lab$labels) +
+        guides(col=F) +
+        xlab("Macroalgae (%)") + ylab("Log10 Biomass (kg/ha)") 
+
+
+
+g3 <- ggplot(p.substrate, aes(x, y, group=model, color = model)) + 
+        geom_line(size=linewidth) + 
+        labs(title = "") +
+        scale_color_manual(values = cols.named) +
+        guides(col=F) +
+        scale_x_continuous(breaks = substrate.lab$breaks, labels = substrate.lab$labels) +
+        xlab("Available substrate (%)") + ylab("")
+
 
 g4 <- ggplot(fish.master, aes(x, y, group=model, color = model)) + 
-        geom_line() + 
+        geom_line(size=linewidth) + 
         labs(title = "") +
+        scale_color_manual(values = cols.named) +
+        scale_x_continuous(breaks = fishable.lab$breaks, labels = comma(fishable.lab$labels)) +
         guides(col=F) +
         xlab("Fishable biomass (kg/ha)") + ylab("")
 
-
-
-
-###############
+## ------------------------------------------------ ##
+#### plot all the models on one graph 
 #bring in all figs in 1 pannel
 
 #grid.arrange(g1, g2, g3, g4)
@@ -271,4 +302,8 @@ g4 <- ggplot(fish.master, aes(x, y, group=model, color = model)) +
 plot_grid(g2, g3, g4, g1, nrow =1, labels=c('a', 'b', 'c', 'd'))
 
 dev.off()
+
+## ------------------------------------------------ ##
+
+# END
 
