@@ -76,6 +76,7 @@ UVC biomass estimates were converted to kg carbon of algal material removed per 
 GBR reefs have exceptional grazing rates  at 2000-6000 kg C day^-1^, while other regions have lower and more consistent grazing <1000 kg C day^-1^. 
 
 ```{r, include=T, echo=F}
+
 ## now convert bite rate to algal consumption based on biomass
 grazers$g.carbon.day<-0.0342 * grazers$mass.g^0.816
 ## now convert bite rate to total bites per day
@@ -105,6 +106,7 @@ h$cropping.gram.ha[which(h$transect.area == 250)] <- h$cropping.gram.ha[which(h$
 ## for surveys = 153.9m2, which is when abundance.500m2 = 3.24806 (Seychelles)
 h$cropping.gram.ha[is.na(h$transect.area)] <- h$cropping.gram.ha[is.na(h$transect.area)]/0.01539 
 
+save(h, file = '../../results/models/cropper_function.Rdata')
 
 g3<-ggplot(h, aes(reorder(reef, cropping.gram.ha, FUN=median), cropping.gram.ha, fill=dataset)) + geom_boxplot() + xlab('Reef') + ylab('algae removed (grams/ha/minute)') 
 
@@ -150,6 +152,8 @@ h$cropping.gram.ha[which(h$transect.area == 100)] <- h$cropping.gram.ha[which(h$
 h$cropping.gram.ha[which(h$transect.area == 250)] <- h$cropping.gram.ha[which(h$transect.area == 250)]/0.025 
 ## for surveys = 153.9m2, which is when abundance.500m2 = 3.24806 (Seychelles)
 h$cropping.gram.ha[is.na(h$transect.area)] <- h$cropping.gram.ha[is.na(h$transect.area)]/0.01539 
+
+save(h, file = '../../results/models/cropper_function_subset.Rdata')
 
 g4<-ggplot(h, aes( log10(biom),log10(cropping.gram.ha), col=dataset)) +geom_point() + xlab('Biomass (log10 kg/ha)') + ylab('log10 algae removed (grams/ha/minute)') 
 
@@ -246,6 +250,7 @@ h$browsing[which(h$transect.area == 250)] <- h$browsing[which(h$transect.area ==
 ## for surveys = 153.9m2, which is when abundance.500m2 = 3.24806 (Seychelles)
 h$browsing[is.na(h$transect.area)] <- h$browsing[is.na(h$transect.area)]/0.01539 
 
+save(h, file = '../../results/models/browser_function.Rdata')
 
 g3<-ggplot(h, aes(reorder(reef, browsing, FUN=median), browsing, fill=dataset)) + geom_boxplot() + xlab('Reef') + ylab('mass-standardized bite rates (bites * kg per minute per ha)') 
 
