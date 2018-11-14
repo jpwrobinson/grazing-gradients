@@ -65,6 +65,15 @@ h$grazerlog10<-log10(h$grazer+1)
 h$scraperlog10<-log10(h$scraper +1)
 h$browserlog10<-log10(h$browser+1)
 
+## get mean reef values for overlaying figure points
+h.means<-h %>% group_by(dataset, reef) %>% 
+  summarise(browser=mean(browserlog10), grazer=mean(grazerlog10), scraper=mean(scraperlog10), hard.coral=mean(hard.coral),
+            macroalgae=mean(macroalgae), rubble=mean(rubble), 
+            substrate=mean(substrate), complexity=mean(complexity), fish.biom=mean(fish.biom)) %>%
+  gather(FG, biom, -dataset, -reef, -hard.coral, -macroalgae, -rubble, -substrate, -complexity, -fish.biom) %>%
+  mutate(FG = fct_recode(FG, "grazers" = "grazer", 'browsers' = 'browser', 'scrapers'='scraper'))
+
+
 ## ------------------------------------------------ ##
       ## Now model predictions for covariates of interest ##
 ## ------------------------------------------------ ##
@@ -262,21 +271,23 @@ g1 <- plot_models(m.grazer, m.scraper, m.browser, legend.title = "",
                   m.labels=c("Grazer", "Scraper", "Browser"), 
                   colors=cols) +
                   #axis.labels = rev(labs$lab[match(names(od), labs$model)])) +
-          theme(legend.position=c(0.7, 0.4)) 
+          theme(legend.position=c(0.7, 0.4))
 
 
 g2 <- ggplot(p.algae, aes(x, y,  color = factor(model))) + 
         geom_line(size=linewidth) + 
+        #geom_point(data=h.means, aes(macroalgae, biom, color=FG), alpha=0.2, size=2) +
         labs(title = "") +
         scale_color_manual(values = cols.named) +
         scale_x_continuous(breaks = ma.lab$breaks, labels = ma.lab$labels) +
         guides(col=F) +
-        xlab("Macroalgae (%)") + ylab("Log10 Biomass (kg/ha)") 
+        xlab("Macroalgae (%)") + ylab(expression(paste("log"[10], " biomass (kg ", "ha"^-1,")"))) 
 
 
 
-g3 <- ggplot(p.substrate, aes(x, y, group=model, color = model)) + 
+g3 <- ggplot(p.substrate, aes(x, y, color = model)) + 
         geom_line(size=linewidth) + 
+        #geom_point(data=h.means, aes(substrate, biom, color=FG), alpha=0.2, size=2) +
         labs(title = "") +
         scale_color_manual(values = cols.named) +
         guides(col=F) +
@@ -284,13 +295,14 @@ g3 <- ggplot(p.substrate, aes(x, y, group=model, color = model)) +
         xlab("Available substrate (%)") + ylab("")
 
 
-g4 <- ggplot(fish.master, aes(x, y, group=model, color = model)) + 
+g4 <- ggplot(fish.master, aes(x, y, color = model)) + 
         geom_line(size=linewidth) + 
+        #geom_point(data=h.means, aes(fish.biom, biom, color=FG), alpha=0.2, size=2) +
         labs(title = "") +
         scale_color_manual(values = cols.named) +
         scale_x_continuous(breaks = fishable.lab$breaks, labels = comma(fishable.lab$labels)) +
         guides(col=F) +
-        xlab("Fishable biomass (kg/ha)") + ylab("")
+        xlab(expression(paste("Fishable biomass (kg ", "ha"^-1,")"))) + ylab("")
 
 ## ------------------------------------------------ ##
 #### plot all the models on one graph 
