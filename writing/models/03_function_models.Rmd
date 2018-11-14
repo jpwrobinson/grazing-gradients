@@ -266,3 +266,36 @@ g3 + coord_flip()
 ```{r, include =T, echo= F, messages=F, warning=F,fig.cap='Figure 6: relationship between browsing function and browser biomass', fig.height=6, fig.width=6, fig.align='center'}
 grid.arrange(g4, g5)
 ```
+
+
+#### Statistical models
+
+Fitting linear models to raw function ~ biomass data. Departure from linearity allows us to assess degree of decoupling, with outliers (i.e. residuals) and random effects (dataset) allowing us to measure where decoupling might occur. 
+
+```{r, include=T, echo=F, message=F, warning=F,fig.cap='Figure 7: decoupling from residual analysis: cropper and browser', fig.height=5, fig.width=8, fig.align='center'}
+load(file = '../../results/models/cropper_function.Rdata')
+library(lme4)
+m.graze<-lmer(cropping.gram.ha ~ biom + (1 | dataset), h)
+h$resid<-resid(m.graze)
+g1<-ggplot(h, aes(biom, resid, col=dataset)) + 
+      geom_point() + 
+      guides(col=FALSE) +
+      labs(x = 'Biomass kg/ha', y = 'Deviation from grazing function', main='Cropper') +
+      annotate(500, 1.8, geom='text', label='More algal removal') +
+      annotate(500, -1.2, geom='text', label='Less algal removal') 
+
+
+load(file = '../../results/models/browser_function.Rdata')
+
+m.browse<-lmer(browsing ~ biom + (1 | dataset), h)
+h$resid<-resid(m.browse)
+
+g2<-ggplot(h, aes(biom, resid, col=dataset)) + 
+      geom_point() + 
+      guides(col=FALSE) +
+      labs(x = 'Biomass kg/ha', y = 'Deviation from grazing function', main='Browser') +
+      annotate(1500, 120, geom='text', label='More algal removal') +
+      annotate(1500, -200, geom='text', label='Less algal removal') 
+
+grid.arrange(g1, g2, nrow=1)
+```
