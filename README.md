@@ -1,5 +1,18 @@
 # grazing-gradients
 
+
+
+## Meeting 7 - 14th November 2018
+
+Items to discuss:
+
+* reef habitat: slope, flat, depth may be confounding analyses
+* Figure 1: map with biomass? (see Roff et al. 2018, Ecol. Monogr.)
+* Figure 3: decoupling
+* Introduction + study framing
+* Results
+* Writing strategy 
+
 ## Grazing functions - update 25th Oct 2018
 
 I've applied current best practice for estimating cropping and browsing functions. We are waiting on Andy Hoey for bite size data but I think he's in the field just now. Just to summarise what's going on:
