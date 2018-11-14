@@ -11,11 +11,14 @@ Authors:
 
 Affiliations: 
 
+1. LEC
+2. UC Stanford
+
 ```{r, echo=F, include=T, message=F}
 library(knitcitations); library(bibtex); library(citr)	
 ```
 
-#### Introduction
+## Introduction
 
 Species have certain functions that do good things, such as this and that. But functions are difficult to measure, often requiring small-scale, data-intensive approaches that quantify both individual behaviours and population sizes. Given that anthropogenic pressures are degrading and changing ecosystem functions over large spatial scales, there is a critical need to assess how functional approaches can be applied at a macroecological extent.
 
@@ -24,26 +27,116 @@ Species have certain functions that do good things, such as this and that. But f
 <!-- Good points, thanks Jamie. Like you say, I think the opener should be about herbivory ~ habitat effects, harvesting by humans, and regime shifts. Then show our understanding of herbivory functions tend to be small scale functional ecology, but that these patterns (harvesting, habitat change) play out at macroscales. Thus, there is a need to combined functional ecology and macroecology. Similar intro to a new paper in Global Ecol. & Biogeogr (Longo et al. 2018, 'Trophic interactions...'), have a look.-->
 
 
-​	On tropical coral reefs, top-down control of algae and promotion of calcifying coral taxa are key functions primarily performed by herbivorous fishes [@Bellwood2004], REF). Several decades of feeding observations indicate that herbivorous fishes are comprised of three main functional roles defined by their feeding morphology and behaviours: cropping, scraping and browsing [@Bellwood1990, @Polunin1995, @Green2009]. Cropping species graze filamentous turf algae and promote coral settlement and growth by maintaining cropped algal states (REF) <!-- Arnold et al. 2010 MEPS "Running the gauntlet: inhibitory effects of algal turfs on the processes of coral recruitment" -->. Scraping parrotfish graze dead coral substrate to consume detritus and endolithial material, with larger species further defined as excavators, targeting live coral and removing larger portions of hard substrate [@Bonaldo2014, @Russ2015]. Browsing species are macroalgal specialists, thus less directly linked to coral dominance, but feed on established fleshy algal taxa [@Chong-Seng2014], potentially reverting macroalgal-dominated to coral-dominated states [@Bellwood2006]. Combined, these three grazing functions performed are considered essential for providing resistance to chronic background stressors and the maintenance of coral-dominated states [@Bellwood2004].
+​	On tropical coral reefs, top-down control of algae and promotion of calcifying coral taxa are key functions primarily performed by herbivorous fishes [@Bellwood2004], REF). Several decades of feeding observations indicate that herbivorous fishes are comprised of three main functional roles defined by their feeding morphology and behaviours: cropping, scraping and browsing [@Bellwood1990, @Polunin1995, @Green2009]. Cropping species graze filamentous turf algae and promote coral settlement and growth by maintaining cropped algal states [@Arnold2010]. Scraping parrotfish graze dead coral substrate to consume detritus and endolithial material, with larger species further defined as excavators, targeting live coral and removing larger portions of hard substrate [@Bonaldo2014, @Russ2015]. Browsing species are macroalgal specialists, thus less directly linked to coral dominance, but feed on established fleshy algal taxa [@Chong-Seng2014], potentially reverting macroalgal-dominated to coral-dominated states [@Bellwood2006]. Combined, these three grazing functions performed are considered essential for providing resistance to chronic background stressors and the maintenance of coral-dominated states [@Bellwood2004].
 
 These different herbivore functional groups and thus their functions, are controlled by both benthic habitat changes and top down fishing pressure. Because algae can proliferate in the absence of grazing pressure [@Mumby2006a, @Burkepile2008], correlative analyses of fished reef ecosystems have identified grazing biomass thresholds below which reefs become algae dominated [@Graham2015, @Jouffray2015, @Robinson2018]. As herbivore populations are overexploited across the tropics [@Edwards2013], it is therefore implied that grazing functions are comprimised on inhabited reefs. However, fishing effects can be compounded by bottom-up structuring of herbivore assemblages [@Russ2015], whereby differences in habitat associations among individual taxa cause herbivore populations to vary among neigbouring habitat types <!-- i find this part of this sentence here confusing but i'm not sure how to change it -->[@Doropoulos2013] and reorganize in response to changes in benthic composition [@Gilmour2013]. For example, cropper and scraper biomass is maximised on reefs with intact coral architecture [@Heenan2016], but also on reefs with high availability of algal material and dead coral substrate [@Wilson2006, @Gilmour2013, @Robinson2018]. Grazing biomass of browsing species varies among reef zones of coral-dominated habitats [@Hoey2013] and, in seaweed habitats, shifts predictably with macroalgal density [@Hoey2011, @Robinson2018]. Thus, herbivore assemblage structure is mediated by both habitat composition and fishing intensity. Consequently, to understand how functional feeding groups are distributed at larger scales, such as across reef regions, we must disentangle bottom-up processes from disrupting anthropogenic influences such as fishing. This analysis could then be used to infer constraints on grazing function under different scenarios of habitat degradation and fishing pressure.
-
-<!-- I think for the above paragraph the topic sentence doesn't illustrate what the rest of the paragraph is talking about. The rest of the paragraph talks more about different factors that structure these different herbivore groups: primarily bottom up habitat forces and top down fishing forces. I would put the first two sentences as the last sentences for the first paragraph, and then add a new sentence maybe something like: These different herbivore functional groups and thus their functions, are controlled by both benthic habitat changes and top down fishing pressure. Because the first paragraph is talking about top down control of algae. -->
-
-<!-- Done. Good points -->
 
 	Patterns in herbivore biomass are widely used to imply changes in herbivore functioning on coral reefs [@Nash2015, @Robinson2018]. However, biomass data overlooks size- and species-specific differences in feeding roles (REF), and can be improved by integrating information on feeding rates to estimate grazing processes [@Bellwood1990, @Bellwood2003]. For example, habitat-mediated shifts in the structure of parrotfish assemblages correspond to shifts in rates of bioerosion, turf grazing, and coral predation [@Hoey2008], while high sediment loads can suppress feeding activity of grazers [@Goatley2012, @Goatley2016]. Because feeding rates scale allometrically with body size [@Lokrantz2008, @Nash2013], the functional role provided by larger individuals is disproportionately larger [@Bonaldo2008]. Thus, grazing function is even more susceptible to fishing pressure as larger individuals and species are highly vulnerable when fishing is size selective [@Edwards2013, @Taylor2014]. In the Indo-Pacific, exploitation of scraping and excavating parrotfish has been linked to declines in bioerosion rates [@Bellwood2003, @Bellwood2011), although grazing functions of smaller cropper and browser species do not appear to be impacted by fishing (REF). For these species, habitat effects on functioning may supersede fishing, but these effects have not been tested together.
 
 ​	Accounting for size- and species-differences in grazing rates can improve correlative models of grazing, benthic community composition, and fishing [@Mumby2006a, @Steneck2018], because benthic habitat effects (bottom-up) or fishing effects (top-down) can influence species composition and size structure. Therefore, biomass may be a poor proxy for functioning, particularly if habitat change or fishing alters herbivore biomass distributions and cause biomass ~ function relationships to become decoupled. Decoupling may be particularly problematic for large-scale correlative analyses that encompass diverse reefs with substantial variation in fishing intensity and habitat composition. Despite the critical role of herbivory in shaping reef condition (REF), the direction and strength of biomass ~ function relationships under different habitat and fishing pressure remains unmeasured. 
 
-	Here, we combine underwater visual census (UVC) data with herbivore feeding observations to assess the relationship between herbivory, benthic habitat and fishing intensity across coral reefs in the Indo-Pacific. We ask the questions 1) how does fishing pressure and benthic composition influence herbivore biomass across the three functional groups (i.e. croppers, scrapers, browsers?), 2) how well does herbivore biomass predict grazing function? and 3) does fishing pressure and benthic composition alter the relationship between herbivore biomass and function? We hypothesize X and Y. This large spatial scale analysis uses UVC data that was collected at reefs in four Indo-Pacific regions, spanning a benthic gradient from coral to macroalgal dominance and a fishing gradient spanning X-Y fishable biomass. Surveyed reefs include habitats that experienced macroalgal regime shifts after climate-driven coral bleaching [@Graham2015], and range in exploitation intensity from open-access fisheries to marine protected areas and near-pristine wilderness areas [@Graham2014]. We fitted linear mixed effects models to examine variation in the biomass of three major functional feeding groups (grazers <!-- croppers? --> , scrapers, browsers) along benthic and fishing gradients. By converting grazer biomass to three grazing functions (turf grazing intensity, bioerosion, macroalgal consumption) and refitting biomass predictive model structures, we assess potential decoupling of biomass from grazing function.
+	Here, we combine underwater visual census (UVC) data with herbivore feeding observations to assess the relationship between herbivory, benthic habitat and fishing intensity across coral reefs in the Indo-Pacific. We ask the questions 1) how does fishing pressure and benthic composition influence herbivore biomass across three major functional feeding groups (croppers, scrapers, browsers), 2) how well does herbivore biomass predict grazing function? and 3) does fishing pressure and benthic composition alter the relationship between herbivore biomass and function? We hypothesize X and Y. This large spatial scale analysis uses UVC data that was collected at reefs in four Indo-Pacific regions, spanning a benthic gradient from coral to macroalgal dominance and a fishing gradient spanning X-Y fishable biomass. Surveyed reefs include habitats that experienced macroalgal regime shifts after climate-driven coral bleaching [@Graham2015], and range in exploitation intensity from open-access fisheries to marine protected areas and near-pristine wilderness areas [@Graham2014]. We fitted linear mixed effects models to examine variation in the biomass of three major functional feeding groups (grazers <!-- croppers? --> , scrapers, browsers) along benthic and fishing gradients. By converting grazer biomass to three grazing functions (turf grazing intensity, bioerosion, macroalgal consumption) and refitting biomass predictive model structures, we assess potential decoupling of biomass from grazing function.
 
 <!-- I added questions based off the introduction issue, but feel free to take out or modify. I think it would be good to put our hypotheses here as well! Maybe we could discuss these in a meeting? I also feel feel like we should emphasize more what is novel about this paper: large spatial scale? grazing functions? -->
 
 <!-- Yes, definitely - I'm thinking macroecology meets functional ecology...how is it done now? (bellwood scraper papers), can we apply it to entire grazing communities? (probably not, but here's a first go). Let's get everyone on a meeting once I have the scraper function data -->
 
+***
 
+## Methods
 
+***
+
+#### Survey methods
+
+Fish surveys were point counts of 7 m radius (Seychelles) or belt transects of 50 m length (Maldives, Chagos, GBR) conducted on hard-bottom reef habitat at 8-10 m depth. Surveys were designed to minimize diver avoidance or attraction. In point counts, large mobile species were censused before smaller reef-dwelling species. In belt transects, large mobile fish were surveyed in one direction for a 5 m transect width, and small site-attached species were recorded in the opposite direction for a 2 m transect width. For both survey types, all diurnal, non-crypic (>8cm) reef-associated fish were counted and sized to the nearest centimetre (total length, TL). TL measurements were calibrated by estimating the length of sections of PVC pipe and comparing it to their known length prior to data collection each day. All fish sizes (total length, cm) were then converted to body mass (grams) using published length ~ weight relationships (Froese & Pauly 2017), and standardized by survey area to give species-level biomass estimates that were comparable across datasets (kg hectare^-1^). 
+
+Following fish surveys, benthic habitat composition was surveyed with 50 m line transects. Benthos composition was recorded by identifying the benthic taxa directly under the transect line at 50 cm intervals. Taxa were grouped into broad functional groups (e.g. CCA, macroalgae, turf algae) and, if they were hard corals, identified to genus level. The structural complexity of the reef was visually estimated on a six-point scale, ranging from 0 (no vertical relief) to 5 (complex habitat with caves and overhangs) [@Polunin1993], which correlates strongly with a range of other methods for capturing the structural complexity of coral reefs [@Wilson2007]. Observation error and bias were minimized because one observer (NAJG) performed all surveys, except for benthic surveys in Seychelles (SW). Although we combined two UVC methods to estimate fish biomass, point counts and belt transects give comparable biomass estimates [@Samoilys2000].
+
+<br><br>
+
+#### Region details [put in supplementary?]
+
+In Seychelles, 21 reefs were surveyed in 2008, 2014, and 2017 on two inhabited islands (Mahe, Praslin) (REF relevant Graham paper here). Surveys were conducted on the reef slope at 9-12m depth, and stratified to include carbonate fringing reefs, granitic rocky reefs with coral growth, and patch reef habitats on a sand, rubble, or rock base (Fig MAP). Surveys were repeated for either 8 (2008) or 16 (2011, 2014, 2017) replicates at each reef, which were located at least 15m away from each other. To ensure that survey effort was comparable among Seychelles reefs, we only considered surveys from the first 8 replicates (per site per survey year).  Overall, the surveys covered up to 0.5km of reef front and 2,500m^2^ of reef habitat, including 672 point counts over 4 surveyed years. Reefs were categorised by their exploitation status, with 9 sites in small protected areas and 12 sites supporting artisanal fisheries.
+
+In Australia, five reefs were surveyed on the central Great Barrier Reef in 2010 and 2011 (Wheeler, Davies, Rib, Trunk, John Brewer) [@Graham2011]. Reefs were stratified to include 3 wave exposed and 3 wave sheltered locations (6 per reef), which were further divided into reef slope (7-9m depth), reef crest (2-3m depth), and reef flat (100m distance from crest). Each location and habitat type was surveyed with four replicate transects. We used data for surveys conducted on the reef slope, which produced a dataset of 24 transects per reef and 120 transects in total. All reefs were categorised as protected from fishing, as herbivore species are not commonly targeted by GBR fisheries [@Graham2011].
+
+<!--is it reasonable to include crest and flat locations? Other regions are reef slope. Also a depth issue--->
+
+<!-- You're right, I don't think it's reasonable - should talk about that in the next meeting. --->
+
+In Chagos archipelago, 25 reefs were surveyed on four uninhabited atolls in 2010 (Fig MAP). Surveys were stratified to include sheltered (9) and exposed (9) habitats, and four replicate transects were conducted at each site, resulting in 100 total transects. All reefs were categorised as pristine.
+
+<!-- Need wave exposure details for Diego Garcia and Peros Banhos ---->
+
+In Maldives, 11 reefs were surveyed on one atoll (Huvadhoo) in 2013. Surveys were conducted on the reef slope for 4 replicates per reef, resulting in 44 total transects.
+
+<br><br>
+
+#### Herbivore feeding observations
+
+Feeding observations of Indo-Pacific herbivores provided species-level estimates on bite rates and, for scrapers, bite volumes. Surveys were conducted in the Red Sea (AH), Indonesia (AH), and GBR (AH and AGL). We only analysed feeding observations for species observed in the UVC dataset (39). For each observed fish, we estimated the average feeding rate (bites per minute). For scrapers, we also estimated the average bite scar size. We define an individuals' functional impact by its feeding intensity (bite rate) but, by using in situ feeding observations that track fish forays, our approach accounts for variation in feeding frequency (the timing and distance of feeding forays) [@Nash2013]. 
+
+<br><br>
+
+#### Ecological variable processing
+
+Herbivore species were categorised as croppers, scrapers and excavators, or browsers according to published diet observations (Froese & Pauly 2017) and observations of feeding behaviours [@Green2009]. Croppers were defined as species feeding primarily on turf algae (REF), scraper and excavator species fed primarily on exposed coral substrate (REF), and browsers fed primarily on established macroalgae (REF) (Table S1). Fish biomass estimates were averaged across replicates at each site to give the total biomass (kg ha^-1^) of each functional feeding group (grazers, scrapers, browsers), and these estimates formed the basis of all subsequent analyses.
+
+<!--- Croppers replacing grazers needs to be mentioned ealier --->
+
+We defined grazing functions separately for each functional group, and used feeding observations to convert UVC observations into the total grazing potential of croppers, scrapers, and browsers. We used a Bayesian hierarchical modelling framework that estimate species- and genera-level functional rates, which allowed us to estimate grazing for UVC species which were not observed in feeding surveys (63). Cropper function was quantified in terms of potential feeding intensity, measured as the total number of bites per minute and derived from a predictive model which accounted for species- and genera-specific bite rates:
+
+$bite_rate = Gamma(\mu, \theta)$
+$log(\mu) = X + species_i + genus_j$
+
+We estimated the grazing rate of each cropper observed in UVCs, and used allometric relationships to convert bite rates into grams of carbon removed through EAM consumption [@Marshell2015]. From Van Rooij et al. [@VanRooij1998], daily carbon intake was linked to body mass as
+
+$grams carbon = 0.0342 * body mass^0.816$
+
+which we then divided by the predicted number of bites per day to produce an estimate of grams carbon consumed per minute by each cropper fish observed in UVCs. We summed estimates within each UVC survey and averaged across surveys to give site-level estimates of potential cropping function.
+
+For scrapers and excavators, we defined the potential scraping function in terms of area of substrate removed per hour. Feeding observations provided estimates of bite rates and average scar sizes (scar_area), which we modelled with species- and genera-specific grazing rates.
+
+$bite = Gamma(\mu, \theta)$
+$log(\mu) = A + B*TL + species_i + genus_j$
+
+$scar.size = Gamma(\mu, \theta)$
+$log(\mu) = A + B*TL + species_i + genus_j$
+
+$area.removed = Normal(\mu, \sigma)$
+$\mu = A + ??$
+
+By including size (TL) as an explanatory covariate, our model accounted for body size effects, as scar sizes increased with body size (Fig. SX) and bite rates decreased with body size (Fig. SX). UVC observations were converted to area removed per minute, summed within surveys, and averaged to give site-level estimates of potential scraping function.
+
+Browsing function was quantified in terms of mass standardized bites, thereby quantifying the potential grazing impact of browsers in removing macroalgal material [@Verges2012]. Feeding observations provided estimates of bite rates for two genera, which we fitted as random effects:
+
+$bite = Normal(\mu, \sigma)$
+$\mu = A + genus_j$
+
+Using predictions for species, genera, or average browser bite rates, we converted UVC browser observations into a mass standardized bite rate (bites *x* kg), summed browser grazing impact per survey, and averaged estimates to produce site-level estimates of browser function. 
+
+Explanatory covariates were derived from fish and benthic surveys. First, to account for fishing effects ranging from pristine Chagos reefs to heavily-exploited Seychelles reefs, we estimated total community biomass as a proxy for exploitation pressure. Fishable biomass is highly sensitive to exploitation pressure and, in the Indian Ocean, is predicted by human populations, access to markets, and fisheries management [@McClanahan2016]. Reefs were also assigned a categorical fishing pressure covariate to distinguish between protected, exploited, and pristine reefs. Second, benthic surveys provided site-level estimates of benthic composition. We estimated the site-level cover for four major habitat-forming groups (live hard coral, macroalgae, sand, and rubblerubble), and structural complexity, by averaging across replicates at each site. To understand the range of benthic habitat types across the dataset, we conducted a PCA to identify common habitat groupings (i.e. benthic regimes) [@Jouffray2015]. Prior to statistical modelling, we scaled and centered all continuous covariates to a mean of zero and standard deviation of one, and converted the categorical protection covariate into two dummy variables (fished - protected, fished - pristine) [@Schielzeth2010].
+
+<br><br>
+
+#### Statistical analyses
+***
+
+We used linear mixed effects to model to examine variation in herbivore biomass and functional impact along gradients in benthic habitat composition and fishing intensity. Benthic fixed effects were hard coral, macroalgae, sand, rubble and structural complexity, and fishing fixed effects were fishable biomass and fishing protection (pristine/fished and fished/protected). Potential covariance among reefs in the same dataset and year was modelled using random intercept terms. Models were fitted separately for each functional feeding group for normally distributed errors ($\epsilon$) and $log_{10}$ biomass, for each observation $i$ in each year $j$ and dataset $k$:
+
+$$
+\begin{aligned}
+biomass_{ijk} = A + B*hardcoral_{ijk} + C*macroalgae_{ijk} + D*sand_{ijk} + E*rubble_{ijk} + F*complexity_{ijk} \\
++ G*fishablebiomass_{ijk} + H*pristine.fished_{ijk} + I*fished.protected_{ijk} + year_j + dataset_k + \epsilon_{ijk}
+\end{aligned}
+$$
+
+Parameter estimates were extracted to compare effect sizes of each explanatory covariate, and fitted relationships were visualized with model predictions that excluded random effects. Model diagnostics were assessed for normality using residual plots. 
+
+Finally, we estimated the potential decoupling of biomass from function by fitting a linear mixed effects model of biomass ~ function for each functional group, with random intercepts for dataset. We ensured that our decoupling analysis was robust to missing bite rate data by refitting biomass ~ function models after subsetting the biomass data to species observed in feeding observations.
+
+<br><br>
 
 ***
 
