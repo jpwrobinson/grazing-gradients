@@ -1,17 +1,17 @@
 # grazing-gradients
 
-
+Manuscript: https://docs.google.com/document/d/1tb6VC_f5-vY-EGtT6cK-yS3qhgAKeosXyyYHGxyzNtA/edit?usp=sharing
 
 ## Meeting 7 - 14th November 2018
 
 Items to discuss:
 
-* reef habitat: slope, flat, depth may be confounding analyses
-* Figure 1: map with biomass? (see Roff et al. 2018, Ecol. Monogr.)
-* Figure 3: decoupling
+* reef habitat: slope, flat, depth may be confounding analyses [REMOVE GBR NON-SLOPE]
+* Figure 1: map with biomass? (see Roff et al. 2018, Ecol. Monogr.) [YES]
+* Figure 3: decoupling [YES]
 * Introduction + study framing
-* Results
-* Writing strategy 
+* Results [ALL GOOD]
+* Writing strategy [GOOGLE DOCS]
 
 ## Grazing functions - update 25th Oct 2018
 
