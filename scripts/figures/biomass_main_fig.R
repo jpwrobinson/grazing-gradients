@@ -2,8 +2,6 @@
 library(here)
 setwd(here('grazing-gradients'))
 
-pdf(file = "figures/figure2_panels.pdf", width=15, height=4)
-
 ## load models and predictions
 
 load("results/models/biomass_m.browsers.Rdata")
@@ -88,6 +86,12 @@ cont.pred.master<-data.frame(hard.coral = seq(min(h$hard.coral), max(h$hard.cora
                              fish.biom = 0,
                              fish.dummy = 0, pristine.dummy=0)
 
+## coral
+nd.g<-cont.pred.master
+## set non-focal benthic covariates to 0
+nd.g$macroalgae <- 0; nd.g$complexity <-0; nd.g$rubble <- 0; nd.g$substrate <- 0
+p.coral.g<-predict(object=m.grazer, newdata = nd.g, re.form=NA)
+
 #macroalgae
 nd.g<-cont.pred.master
 ## set non-focal benthic covariates to 0
@@ -100,7 +104,17 @@ nd.g<-cont.pred.master
 nd.g$macroalgae <- 0; nd.g$hard.coral <-0; nd.g$rubble <- 0; nd.g$complexity <- 0
 p.substrate.g<-predict(object=m.grazer, newdata = nd.g, re.form=NA)
 
-#fishable biomass
+## Complexity
+nd.g<-cont.pred.master
+## set non-focal benthic covariates to 0
+nd.g$macroalgae <- 0; nd.g$hard.coral <-0; nd.g$rubble <- 0; nd.g$substrate <- 0
+p.complexity.g<-predict(object=m.grazer, newdata = nd.g, re.form=NA)
+
+## Rubble
+nd.g<-cont.pred.master
+## set non-focal benthic covariates to 0
+nd.g$macroalgae <- 0; nd.g$hard.coral <-0; nd.g$complexity <- 0; nd.g$substrate <- 0
+p.rubble.g<-predict(object=m.grazer, newdata = nd.g, re.form=NA)
 
 
 #####################################################################
@@ -113,6 +127,13 @@ cont.pred.master<-data.frame(hard.coral = seq(min(h$hard.coral), max(h$hard.cora
                              substrate = seq(min(h$substrate), max(h$substrate), length.out=30),
                              fish.biom = 0,
                              fish.dummy = 0, pristine.dummy=0)
+
+## coral
+nd.b<-cont.pred.master
+## set non-focal benthic covariates to 0
+nd.b$macroalgae <- 0; nd.b$complexity <-0; nd.b$rubble <- 0; nd.b$substrate <- 0
+p.coral.b<-predict(object=m.browser, newdata = nd.b, re.form=NA)
+
 
 #Macroalgae
 nd.b<-cont.pred.master
@@ -127,6 +148,17 @@ nd.b<-cont.pred.master
 nd.b$macroalgae <- 0; nd.b$hard.coral <-0; nd.b$rubble <- 0; nd.b$complexity <- 0
 p.substrate.b<-predict(object=m.browser, newdata = nd.b, re.form=NA)
 
+## Complexity
+nd.b<-cont.pred.master
+## set non-focal benthic covariates to 0
+nd.b$macroalgae <- 0; nd.b$hard.coral <-0; nd.b$rubble <- 0; nd.b$substrate <- 0
+p.complexity.b<-predict(object=m.browser, newdata = nd.b, re.form=NA)
+
+## Rubble
+nd.b<-cont.pred.master
+## set non-focal benthic covariates to 0
+nd.b$macroalgae <- 0; nd.b$hard.coral <-0; nd.b$complexity <- 0; nd.b$substrate <- 0
+p.rubble.b<-predict(object=m.browser, newdata = nd.b, re.form=NA)
 
 ############################################################################
 #SCRAPERS
@@ -139,13 +171,18 @@ cont.pred.master<-data.frame(hard.coral = seq(min(h$hard.coral), max(h$hard.cora
                              fish.dummy = 0, pristine.dummy=0)
 
 
+## coral
+nd.s<-cont.pred.master
+## set non-focal benthic covariates to 0
+nd.s$macroalgae <- 0; nd.s$complexity <-0; nd.s$rubble <- 0; nd.s$substrate <- 0
+p.coral.s<-predict(object=m.scraper, newdata = nd.s, re.form=NA)
+
+
 ## Macroalgae
 nd.s<-cont.pred.master
 ## set non-focal benthic covariates to 0
 nd.s$hard.coral <- 0; nd.s$complexity <-0; nd.s$rubble <- 0; nd.s$substrate <- 0
 p.algae.s<-predict(object=m.scraper, newdata = nd.s, re.form=NA)
-
-
 
 ## Substrate
 nd.s<-cont.pred.master
@@ -153,12 +190,44 @@ nd.s<-cont.pred.master
 nd.s$macroalgae <- 0; nd.s$hard.coral <-0; nd.s$rubble <- 0; nd.s$complexity <- 0
 p.substrate.s<-predict(object=m.scraper, newdata = nd.s, re.form=NA)
 
+## Complexity
+nd.s<-cont.pred.master
+## set non-focal benthic covariates to 0
+nd.s$macroalgae <- 0; nd.s$hard.coral <-0; nd.s$rubble <- 0; nd.s$substrate <- 0
+p.complexity.s<-predict(object=m.scraper, newdata = nd.s, re.form=NA)
 
+## Rubble
+nd.s<-cont.pred.master
+## set non-focal benthic covariates to 0
+nd.s$macroalgae <- 0; nd.s$hard.coral <-0; nd.s$complexity <- 0; nd.s$substrate <- 0
+p.rubble.s<-predict(object=m.scraper, newdata = nd.s, re.form=NA)
 
 
 ## ------------------------------------------------ ##
   #### Make 2 panels for macroalgae and substrate
 ## ------------------------------------------------ ##
+
+
+#Panel 1: coral
+p.coral.g <- as.data.frame(p.coral.g)
+p.coral.g$model <- "grazers"
+colnames(p.coral.g)[1] <- "y"
+
+p.coral.b <- as.data.frame(p.coral.b)
+p.coral.b$model <- "browsers"
+colnames(p.coral.b)[1] <- "y"
+
+
+p.coral.s <- as.data.frame(p.coral.s)
+p.coral.s$model <- "scrapers"
+colnames(p.coral.s)[1] <- "y"
+
+
+p.coral <- rbind(p.coral.g, p.coral.b, p.coral.s)
+p.coral <- cbind(p.coral, cont.pred.master$hard.coral)
+colnames(p.coral)[3] <- "x"
+
+
 
 #Panel 2: macroalgae
 p.algae.g <- as.data.frame(p.algae.g)
@@ -199,6 +268,44 @@ p.substrate <- rbind(p.substrate.g, p.substrate.b, p.substrate.s)
 p.substrate <- cbind(p.substrate, cont.pred.master$substrate)
 colnames(p.substrate)[3] <- "x"
 
+#Panel 4: rubble
+p.rubble.g <- as.data.frame(p.rubble.g)
+p.rubble.g$model <- "grazers"
+colnames(p.rubble.g)[1] <- "y"
+
+p.rubble.b <- as.data.frame(p.rubble.b)
+p.rubble.b$model <- "browsers"
+colnames(p.rubble.b)[1] <- "y"
+
+
+p.rubble.s <- as.data.frame(p.rubble.s)
+p.rubble.s$model <- "scrapers"
+colnames(p.rubble.s)[1] <- "y"
+
+
+p.rubble <- rbind(p.rubble.g, p.rubble.b, p.rubble.s)
+p.rubble <- cbind(p.rubble, cont.pred.master$rubble)
+colnames(p.rubble)[3] <- "x"
+
+
+#Panel 5: complexity
+p.complexity.g <- as.data.frame(p.complexity.g)
+p.complexity.g$model <- "grazers"
+colnames(p.complexity.g)[1] <- "y"
+
+p.complexity.b <- as.data.frame(p.complexity.b)
+p.complexity.b$model <- "browsers"
+colnames(p.complexity.b)[1] <- "y"
+
+
+p.complexity.s <- as.data.frame(p.complexity.s)
+p.complexity.s$model <- "scrapers"
+colnames(p.complexity.s)[1] <- "y"
+
+
+p.complexity <- rbind(p.complexity.g, p.complexity.b, p.complexity.s)
+p.complexity <- cbind(p.complexity, cont.pred.master$complexity)
+colnames(p.complexity)[3] <- "x"
 
 ## ------------------------------------------------ ##
 ## arrange fishable biomass data for last panel 4: fishable biomass ##
@@ -216,9 +323,9 @@ cat.pred.master<-cat.pred.master[-4,]
 
 ## get fish biom range
 fish.master<-data.frame(hard.coral = 0, macroalgae = 0, rubble = 0, complexity = 0, substrate = 0, fish.dummy = 0, pristine.dummy = 0, fish.biom = seq(min(h$fish.biom), max(h$fish.biom), length.out = 30))
-fish.master.g<-data.frame(hard.coral = 0, macroalgae = 0, rubble = 0, complexity = 0, substrate = 0, fish.dummy = 0, pristine.dummy = 0, fish.biom = seq(min(h$fish.biom), max(h$fish.biom), length.out = 30))
-fish.master.b<-data.frame(hard.coral = 0, macroalgae = 0, rubble = 0, complexity = 0, substrate = 0, fish.dummy = 0, pristine.dummy = 0, fish.biom = seq(min(h$fish.biom), max(h$fish.biom), length.out = 30))
-fish.master.s<-data.frame(hard.coral = 0, macroalgae = 0, rubble = 0, complexity = 0, substrate = 0, fish.dummy = 0, pristine.dummy = 0, fish.biom = seq(min(h$fish.biom), max(h$fish.biom), length.out = 30))
+fish.master.g<-fish.master
+fish.master.b<-fish.master
+fish.master.s<-fish.master
 
 
 
@@ -236,23 +343,53 @@ fish.master <- rbind(fish.master.g, fish.master.b, fish.master.s)
 colnames(fish.master)[8] <- "x"
 colnames(fish.master)[9] <- "y"
 
+
+## ------------------------------------------------ ##
+## arrange pristine and fishing effects estimates
+## ------------------------------------------------ ##
+gr<-coef(summary(m.grazer))
+gr <- data.frame(gr[grepl('dummy', rownames(gr)),])
+gr$model <- 'grazers'
+gr$var<-rownames(gr)
+
+sc<-coef(summary(m.scraper))
+sc <- data.frame(sc[grepl('dummy', rownames(sc)),])
+sc$model <- 'scrapers'
+sc$var<-rownames(sc)
+
+br<-coef(summary(m.browser))
+br <- data.frame(br[grepl('dummy', rownames(br)),])
+br$model <- 'browsers'
+br$var<-rownames(br)
+
+eff<-rbind(gr, sc, br)
+eff$upper<-with(eff, Estimate + 2*Std..Error)
+eff$lower<-with(eff, Estimate - 2*Std..Error)
+
+
 ## -------------- ## ## -------------- ## ## -------------- ## ## -------------- ##
           ## ------------ NOW PLOTTING FIGURES -------------- ## 
 ## -------------- ## ## -------------- ## ## -------------- ## ## -------------- ##
 
 ## setup formatting information
 
-linewidth = 4
+linewidth = 2
 pal <- wesanderson::wes_palette("Zissou1", 21, type = "continuous")
 cols<-c(pal[5], pal[12], pal[18])
 cols.named<-c('grazers' = pal[5], 'scrapers' = pal[12], 'browsers' = pal[18])
 theme_set(theme_sleek())
 
 ## axis units
+coral.lab<-data.frame(labels = round(seq(min(pred$hard.coral), max(pred$hard.coral), length.out=5), 0),
+                    breaks = seq(min(h$hard.coral), max(h$hard.coral), length.out=5))
 ma.lab<-data.frame(labels = round(seq(min(pred$macroalgae), max(pred$macroalgae), length.out=5), 0),
                     breaks = seq(min(h$macroalgae), max(h$macroalgae), length.out=5))
 substrate.lab<-data.frame(labels = round(seq(min(pred$substrate), max(pred$substrate), length.out=5), 0),
                     breaks = seq(min(h$substrate), max(h$substrate), length.out=5))
+complexity.lab<-data.frame(labels = round(seq(min(pred$complexity), max(pred$complexity), length.out=5), 0),
+                    breaks = seq(min(h$complexity), max(h$complexity), length.out=5))
+rubble.lab<-data.frame(labels = round(seq(min(pred$rubble), max(pred$rubble), length.out=5), 0),
+                    breaks = seq(min(h$rubble), max(h$rubble), length.out=5))
 fishable.lab<-data.frame(labels = round(seq(min(pred$fish.biom), max(pred$fish.biom), length.out=5), 0),
                     breaks = seq(min(h$fish.biom), max(h$fish.biom), length.out=5))
 
@@ -267,42 +404,84 @@ od<-sort(fixef(m.scraper), decreasing=T)
 od<-od[-which(names(od) == '(Intercept)')]
 
 ## careful here for legend: colours defined by order of models, but other panels is defined by alphabetical order
-g1 <- plot_models(m.grazer, m.scraper, m.browser, legend.title = "", 
+g.effects <- plot_models(m.grazer, m.scraper, m.browser, legend.title = "", 
                   m.labels=c("Grazer", "Scraper", "Browser"), 
                   colors=cols) +
                   #axis.labels = rev(labs$lab[match(names(od), labs$model)])) +
           theme(legend.position=c(0.7, 0.4))
 
+## careful here for legend: colours defined by order of models, but other panels is defined by alphabetical order
+g.cats <- ggplot(eff, aes(var, Estimate, col=model)) + 
+              geom_hline(yintercept=0, linetype='dashed') +
+              geom_pointrange(aes(ymin=lower, ymax=upper),size =2, position=position_dodge(width=0.4)) +
+              scale_color_manual(values = cols.named) +
+              scale_x_discrete(labels = c('Fished', 'Protected', 'Pristine')) +
+              labs(x='', y = 'Standardized effect size') +
+              theme(legend.position = 'none')
 
-g2 <- ggplot(p.algae, aes(x, y,  color = factor(model))) + 
+g1 <- ggplot(p.coral, aes(x, 10^y,  color = factor(model))) + 
         geom_line(size=linewidth) + 
         #geom_point(data=h.means, aes(macroalgae, biom, color=FG), alpha=0.2, size=2) +
         labs(title = "") +
+        scale_y_log10(labels=comma, limit=c(10, 500)) +
+        scale_color_manual(values = cols.named) +
+        scale_x_continuous(breaks = coral.lab$breaks, labels = coral.lab$labels) +
+        guides(col=F) +
+        xlab("Hard coral (%)") + ylab(expression(paste("biomass kg ", "ha"^-1))) 
+
+
+g2 <- ggplot(p.algae, aes(x, 10^y,  color = factor(model))) + 
+        geom_line(size=linewidth) + 
+        #geom_point(data=h.means, aes(macroalgae, biom, color=FG), alpha=0.2, size=2) +
+        labs(title = "") +
+        scale_y_log10(labels=comma, limit=c(10, 500)) +
         scale_color_manual(values = cols.named) +
         scale_x_continuous(breaks = ma.lab$breaks, labels = ma.lab$labels) +
         guides(col=F) +
-        xlab("Macroalgae (%)") + ylab(expression(paste("log"[10], " biomass (kg ", "ha"^-1,")"))) 
+        xlab("Macroalgae (%)") + ylab('') 
 
 
-
-g3 <- ggplot(p.substrate, aes(x, y, color = model)) + 
+g3 <- ggplot(p.substrate, aes(x, 10^y, color = model)) + 
         geom_line(size=linewidth) + 
         #geom_point(data=h.means, aes(substrate, biom, color=FG), alpha=0.2, size=2) +
         labs(title = "") +
+        scale_y_log10(labels=comma, limit=c(10, 500)) +
         scale_color_manual(values = cols.named) +
         guides(col=F) +
         scale_x_continuous(breaks = substrate.lab$breaks, labels = substrate.lab$labels) +
         xlab("Available substrate (%)") + ylab("")
 
+g4 <- ggplot(p.complexity, aes(x, 10^y, color = model)) + 
+        geom_line(size=linewidth) + 
+        #geom_point(data=h.means, aes(substrate, biom, color=FG), alpha=0.2, size=2) +
+        labs(title = "") +
+        scale_y_log10(labels=comma, limit=c(10, 500)) +
+        scale_color_manual(values = cols.named) +
+        guides(col=F) +
+        scale_x_continuous(breaks = complexity.lab$breaks, labels = complexity.lab$labels) +
+        xlab("Complexity") + ylab(expression(paste("biomass kg ", "ha"^-1))) 
 
-g4 <- ggplot(fish.master, aes(x, y, color = model)) + 
+g5 <- ggplot(p.rubble, aes(x, 10^y, color = model)) + 
+        geom_line(size=linewidth) + 
+        #geom_point(data=h.means, aes(rubble, biom, color=FG), alpha=0.2, size=2) +
+        labs(title = "") +
+        scale_y_log10(labels=comma, limit=c(10, 500)) +
+        scale_color_manual(values = cols.named) +
+        guides(col=F) +
+        scale_x_continuous(breaks = rubble.lab$breaks, labels = rubble.lab$labels) +
+        xlab("Rubble (%)") + ylab("")
+
+
+g6 <- ggplot(fish.master, aes(x, 10^y, color = model)) + 
         geom_line(size=linewidth) + 
         #geom_point(data=h.means, aes(fish.biom, biom, color=FG), alpha=0.2, size=2) +
         labs(title = "") +
+        scale_y_log10(labels=comma, limit=c(10, 1500)) +
         scale_color_manual(values = cols.named) +
         scale_x_continuous(breaks = fishable.lab$breaks, labels = comma(fishable.lab$labels)) +
         guides(col=F) +
         xlab(expression(paste("Fishable biomass (kg ", "ha"^-1,")"))) + ylab("")
+
 
 ## ------------------------------------------------ ##
 #### plot all the models on one graph 
@@ -310,8 +489,12 @@ g4 <- ggplot(fish.master, aes(x, y, color = model)) +
 
 #grid.arrange(g1, g2, g3, g4)
 
-##plot grid has easy labelling options
-plot_grid(g2, g3, g4, g1, nrow =1, labels=c('a', 'b', 'c', 'd'))
+pdf(file = "figures/figure2_panels.pdf", width=10, height=4)
+
+plot_grid(g1, g2, g3, g4, g5, g6, nrow =2, labels=c('a', 'b', 'c', 'd', 'e', 'f'))
+
+
+#plot_grid(g.cats, g.effects)
 
 dev.off()
 
