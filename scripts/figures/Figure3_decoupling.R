@@ -5,6 +5,8 @@ library(ggplot2)
 library(funk)
 library(scales)
 library(here)
+library(piecewiseSEM)
+
 setwd(here('grazing-gradients'))
 
 pdf(file = "figures/figure3_decoupling.pdf", width=9, height=4)
@@ -16,13 +18,26 @@ grazers$grazef<-grazers$cropping.gram.ha
 grazers$cropping.gram.ha<-NULL
 grazers$sp <- 'grazers'
 
+m.graze<-lmer(cropping.gram.ha ~ biom + (1 | dataset), h)
+grazers$resid<-resid(m.graze)
+r2marg.grazer<-rsquared(m.graze)$Marginal
+
 load("results/models/browser_function.Rdata")
 browsers<-h
 browsers$grazef<-browsers$browsing
 browsers$browsing<-NULL
 browsers$sp <- 'browsers'
 
+m.browse<-lmer(browsing ~ biom + (1 | dataset), h)
+browsers$resid<-resid(m.browse)
+r2marg.browser<-rsquared(m.browse)$Marginal
+
 df<-rbind(grazers, browsers)
+r2<-data.frame(label = c(r2marg.grazer, r2marg.browser), sp = c('grazers', 'browsers'))
+#r2$lab<-paste(expression(paste('R'^2,' = ', round(r2$label, 2))))
+r2$label<-round(r2$label, 2)
+
+
 
 ## setup formatting information
 linewidth = 4
@@ -32,7 +47,7 @@ cols.named<-c('grazers' = pal[5], 'scrapers' = pal[12], 'browsers' = pal[18])
 theme_set(theme_sleek())
 
 function_names <- list(
-  'grazers'="algal consumption (g/ha/min)",
+  'grazers'=expression(paste("algal consumption g ha"^-1,"min"^-1)),
   'browsers'="mass-standardized bite rates"
 )
 
@@ -40,8 +55,8 @@ func.labels <- function(variable,value){
   return(function_names[value])
 }
 
-ggplot(df, aes(biom, grazef, col=sp, shape=dataset)) + 
-        geom_point(alpha=0.5) +
+ggplot(df, aes(biom, grazef, col=sp)) + 
+        geom_point(alpha=0.5, aes(shape=dataset)) +
         facet_wrap(~ sp, scales= 'free',labeller=func.labels) +
   labs(title = "") +
   scale_color_manual(values = cols.named) +
@@ -49,6 +64,7 @@ ggplot(df, aes(biom, grazef, col=sp, shape=dataset)) +
   scale_y_continuous(label=comma) +
   guides(col=F) +
   theme(legend.position ='top', legend.title=element_blank()) +
-  xlab("Biomass (kg/ha)") + ylab("Function") 
+  xlab(expression(paste("biomass kg ha"^-1))) + ylab("Function")  +
+  geom_text(data=r2, aes(Inf, Inf, label=paste0("R", "^", "2", "==", label)), vjust=4, hjust=4, parse=TRUE) 
 
 dev.off()

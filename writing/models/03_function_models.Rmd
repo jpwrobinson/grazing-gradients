@@ -274,28 +274,32 @@ Fitting linear models to raw function ~ biomass data. Departure from linearity a
 
 ```{r, include=T, echo=F, message=F, warning=F,fig.cap='Figure 7: decoupling from residual analysis: cropper and browser', fig.height=5, fig.width=8, fig.align='center'}
 load(file = '../../results/models/cropper_function.Rdata')
-library(lme4)
+library(lme4); library(piecewiseSEM)
 m.graze<-lmer(cropping.gram.ha ~ biom + (1 | dataset), h)
 h$resid<-resid(m.graze)
+rsq.g<-rsquared(m.graze)
+
 g1<-ggplot(h, aes(biom, resid, col=dataset)) + 
       geom_point() + 
       guides(col=FALSE) +
       labs(x = 'Biomass kg/ha', y = 'Deviation from grazing function', main='Cropper') +
       annotate(500, 1.8, geom='text', label='More algal removal') +
-      annotate(500, -1.2, geom='text', label='Less algal removal') 
-
+      annotate(500, -1.2, geom='text', label='Less algal removal') +
+      annotate(Inf, -Inf, geom='text', vjust=-2, hjust=1, label=paste('R2 = ', round(rsq.g$Marginal, 2)))
 
 load(file = '../../results/models/browser_function.Rdata')
 
 m.browse<-lmer(browsing ~ biom + (1 | dataset), h)
 h$resid<-resid(m.browse)
+rsq.b<-rsquared(m.browse)
 
 g2<-ggplot(h, aes(biom, resid, col=dataset)) + 
       geom_point() + 
       guides(col=FALSE) +
       labs(x = 'Biomass kg/ha', y = 'Deviation from grazing function', main='Browser') +
       annotate(1500, 120, geom='text', label='More algal removal') +
-      annotate(1500, -200, geom='text', label='Less algal removal') 
+      annotate(1500, -200, geom='text', label='Less algal removal') +
+      annotate(Inf, -Inf, geom='text', vjust=-2, hjust=2, label=paste('R2 = ', round(rsq.b$Marginal, 2))) 
 
 grid.arrange(g1, g2, nrow=1)
 ```
