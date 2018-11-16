@@ -13,7 +13,7 @@ load("results/models/biomass_m.predictions.Rdata")
 require(gridExtra)
 library(grid)
 library(lme4)
-library(sjPlot)
+#library(sjPlot)
 library(tidyverse)
 library(cowplot)
 library(ggplot2)
@@ -541,7 +541,7 @@ g6 <- ggplot(fish.master, aes(x, 10^y, color = model)) +
 pdf(file = "figures/figure2_panels.pdf", width=12, height=8)
 
 
-
+?plot_grid
 top_side<-plot_grid(g1, g2, g3, g4, g5, g6, nrow =2, labels=c('a', 'b', 'c', 'd', 'e', 'f'), align='h')
 bottom_side<-plot_grid(g.cats, g.effects, labels = c('g','h'), nrow=1, ncol=2, label_size=12)
 
