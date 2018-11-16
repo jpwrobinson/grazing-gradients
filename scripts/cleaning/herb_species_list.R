@@ -1,7 +1,7 @@
 
 rm(list=ls())
 setwd('/Users/robins64/Documents/git_repos/grazing-gradients')
-library(tidyverse); library(ggsidekick); theme_set(theme_sleek())
+library(tidyverse); library(ggsidekick); theme_set(theme_sleek()); library(knitr); library(kableExtra)
 
 ## load raw fish data
 load('data/wio_gbr_herb_master.Rdata')
@@ -27,5 +27,8 @@ species$nregions<-rowSums(species[,3:6]==T)
 ## 104 species in total
 ## 64 species only appear in 1 dataset
 
-
 write.csv(species, 'data/herbivore_species_list.csv')
+
+kable(species, "html") %>%
+  kable_styling(bootstrap_options = c("striped", "hover")) %>%
+  cat(., file = 'writing/ms/TableS1_Specieslist.html')
