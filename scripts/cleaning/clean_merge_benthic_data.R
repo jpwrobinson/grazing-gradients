@@ -37,7 +37,7 @@ seychelles$site<-str_replace_all(seychelles$site, '_sand', ' Patch')
 seychelles$site<-str_replace_all(seychelles$site, 'Ste.', 'Ste')
 seychelles$site<-str_replace_all(seychelles$site, 'SteAnne', 'Ste Anne')
 
-
+seychelles %>% filter(date == 2017 & taxa == 'struc.complexity')
 ## need to group taxa for simpler comparison across datasets + benthic gradients
 benthic.cats<-unique(seychelles$taxa)
 
@@ -455,7 +455,9 @@ pred$depth[pred$dataset=='Seychelles']<-10
 pred$depth[pred$dataset=='GBR']<-10
 # drop 3m sites in Chagos with LUDACRIS/Luka Modric biomass
 pred<-pred %>% filter(depth != 3) 
-
+## drop flat and crest sites from GBR (~13,300 obs)
+pred <- pred %>% filter(!grepl('Crest' , habitat))
+pred <- pred %>% filter(!grepl('Flat' , habitat))
 
 ## save master
 save(pred, file='data/wio_herb_benthic_merged.Rdata')
