@@ -13,7 +13,7 @@ load("results/models/biomass_m.predictions.Rdata")
 require(gridExtra)
 library(grid)
 library(lme4)
-library(sjPlot)
+#library(sjPlot)
 library(tidyverse)
 library(cowplot)
 library(ggplot2)
@@ -311,16 +311,6 @@ colnames(p.complexity)[3] <- "x"
 ## arrange fishable biomass data for last panel 4: fishable biomass ##
 ## ------------------------------------------------ ##
 
-# we need a new prediction data frame for the fishing effects, which are categorical.
-## Let's use expand.grid to get all combinations of fishing variables, holding benthic covariates to 0
-cat.pred.master<-expand.grid(hard.coral = 0,
-                             macroalgae = 0,
-                             rubble = 0, substrate = 0,
-                             complexity = 0, fish.biom = 0, fish.dummy = c(0,1), pristine.dummy=c(0,1))
-
-## Wait. this is wrong. We don't have fished AND pristine sites (duh). Let's drop that row.
-cat.pred.master<-cat.pred.master[-4,]
-
 ## get fish biom range
 fish.master<-data.frame(hard.coral = 0, macroalgae = 0, rubble = 0, complexity = 0, substrate = 0, fish.dummy = 0, pristine.dummy = 0, fish.biom = seq(min(h$fish.biom), max(h$fish.biom), length.out = 30))
 fish.master.g<-fish.master
@@ -347,24 +337,77 @@ colnames(fish.master)[9] <- "y"
 ## ------------------------------------------------ ##
 ## arrange pristine and fishing effects estimates
 ## ------------------------------------------------ ##
+# we need a new prediction data frame for the fishing effects, which are categorical.
+# ## Let's use expand.grid to get all combinations of fishing variables, holding benthic covariates to 0
+# cat.pred.master<-expand.grid(hard.coral = 0,
+#                              macroalgae = 0,
+#                              rubble = 0, substrate = 0,
+#                              complexity = 0, fish.biom = 0, fish.dummy = c(0,1), pristine.dummy=c(0,1))
+
+# ## Wait. this is wrong. We don't have fished AND pristine sites (duh). Let's drop that row.
+# cat.pred.master<-cat.pred.master[-4,]
+
 gr<-coef(summary(m.grazer))
+rownames(gr)[rownames(gr)=='(Intercept)']<-'manage.dummy'
 gr <- data.frame(gr[grepl('dummy', rownames(gr)),])
 gr$model <- 'grazers'
 gr$var<-rownames(gr)
 
+## correct to estimated biomass
+gr$Estimate[gr$var == 'fish.dummy']<-gr$Estimate[gr$var == 'fish.dummy'] + gr$Estimate[gr$var == 'manage.dummy']
+gr$Estimate[gr$var == 'pristine.dummy']<-gr$Estimate[gr$var == 'pristine.dummy'] + gr$Estimate[gr$var == 'manage.dummy']
+
+
 sc<-coef(summary(m.scraper))
+rownames(sc)[rownames(sc)=='(Intercept)']<-'manage.dummy'
 sc <- data.frame(sc[grepl('dummy', rownames(sc)),])
 sc$model <- 'scrapers'
 sc$var<-rownames(sc)
 
+## correct to estimated biomass
+sc$Estimate[sc$var == 'fish.dummy']<-sc$Estimate[sc$var == 'fish.dummy'] + sc$Estimate[sc$var == 'manage.dummy']
+sc$Estimate[sc$var == 'pristine.dummy']<-sc$Estimate[sc$var == 'pristine.dummy'] + sc$Estimate[sc$var == 'manage.dummy']
+
+
 br<-coef(summary(m.browser))
+rownames(br)[rownames(br)=='(Intercept)']<-'manage.dummy'
 br <- data.frame(br[grepl('dummy', rownames(br)),])
 br$model <- 'browsers'
 br$var<-rownames(br)
 
+## correct to estimated biomass
+br$Estimate[br$var == 'fish.dummy']<-br$Estimate[br$var == 'fish.dummy'] + br$Estimate[br$var == 'manage.dummy']
+br$Estimate[br$var == 'pristine.dummy']<-br$Estimate[br$var == 'pristine.dummy'] + br$Estimate[br$var == 'manage.dummy']
+
+
 eff<-rbind(gr, sc, br)
 eff$upper<-with(eff, Estimate + 2*Std..Error)
 eff$lower<-with(eff, Estimate - 2*Std..Error)
+
+predict(m.grazer, newdata=)
+
+## ------------------------------------------------ ##
+## arrange benthic effects estimates
+## ------------------------------------------------ ##
+vars<-c('hard.coral', 'macroalgae', 'rubble', 'substrate', 'complexity')
+gr<-coef(summary(m.grazer))
+gr <- data.frame(gr[rownames(gr) %in% vars,])
+gr$model <- 'grazers'
+gr$var<-rownames(gr)
+
+sc<-coef(summary(m.scraper))
+sc <- data.frame(sc[rownames(sc) %in% vars,])
+sc$model <- 'scrapers'
+sc$var<-rownames(sc)
+
+br<-coef(summary(m.browser))
+br <- data.frame(br[rownames(br) %in% vars,])
+br$model <- 'browsers'
+br$var<-rownames(br)
+
+eff.benthic<-rbind(gr, sc, br)
+eff.benthic$upper<-with(eff.benthic, Estimate + 2*Std..Error)
+eff.benthic$lower<-with(eff.benthic, Estimate - 2*Std..Error)
 
 
 ## -------------- ## ## -------------- ## ## -------------- ## ## -------------- ##
@@ -396,28 +439,34 @@ fishable.lab<-data.frame(labels = round(seq(min(pred$fish.biom), max(pred$fish.b
 
 #Panel 1: relative effect sizes of each FG (merged pic )
 
-labs<-data.frame(lab=c('Hard coral', 'Macroalgae', 'Rubble', 'Available substrate', 'Complexity', 'Fishable biomass', 'Fished',   'Pristine'),
-                 model=c('hard.coral', 'macroalgae', 'rubble', 'substrate','complexity', 'fish.biom', 'fish.dummy', 'pristine.dummy'))
+# labs<-data.frame(lab=c('Hard coral', 'Macroalgae', 'Rubble', 'Available substrate', 'Complexity', 'Fishable biomass', 'Fished',   'Pristine'),
+#                  model=c('hard.coral', 'macroalgae', 'rubble', 'substrate','complexity', 'fish.biom', 'fish.dummy', 'pristine.dummy'))
 
 ## extract correct order of names according to increasing parameter estimate size
-od<-sort(fixef(m.scraper), decreasing=T)
-od<-od[-which(names(od) == '(Intercept)')]
+# od<-sort(fixef(m.scraper), decreasing=T)
+# od<-od[-which(names(od) == '(Intercept)')]
 
 ## careful here for legend: colours defined by order of models, but other panels is defined by alphabetical order
-g.effects <- plot_models(m.grazer, m.scraper, m.browser, legend.title = "", 
-                  m.labels=c("Grazer", "Scraper", "Browser"), 
-                  colors=cols) +
-                  #axis.labels = rev(labs$lab[match(names(od), labs$model)])) +
-          theme(legend.position=c(0.7, 0.4))
+g.effects <- ggplot(eff.benthic, aes(var, Estimate, col=model)) + 
+              geom_hline(yintercept=0, linetype='dashed') +
+              geom_pointrange(aes(ymin=lower, ymax=upper),size =1, position=position_dodge(width=0.4)) +
+              scale_color_manual(values = cols.named) +
+              # scale_x_discrete(labels = c('Fished', 'Protected', 'Pristine')) +
+              labs(x='', y = 'Standardized effect size') +
+              theme(legend.position = 'none') + coord_flip() +
+              scale_x_discrete(position = "top")
 
+eff$var<-factor(eff$var, levels=c('fish.dummy', 'manage.dummy', 'pristine.dummy'))
 ## careful here for legend: colours defined by order of models, but other panels is defined by alphabetical order
 g.cats <- ggplot(eff, aes(var, Estimate, col=model)) + 
-              geom_hline(yintercept=0, linetype='dashed') +
-              geom_pointrange(aes(ymin=lower, ymax=upper),size =2, position=position_dodge(width=0.4)) +
+              # geom_hline(yintercept=0, linetype='dashed') +
+              geom_pointrange(aes(ymin=lower, ymax=upper),size =1, position=position_dodge(width=0.4)) +
               scale_color_manual(values = cols.named) +
               scale_x_discrete(labels = c('Fished', 'Protected', 'Pristine')) +
-              labs(x='', y = 'Standardized effect size') +
-              theme(legend.position = 'none')
+              labs(x='', y = 'Predicted log10 biomass') +
+              theme(legend.position = c(0.2,0.8), 
+                      legend.title=element_blank())
+
 
 g1 <- ggplot(p.coral, aes(x, 10^y,  color = factor(model))) + 
         geom_line(size=linewidth) + 
@@ -489,9 +538,15 @@ g6 <- ggplot(fish.master, aes(x, 10^y, color = model)) +
 
 #grid.arrange(g1, g2, g3, g4)
 
-pdf(file = "figures/figure2_panels.pdf", width=10, height=4)
+pdf(file = "figures/figure2_panels.pdf", width=12, height=8)
 
-plot_grid(g1, g2, g3, g4, g5, g6, nrow =2, labels=c('a', 'b', 'c', 'd', 'e', 'f'))
+
+?plot_grid
+top_side<-plot_grid(g1, g2, g3, g4, g5, g6, nrow =2, labels=c('a', 'b', 'c', 'd', 'e', 'f'), align='h')
+bottom_side<-plot_grid(g.cats, g.effects, labels = c('g','h'), nrow=1, ncol=2, label_size=12)
+
+plot_grid(top_side,bottom_side, ncol = 1, nrow=2, rel_heights=c(1, 1), label_size=12)
+
 
 
 #plot_grid(g.cats, g.effects)

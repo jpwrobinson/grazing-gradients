@@ -6,6 +6,7 @@ library(funk)
 library(scales)
 library(here)
 library(piecewiseSEM)
+library(lme4)
 
 setwd(here('grazing-gradients'))
 

@@ -1,7 +1,8 @@
 
 rm(list=ls())
 setwd('/Users/robins64/Documents/git_repos/grazing-gradients')
-library(tidyverse); library(ggsidekick); theme_set(theme_sleek()); library(knitr); library(kableExtra)
+library(tidyverse); library(funk)
+theme_set(theme_sleek()); library(knitr); library(kableExtra)
 
 ## load raw fish data
 load('data/wio_gbr_herb_master.Rdata')
@@ -34,4 +35,9 @@ species$biterates
 
 kable(species, "html") %>%
   kable_styling(bootstrap_options = c("striped", "hover")) %>%
+<<<<<<< HEAD
   cat(., file = 'writing/ms/TableS1_Specieslist.html')
+=======
+  cat(., file = 'writing/ms/TableS1_Specieslist.html')
+
+>>>>>>> 51e171eedb753b03082e62045e2bfffd161078f5
