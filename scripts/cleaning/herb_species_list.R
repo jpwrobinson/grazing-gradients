@@ -27,7 +27,10 @@ species$nregions<-rowSums(species[,3:6]==T)
 ## 104 species in total
 ## 64 species only appear in 1 dataset
 
-write.csv(species, 'data/herbivore_species_list.csv')
+dfbr <- read_csv("data/bite-rates/bite_rate_clean.csv")
+speciesbr <- as.character(unique(dfbr$sp))
+species$biterates<-ifelse(species$species %in% speciesbr, 'TRUE', 'FALSE')
+species$biterates
 
 kable(species, "html") %>%
   kable_styling(bootstrap_options = c("striped", "hover")) %>%
