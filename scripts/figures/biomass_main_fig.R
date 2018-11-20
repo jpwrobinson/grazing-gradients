@@ -20,7 +20,6 @@ library(ggplot2)
 library(funk)
 library(scales)
 
-
 ## organize data to make 1st 2 panels for macroalgae and substrate#########
 
 ## James - need to setup dataframe h here! I copied these lines straight from 01_biomass.Rmd
@@ -422,6 +421,15 @@ cols<-c(pal[5], pal[12], pal[18])
 cols.named<-c('grazers' = pal[5], 'scrapers' = pal[12], 'browsers' = pal[18])
 theme_set(theme_sleek())
 
+## deciles for plot rugs
+deciles<-data.frame(hard.coral = quantile(h$hard.coral, prob=seq(0, 1, length.out=11)),
+  macroalgae = quantile(h$macroalgae, prob=seq(0, 1, length.out=11)),
+  substrate = quantile(h$substrate, prob=seq(0, 1, length.out=11)),
+  complexity = quantile(h$complexity, prob=seq(0, 1, length.out=11)),
+  rubble = quantile(h$rubble, prob=seq(0, 1, length.out=11)),
+  fish.biom = quantile(h$fish.biom, prob=seq(0, 1, length.out=11)))
+deciles$browser<-100
+
 ## axis units
 coral.lab<-data.frame(labels = round(seq(min(pred$hard.coral), max(pred$hard.coral), length.out=5), 0),
                     breaks = seq(min(h$hard.coral), max(h$hard.coral), length.out=5))
@@ -468,68 +476,73 @@ g.cats <- ggplot(eff, aes(var, Estimate, col=model)) +
                       legend.title=element_blank())
 
 
-g1 <- ggplot(p.coral, aes(x, 10^y,  color = factor(model))) + 
-        geom_line(size=linewidth) + 
+g1 <- ggplot(p.coral, aes(x, 10^y)) + 
+        geom_line(size=linewidth, aes(color = factor(model))) + 
         #geom_point(data=h.means, aes(macroalgae, biom, color=FG), alpha=0.2, size=2) +
         labs(title = "") +
         scale_y_log10(labels=comma, limit=c(10, 500)) +
         scale_color_manual(values = cols.named) +
         scale_x_continuous(breaks = coral.lab$breaks, labels = coral.lab$labels) +
         guides(col=F) +
-        xlab("Hard coral (%)") + ylab(expression(paste("biomass kg ", "ha"^-1))) 
+        xlab("Hard coral (%)") + ylab(expression(paste("biomass kg ", "ha"^-1)))  +
+        geom_rug(data=deciles, aes(hard.coral, browser), sides='b', alpha=1, col='grey50',size=1)
 
 
-g2 <- ggplot(p.algae, aes(x, 10^y,  color = factor(model))) + 
-        geom_line(size=linewidth) + 
+g2 <- ggplot(p.algae, aes(x, 10^y)) + 
+        geom_line(size=linewidth, aes(color = factor(model))) + 
         #geom_point(data=h.means, aes(macroalgae, biom, color=FG), alpha=0.2, size=2) +
         labs(title = "") +
         scale_y_log10(labels=comma, limit=c(10, 500)) +
         scale_color_manual(values = cols.named) +
         scale_x_continuous(breaks = ma.lab$breaks, labels = ma.lab$labels) +
         guides(col=F) +
-        xlab("Macroalgae (%)") + ylab('') 
+        xlab("Macroalgae (%)") + ylab('')  + 
+        geom_rug(data=deciles, aes(macroalgae, browser), sides='b', alpha=1, col='grey50',size=1)
 
-
-g3 <- ggplot(p.substrate, aes(x, 10^y, color = model)) + 
-        geom_line(size=linewidth) + 
+g3 <- ggplot(p.substrate, aes(x, 10^y)) + 
+        geom_line(size=linewidth, aes(color = model)) + 
         #geom_point(data=h.means, aes(substrate, biom, color=FG), alpha=0.2, size=2) +
         labs(title = "") +
         scale_y_log10(labels=comma, limit=c(10, 500)) +
         scale_color_manual(values = cols.named) +
         guides(col=F) +
         scale_x_continuous(breaks = substrate.lab$breaks, labels = substrate.lab$labels) +
-        xlab("Available substrate (%)") + ylab("")
+        xlab("Available substrate (%)") + ylab("") +
+        geom_rug(data=deciles, aes(substrate, browser), sides='b', alpha=1, col='grey50',size=1)
 
-g4 <- ggplot(p.complexity, aes(x, 10^y, color = model)) + 
-        geom_line(size=linewidth) + 
+g4 <- ggplot(p.complexity, aes(x, 10^y)) + 
+        geom_line(size=linewidth, aes(color = model)) + 
         #geom_point(data=h.means, aes(substrate, biom, color=FG), alpha=0.2, size=2) +
         labs(title = "") +
         scale_y_log10(labels=comma, limit=c(10, 500)) +
         scale_color_manual(values = cols.named) +
         guides(col=F) +
         scale_x_continuous(breaks = complexity.lab$breaks, labels = complexity.lab$labels) +
-        xlab("Complexity") + ylab(expression(paste("biomass kg ", "ha"^-1))) 
+        xlab("Complexity") + ylab(expression(paste("biomass kg ", "ha"^-1))) +
+        geom_rug(data=deciles, aes(complexity, browser), sides='b', alpha=1, col='grey50',size=1)
 
-g5 <- ggplot(p.rubble, aes(x, 10^y, color = model)) + 
-        geom_line(size=linewidth) + 
+g5 <- ggplot(p.rubble, aes(x, 10^y)) + 
+        geom_line(size=linewidth, aes(color = model)) + 
         #geom_point(data=h.means, aes(rubble, biom, color=FG), alpha=0.2, size=2) +
         labs(title = "") +
         scale_y_log10(labels=comma, limit=c(10, 500)) +
         scale_color_manual(values = cols.named) +
         guides(col=F) +
         scale_x_continuous(breaks = rubble.lab$breaks, labels = rubble.lab$labels) +
-        xlab("Rubble (%)") + ylab("")
+        xlab("Rubble (%)") + ylab("") +
+        geom_rug(data=deciles, aes(rubble, browser), sides='b', alpha=1, col='grey50',size=1)
 
 
-g6 <- ggplot(fish.master, aes(x, 10^y, color = model)) + 
-        geom_line(size=linewidth) + 
+g6 <- ggplot(fish.master, aes(x, 10^y)) + 
+        geom_line(size=linewidth, aes(color = model)) + 
         #geom_point(data=h.means, aes(fish.biom, biom, color=FG), alpha=0.2, size=2) +
         labs(title = "") +
         scale_y_log10(labels=comma, limit=c(10, 1500)) +
         scale_color_manual(values = cols.named) +
         scale_x_continuous(breaks = fishable.lab$breaks, labels = comma(fishable.lab$labels)) +
         guides(col=F) +
-        xlab(expression(paste("Fishable biomass (kg ", "ha"^-1,")"))) + ylab("")
+        xlab(expression(paste("Fishable biomass (kg ", "ha"^-1,")"))) + ylab("") +
+        geom_rug(data=deciles, aes(fish.biom, browser), sides='b', alpha=1, col='grey50',size=1)
 
 
 ## ------------------------------------------------ ##
