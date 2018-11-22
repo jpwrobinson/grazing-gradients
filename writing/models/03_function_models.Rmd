@@ -20,7 +20,7 @@ knitr::opts_chunk$set(fig.pos = 'H')  ## Hold figure positions
 #### Cropping - turf removal by small grazers
 
 ```{r, include = T, message=F, echo=F}
-library(tidyverse); library(funk); library(gridExtra); library(here)
+library(tidyverse); library(funk); library(gridExtra); library(here); library(rethinking)
 options(scipen=999)
 # setwd(here('grazing-gradients/writing/models'))
 
@@ -273,12 +273,13 @@ For scrapers, we are combining bite frequencies with bite areas. Datasets are in
 
 ```{r, include = T, message=F, echo=F}
 # UVC data load
-load("../../data/wio_herb_benthic_merged.Rdata"); scrapers.uvc<-scrapers
+load("../../data/wio_herb_benthic_merged.Rdata")
 scrapers.uvc<-pred %>% filter(FG == 'Herbivore Scraper')
-scrapers.uvc$species<-as.factor(scrapers.uvc$species)
-scrapers.uvc$genus<-as.factor(scrapers.uvc$genus)
+scrapers.uvc$species<-as.factor(scrapers.uvc$sp)
 ## add genera column
 scrapers.uvc$genus<-str_split_fixed(scrapers.uvc$species, pattern = '\\ ', n=2)[,1]
+scrapers.uvc$genus<-as.factor(scrapers.uvc$genus)
+
 
 ## predictive model load
 load(file = '../../results/models/bites_scrapers.Rdata')
@@ -296,53 +297,34 @@ pred.PI<-apply(link.obs.sp, 2, PI, prob = 0.95)
 scrapers.uvc$upper[scrapers.uvc$sp %in% scrapers$sp]<-pred.PI[2,]
 scrapers.uvc$lower[scrapers.uvc$sp %in% scrapers$sp]<-pred.PI[1,]
 
-## assign global means or genus START HERE
+## how much biomass and abunance, and how many species, require genus level predictions?
+sum(scrapers.uvc$biomass.kgha[is.na(scrapers.uvc$biterate)])/sum(scrapers.uvc$biomass.kgha)*100 ### 19%
+sum(scrapers.uvc$abundance.500m2[is.na(scrapers.uvc$biterate)])/sum(scrapers.uvc$abundance.500m2)*100 ### 21%
+
+## assign genus for missing species
 scraper.bites<-read.csv(file = '../../results/functions/scraper_bites_predicted.csv')
-scrapers.uvc$biterate[is.na(scrapers.uvc$biterate),])
+scrapers.uvc$biterate[is.na(scrapers.uvc$biterate)]<-scraper.bites$median[match(scrapers.uvc$genus[is.na(scrapers.uvc$biterate)], scraper.bites$class)]
+  
 
 ## area predictions for body size
-d.pred <-data.frame(TL=scrapers.uvc$TL)
+load(file = '../../results/models/area_scrapers.Rdata')
+d.pred <-data.frame(TL=scrapers.uvc$length.cm)
 link.obs.sp<-link(scrape.m2, n = 1000, data = as.list(d.pred))
 scrapers.uvc$bitearea<-data.frame(median = apply(link.obs.sp, 2, median))
 pred.PI<-apply(link.obs.sp, 2, PI, prob = 0.95)
 scrapers.uvc$upperarea<-pred.PI[2,]
 scrapers.uvc$lowerarea<-pred.PI[1,]
 
-
-## how many global means in analysis?
-t<-data.frame(table(scrapers.uvc$bite.rate))
-scraper.bites$freq<-t$Freq[match(scraper.bites$median, t$Var1)]
-g1<-ggplot(scraper.bites, aes(class, freq)) + 
-        geom_bar(stat='identity', fill = 'DarkGreen') + coord_flip() +
-        labs(x = 'Prediction level', y = 'Total abundance in UVC dataset') + 
-        geom_text(aes(class, freq, label = paste(round(median,2), 'bites/min')), size=2, hjust=0) +
-        scale_x_discrete(limits = rev(levels(scraper.bites$class))) + lims(y=c(0, 3000))
-
-## how much biomass is global mean in analysis?
-t<-aggregate(biomass.kgha ~ bite.rate, scrapers.uvc, sum)
-scraper.bites$freq<-t$biomass.kgha[match(scraper.bites$median, t$bite.rate)]
-g2<-ggplot(scraper.bites, aes(class, freq)) + 
-        geom_bar(stat='identity', fill = 'DarkGreen') + coord_flip() +
-        labs(x = 'Prediction level', y = 'Total biomass in UVC dataset (kg/ha)') + 
-        geom_text(aes(class, freq, label = paste(round(median,2), 'bites/min')), size=2, hjust=0) +
-        scale_x_discrete(limits = rev(levels(scraper.bites$class))) + lims(y=c(0, 40000))
-
-## what proportion biomass is global means?
-prop.global<-t$biomass.kgha[t$bite.rate == scraper.bites$median[scraper.bites$class == 'global.mean']]/sum(t$biomass.kgha)*100
-## ?????????%
+## no species have global means
 
 ```
 
-```{r, include =T, echo= F, messages=F, warning=F,fig.cap='Figure 5: Bite rates assigned to scraping species', fig.height=6, fig.width=6, fig.align='center'}
-grid.arrange(g1, g2, top = 'Prediction levels used for scraper species')
-```
-
-Scraper function = area scraped * bite rate, where area scraped is predicted by individual body size and bite rate is predicted by individual body size, species and genus.
+Scraper function = area scraped * bite rate, where area scraped is predicted by individual body size and bite rate is predicted by individual body size, species and genus. For units, we have area scraped in mm^2^, bite rate in bites per minute, and biomass in kg per hectare. After converting to area scraped per minute per hectare, millimetre areas are obviously very large for a per hectare biomass estimate. Converting mm^2^ to m^2^ requires dividing by 1,000,000.
 
 
 ```{r, include=T, echo=F}
 ## now convert bite rate to area scraped
-scrapers.uvc$scraping<-scrapers.uvc$biterate * scrapers.uvc$bitearea
+scrapers.uvc$scraping<-scrapers.uvc$biterate * scrapers.uvc$bitearea / 1000000
 
 # estimate mean total scraping function per site
 h <- scrapers.uvc %>% 
@@ -366,11 +348,11 @@ h$scraping[is.na(h$transect.area)] <- h$scraping[is.na(h$transect.area)]/0.01539
 
 save(h, file = '../../results/models/scraper_function.Rdata')
 
-g3<-ggplot(h, aes(reorder(reef, scraping, FUN=median), scraping, fill=dataset)) + geom_boxplot() + xlab('Reef') + ylab('area scraped (mm2) per minute per ha') 
+g3<-ggplot(h, aes(reorder(reef, scraping, FUN=median), scraping, fill=dataset)) + geom_boxplot() + xlab('Reef') + ylab('area scraped (m2) per minute per ha') 
 
-g4<-ggplot(h, aes( log10(biom),log10(scraping), col=dataset)) +geom_point() + xlab('Biomass (log10 kg/ha)') + ylab('area scraped (mm2) per minute per ha') 
+g4<-ggplot(h, aes( biom,scraping, col=dataset)) +geom_point() + scale_x_log10() + scale_y_log10() + xlab('Biomass kg/ha)') + ylab('area scraped (m2) per minute per ha') 
 
-g5<-ggplot(h, aes(biom, scraping, col=dataset)) +geom_point() + xlab('Biomass (kg/ha)') + ylab('area scraped (mm2) per minute per ha)') + xlim(c(0,500)) + ylim(c(0, 5000))
+g5<-ggplot(h, aes(biom, scraping, col=dataset)) +geom_point() + xlab('Biomass (kg/ha)') + ylab('area scraped (m2) per minute per ha)') #+ xlim(c(0,500)) + ylim(c(0, 5000))
 ```
 
 ```{r, include =T, echo= F, messages=F, warning=F,fig.cap='Figure 5: Variation in scraping function among reefs', fig.height=6, fig.width=6, fig.align='center'}
@@ -414,5 +396,20 @@ g2<-ggplot(h, aes(biom, resid, col=dataset)) +
       annotate(1500, -200, geom='text', label='Less algal removal') +
       annotate(Inf, -Inf, geom='text', vjust=-2, hjust=2, label=paste('R2 = ', round(rsq.b$Marginal, 2))) 
 
-grid.arrange(g1, g2, nrow=1)
+load(file = '../../results/models/scraper_function.Rdata')
+
+m.scrape<-lmer(scraping ~ biom + (1 | dataset), h)
+h$resid<-resid(m.scrape)
+rsq.b<-rsquared(m.scrape)
+
+g3<-ggplot(h, aes(biom, resid, col=dataset)) + 
+      geom_point() + 
+      guides(col=FALSE) +
+      labs(x = 'Biomass kg/ha', y = 'Deviation from grazing function', main='Scraper') +
+      annotate(1500, 750000, geom='text', label='More algal removal') +
+      annotate(1500, -400000, geom='text', label='Less algal removal') +
+      annotate(Inf, -Inf, geom='text', vjust=-2, hjust=2, label=paste('R2 = ', round(rsq.b$Marginal, 2))) 
+
+
+grid.arrange(g1, g2,g3, nrow=1)
 ```

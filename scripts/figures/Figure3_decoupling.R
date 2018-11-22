@@ -23,6 +23,17 @@ m.graze<-lmer(cropping.gram.ha ~ biom + (1 | dataset), h)
 grazers$resid<-resid(m.graze)
 r2marg.grazer<-rsquared(m.graze)$Marginal
 
+load("results/models/scraper_function.Rdata")
+scrapers<-h
+scrapers$grazef<-scrapers$scraping
+scrapers$scraping<-NULL
+scrapers$sp <- 'scrapers'
+
+m.scrape<-lmer(scraping ~ biom + (1 | dataset), h)
+scrapers$resid<-resid(m.scrape)
+r2marg.scraper<-rsquared(m.scrape)$Marginal
+
+
 load("results/models/browser_function.Rdata")
 browsers<-h
 browsers$grazef<-browsers$browsing
@@ -33,11 +44,10 @@ m.browse<-lmer(browsing ~ biom + (1 | dataset), h)
 browsers$resid<-resid(m.browse)
 r2marg.browser<-rsquared(m.browse)$Marginal
 
-df<-rbind(grazers, browsers)
-r2<-data.frame(label = c(r2marg.grazer, r2marg.browser), sp = c('grazers', 'browsers'))
+df<-rbind(grazers, scrapers, browsers)
+r2<-data.frame(label = c(r2marg.grazer, r2marg.scraper, r2marg.browser), sp = c('grazers','scrapers', 'browsers'))
 #r2$lab<-paste(expression(paste('R'^2,' = ', round(r2$label, 2))))
 r2$label<-round(r2$label, 2)
-
 
 
 ## setup formatting information
@@ -49,6 +59,7 @@ theme_set(theme_sleek())
 
 function_names <- list(
   'grazers'=expression(paste("algal consumption g ha"^-1,"min"^-1)),
+  'scrapers'=expression(paste('area grazed m'^2,'ha'^-1, 'min'^-1)),
   'browsers'="mass-standardized bite rates"
 )
 
