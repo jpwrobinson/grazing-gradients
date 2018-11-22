@@ -267,6 +267,104 @@ g3 + coord_flip()
 grid.arrange(g4, g5)
 ```
 
+#### Scraping functions = potential area grazed
+
+For scrapers, we are combining bite frequencies with bite areas. Datasets are independent, and separate size models are fitted to each.
+
+```{r, include = T, message=F, echo=F}
+# UVC data load
+load("../../data/wio_herb_benthic_merged.Rdata")
+scrapers<-pred %>% filter(FG == 'Herbivore Scraper')
+## add genera column
+scrapers$genus<-str_split_fixed(scrapers$species, pattern = '\\ ', n=2)[,1]
+
+## bite predictions for each species
+d.pred <-data.frame(sp = scrapers$species, Genus = scrapers$genus, TL=scrapers$TL, dataset=NA)
+link.obs.sp<-link(scrape.m, n = 1000, data = as.list(d.pred), replace=list(X3 = a.dataset.zero))
+scrapers$biterate<-data.frame(median = apply(link.obs.sp, 2, median))
+pred.PI<-apply(link.obs.sp, 2, PI, prob = 0.95)
+scrapers$upper<-pred.PI[2,]
+scrapers$lower<-pred.PI[1,]
+
+## area predictions for body size
+d.pred <-data.frame(TL=scrapers$TL)
+link.obs.sp<-link(scrape.m2, n = 1000, data = as.list(d.pred))
+scrapers$bitearea<-data.frame(median = apply(link.obs.sp, 2, median))
+pred.PI<-apply(link.obs.sp, 2, PI, prob = 0.95)
+scrapers$upperarea<-pred.PI[2,]
+scrapers$lowerarea<-pred.PI[1,]
+
+## how many global means in analysis?
+t<-data.frame(table(scrapers$bite.rate))
+scraper.bites$freq<-t$Freq[match(scraper.bites$median, t$Var1)]
+g1<-ggplot(scraper.bites, aes(class, freq)) + 
+        geom_bar(stat='identity', fill = 'DarkGreen') + coord_flip() +
+        labs(x = 'Prediction level', y = 'Total abundance in UVC dataset') + 
+        geom_text(aes(class, freq, label = paste(round(median,2), 'bites/min')), size=2, hjust=0) +
+        scale_x_discrete(limits = rev(levels(scraper.bites$class))) + lims(y=c(0, 3000))
+
+## how much biomass is global mean in analysis?
+t<-aggregate(biomass.kgha ~ bite.rate, scrapers, sum)
+scraper.bites$freq<-t$biomass.kgha[match(scraper.bites$median, t$bite.rate)]
+g2<-ggplot(scraper.bites, aes(class, freq)) + 
+        geom_bar(stat='identity', fill = 'DarkGreen') + coord_flip() +
+        labs(x = 'Prediction level', y = 'Total biomass in UVC dataset (kg/ha)') + 
+        geom_text(aes(class, freq, label = paste(round(median,2), 'bites/min')), size=2, hjust=0) +
+        scale_x_discrete(limits = rev(levels(scraper.bites$class))) + lims(y=c(0, 40000))
+
+## what proportion biomass is global means?
+prop.global<-t$biomass.kgha[t$bite.rate == scraper.bites$median[scraper.bites$class == 'global.mean']]/sum(t$biomass.kgha)*100
+## ?????????%
+
+```
+
+```{r, include =T, echo= F, messages=F, warning=F,fig.cap='Figure 5: Bite rates assigned to scraping species', fig.height=6, fig.width=6, fig.align='center'}
+grid.arrange(g1, g2, top = 'Prediction levels used for scraper species')
+```
+
+Scraper function = area scraped * bite rate, where area scraped is predicted by individual body size and bite rate is predicted by individual body size, species and genus.
+
+
+```{r, include=T, echo=F}
+## now convert bite rate to area scraped
+scrapers$scraping<-scrapers$biterate * scrapers$bitearea
+
+# estimate mean total scraping function per site
+h <- scrapers %>% 
+  ## sum scraping in each transect
+        group_by(dataset, date, reef, site, management, transect, 
+                 unique.id, depth, FG, transect.area,
+                         hard.coral, macroalgae, rubble, substrate, complexity, fish.biom) %>%
+          summarise(scraping = sum(scraping), biom=sum(biomass.kgha)) %>%
+  ## mean scraping across transects at each site
+          group_by(dataset, date, reef, site, management, unique.id, depth, FG, transect.area,
+                         hard.coral, macroalgae,  rubble, substrate, complexity, fish.biom) %>%
+          summarise(scraping = mean(scraping), biom=mean(biom)) 
+
+## correct scraping to per hectare
+## for surveys = 100m2, which is when abundance.500m2 = 5
+h$scraping[which(h$transect.area == 100)] <- h$scraping[which(h$transect.area == 100)]/0.01 
+## for surveys = 250m2, which is when abundance.500m2 = 2
+h$scraping[which(h$transect.area == 250)] <- h$scraping[which(h$transect.area == 250)]/0.025 
+## for surveys = 153.9m2, which is when abundance.500m2 = 3.24806 (Seychelles)
+h$scraping[is.na(h$transect.area)] <- h$scraping[is.na(h$transect.area)]/0.01539 
+
+save(h, file = '../../results/models/scraper_function.Rdata')
+
+g3<-ggplot(h, aes(reorder(reef, scraping, FUN=median), scraping, fill=dataset)) + geom_boxplot() + xlab('Reef') + ylab('area scraped (mm2) per minute per ha') 
+
+g4<-ggplot(h, aes( log10(biom),log10(scraping), col=dataset)) +geom_point() + xlab('Biomass (log10 kg/ha)') + ylab('area scraped (mm2) per minute per ha') 
+
+g5<-ggplot(h, aes(biom, scraping, col=dataset)) +geom_point() + xlab('Biomass (kg/ha)') + ylab('area scraped (mm2) per minute per ha)') + xlim(c(0,500)) + ylim(c(0, 5000))
+```
+
+```{r, include =T, echo= F, messages=F, warning=F,fig.cap='Figure 5: Variation in scraping function among reefs', fig.height=6, fig.width=6, fig.align='center'}
+g3 + coord_flip()
+```
+
+```{r, include =T, echo= F, messages=F, warning=F,fig.cap='Figure 6: relationship between scraping function and browser biomass', fig.height=6, fig.width=6, fig.align='center'}
+grid.arrange(g4, g5)
+```
 
 #### Statistical models
 

@@ -14,6 +14,7 @@ output:
 
 ```{r global_options, include=FALSE}
 knitr::opts_chunk$set(fig.pos = 'H')  ## Hold figure positions
+eval.mods=FALSE
 ```
 
 #### Report contains models for converting grazing biomass to functions
@@ -84,7 +85,7 @@ Aim is to build a predictive model that estimates the bite rate of each fish in 
 
 <br><br>
 
-```{r,echo=FALSE, eval = FALSE, messages = FALSE, fig.align='center', fig.cap='Figure 4: histogram of bite rates by functional group', fig.width=7, fig.height = 4}
+```{r,echo=FALSE, eval = TRUE, messages = FALSE, fig.align='center', fig.cap='Figure 4: histogram of bite rates by functional group', fig.width=7, fig.height = 4}
 
 par(mfrow=c(1,3), mar=c(2,2,2,2))
 hist(bite$Bite.rate[bite$FG == 'Herbivore Grazer'], xlab='Bites per minute', main = 'Grazers')
@@ -221,7 +222,7 @@ where X is the intercept and B is the size effect, for ```r uniques(bite$sp[bite
 <br><br>
 
 
-```{r, echo=FALSE, eval = FALSE, messages = FALSE}
+```{r, echo=FALSE, eval = eval.mods, messages = FALSE}
 
 scrapers<-droplevels(bite[bite$FG == 'Herbivore Scraper',])
 colnames(scrapers)[colnames(scrapers) == 'Bite.rate']<-'biterate'
@@ -247,18 +248,18 @@ save(scrapers, scrape.m, file = '../../results/models/bites_scrapers.Rdata')
 area<-read.csv('../../data/bite-rates/scrape_sizes.csv')
 ## drop zeroes
 area <- area[area$bitearea > 0,]
-area.prior=mean(area$bitearea) ## 85.67
+area.prior=mean(area$bitearea) ## 85.67, log = 4.45
 
 scrape.m2<-map2stan(
         alist(
           bitearea ~ dgamma2(mu, scale),
-          log(mu) ~ a + B*TL + X1[species] + X2[genus],
-          X1[species] ~ dnorm(0, sigmar),
-          X2[genus] ~ dnorm(0, sigmar2),
-          a ~ dnorm(85.68, 10),
-          B ~ dnorm(0, 5),
-          scale ~ dexp(1),
-          c(sigmar, sigmar2) ~ dcauchy(0, 1)
+          log(mu) ~ a + B*TL, #+ X1[species] + X2[genus],
+          #X1[species] ~ dnorm(0, sigmar),
+          #X2[genus] ~ dnorm(0, sigmar2),
+          a ~ dnorm(4.45, 5),
+          B ~ dnorm(0, 2),
+          scale ~ dexp(5)
+          #c(sigmar, sigmar2) ~ dcauchy(0, 1)
         ),
         data=area, warmup = 1500, iter = 5000, chains =1, cores = 4)
 
@@ -361,6 +362,8 @@ pred.mean.size$upper<-pred.PI[2,]
 pred.mean.size$lower<-pred.PI[1,]
 pred.mean.size$TL<-d.pred$TL
 
+write.csv(pred.mean.size, file = '../../results/functions/scraper_area_predicted.csv')
+
 ```
 
 ```{r,echo=F, fig.align='center', fig.cap = 'Figure 8: Scraper bite area by size. Lines are median posterior predictions with 95% certainty intervals.', fig.width= 8, fig.height = 4}
@@ -391,7 +394,7 @@ where X is the intercept, for ```r uniques(bite$sp[bite$FG == 'Herbivore Browser
 <br><br>
 
 
-```{r, echo=FALSE, eval = FALSE, messages = FALSE}
+```{r, echo=FALSE, eval = eval.mods, messages = FALSE}
 
 browsers<-droplevels(bite[bite$FG == 'Herbivore Browser',])
 colnames(browsers)[colnames(browsers) == 'Bite.rate']<-'biterate'
