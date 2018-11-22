@@ -1,0 +1,6 @@
+load("/Users/robins64/Documents/git_repos/grazing-gradients/results/models/bites_grazers.Rdata")
+library(rethinking)
+ls()
+plot(graze.me)
+plot(graze.m)
+precis(graze.m)
