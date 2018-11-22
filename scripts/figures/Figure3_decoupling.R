@@ -67,6 +67,12 @@ func.labels <- function(variable,value){
   return(function_names[value])
 }
 
+panel_labs <- list(
+  'grazers'='B',
+  'scrapers'='C',
+  'browsers'="A"
+)
+
 ggplot(df, aes(biom, grazef, col=sp)) + 
         geom_point(alpha=0.5, aes(shape=dataset)) +
         facet_wrap(~ sp, scales= 'free',labeller=func.labels) +
