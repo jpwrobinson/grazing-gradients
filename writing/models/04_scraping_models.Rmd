@@ -1,0 +1,279 @@
+---
+title: "Models 4 - Scraping function gradients"
+output:
+  html_document:
+    df_print: paged
+    fig_width: 7
+    fig_height: 6
+    fig_caption: true
+    css: style.css
+    theme: sandstone
+  html_notebook: default
+  pdf_document: default
+---
+
+```{r global_options, include=FALSE}
+knitr::opts_chunk$set(fig.pos = 'H')  ## Hold figure positions
+```
+
+#### Report contains model outputs and diagnostics for grazing scraping function models.
+
+-----
+
+&nbsp;
+
+```{r, echo=FALSE, include=FALSE, messages=FALSE}
+
+# package loads
+library(ggplot2); library(visreg); library(lme4); library(dplyr); library(tidyr); library(scales); library(sjPlot); library(gridExtra); 
+library(funk)
+library(piecewiseSEM)
+theme_set(theme_bw())
+
+# data load
+#load("../../data/wio_herb_benthic_merged.Rdata") ## pred dataframe
+load('../../results/models/scraper_function.Rdata'); scraping<-h ### scraping function dataframe
+
+## assign seychelles 2017 with mean complexity values for now - needs fixed
+h$complexity[h$dataset == 'Seychelles' & h$date == 2017] <- mean(h$complexity)
+
+
+## scale vars to keep covariate means = 0. This is helpful for comparing effect sizes when covariates are on different scales.
+h$hard.coral <- scale(h$hard.coral)
+h$macroalgae <- scale(h$macroalgae)
+h$complexity <- scale(h$complexity)
+h$rubble <- scale(h$rubble)
+h$substrate <- scale(h$substrate)
+h$fish.biom <- scale(h$fish.biom)
+
+## make dummy variables
+h$fish.dummy<-ifelse(h$management=='Fished', 1, 0)
+h$pristine.dummy<-ifelse(h$management=='Unfished', 1, 0)
+# we use 2 dummy variables for 3 levels
+
+```
+
+```{r, echo=FALSE, include=FALSE, messages=FALSE}
+
+## convert scraping to log10
+h$scraperlog10<-log10(h$scraping)
+```
+
+\newpage
+
+---- 
+
+# Scraping function models
+***
+
+Now fitting models to scraping function, with scaled continuous covariates and dummy categorical covariates. We will account for non-independence of islands and sites (i.e. correlated scraping function estimates within a region) with random effect structures. 
+
+Fitted model is:
+
+scrapinglog10 ~ fixed(hard.coral + macroalgae + complexity + substrate + rubble + fished + pristine) + random(dataset/reef)
+
+where scrapinglog10 is area grazed (log10 scale), fished indicates if a site is protected or fished, and pristine indicates if a site is pristine (i.e. remote Chagos reefs). Random effect is varying intercepts for each reef, nested in each dataset.
+
+<br><br>
+
+```{r, echo=FALSE, include=FALSE, messages=FALSE}
+#### SCRAPING MODELS
+
+m.scraper<-lmer(scraperlog10 ~ hard.coral + macroalgae + rubble + substrate + complexity + fish.biom + fish.dummy + pristine.dummy + ## fixed
+          (1 | dataset/reef) , ## random, nested = reefs within datasets
+                data = h)
+
+#print(summary(m.scraper),  digits = 2, signif.stars = FALSE)
+
+rsq.b<-rsquared(m.scraper)
+
+save(m.scraper, file = '../../results/models/scraping_model.Rdata')
+
+```
+
+```{r, echo=FALSE, include=TRUE, messages=FALSE, fig.align = 'center', fig.cap='Figure 2: scraper model diagnostics - residuals and fitted values'}
+## model diagnostic plots - scraper scraping function
+par(mfrow=c(2,2), mar=c(5,4,2,2))
+hist(resid(m.scraper), main = 'model residuals', xlab='Residuals', cex.main=0.8)
+plot(resid(m.scraper), fitted(m.scraper), xlab='Residuals', ylab= 'Fitted values', pch=16,col=alpha('black', 0.5), cex.main=0.8)
+plot(resid(m.scraper), h$scraperlog10, xlab='Residuals', ylab= 'Observed function', pch=16,col=alpha('black', 0.5), cex.main=0.8)
+plot(predict(m.scraper), h$scraperlog10, xlab='Predicted function', ylab='Observed function', pch=16, col=alpha('black', 0.5), cex.main=0.8)
+
+```
+
+
+<br><br>
+
+Model residuals are approx. normal (though fail a shapiro test), while model predictions are reasonable. Note clustering of predictions around 1-2 observed scraping function. Suggests that commonly-observed scraping function values are not well predicted by habitat or fishing. Also note positive residual relationship, indicating that small scraping function values are underpredicted and large scraping function are overpredicted. 
+
+<br><br>
+
+Next step, examing model estimated effects by visualizing change in scraping function across observed gradients in explanatory covariates.
+
+\newpage
+
+### Benthic effects
+***
+
+```{r, echo=FALSE, include=FALSE, messages=FALSE}
+
+## NOW PLOT PREDICTIONS
+
+## defining colours for all plots
+#install.packages("wesanderson")
+library(wesanderson); pal <- wes_palette("Zissou1", 21, type = "continuous")
+cols<-c(pal[5], pal[12], pal[18], pal[1], pal[15],pal[21] )
+
+
+## this dataframe can be used for predictions. We generate 30 values of each continous covariate, ranging from the smallest to largest observed value. This dataset holds fishing effects constant by setting variable to their means (= 0).
+
+## Note that to use the prediction function here, the variable names in pred.master must match the variable names in the fitted dataset (the one called 'h').
+cont.pred.master<-data.frame(hard.coral = seq(min(h$hard.coral), max(h$hard.coral), length.out=30),
+                             macroalgae = seq(min(h$macroalgae), max(h$macroalgae), length.out=30),
+                             complexity = seq(min(h$complexity), max(h$complexity), length.out=30),
+                             rubble = seq(min(h$rubble), max(h$rubble), length.out=30),
+                             substrate = seq(min(h$substrate), max(h$substrate), length.out=30),
+                             fish.biom = 0,
+                   fish.dummy = 0, pristine.dummy=0)
+
+## 1. predict scraper scraping function for hard coral effect, holding every other covariate constant
+nd<-cont.pred.master
+## set non-focal benthic covariates to 0
+nd$macroalgae <- 0; nd$complexity <-0; nd$rubble <- 0; nd$substrate <- 0
+p.coral<-predict(object=m.scraper, newdata = nd, re.form=NA)
+
+## 2. predict scraper scraping function for macroalgae effect, holding every other covariate constant
+nd<-cont.pred.master
+## set non-focal benthic covariates to 0
+nd$hard.coral <- 0; nd$complexity <-0; nd$rubble <- 0; nd$substrate <- 0
+p.algae<-predict(object=m.scraper, newdata = nd, re.form=NA)
+
+## 3. predict scraper scraping function for rubble effect, holding every other covariate constant
+nd<-cont.pred.master
+## set non-focal benthic covariates to 0
+nd$macroalgae <- 0; nd$hard.coral <-0; nd$complexity <- 0; nd$substrate <- 0
+p.rubble<-predict(object=m.scraper, newdata = nd, re.form=NA)
+
+## 4. predict scraper scraping function for complexity effect, holding every other covariate constant
+nd<-cont.pred.master
+## set non-focal benthic covariates to 0
+nd$macroalgae <- 0; nd$hard.coral <-0; nd$rubble <- 0; nd$substrate <- 0
+p.complex<-predict(object=m.scraper, newdata = nd, re.form=NA)
+
+## 5. predict scraper scraping function for substrate effect, holding every other covariate constant
+nd<-cont.pred.master
+## set non-focal benthic covariates to 0
+nd$macroalgae <- 0; nd$hard.coral <-0; nd$rubble <- 0; nd$complexity <- 0
+p.substrate<-predict(object=m.scraper, newdata = nd, re.form=NA)
+
+```
+
+```{r, echo=FALSE, include=TRUE, messages=FALSE, fig.align='center', fig.cap = 'Figure 3: Benthic effects on scrapers', fig.width=9, fig.height=4}
+
+## create plot for benthic cover predictions. We will add all benthic predictions to the same figure panel using multiple panels
+par(mfrow=c(2,3), mar=c(4,2,1,1), oma=c(0,2, 0,0))
+
+## plot coral predictions
+plot(cont.pred.master$hard.coral, 10^p.coral, type='l',col = cols[1],lwd=2, axes=F, ylab='Log10 scraping function (kg/ha)', xlab='Benthic cover (%)',ylim=c(0,1))
+axis(1, at = seq(min(h$hard.coral), max(h$hard.coral), length.out=5), 
+     labels= round(seq(min(h$hard.coral), max(h$hard.coral), length.out=5), 0))
+axis(2)
+add_label(0.01, 0.1, font = 2, label ='Hard coral')
+
+## plot macroalgal predictions
+plot(cont.pred.master$macroalgae, 10^p.algae, type='l',col = cols[2],lwd=2, axes=F, ylab='', xlab='Benthic cover (%)',ylim=c(0,1))
+axis(1, at = seq(min(h$macroalgae), max(h$macroalgae), length.out=5), 
+     labels= round(seq(min(h$macroalgae), max(h$macroalgae), length.out=5), 0))
+axis(2)
+add_label(0.01, 0.1, font = 2, label ='Macroalgae')
+
+## plot rubble predictions
+plot(cont.pred.master$rubble, 10^p.rubble, type='l',col = cols[2],lwd=2, axes=F, ylab='', xlab='Benthic cover (%)',ylim=c(0,1))
+axis(1, at = seq(min(h$rubble), max(h$rubble), length.out=5), 
+     labels= round(seq(min(h$rubble), max(h$rubble), length.out=5), 0))
+axis(2)
+add_label(0.01, 0.1, font = 2, label ='Rubble')
+
+## plot complexity predictions
+plot(cont.pred.master$complexity, 10^p.complex, type='l',col = cols[3],lwd=2, axes=F, ylab='', xlab='Habitat complexity',ylim=c(0,1))
+axis(1, at = seq(min(h$complexity), max(h$complexity), length.out=5), 
+     labels= round(seq(min(h$complexity), max(h$complexity), length.out=5), 0))
+axis(2)
+add_label(0.01, 0.1, font = 2, label ='Complexity')
+
+## plot substrate predictions
+plot(cont.pred.master$substrate, 10^p.substrate, type='l',col = cols[1],lwd=2, axes=F, ylab='', xlab='Available substrate', ylim=c(0,1))
+axis(1, at = seq(min(h$substrate), max(h$substrate), length.out=5), 
+     labels= round(seq(min(h$substrate), max(h$substrate), length.out=5), 0))
+axis(2)
+add_label(0.01, 0.1, font = 2, label ='Substrate')
+
+## label y axis
+mtext(2, text= 'scraping function (area grazed m2/ha/min)', outer=TRUE, line=0.5)
+
+```
+<br><br>
+
+\newpage
+
+### Fishing effects
+***
+
+```{r, echo=FALSE, include=FALSE, messages=FALSE}
+
+# we need a new prediction data frame for the fishing effects, which are categorical.
+## Let's use expand.grid to get all combinations of fishing variables, holding benthic covariates to 0
+cat.pred.master<-expand.grid(hard.coral = 0,
+                             macroalgae = 0,
+                             rubble = 0, substrate = 0,
+                             complexity = 0, fish.biom = 0, fish.dummy = c(0,1), pristine.dummy=c(0,1))
+
+## Wait. this is wrong. We don't have fished AND pristine sites (duh). Let's drop that row.
+cat.pred.master<-cat.pred.master[-4,]
+
+## get fish biom range
+fish.master<-data.frame(hard.coral = 0, macroalgae = 0, rubble = 0, complexity = 0, substrate = 0, fish.dummy = 0, pristine.dummy = 0, fish.biom = seq(min(h$fish.biom), max(h$fish.biom), length.out = 30))
+
+## 1. predict scraper scraping function for fishing effects
+nd<-cat.pred.master
+nd$p.fish<-predict(object=m.scraper, newdata = nd, re.form=NA)
+
+## It's easier to add these variables into the predictor variable, so we know which fishing categories they correspond to
+nd$categories<-c('Protected', 'Fished', 'Pristine') 
+
+## let's reorder to have a fishing gradient
+nd<-nd[c(3,1,2),]
+
+## 2. predict scraper scraping function for fishing scraping function gradient
+fish.master$p.fish<-predict(object=m.scraper, newdata = fish.master, re.form=NA)
+
+```
+
+
+<br><br>
+
+```{r, echo=FALSE, include=TRUE, messages=FALSE, fig.align='center', fig.cap='Figure 4: fishing effects on scrapers', fig.width=9, fig.height=4}
+## 2. create plot for fishing predictions. 
+par(mfrow=c(1,2), mar=c(4,4,1,1), oma=c(0,0,0,0))
+plot(c(1,2,3), 10^nd$p.fish, cex=2, col = cols[c(4,5,6)],pch=16, axes=F, ylab='scraping function (area m2/ha/min)', xlab='', ylim=c(0,1.5))
+axis(1, at = c(1,2,3), labels= nd$categories)
+axis(2)
+
+plot(fish.master$fish.biom, 10^fish.master$p.fish, cex=2, axes=F, ylab='', xlab='Fishable biomass (kg/ha)', ylim=c(0, 1.5), type='l')
+axis(1, at = seq(min(h$fish.biom), max(h$fish.biom), length.out=5), 
+     labels= comma(round(seq(min(h$fish.biom), max(h$fish.biom), length.out=5), 0)))
+axis(2)
+
+
+```
+
+<br><br>
+
+
+```{r, echo=FALSE, include=TRUE, messages=FALSE, fig.align='center', fig.cap='Figure 5: model standardized effect sizes', fig.width=3, fig.height=4}
+
+library(sjPlot)
+plot_model(m.scraper, rm.terms='pristine.dummy', axis.lim=c(-0.25, 0.25))
+
+```
+\newpage

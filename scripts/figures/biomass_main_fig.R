@@ -4,12 +4,13 @@ setwd(here('grazing-gradients'))
 
 ## load models and predictions
 
-load("results/models/biomass_m.browsers.Rdata")
-load("results/models/biomass_m.scrapers.Rdata")
-load("results/models/biomass_m.grazers.Rdata")
+load("results/models/biomass_m.browsers.Rdata"); rsquared(m.browser)
+load("results/models/biomass_m.scrapers.Rdata"); rsquared(m.scraper)
+load("results/models/biomass_m.grazers.Rdata"); rsquared(m.grazer)
 load("results/models/biomass_m.predictions.Rdata")
 
 
+library(piecewiseSEM)
 require(gridExtra)
 library(grid)
 library(lme4)
