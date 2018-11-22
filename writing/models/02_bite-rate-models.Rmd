@@ -242,6 +242,28 @@ scrape.m<-map2stan(
         data=scrapers, warmup = 1500, iter = 5000, chains =1, cores = 4)
 
 save(scrapers, scrape.m, file = '../../results/models/bites_scrapers.Rdata')
+
+## now model for area scraped
+area<-read.csv('../../data/bite-rates/scrape_sizes.csv')
+## drop zeroes
+area <- area[area$bitearea > 0,]
+area.prior=mean(area$bitearea) ## 85.67
+
+scrape.m2<-map2stan(
+        alist(
+          bitearea ~ dgamma2(mu, scale),
+          log(mu) ~ a + B*TL + X1[species] + X2[genus],
+          X1[species] ~ dnorm(0, sigmar),
+          X2[genus] ~ dnorm(0, sigmar2),
+          a ~ dnorm(85.68, 10),
+          B ~ dnorm(0, 5),
+          scale ~ dexp(1),
+          c(sigmar, sigmar2) ~ dcauchy(0, 1)
+        ),
+        data=area, warmup = 1500, iter = 5000, chains =1, cores = 4)
+
+save(area, scrape.m2, file = '../../results/models/area_scrapers.Rdata')
+
 ```
 
 ***
@@ -318,6 +340,73 @@ ggplot(pred.mean.size, aes(TL, median)) + geom_line() +
       geom_line(data = pred.mean.size, aes(TL, upper), linetype='dotted') +
       geom_line(data = pred.mean.size, aes(TL, lower), linetype='dotted') + 
       labs(x = 'Total length (cm)', y = 'Bites per minute')
+
+```
+
+***
+
+For bite area, predictions made from separate dataset of bite width and length for scrapers on the GBR.
+
+```{r, echo=FALSE, eval = TRUE, messages = FALSE, include =FALSE}
+
+## evaluating predictions for each species
+load('../../results/models/area_scrapers.Rdata')
+
+## Predictions for species, with genus effect
+d.pred <-data.frame(species = unique(area$species), TL = mean(area$TL), dataset = 'NA')
+d.pred$genus<-area$genus[match(d.pred$species, area$species)]
+a.dataset.zero = matrix(0, 1000, 4)
+
+link.obs.species<-link(scrape.m, n = 1000, data = as.list(d.pred), replace=list(X3 = a.dataset.zero))
+pred.mean<-data.frame(median = apply(link.obs.species, 2, median))
+pred.PI<-apply(link.obs.species, 2, PI, prob = 0.95)
+pred.mean$upper<-pred.PI[2,]
+pred.mean$lower<-pred.PI[1,]
+pred.mean$class <- d.pred$species #pred.mean$genus <- d.pred$genus
+pred.mean$class<- factor(pred.mean$class, level = rev(levels(pred.mean$class)))
+pred.mean$preds<-'species'
+
+## Predictions for genus, removing species effect
+d.pred <- data.frame(genus = unique(area$genus), species = 'NA', TL = mean(area$TL), dataset = 'NA')
+a.species.zero = matrix(0, 1000, 28)
+link.obs.genus<-link(scrape.m, n = 1000, data = as.list(d.pred), replace= list(X1= a.species.zero, X3 = a.dataset.zero))
+pred.mean.genus<-data.frame(median = apply(link.obs.genus, 2, median))
+pred.PI<-apply(link.obs.genus, 2, PI, prob = 0.95)
+pred.mean.genus$upper<-pred.PI[2,]
+pred.mean.genus$lower<-pred.PI[1,]
+pred.mean.genus$class <- d.pred$genus
+pred.mean.genus$class<- factor(pred.mean.genus$class, level = rev(levels(pred.mean.genus$class)))
+pred.mean.genus$preds<-'genus'
+
+p<-rbind(pred.mean, pred.mean.genus)
+p$col<-area$genus[match(p$class, area$species)]
+p$col[p$preds == 'genus']<-area$genus[match(p$class[p$preds == 'genus'], area$genus)]
+
+## size effects
+d.pred <- data.frame(genus = 'NA', species = 'NA', TL = seq(min(area$TL), max(area$TL), length.out =30), dataset = 'NA')
+a.sp.zero = matrix(0, 1000, 28); a.genus.zero = matrix(0, 1000, 4); a.dataset.zero = matrix(0, 1000, 2)
+link.obs.size<-link(scrape.m, n = 1000, data = as.list(d.pred), 
+                      replace= list(X1= a.sp.zero, X2 = a.genus.zero, X3 = a.dataset.zero))
+pred.mean.size<-data.frame(median = apply(link.obs.size, 2, median))
+pred.PI<-apply(link.obs.size, 2, PI, prob = 0.95)
+pred.mean.size$upper<-pred.PI[2,]
+pred.mean.size$lower<-pred.PI[1,]
+pred.mean.size$TL<-d.pred$TL
+
+```
+
+```{r, echo=F, fig.align='center', fig.cap = 'Figure 7: Scraper bite area by genera and species. Points are median posterior predictions, with 95% certainty intervals.', fig.width= 8, fig.height = 5}
+
+g<-ggplot(p, aes(class, median, col=col)) + geom_pointrange(aes(ymin = lower, ymax = upper)) + coord_flip() + theme(legend.position = 'NULL') + labs( x = '', y = 'Area scraped (mm2)', title = 'Scrapers') + facet_wrap(~preds, scales='free_y')
+
+```
+
+```{r,echo=F, fig.align='center', fig.cap = 'Figure 8: Scraper bite area by size. Lines are median posterior predictions with 95% certainty intervals.', fig.width= 8, fig.height = 4}
+
+ggplot(pred.mean.size, aes(TL, median)) + geom_line() + 
+      geom_line(data = pred.mean.size, aes(TL, upper), linetype='dotted') +
+      geom_line(data = pred.mean.size, aes(TL, lower), linetype='dotted') + 
+      labs(x = 'Total length (cm)', y = 'Area scraped (mm2)')
 
 ```
 
@@ -401,7 +490,7 @@ write.csv(p, file = '../../results/functions/browser_bites_predicted.csv')
 
 Browser bite rates are lower than grazers (Fig. 8), but it's difficult to infer much with only 2 species. We can't, for example, extrapolate these to siganid species, unless we assume that the average browsing bite rate is meaningful. Variation in observed rates (predicted ranges from 3 to 13 bites per min) suggests that species or genera variation is important.
 
-```{r,echo=F, fig.align='center', fig.cap = 'Figure 8: Browser bite rates by genera and species. Points are median posterior predictions, with 95% certainty intervals.', fig.width= 8, fig.height = 5}
+```{r,echo=F, fig.align='center', fig.cap = 'Figure 9: Browser bite rates by genera and species. Points are median posterior predictions, with 95% certainty intervals.', fig.width= 8, fig.height = 5}
 
 ggplot(pred.mean.genus, aes(class, median, col=class)) + geom_pointrange(aes(ymin = lower, ymax = upper)) + coord_flip() + theme(legend.position = 'NULL') + labs( x = '', y = 'Bites per minute', title = 'Browsers')
 
