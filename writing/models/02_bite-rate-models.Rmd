@@ -281,7 +281,7 @@ load('../../results/models/bites_scrapers.Rdata')
 ## Predictions for species, with genus effect
 d.pred <-data.frame(sp = unique(scrapers$sp), TL = mean(scrapers$TL), dataset = 'NA')
 d.pred$Genus<-scrapers$Genus[match(d.pred$sp, scrapers$sp)]
-a.dataset.zero = matrix(0, 1000, 4)
+a.dataset.zero = matrix(0, 1000, 3)
 
 link.obs.sp<-link(scrape.m, n = 1000, data = as.list(d.pred), replace=list(X3 = a.dataset.zero))
 pred.mean<-data.frame(median = apply(link.obs.sp, 2, median))
@@ -294,7 +294,7 @@ pred.mean$preds<-'Species'
 
 ## Predictions for genus, removing species effect
 d.pred <- data.frame(Genus = unique(scrapers$Genus), sp = 'NA', TL = mean(scrapers$TL), dataset = 'NA')
-a.sp.zero = matrix(0, 1000, 28)
+a.sp.zero = matrix(0, 1000, 27)
 link.obs.genus<-link(scrape.m, n = 1000, data = as.list(d.pred), replace= list(X1= a.sp.zero, X3 = a.dataset.zero))
 pred.mean.genus<-data.frame(median = apply(link.obs.genus, 2, median))
 pred.PI<-apply(link.obs.genus, 2, PI, prob = 0.95)
@@ -304,9 +304,25 @@ pred.mean.genus$class <- d.pred$Genus
 pred.mean.genus$class<- factor(pred.mean.genus$class, level = rev(levels(pred.mean.genus$class)))
 pred.mean.genus$preds<-'Genus'
 
-p<-rbind(pred.mean, pred.mean.genus)
+## Predictions for global mean, removing species and genus effect
+d.pred <- data.frame(Genus = 'NA', sp = 'NA', dataset = 'NA',TL = mean(scrapers$TL))
+a.sp.zero = matrix(0, 1000, 27)
+a.genus.zero = matrix(0, 1000, 4)
+a.dataset.zero = matrix(0, 1000, 3)
+
+link.obs.mean<-link(scrape.m, n = 1000, data = as.list(d.pred), replace= list(X1= a.sp.zero, X2 = a.genus.zero, X3 = a.dataset.zero))
+pred.global<-data.frame(median = apply(link.obs.mean, 2, median))
+pred.PI<-apply(link.obs.mean, 2, PI, prob = 0.95)
+pred.global$upper<-pred.PI[2,]
+pred.global$lower<-pred.PI[1,]
+pred.global$class <- 'global.mean'
+pred.global$preds<-'global.mean'
+
+p<-rbind(pred.mean, pred.mean.genus, pred.global)
 p$col<-scrapers$Genus[match(p$class, scrapers$sp)]
 p$col[p$preds == 'Genus']<-scrapers$Genus[match(p$class[p$preds == 'Genus'], scrapers$Genus)]
+
+write.csv(p, file = '../../results/functions/scraper_bites_predicted.csv')
 
 ```
 
