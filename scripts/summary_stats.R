@@ -19,10 +19,40 @@ load("results/models/biomass_m.grazers.Rdata")
 load("results/models/biomass_m.predictions.Rdata")
 
 rsquared(m.browser)
+#       Response   family     link method  Marginal Conditional
+# 1 browserlog10 gaussian identity   none 0.2232465    0.347809
+
 rsquared(m.grazer)
+#      Response   family     link method  Marginal Conditional
+# 1 grazerlog10 gaussian identity   none 0.2646925   0.6860404
+
 rsquared(m.scraper)
+#       Response   family     link method Marginal Conditional
+# 1 scraperlog10 gaussian identity   none  0.41861   0.5426255
+
+## decoupling models and predictions
+load("results/models/browser_function.Rdata")
+load("results/models/scraper_function.Rdata")
+load("results/models/cropper_function.Rdata")
+rsquared(m.browse)
+#   Response   family     link method  Marginal Conditional
+# 1 browsing gaussian identity   none 0.9979434   0.9979434
+
+rsquared(m.graze)
+#           Response   family     link method  Marginal Conditional
+# 1 cropping.gram.ha gaussian identity   none 0.9466518   0.9567969
 
 
+rsquared(m.scrape)
+#   Response   family     link method  Marginal Conditional
+# 1 scraping gaussian identity   none 0.4094991    0.759337
+
+## scraping models
+load("results/models/scraping_model.Rdata")
+rsquared(m.scraper)
+# Marginal Conditional
+#  0.1459465   0.6475017
+ 
 
 ## raw dataset
 load("data/wio_herb_benthic_merged.Rdata")
