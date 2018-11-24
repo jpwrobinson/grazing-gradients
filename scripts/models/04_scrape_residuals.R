@@ -44,8 +44,8 @@ dim(com.mat)
 library(vegan)
 div<-data.frame(div=diversity(com.mat), 
 				richness=specnumber(com.mat), 
-				J = div$div/log(div$richness),
 				unique.id = rows)
+div$J <- div$div/log(div$richness)
 
 
 ## scraping models
@@ -66,6 +66,13 @@ h$evenness<-div$J[match(h$unique.id, div$unique_id)]
 ## assign seychelles 2017 with mean complexity values for now - needs fixed
 h$complexity[h$dataset == 'Seychelles' & h$date == 2017] <- mean(h$complexity)
 
+## plot expected relationships
+pdf(file='figures/explore/scraping_diversity.pdf', height =5 ,width=9)
+g1<-ggplot(h, aes( sp.richness, scraping, col=dataset))+ geom_point() + theme(legend.position='none')
+g2<-ggplot(h, aes( evenness, scraping, col=dataset))+ geom_point() + 
+theme(legend.position=c(0.6, 0.9), legend.title=element_blank())
+gridExtra::grid.arrange(g1,g2, nrow=1)
+dev.off()
 
 ## scale vars to keep covariate means = 0. This is helpful for comparing effect sizes when covariates are on different scales.
 h$hard.coral <- scale(h$hard.coral)
@@ -89,17 +96,23 @@ m<-lmer(scraping ~ hard.coral + macroalgae + rubble + substrate + complexity +
 			simpson.diversity + sp.richness +
           (1 | dataset/reef) , ## random, nested = reefs within datasets
                 data = h)
-
+summary(m)
+rsquared(m)
 
 m<-lmer(resid ~ evenness + sp.richness +
           (1 | dataset/reef) , ## random, nested = reefs within datasets
                 data = h)
-
 summary(m)
 rsquared(m)
 
-par(mfrow=c(2,2))
-visreg::visreg(m)
 
-ggplot(h, aes(evenness, sp.richness, col=dataset, size=scraping))+ geom_point()
+## refit without low diversity outliers
+m.sub<-lmer(resid ~ evenness + sp.richness +
+          (1 | dataset/reef) , ## random, nested = reefs within datasets
+                data = h[!h$evenness< -1,])
+summary(m.sub)
+## negative evenness effect is not due to low diversity outliers
+
+par(mfrow=c(2,2))
+visreg::visreg(m.sub)
 
