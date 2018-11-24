@@ -24,19 +24,17 @@ h <- pred %>% filter(FG == 'Herbivore Scraper') %>%
           group_by(unique.id, species) %>%
           summarise(biom = mean(biom)) 
 
-head(data.frame(h))
 ## change names for colnames
 com.mat<-tidyr::spread(h, species, biom)
 com.mat<-janitor::clean_names(com.mat)
 rows<-com.mat[,1]
 ## drop cols
-com.mat<-com.mat[, -1]
+com.mat<-com.mat[, -c(1)]
 
 ## fill NAs
 com.mat[is.na(com.mat)]<-0
 ## matrix format
 com.mat<-as.matrix(com.mat)
-rownames(com.mat)<-unique(t$SZ.month)
 dim(com.mat)
 
 
@@ -47,6 +45,17 @@ div<-data.frame(div=diversity(com.mat),
 				unique.id = rows)
 div$J <- div$div/log(div$richness)
 
+# save mean sizes 
+sizes<-pred %>% filter(FG == 'Herbivore Scraper') %>% 
+  ## sum biomass per FG in each transect
+        group_by(dataset, reef, site, transect, 
+                 unique.id, species) %>%
+          summarise(size = mean(length.cm)) %>%
+  ## mean species sizeass across transects at each site
+          group_by(unique.id) %>%
+          summarise(size = mean(size)) 
+
+div$mean.size<-sizes$size
 
 ## scraping models
 load("results/models/scraping_model.Rdata")
@@ -62,16 +71,19 @@ h$resid<-resid(m.scraper)
 h$simpson.diversity<-div$div[match(h$unique.id, div$unique_id)] ## simpson is 1 - D. 
 h$sp.richness<-div$richness[match(h$unique.id, div$unique_id)]
 h$evenness<-div$J[match(h$unique.id, div$unique_id)]
+h$mean.size<-div$mean.size[match(h$unique.id, div$unique_id)]
 
 ## assign seychelles 2017 with mean complexity values for now - needs fixed
 h$complexity[h$dataset == 'Seychelles' & h$date == 2017] <- mean(h$complexity)
 
 ## plot expected relationships
-pdf(file='figures/explore/scraping_diversity.pdf', height =5 ,width=9)
+pdf(file='figures/explore/scraping_diversity.pdf', height =5 ,width=14)
 g1<-ggplot(h, aes( sp.richness, scraping, col=dataset))+ geom_point() + theme(legend.position='none')
 g2<-ggplot(h, aes( evenness, scraping, col=dataset))+ geom_point() + 
 theme(legend.position=c(0.6, 0.9), legend.title=element_blank())
-gridExtra::grid.arrange(g1,g2, nrow=1)
+g3<-ggplot(h, aes( mean.size, scraping, col=dataset))+ geom_point() + 
+theme(legend.position='none')
+gridExtra::grid.arrange(g1,g2,g3,  nrow=1)
 dev.off()
 
 ## scale vars to keep covariate means = 0. This is helpful for comparing effect sizes when covariates are on different scales.
@@ -85,6 +97,7 @@ h$fish.biom <- scale(h$fish.biom)
 h$simpson.diversity <- scale(h$simpson.diversity)
 h$sp.richness <- scale(h$sp.richness)
 h$evenness <- scale(h$evenness)
+h$mean.size <- scale(h$mean.size)
 
 ## make dummy variables
 h$fish.dummy<-ifelse(h$management=='Fished', 1, 0)
@@ -93,13 +106,13 @@ h$pristine.dummy<-ifelse(h$management=='Unfished', 1, 0)
 
 m<-lmer(scraping ~ hard.coral + macroalgae + rubble + substrate + complexity + 
 			fish.biom + fish.dummy + pristine.dummy + ## fixed 
-			simpson.diversity + sp.richness +
+			simpson.diversity + sp.richness + biom +
           (1 | dataset/reef) , ## random, nested = reefs within datasets
                 data = h)
 summary(m)
 rsquared(m)
-
-m<-lmer(resid ~ evenness + sp.richness +
+visreg::visreg(m, 'biom')
+m<-lmer(scraping ~ evenness + sp.richness + mean.size +
           (1 | dataset/reef) , ## random, nested = reefs within datasets
                 data = h)
 summary(m)
@@ -107,12 +120,26 @@ rsquared(m)
 
 
 ## refit without low diversity outliers
-m.sub<-lmer(resid ~ evenness + sp.richness +
+m.sub<-lmer(scraping ~ evenness + sp.richness +
           (1 | dataset/reef) , ## random, nested = reefs within datasets
-                data = h[!h$evenness< -1,])
+                data = h[!h$evenness< -2,])
 summary(m.sub)
 ## negative evenness effect is not due to low diversity outliers
 
 par(mfrow=c(2,2))
 visreg::visreg(m.sub)
 
+ggplot(h, aes( biom, scraping, col=sp.richness))+ geom_point(alpha=0.8)  + scale_x_log10() + scale_y_log10() +
+scale_color_continuous(low='red', high='green') 
+
+with(h, plot(evenness, scraping))
+
+## richness predictors?
+m<-lmer(sp.richness ~ hard.coral + macroalgae + rubble + substrate + complexity + 
+			fish.biom + fish.dummy + pristine.dummy  + ## fixed 
+          (1 | dataset/reef) , ## random, nested = reefs within datasets
+                data = h)
+
+summary(m)
+par(mfrow=c(3,3))
+visreg::visreg(m)
