@@ -1,0 +1,29 @@
+---
+title: ''
+header-includes:
+- \usepackage{pdflscape}
+- \newcommand{\blandscape}{\begin{landscape}}
+- \newcommand{\elandscape}{\end{landscape}}
+output:
+  pdf_document:
+  latex_engine: xelatex
+fig_width: 20
+html_document: default
+fig_height: 6
+word_document: default
+fontsize: 12pt
+
+---
+
+## TITLE
+
+*Authors*
+
+```{r, echo=F}
+## set up figcounter
+i = 0
+```
+
+#### Supplementary Methods
+
+&nbsp;

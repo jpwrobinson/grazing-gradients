@@ -16,6 +16,7 @@ chagos<-read.csv('data/raw-data/csv/chagos_benthos.csv', header=F)
 chagos2<-read.csv('data/raw-data/csv/chagos_benthos2.csv', header=T)
 
 
+
 ## change column names to match fish data
 colnames(seychelles)[colnames(seychelles)=='location']<-'site'
 colnames(seychelles)[colnames(seychelles)=='count']<-'transect'

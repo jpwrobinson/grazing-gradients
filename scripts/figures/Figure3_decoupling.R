@@ -67,11 +67,11 @@ func.labels <- function(variable,value){
   return(function_names[value])
 }
 
-panel_labs <- list(
-  'grazers'='B',
-  'scrapers'='C',
-  'browsers'="A"
-)
+# panel_labs <- list(
+#   'grazers'='B',
+#   'scrapers'='C',
+#   'browsers'="A"
+# )
 
 ggplot(df, aes(biom, grazef, col=sp)) + 
         geom_point(alpha=0.5, aes(shape=dataset)) +
@@ -83,6 +83,7 @@ ggplot(df, aes(biom, grazef, col=sp)) +
   guides(col=F) +
   theme(legend.position ='top', legend.title=element_blank()) +
   xlab(expression(paste("biomass kg ha"^-1))) + ylab("Function")  +
-  geom_text(data=r2, aes(Inf, Inf, label=paste0("R", "^", "2", "==", label)), vjust=4, hjust=4, parse=TRUE) 
+  geom_text(data=r2, aes(Inf, Inf, label=paste0("R", "^", "2", "==", label)), vjust=4, hjust=4, parse=TRUE) #+
+  # geom_text(data=panel_labs, aes(Inf, Inf, label=panel_labs))
 
 dev.off()
