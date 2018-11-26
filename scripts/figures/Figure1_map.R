@@ -15,6 +15,10 @@ theme_set(theme_sleek())
 # biomass
 load("data/wio_herb_benthic_merged.Rdata")
 
+## site lat lons
+sites<-read.csv('data/grazing-site-latlon.csv')
+
+
 # big map
 world <- map_data("world2") 
 world<-fortify(world)
@@ -61,10 +65,15 @@ world.plot<-ggplot() + geom_polygon(data = world, aes(x=long, y = lat, group = g
 
 
 ## seychelles
-ggplot() + geom_polygon(data = isl, aes(x = long, y = lat, group=group), fill=alpha('grey', 0.6)) + 
+sey.plot<-ggplot() + geom_polygon(data = isl, aes(x = long, y = lat, group=group), fill=alpha('grey', 0.6)) + 
 	coord_quickmap(xlim = c(55.25, 56), ylim = c(-4.9, -4.2), expand = TRUE,
   	clip = "on") + 
-  labs(x = '', y = '')
+  labs(x = '', y = '') +
+  geom_point(data = sites, aes(x = X, y = Y), size=2) +
+  theme(plot.margin=unit(c(0,0,0,0), "mm"),
+  axis.title=element_blank(),
+  axis.ticks=element_blank(),
+  axis.text = element_text(size =4))
 
 
 #------------------------#
@@ -132,6 +141,8 @@ gbr.bar<-ggplot(biom[biom$dataset == 'GBR',],
 
 
 bottom<-plot_grid(sey.bar, mal.bar, chag.bar, gbr.bar, nrow=1)
+middle<-plot_grid(sey.plot,sey.plot,sey.plot,sey.plot, nrow=1)
 
-plot_grid(world.plot, world.plot, bottom, nrow=3, align='v')#, rel.widths=c(1,1,1), labels='AUTO')
-
+pdf(file='figures/Figure1.pdf', height = 7, width =16)
+plot_grid(world.plot, middle, bottom, nrow=3, align='v')#, rel.widths=c(1,1,1), labels='AUTO')
+dev.off()
