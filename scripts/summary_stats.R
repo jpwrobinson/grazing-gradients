@@ -99,3 +99,17 @@ r2marg.browser<-rsquared(m.browse)$Marginal
 
 ## doesn't exist yet
 # load("results/models/scraper_function.Rdata")
+
+
+
+
+# Summary table showing mean biomass and explanatory covariate values at each reef. 
+table <- aggregate( biomass.kgha ~ reef, pred, mean )
+table1 <- aggregate( hard.coral ~ reef, pred, mean )
+table2 <- aggregate( macroalgae ~ reef, pred, mean )
+table3 <- aggregate( rubble ~ reef, pred, mean )
+table4 <- aggregate( complexity ~ reef, pred, mean )
+table5  <- aggregate( fish.biom  ~ reef, pred, mean )
+table6 <- aggregate( substrate ~ reef, pred, mean )
+table <- do.call("cbind", list(table, table1, table2, table3, table4, table5, table6))
+table <- table[, !duplicated(colnames(table))]
