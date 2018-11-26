@@ -65,8 +65,8 @@ rsquared(m.scraper)
 
 ## scraping data
 load('results/models/scraper_function.Rdata')
+h$resid<-resid(m.scrape)
 
-h$resid<-resid(m.scraper)
 ## attach to t
 h$simpson.diversity<-div$div[match(h$unique.id, div$unique_id)] ## simpson is 1 - D. 
 h$sp.richness<-div$richness[match(h$unique.id, div$unique_id)]
@@ -104,23 +104,39 @@ h$fish.dummy<-ifelse(h$management=='Fished', 1, 0)
 h$pristine.dummy<-ifelse(h$management=='Unfished', 1, 0)
 # we use 2 dummy variables for 3 levels
 
-m<-lmer(scraping ~ hard.coral + macroalgae + rubble + substrate + complexity + 
+m<-lmer(resid ~ hard.coral + macroalgae + rubble + substrate + complexity + 
 			fish.biom + fish.dummy + pristine.dummy + ## fixed 
-			simpson.diversity + sp.richness + biom +
+			evenness + sp.richness + mean.size +
           (1 | dataset/reef) , ## random, nested = reefs within datasets
                 data = h)
 summary(m)
 rsquared(m)
-visreg::visreg(m, 'biom')
+#visreg::visreg(m)
+sjPlot::plot_models(m, axis.lim=c(-0.5, 0.5), show.values = TRUE)
+sjPlot::plot_model(m, type='pred', terms='mean.size')
+
+ggplot(h, aes( sp.richness, resid, col=dataset))+ geom_point() + 
+theme(legend.position='none')
+
 m<-lmer(scraping ~ evenness + sp.richness + mean.size +
           (1 | dataset/reef) , ## random, nested = reefs within datasets
                 data = h)
 summary(m)
 rsquared(m)
 
+## for residuals
+m<-lmer(resid ~ evenness + sp.richness + mean.size +
+          (1 | dataset/reef) , ## random, nested = reefs within datasets
+                data = h)
+summary(m)
+rsquared(m)
+par(mfrow=c(1,3))
+sjPlot::plot_model(m, type='pred', terms='sp.richness')
+sjPlot::plot_model(m, type='pred', terms='evenness')
+sjPlot::plot_model(m, type='pred', terms='mean.size')
 
 ## refit without low diversity outliers
-m.sub<-lmer(scraping ~ evenness + sp.richness +
+m.sub<-lmer(resid ~ evenness + sp.richness +
           (1 | dataset/reef) , ## random, nested = reefs within datasets
                 data = h[!h$evenness< -2,])
 summary(m.sub)

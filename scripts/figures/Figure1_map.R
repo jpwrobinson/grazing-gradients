@@ -57,7 +57,7 @@ biom <- pred %>%
 
 ## world
 world.plot<-ggplot() + geom_polygon(data = world, aes(x=long, y = lat, group = group)) + 
-  coord_quickmap(xlim = c(40, 170), ylim = c(-25, 20), expand = TRUE,
+  coord_quickmap(xlim = c(30, 170), ylim = c(-25, 20), expand = TRUE,
   clip = "on") + 
   labs(x = '', y = '') +
   geom_rect(data = bbox, 
@@ -73,7 +73,7 @@ sey.plot<-ggplot() + geom_polygon(data = isl, aes(x = long, y = lat, group=group
   theme(plot.margin=unit(c(0,0,0,0), "mm"),
   axis.title=element_blank(),
   axis.ticks=element_blank(),
-  axis.text = element_text(size =4))
+  axis.text = element_text(size =6))
 
 
 #------------------------#
@@ -142,7 +142,8 @@ gbr.bar<-ggplot(biom[biom$dataset == 'GBR',],
 
 bottom<-plot_grid(sey.bar, mal.bar, chag.bar, gbr.bar, nrow=1)
 middle<-plot_grid(sey.plot,sey.plot,sey.plot,sey.plot, nrow=1)
+bm<-plot_grid(middle, bottom, nrow=2, align='h')
 
-pdf(file='figures/Figure1.pdf', height = 7, width =16)
-plot_grid(world.plot, middle, bottom, nrow=3, align='v')#, rel.widths=c(1,1,1), labels='AUTO')
+pdf(file='figures/Figure1.pdf', height = 7, width =12)
+plot_grid(world.plot, bm, nrow=2, align='v', rel_heights=c(0.8, 1))
 dev.off()
