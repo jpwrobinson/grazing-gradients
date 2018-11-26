@@ -7,7 +7,7 @@ library(scales)
 library(here)
 library(piecewiseSEM)
 library(lme4)
-
+theme_set(theme_sleek())
 setwd(here('grazing-gradients'))
 
 
@@ -49,13 +49,14 @@ div$J <- div$div/log(div$richness)
 sizes<-pred %>% filter(FG == 'Herbivore Scraper') %>% 
   ## sum biomass per FG in each transect
         group_by(dataset, reef, site, transect, 
-                 unique.id, species) %>%
-          summarise(size = mean(length.cm)) %>%
+                 unique.id) %>%
+          summarise(size = mean(length.cm), mass= mean(mass.g)) %>%
   ## mean species sizeass across transects at each site
           group_by(unique.id) %>%
-          summarise(size = mean(size)) 
+          summarise(size = mean(size), mass=mean(mass)) 
 
 div$mean.size<-sizes$size
+div$mean.mass<-sizes$mass
 
 ## scraping models
 load("results/models/scraping_model.Rdata")
@@ -73,6 +74,7 @@ h$simpson.diversity<-div$div[match(h$unique.id, div$unique_id)] ## simpson is 1 
 h$sp.richness<-div$richness[match(h$unique.id, div$unique_id)]
 h$evenness<-div$J[match(h$unique.id, div$unique_id)]
 h$mean.size<-div$mean.size[match(h$unique.id, div$unique_id)]
+h$mean.mass<-div$mean.mass[match(h$unique.id, div$unique_id)]
 
 ## assign seychelles 2017 with mean complexity values for now - needs fixed
 h$complexity[h$dataset == 'Seychelles' & h$date == 2017] <- mean(h$complexity)
@@ -82,44 +84,53 @@ h$simpson.diversity.scaled <- scale(h$simpson.diversity)
 h$sp.richness.scaled <- scale(h$sp.richness)
 h$evenness.scaled <- scale(h$evenness)
 h$mean.size.scaled <- scale(h$mean.size)
+h$mean.mass.scaled <- scale(h$mean.mass)
+h$biom.scaled <- scale(h$biom)
 
-
+## new decoupling model to account for div and size structure
+m.scrape2<-lmer(scraping ~ biom.scaled + evenness.scaled + sp.richness.scaled + mean.mass.scaled +
+          (1 | dataset), h)
 
 ## for residuals
-m<-lmer(resid ~ evenness.scaled + sp.richness.scaled + mean.size.scaled +
-          (1 | dataset/reef) , ## random, nested = reefs within datasets
-                data = h)
-summary(m)
-rsquared(m)
+# m<-lmer(resid ~ evenness.scaled + sp.richness.scaled + mean.size.scaled +
+#           (1 | dataset/reef) , ## random, nested = reefs within datasets
+#                 data = h)
+summary(m.scrape2)
+rsquared(m.scrape2)
 
 
 nd.rich<-data.frame(sp.richness.scaled = seq(min(h$sp.richness.scaled), max(h$sp.richness.scaled), length.out=20),
               sp.richness.raw = seq(min(h$sp.richness), max(h$sp.richness), length.out=20),
-                          evenness.scaled = 0, mean.size.scaled = 0, dataset = 'GBR', reef='1')
-nd.rich$pred<-predict(m, newdata=nd.rich, re.form=NA)
+                          biom.scaled=0, evenness.scaled = 0, mean.mass.scaled = 0, dataset = 'GBR', reef='1')
+nd.rich$pred<-predict(m.scrape2, newdata=nd.rich, re.form=NA)
 
-nd.size<-data.frame(mean.size.scaled = seq(min(h$mean.size.scaled), max(h$mean.size.scaled), length.out=20),
-              mean.size.raw = seq(min(h$mean.size), max(h$mean.size), length.out=20),
-                          evenness.scaled = 0, sp.richness.scaled = 0, dataset = 'GBR', reef='1')
-nd.size$pred<-predict(m, newdata=nd.size, re.form=NA)
+nd.size<-data.frame(mean.mass.scaled = seq(min(h$mean.mass.scaled), max(h$mean.mass.scaled), length.out=20),
+              mean.mass.raw = seq(min(h$mean.mass), max(h$mean.mass), length.out=20),
+                          biom.scaled=0, evenness.scaled = 0, sp.richness.scaled = 0, dataset = 'GBR', reef='1')
+nd.size$pred<-predict(m.scrape2, newdata=nd.size, re.form=NA)
 
 
 pal <- wesanderson::wes_palette("Zissou1", 21, type = "continuous")
 cols<-c(pal[12])
 
 g1<-ggplot(nd.rich, aes(sp.richness.raw, pred)) + geom_line() + 
-    geom_point(data=h, aes(sp.richness, resid, shape=dataset), alpha=0.7, col=cols)  +
-    labs(y = 'Residual variation in scraping function', x = 'Species richness') +
-    geom_hline(yintercept=0, linetype=5, col='grey') +
+    geom_point(data=h, aes(sp.richness, scraping, shape=dataset), alpha=0.7, col=cols)  +
+    labs(y = 'Area scraped', x = 'Species richness') +
+    # geom_hline(yintercept=0, linetype=5, col='grey') +
     theme(legend.title=element_blank(),
           legend.position = c(0.8, 0.9))
 
 
-g2<-ggplot(nd.size, aes(mean.size.raw, pred)) + geom_line() + 
-    geom_point(data=h, aes(mean.size, resid, shape=dataset), alpha=0.7, col=cols)  +
-    labs(y = '', x = 'Mean size (cm)') +
-    geom_hline(yintercept=0, linetype=5, col='grey') +
+g2<-ggplot(nd.size, aes(mean.mass.raw, pred)) + geom_line() + 
+    geom_point(data=h, aes(mean.mass, scraping, shape=dataset), alpha=0.7, col=cols)  +
+    labs(y = '', x = 'Mean size (g)') +
+    # geom_hline(yintercept=0, linetype=5, col='grey') +
     theme(legend.title=element_blank(),
           legend.position = 'none')
 
+
+pdf(file='figures/Figure4_scraper_resids.pdf', height = 4, width=9)
 plot_grid(g1, g2)
+dev.off()
+
+

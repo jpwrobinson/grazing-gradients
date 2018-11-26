@@ -28,15 +28,24 @@ world<-fortify(world)
 # islands<-fortify(islands)
 
 ## seychelles
-isl<-sf::st_read("data/shapes/sey/all islands.shp")
+# isl<-sf::st_read("data/shapes/sey/all islands.shp")
 isl<-rgdal::readOGR("data/shapes/sey/all islands.shp")
 isl<-fortify(isl)
 
-bbox<-data.frame(island = 'SEY', 
-					xmin = c(55.25),
-					xmax=c(56),
-					ymin=c(-4.9),
-					ymax=c(-4.2))
+## GBR
+# isl<-sf::st_read("data/shapes/sey/all islands.shp")
+gbrshp<-rgdal::readOGR("data/shapes/gbr/Great_Barrier_Reef_Features.shp")
+gbrshp<-fortify(gbrshp)
+
+## Maldives
+malshp<-rgdal::readOGR("data/shapes/mal/MDV_DevInfo_Admin0B.shp")
+malshp<-fortify(malshp)
+
+bbox<-data.frame(island = c('SEY','GBR', 'MAL', 'CHA'),
+					xmin = c(55.25, 146, 72.5, 71),
+					xmax=c(56, 147.5, 74, 72.5),
+					ymin=c(-4.9, -18.8, 2.5, 5),
+					ymax=c(-4.2, -18, 4.6, 7))
 
 # estimate mean biomass per site per FG
 biom <- pred %>% 
@@ -75,6 +84,28 @@ sey.plot<-ggplot() + geom_polygon(data = isl, aes(x = long, y = lat, group=group
   axis.ticks=element_blank(),
   axis.text = element_text(size =6))
 
+## Maldives
+mal.plot<-ggplot() + geom_polygon(data = malshp, aes(x = long, y = lat, group=group), fill=alpha('grey', 0.6)) + 
+	coord_quickmap(ylim = c(2.5, 4.6), xlim = c(72.5, 74), expand = TRUE,
+  	clip = "on") + 
+  labs(x = '', y = '') +
+  geom_point(data = sites, aes(x = X, y = Y), size=2) +
+  theme(plot.margin=unit(c(0,0,0,0), "mm"),
+  axis.title=element_blank(),
+  axis.ticks=element_blank(),
+  axis.text = element_text(size =6))
+
+
+## GBR
+gbr.plot<-ggplot() + geom_polygon(data = gbrshp, aes(x = long, y = lat, group=group), fill=alpha('grey', 0.6)) + 
+	coord_quickmap(ylim = c(-18.8, -18), xlim = c(146, 147.5), expand = TRUE,
+  	clip = "on") + 
+  labs(x = '', y = '') +
+  geom_point(data = sites, aes(x = X, y = Y), size=2) +
+  theme(plot.margin=unit(c(0,0,0,0), "mm"),
+  axis.title=element_blank(),
+  axis.ticks=element_blank(),
+  axis.text = element_text(size =6))
 
 #------------------------#
 #------ create biomass bars ------#
@@ -141,8 +172,8 @@ gbr.bar<-ggplot(biom[biom$dataset == 'GBR',],
 
 
 bottom<-plot_grid(sey.bar, mal.bar, chag.bar, gbr.bar, nrow=1)
-middle<-plot_grid(sey.plot,sey.plot,sey.plot,sey.plot, nrow=1)
-bm<-plot_grid(middle, bottom, nrow=2, align='h')
+middle<-plot_grid(sey.plot,mal.plot,sey.plot,gbr.plot, nrow=1)
+bm<-plot_grid(middle, bottom, nrow=2, align='h', rel_heights = c(1, 0.7))
 
 pdf(file='figures/Figure1.pdf', height = 7, width =12)
 plot_grid(world.plot, bm, nrow=2, align='v', rel_heights=c(0.8, 1))

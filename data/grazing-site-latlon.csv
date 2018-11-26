@@ -17,47 +17,47 @@ Great Chagos Bank,Middle Brother (E3),Great Chagos BankMiddle BrotherExposed3,6.
 Great Chagos Bank,Eagle (S3),Great Chagos BankEagleSheltered3,6.1216,71.1887,Chagos
 Great Chagos Bank,Eagle (S2),Great Chagos BankEagleSheltered2,6.9826,71.2128,Chagos
 Great Chagos Bank,Eagle (S1),Great Chagos BankEagleSheltered1,6.1961,71.19582,Chagos
-Wheeler,Sheltered,1,18.47331,14.73133,GBR
-Wheeler,Sheltered,2,18.47345,14.73136,GBR
-Wheeler,Exposed,1,18.4816,14.73154,GBR
-Wheeler,Exposed,2,18.4819,14.7326,GBR
-Wheeler,Sheltered,3,18.47325,14.731384,GBR
-Davies,Sheltered,1,18.4865,14.73929,GBR
-Davies,Sheltered,2,18.4816,14.7394,GBR
-Davies,Exposed,1,18.496,14.739555,GBR
-Davies,Exposed,2,18.497,14.7425,GBR
-Davies,Exposed,3,18.48374,14.74163,GBR
-Davies,Sheltered,3,18.48129,14.7385,GBR
-Wheeler,Exposed,3,18.4859,14.73276,GBR
-John Brewer,Exposed,1,18.38473,14.7311,GBR
-John Brewer,Exposed,2,18.38458,14.72562,GBR
-John Brewer,Exposed,3,18.38474,14.72391,GBR
-John Brewer,Sheltered,1,18.37345,14.721,GBR
-John Brewer,Sheltered,2,18.3742,14.7155,GBR
-John Brewer,Sheltered,3,18.37438,14.7138,GBR
-Trunk,Sheltered,1,18.2189,14.645566,GBR
-Trunk,Sheltered,2,18.22354,14.646315,GBR
-Trunk,Sheltered,3,18.2252,14.646368,GBR
-Trunk,Exposed,1,18.24172,14.649525,GBR
-Trunk,Exposed,2,18.2434,14.65143,GBR
-Trunk,Exposed,3,18.23445,14.65295,GBR
-Rib,Exposed,1,18.29297,14.65246,GBR
-Rib,Exposed,2,18.29249,14.652538,GBR
-Rib,Exposed,3,18.2918,14.652571,GBR
-Rib,Sheltered,1,18.2823,14.652361,GBR
-Rib,Sheltered,2,18.28261,14.652452,GBR
-Rib,Sheltered,3,18.28289,14.652483,GBR
-Huadavoo,Maamendhoo,1,43.007,73.26708,Maldives
-Huadavoo,Kooddoo,2,43.803,73.26431,Maldives
-Huadavoo,Dhaandhoo,3,37.649,73.27806,Maldives
-Huadavoo,Nilandhoo,4,38.199,73.27205,Maldives
-Huadavoo,Gemanafushi,5,27.045,73.34389,Maldives
-Huadavoo,Maarehaa,6,27.898,73.34162,Maldives
-Huadavoo,Kodey,7,29.802,73.33438,Maldives
-Huadavoo,Mahadhdhoo,8,35.652,73.30572,Maldives
-Huadavoo,Vodamulaa,9,36.389,73.29518,Maldives
-Huadavoo,Kuredhdhoo,10,39.502,73.26642,Maldives
-Huadavoo,Vilingi,11,45.101,73.26454,Maldives
+Wheeler,Sheltered,1,-18.47331,147.3133,GBR
+Wheeler,Sheltered,2,-18.47345,147.3136,GBR
+Wheeler,Exposed,1,-18.4816,147.3154,GBR
+Wheeler,Exposed,2,-18.4819,147.326,GBR
+Wheeler,Sheltered,3,-18.47325,147.31384,GBR
+Davies,Sheltered,1,-18.4865,147.3929,GBR
+Davies,Sheltered,2,-18.4816,147.394,GBR
+Davies,Exposed,1,-18.496,147.39555,GBR
+Davies,Exposed,2,-18.497,147.425,GBR
+Davies,Exposed,3,-18.48374,147.4163,GBR
+Davies,Sheltered,3,-18.48129,147.385,GBR
+Wheeler,Exposed,3,-18.4859,147.3276,GBR
+John Brewer,Exposed,1,-18.38473,147.311,GBR
+John Brewer,Exposed,2,-18.38458,147.2562,GBR
+John Brewer,Exposed,3,-18.38474,147.2391,GBR
+John Brewer,Sheltered,1,-18.37345,147.21,GBR
+John Brewer,Sheltered,2,-18.3742,147.155,GBR
+John Brewer,Sheltered,3,-18.37438,147.138,GBR
+Trunk,Sheltered,1,-18.2189,146.45566,GBR
+Trunk,Sheltered,2,-18.22354,146.46315,GBR
+Trunk,Sheltered,3,-18.2252,146.46368,GBR
+Trunk,Exposed,1,-18.24172,146.49525,GBR
+Trunk,Exposed,2,-18.2434,146.5143,GBR
+Trunk,Exposed,3,-18.23445,146.5295,GBR
+Rib,Exposed,1,-18.29297,146.5246,GBR
+Rib,Exposed,2,-18.29249,146.52538,GBR
+Rib,Exposed,3,-18.2918,146.52571,GBR
+Rib,Sheltered,1,-18.2823,146.52361,GBR
+Rib,Sheltered,2,-18.28261,146.52452,GBR
+Rib,Sheltered,3,-18.28289,146.52483,GBR
+Huadavoo,Maamendhoo,1,4.3007,73.26708,Maldives
+Huadavoo,Kooddoo,2,4.3803,73.26431,Maldives
+Huadavoo,Dhaandhoo,3,3.7649,73.27806,Maldives
+Huadavoo,Nilandhoo,4,3.8199,73.27205,Maldives
+Huadavoo,Gemanafushi,5,2.7045,73.34389,Maldives
+Huadavoo,Maarehaa,6,2.7898,73.34162,Maldives
+Huadavoo,Kodey,7,2.9802,73.33438,Maldives
+Huadavoo,Mahadhdhoo,8,3.5652,73.30572,Maldives
+Huadavoo,Vodamulaa,9,3.6389,73.29518,Maldives
+Huadavoo,Kuredhdhoo,10,3.9502,73.26642,Maldives
+Huadavoo,Vilingi,11,4.5101,73.26454,Maldives
 Mahe,Cousin carbonate,Cousin carbonate,-4.332921,55.658746,Seychelles
 Mahe,Cousin granite reef,Cousin granite reef,-4.328438,55.66162,Seychelles
 Mahe,Cousin Patch reef,Cousin Patch reef,-4.332388,55.666324,Seychelles
