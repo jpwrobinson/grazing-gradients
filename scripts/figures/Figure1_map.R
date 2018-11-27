@@ -15,10 +15,12 @@ theme_set(theme_sleek())
 # biomass
 load("data/wio_herb_benthic_merged.Rdata")
 
+# benthic regimes 
+load("data/pca_allregions_kmeans4_clusters.Rdata") # pca.kmeans
+
 ## site lat lons
 sites<-read.csv('data/grazing-site-latlon.csv')
-
-
+sites
 # big map
 world <- map_data("world2") 
 world<-fortify(world)
@@ -59,6 +61,10 @@ biom <- pred %>%
   group_by(dataset, FG) %>%
   summarise(se = 2*se(biom), biom = mean(biom)) %>%
   mutate(FG = str_replace_all(FG, 'Herbivore ', ''))
+
+
+# add benthic regimes to sites df
+sites 
 
 #------------------------#
 #------ create map figs ------#

@@ -1,6 +1,8 @@
 ##### Benthic Regimes- Exploratory Analysis #####
 # Use multivariate analysis to look at any benthic regimes across the entire dataset and within regions
+# K-means clustering to assign benthic regimes 
 # Created: September 24, 2018
+# Updated: November 27, 2018
  
 
 setwd("~/Documents/git_repos/grazing-gradients")
@@ -8,9 +10,9 @@ rm(list=ls())
 
 # load packages
 library(ggplot2)
+library(plyr)
 library(dplyr)
 library(tidyr)
-library(plyr)
 library(vegan)
 library(grid)
 library(gridExtra)
@@ -25,9 +27,6 @@ source("scripts/functions/multiplot.R")
 # load data
 load("data/wio_herb_benthic_merged.Rdata")
 ls()
-head(pred)
-dim(pred)
-str(pred)
 ############################################################
 
 
@@ -35,14 +34,14 @@ str(pred)
 #### Prepare Data for Multivariate Analysis ####
 
 # Habitat Types: hard.coral macroalgae rubble substrate complexity
-# Site= unique.id? or also by transect? 
+# Site= unique.id? or also by transect? and by date? 
 # Need to make dataframe: site by habitat type 
 
-pred <-pred %>% select(unique.id,dataset,hard.coral, macroalgae, rubble, 
-                       substrate, complexity, dataset)
-head(pred) 
+data <- pred %>% dplyr::select(unique.id, dataset,hard.coral, macroalgae, rubble, 
+                       substrate, complexity)
+head(data) 
 
-# Average across transects within a site
+# Average across transects and date within a site
 pred <- pred %>% 
   dplyr::group_by(unique.id,dataset) %>% 
   dplyr::summarize(hard.coral.mean = mean(hard.coral),
@@ -50,7 +49,7 @@ pred <- pred %>%
             rubble.mean = mean(rubble),
             substrate.mean = mean(substrate),
             complexity.mean = mean(complexity))
-head(pred)
+head(pred) # why did the date get added to unique.id?
 str(pred)
 
 # Change rownames
@@ -114,10 +113,22 @@ autoplot(pred_pca, loadings = TRUE, loadings.label = TRUE,
 
 dev.off()
 
-# K-means clustering with PCA (plots the 4 groupings on the PCA)
-autoplot(kmeans(pred[-1], 4), data = pred, # 4 means because we have four island groups 
-         label = TRUE, label.size = 3, frame = TRUE) + theme
+# K-means clustering with PCA (plots the 5 groupings on the PCA)
+# currently have 3 groupings: substrate, hard coral, and rubble
+# we can change the number of clusters that we want
+set.seed(2) # the clustering changes each time you do it
+autoplot(kmeans(pred[-1], 5), loadings=TRUE, loadings.label=TRUE, data = pred, # 4 means because we have four island groups 
+         label = FALSE, label.size = 4, frame = TRUE) + theme
+ggsave(file='figures/explore/benthic_pca_kmeans.pdf', height=10, width=13)
+
+# Save clusters to a dataframe
 kmeans(pred[-1], 4)
+km <- kmeans(pred[-1], 4)
+pca.kmeans <- data.frame(km$cluster)
+head(pca.kmeans)
+
+save(pca.kmeans, file="data/pca_allregions_kmeans4_clusters.Rdata")
+
 
 # 3D plot of PC1, PC2, PC3 (have to use a different package, makes an interactive plot)
 pca3d(pred_pca, group=pred$dataset, legend="topright", biplot=TRUE) 
@@ -139,7 +150,7 @@ ggsave(file='figures/explore/benthic_allregions_PCA_2D_AllPCs.pdf', height=13, w
 
 
 ############################################################
-### PCA for each Region ###
+### PCA For Each Region ###
 
 # put back rownames for conversion
 ha <- pred
