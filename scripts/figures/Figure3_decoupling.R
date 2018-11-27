@@ -79,7 +79,7 @@ ggplot(df, aes(biom, grazef, col=sp)) +
   scale_color_manual(values = cols.named) +
   scale_x_log10(label=comma) +
   scale_y_continuous(label=comma) +
-  geom_text(data = panel_labs, aes(x = Inf, y = Inf, label=lab), hjust=-1, vjust=1) +
+  geom_text(data = panel_labs, aes(x = 0, y = Inf, label=lab),col='black', size=4.5, fontface=2, hjust=-0.8, vjust=1.2) +
   guides(col=F) +
   theme(legend.position ='top', legend.title=element_blank()) +
   xlab(expression(paste("biomass kg ha"^-1))) + ylab("Function")  +

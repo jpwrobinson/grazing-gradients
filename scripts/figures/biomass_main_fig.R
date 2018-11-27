@@ -384,8 +384,9 @@ eff<-rbind(gr, sc, br)
 eff$upper<-with(eff, Estimate + 2*Std..Error)
 eff$lower<-with(eff, Estimate - 2*Std..Error)
 
-predict(m.grazer, newdata=)
-
+(eff$Estimate[eff$model == 'grazers' & eff$var == 'manage.dummy'] - eff$Estimate[eff$model == 'grazers' & eff$var == 'fish.dummy'])/eff$Estimate[eff$model == 'grazers' & eff$var == 'fish.dummy'] * 100
+(eff$Estimate[eff$model == 'scrapers' & eff$var == 'manage.dummy'] - eff$Estimate[eff$model == 'scrapers' & eff$var == 'fish.dummy'])/eff$Estimate[eff$model == 'scrapers' & eff$var == 'fish.dummy'] * 100
+(eff$Estimate[eff$model == 'browsers' & eff$var == 'manage.dummy'] - eff$Estimate[eff$model == 'browsers' & eff$var == 'fish.dummy'])/eff$Estimate[eff$model == 'browsers' & eff$var == 'fish.dummy'] * 100
 ## ------------------------------------------------ ##
 ## arrange benthic effects estimates
 ## ------------------------------------------------ ##

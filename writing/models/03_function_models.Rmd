@@ -60,8 +60,15 @@ g2<-ggplot(grazer.bites, aes(class, freq)) +
         scale_x_discrete(limits = rev(levels(grazer.bites$class))) + lims(y=c(0, 30000))
 
 ## what proportion biomass is global means?
-prop.global<-t$biomass.kgha[t$bite.rate == grazer.bites$median[grazer.bites$class == 'global.mean']]/sum(t$biomass.kgha)*100
-## 20.6%
+#prop.global<-
+  t$biomass.kgha[t$bite.rate == grazer.bites$median[grazer.bites$class == 'global.mean']]/sum(t$biomass.kgha)*100
+  ## 12.6%
+#prop.genera<-
+  sum(t$biomass.kgha[t$bite.rate %in% grazer.bites$median[grazer.bites$preds == 'Genus']])/sum(t$biomass.kgha)*100
+ ## 54.4%
+  
+sum(t$biomass.kgha[t$bite.rate %in% grazer.bites$median[grazer.bites$preds == 'Species']])/sum(t$biomass.kgha)*100
+## 32.94%
 ```
 
 After matching UVC species to feeding observations, we get an idea of how much abundance and biomass we can confidently assign to species and genera level bite rate estimates. Global means (i.e. no species or genera information) were required for 20 species, which together comprised 20% of biomass in the dataset. These species were in the genera Plectroglyphidodon, Pomacentrus, Stegastes, Centropyge, Dischistodus, and Chrysiptera.
@@ -113,6 +120,8 @@ g3<-ggplot(h, aes(reorder(reef, cropping.gram.ha, FUN=median), cropping.gram.ha,
 g4<-ggplot(h, aes( log10(biom),log10(cropping.gram.ha), col=dataset)) +geom_point() + xlab('Biomass (log10 kg/ha)') + ylab('log10 algae removed (grams/ha/minute)') 
 
 g5<-ggplot(h, aes(biom,cropping.gram.ha, col=dataset)) +geom_point() + xlab('Biomass (kg/ha)') + ylab('algae removed (grams/ha/minute)') 
+
+range(h$cropping.gram.ha)
 ```
 
 ```{r, include =T, echo= F, messages=F, warning=F,fig.cap='Figure 2: Variation in cropping function among reefs', fig.height=6, fig.width=6, fig.align='center'}
@@ -212,8 +221,16 @@ g2<-ggplot(browser.bites, aes(class, freq)) +
         scale_x_discrete(limits = rev(levels(browser.bites$class))) + lims(y=c(0, 40000))
 
 ## what proportion biomass is global means?
-prop.global<-t$biomass.kgha[t$bite.rate == browser.bites$median[browser.bites$class == 'global.mean']]/sum(t$biomass.kgha)*100
-## 44.0%
+#prop.global<-
+  t$biomass.kgha[t$bite.rate == browser.bites$median[browser.bites$class == 'global.mean']]/sum(t$biomass.kgha)*100
+  ## 46.9%
+#prop.genera<-
+  sum(t$biomass.kgha[t$bite.rate %in% browser.bites$median[browser.bites$preds == 'Genus']])/sum(t$biomass.kgha)*100
+ ## 53.1%
+  
+sum(t$biomass.kgha[t$bite.rate %in% browser.bites$median[browser.bites$preds == 'Species']])/sum(t$biomass.kgha)*100
+## 0%
+
 ```
 
 ```{r, include =T, echo= F, messages=F, warning=F,fig.cap='Figure 4: Bite rates assigned to browsing species', fig.height=6, fig.width=6, fig.align='center'}
@@ -257,6 +274,8 @@ g3<-ggplot(h, aes(reorder(reef, browsing, FUN=median), browsing, fill=dataset)) 
 g4<-ggplot(h, aes( log10(biom),log10(browsing), col=dataset)) +geom_point() + xlab('Biomass (log10 kg/ha)') + ylab('log10 bites * kg per minute') 
 
 g5<-ggplot(h, aes(biom, browsing, col=dataset)) +geom_point() + xlab('Biomass (kg/ha)') + ylab('mass-standardized bites (bites * kg per minute per ha)') + xlim(c(0,500)) + ylim(c(0, 5000))
+
+range(h$browsing)
 ```
 
 ```{r, include =T, echo= F, messages=F, warning=F,fig.cap='Figure 5: Variation in browsing function among reefs', fig.height=6, fig.width=6, fig.align='center'}
@@ -315,7 +334,17 @@ pred.PI<-apply(link.obs.sp, 2, PI, prob = 0.95)
 scrapers.uvc$upperarea<-pred.PI[2,]
 scrapers.uvc$lowerarea<-pred.PI[1,]
 
-## no species have global means
+
+
+## what proportion biomass is global means?
+newsp<-unique(scrapers.uvc$species)[!unique(scrapers.uvc$species) %in% scraper.bites$class] ## new species
+
+## how much biomass is global mean in analysis?
+t<- scrapers.uvc 
+t$id <- ifelse(t$species %in% newsp, 'Genera', 'Species')
+tot<-sum(scrapers.uvc$biomass.kgha)
+t %>% group_by(id) %>% summarise(b = sum(biomass.kgha)/tot*100)
+
 
 ```
 
