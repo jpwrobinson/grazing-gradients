@@ -27,3 +27,18 @@ i = 0
 #### Supplementary Methods
 
 &nbsp;
+
+```{r, out.width = "480px", echo=F,fig.align='center'}
+knitr::include_graphics("../../figures/FigureS1_scrape_size.pdf"); i = i + 1
+```
+
+**Figure S`r i` | Size effects on scraper bite rates (A) and bite area (B).** Lines indicate median posterior predictions with 95% certainty intervals, excluding species and genera effects, across the range of observed body sizes (total length, cm). Points are observed bite rates or bite areas coloured by genera. 
+
+\newpage
+
+
+
+Cropping bite species and range in function
+Browsing bite species and range in function
+Scraping bite species and range in function
+Evenness effect on scraping function
