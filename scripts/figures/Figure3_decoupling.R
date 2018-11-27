@@ -19,7 +19,7 @@ grazers$grazef<-grazers$cropping.gram.ha
 grazers$cropping.gram.ha<-NULL
 grazers$sp <- 'grazers'
 
-m.graze<-lmer(cropping.gram.ha ~ biom + (1 | dataset), h)
+m.graze<-lmer(cropping.gram.ha ~ biom + (1 | dataset/reef), h)
 grazers$resid<-resid(m.graze)
 r2marg.grazer<-rsquared(m.graze)$Marginal
 
@@ -29,7 +29,7 @@ scrapers$grazef<-scrapers$scraping
 scrapers$scraping<-NULL
 scrapers$sp <- 'scrapers'
 
-m.scrape<-lmer(scraping ~ biom + (1 | dataset), h)
+m.scrape<-lmer(scraping ~ biom + (1 | dataset/reef), h)
 scrapers$resid<-resid(m.scrape)
 r2marg.scraper<-rsquared(m.scrape)$Marginal
 
@@ -40,7 +40,7 @@ browsers$grazef<-browsers$browsing
 browsers$browsing<-NULL
 browsers$sp <- 'browsers'
 
-m.browse<-lmer(browsing ~ biom + (1 | dataset), h)
+m.browse<-lmer(browsing ~ biom + (1 | dataset/reef), h)
 browsers$resid<-resid(m.browse)
 r2marg.browser<-rsquared(m.browse)$Marginal
 
@@ -67,11 +67,10 @@ func.labels <- function(variable,value){
   return(function_names[value])
 }
 
-# panel_labs <- list(
-#   'grazers'='B',
-#   'scrapers'='C',
-#   'browsers'="A"
-# )
+panel_labs <- data.frame(
+  sp=c('grazers','scrapers','browsers'),
+  lab=c('b','c',"a")
+)
 
 ggplot(df, aes(biom, grazef, col=sp)) + 
         geom_point(alpha=0.5, aes(shape=dataset)) +
@@ -80,6 +79,7 @@ ggplot(df, aes(biom, grazef, col=sp)) +
   scale_color_manual(values = cols.named) +
   scale_x_log10(label=comma) +
   scale_y_continuous(label=comma) +
+  geom_text(data = panel_labs, aes(x = Inf, y = Inf, label=lab), hjust=-1, vjust=1) +
   guides(col=F) +
   theme(legend.position ='top', legend.title=element_blank()) +
   xlab(expression(paste("biomass kg ha"^-1))) + ylab("Function")  +
