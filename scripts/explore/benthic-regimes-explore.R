@@ -37,7 +37,7 @@ ls()
 # Site= unique.id? or also by transect? and by date? 
 # Need to make dataframe: site by habitat type 
 
-data <- pred %>% dplyr::select(unique.id, dataset,hard.coral, macroalgae, rubble, 
+data <- pred %>% dplyr::select(unique.id, dataset, hard.coral, macroalgae, rubble, 
                        substrate, complexity)
 head(data) 
 
@@ -112,24 +112,53 @@ autoplot(pred_pca, loadings = TRUE, loadings.label = TRUE,
          data = pred, colour = 'dataset') + theme
 
 dev.off()
+############################################################
 
-# K-means clustering with PCA (plots the 5 groupings on the PCA)
-# currently have 3 groupings: substrate, hard coral, and rubble
-# we can change the number of clusters that we want
+############################################################
+##### K-means Clustering #####
+
+# Elbow Method for finding the optimal number of clusters
+set.seed(123)
+# Compute and plot wss for k = 2 to k = 15.
+k.max <- 15
+data <- pred[-1]
+wss <- sapply(1:k.max, function(k){kmeans(data, k, nstart=50,iter.max = 15 )$tot.withinss})
+wss
+plot(1:k.max, wss,
+     type="b", pch = 19, frame = FALSE, 
+     xlab="Number of clusters K",
+     ylab="Total within-clusters sum of squares")
+# 4 seems like the best cluster number 
+
+# K-means clustering
 set.seed(2) # the clustering changes each time you do it
-autoplot(kmeans(pred[-1], 5), loadings=TRUE, loadings.label=TRUE, data = pred, # 4 means because we have four island groups 
+km <- kmeans(pred[-1], 4,nstart=25) # make sure to save this so you are using the same object for everything
+print(km)
+autoplot(km, loadings=TRUE, loadings.label=TRUE, data = pred, # 4 means because we have four island groups 
          label = FALSE, label.size = 4, frame = TRUE) + theme
 ggsave(file='figures/explore/benthic_pca_kmeans.pdf', height=10, width=13)
 
+
 # Save clusters to a dataframe
-kmeans(pred[-1], 4)
-km <- kmeans(pred[-1], 4)
 pca.kmeans <- data.frame(km$cluster)
 head(pca.kmeans)
-
 save(pca.kmeans, file="data/pca_allregions_kmeans4_clusters.Rdata")
 
+# What do these clusters represent? 
+pred[-1] %>%
+  mutate(Cluster = km$cluster) %>%
+  group_by(Cluster) %>%
+  summarise_all("mean")
 
+# Cluster 1: high rubble
+# Cluster 2: high macroalgae
+# Cluster 3: high substrate
+# Cluster 4: high coral 
+############################################################
+
+
+############################################################
+### 3D Plot of Overal PCA ###
 # 3D plot of PC1, PC2, PC3 (have to use a different package, makes an interactive plot)
 pca3d(pred_pca, group=pred$dataset, legend="topright", biplot=TRUE) 
 snapshotPCA3d(file="figures/explore/benthic_allregions_PCA_3D.png")
