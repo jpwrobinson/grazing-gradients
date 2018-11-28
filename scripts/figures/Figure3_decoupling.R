@@ -60,7 +60,7 @@ theme_set(theme_sleek())
 function_names <- list(
   'grazers'=expression(paste("algal consumption g ha"^-1,"min"^-1)),
   'scrapers'=expression(paste('area grazed m'^2,'ha'^-1, 'min'^-1)),
-  'browsers'="mass-standardized bite rates"
+  'browsers'="mass-standardized bites"
 )
 
 func.labels <- function(variable,value){

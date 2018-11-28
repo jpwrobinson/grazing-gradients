@@ -162,6 +162,11 @@ h$cropping.gram.ha[which(h$transect.area == 250)] <- h$cropping.gram.ha[which(h$
 ## for surveys = 153.9m2, which is when abundance.500m2 = 3.24806 (Seychelles)
 h$cropping.gram.ha[is.na(h$transect.area)] <- h$cropping.gram.ha[is.na(h$transect.area)]/0.01539 
 
+## sum within unique.id to account for different transect areas in Maldives
+h <- h %>% group_by(dataset, date, reef, site, management, unique.id, depth, FG,
+                         hard.coral, macroalgae,  rubble, substrate, complexity, fish.biom) %>%
+          summarise(cropping.gram.ha = sum(cropping.gram.ha), biom=sum(biom)) 
+
 save(h, file = '../../results/models/cropper_function_subset.Rdata')
 
 g4<-ggplot(h, aes( log10(biom),log10(cropping.gram.ha), col=dataset)) +geom_point() + xlab('Biomass (log10 kg/ha)') + ylab('log10 algae removed (grams/ha/minute)') 
@@ -266,6 +271,11 @@ h$browsing[which(h$transect.area == 100)] <- h$browsing[which(h$transect.area ==
 h$browsing[which(h$transect.area == 250)] <- h$browsing[which(h$transect.area == 250)]/0.025 
 ## for surveys = 153.9m2, which is when abundance.500m2 = 3.24806 (Seychelles)
 h$browsing[is.na(h$transect.area)] <- h$browsing[is.na(h$transect.area)]/0.01539 
+
+## sum within unique.id to account for different transect areas in Maldives
+h <- h %>% group_by(dataset, date, reef, site, management, unique.id, depth, FG,
+                         hard.coral, macroalgae,  rubble, substrate, complexity, fish.biom) %>%
+          summarise(browsing = sum(browsing), biom=sum(biom)) 
 
 save(h, file = '../../results/models/browser_function.Rdata')
 
@@ -374,6 +384,11 @@ h$scraping[which(h$transect.area == 100)] <- h$scraping[which(h$transect.area ==
 h$scraping[which(h$transect.area == 250)] <- h$scraping[which(h$transect.area == 250)]/0.025 
 ## for surveys = 153.9m2, which is when abundance.500m2 = 3.24806 (Seychelles)
 h$scraping[is.na(h$transect.area)] <- h$scraping[is.na(h$transect.area)]/0.01539 
+
+## sum within unique.id to account for different transect areas in Maldives
+h <- h %>% group_by(dataset, date, reef, site, management, unique.id, depth, FG,
+                         hard.coral, macroalgae,  rubble, substrate, complexity, fish.biom) %>%
+          summarise(scraping = sum(scraping), biom=sum(biom)) 
 
 save(h, file = '../../results/models/scraper_function.Rdata')
 

@@ -46,8 +46,6 @@ knitr::include_graphics("../../figures/FigureS2_cropper_bites.pdf"); i = i + 1
 
 
 
-
-Cropping bite species and range in function
 Browsing bite species and range in function
 Scraping bite species and range in function
 Evenness effect on scraping function
