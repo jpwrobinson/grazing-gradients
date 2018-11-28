@@ -19,8 +19,9 @@ load("data/wio_herb_benthic_merged.Rdata")
 load("data/pca_allregions_kmeans4_clusters.Rdata") # pca.kmeans
 
 ## site lat lons
-sites<-read.csv('data/grazing-site-latlon.csv')
-sites
+sites<-read.csv('data/sites_with_benthic_clusters.csv')
+sites$km.cluster<-as.character(sites$km.cluster)
+
 # big map
 world <- map_data("world2") 
 world<-fortify(world)
@@ -63,12 +64,13 @@ biom <- pred %>%
   mutate(FG = str_replace_all(FG, 'Herbivore ', ''))
 
 
-# add benthic regimes to sites df
-sites 
 
 #------------------------#
 #------ create map figs ------#
 #------------------------#
+
+pal <- wesanderson::wes_palette("Rushmore1", 4, type = "continuous")
+cols.named<-c('1' = pal[1], '2' = pal[2],'3' = pal[3],'4' = pal[4])
 
 ## world
 world.plot<-ggplot() + geom_polygon(data = world, aes(x=long, y = lat, group = group)) + 
@@ -84,22 +86,26 @@ sey.plot<-ggplot() + geom_polygon(data = isl, aes(x = long, y = lat, group=group
 	coord_quickmap(xlim = c(55.25, 56), ylim = c(-4.9, -4.2), expand = TRUE,
   	clip = "on") + 
   labs(x = '', y = '') +
-  geom_point(data = sites, aes(x = X, y = Y), size=2) +
+  geom_point(data = sites, aes(x = X, y = Y, col=km.cluster), alpha=0.5, size=2) +
   theme(plot.margin=unit(c(0,0,0,0), "mm"),
+  	legend.position = 'none',
   axis.title=element_blank(),
   axis.ticks=element_blank(),
-  axis.text = element_text(size =6))
+  axis.text = element_text(size =6)) + 
+  scale_color_manual(values = cols.named)
 
 ## Maldives
 mal.plot<-ggplot() + geom_polygon(data = malshp, aes(x = long, y = lat, group=group), fill=alpha('grey', 0.6)) + 
 	coord_quickmap(ylim = c(2.5, 4.6), xlim = c(72.5, 74), expand = TRUE,
   	clip = "on") + 
   labs(x = '', y = '') +
-  geom_point(data = sites, aes(x = X, y = Y), size=2) +
+  geom_point(data = sites, aes(x = X, y = Y, col=km.cluster), alpha=0.5, size=2) +
   theme(plot.margin=unit(c(0,0,0,0), "mm"),
+  	legend.position = 'none',
   axis.title=element_blank(),
   axis.ticks=element_blank(),
-  axis.text = element_text(size =6))
+  axis.text = element_text(size =6)) + 
+  scale_color_manual(values = cols.named)
 
 
 ## GBR
@@ -107,11 +113,13 @@ gbr.plot<-ggplot() + geom_polygon(data = gbrshp, aes(x = long, y = lat, group=gr
 	coord_quickmap(ylim = c(-18.8, -18), xlim = c(146, 147.5), expand = TRUE,
   	clip = "on") + 
   labs(x = '', y = '') +
-  geom_point(data = sites, aes(x = X, y = Y), size=2) +
+  geom_point(data = sites, aes(x = X, y = Y, col=km.cluster), alpha=0.5, size=2) +
   theme(plot.margin=unit(c(0,0,0,0), "mm"),
+  	legend.position = 'none',
   axis.title=element_blank(),
   axis.ticks=element_blank(),
-  axis.text = element_text(size =6))
+  axis.text = element_text(size =6)) + 
+  scale_color_manual(values = cols.named)
 
 #------------------------#
 #------ create biomass bars ------#

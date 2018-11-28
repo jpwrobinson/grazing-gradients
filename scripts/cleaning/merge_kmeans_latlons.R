@@ -50,4 +50,4 @@ sites$km.cluster[is.na(sites$km.cluster)]<-pca.kmeans$km.cluster[match(sites$Sit
 
 
 ## save
-write.csv(sites, file = 'sites_with_benthic_clusters.csv')
+write.csv(sites, file = 'data/sites_with_benthic_clusters.csv')
