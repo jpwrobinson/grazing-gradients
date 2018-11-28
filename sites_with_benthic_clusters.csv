@@ -1,0 +1,81 @@
+"","Reef","Site","Unique_site_transect","Y","X","dataset","km.cluster"
+"1","Salamon","Isle le Anglaise (S1)","SalamonIle AnglaisSheltered1",5.1883,72.13651,"Chagos",2
+"2","Salamon","E4","SalamonSouthExposed6",5.21226,72.14647,"Chagos",3
+"3","Salamon","S3","SalamonIle AnglaisSheltered3",5.2368,72.12827,"Chagos",1
+"4","Salamon","S2","SalamonIle AnglaisSheltered2",5.19861,72.13148,"Chagos",2
+"5","Salamon","E2","SalamonIle TakamakaExposed4",5.2936,72.1667,"Chagos",2
+"6","Salamon","E3","SalamonIle FouquetExposed5",5.2123,72.16738,"Chagos",2
+"7","Peuros Banhos","Petite Coq (E4)","Peros BanhosExposed site 1Exposed4",5.2612,71.5888,"Chagos",2
+"8","Peuros Banhos","South Coq (E5)","Peros BanhosExposed site 2Exposed5",5.22529,71.58482,"Chagos",2
+"9","Peuros Banhos","South Coq (E6)","Peros BanhosExposed site 3Exposed6",5.23286,71.57843,"Chagos",1
+"10","Peuros Banhos","Ile Poule (S1)","Peros BanhosIle PouleSheltered1",5.23721,71.4528,"Chagos",2
+"11","Peuros Banhos","S3","Peros BanhosSheltered site 3Sheltered3",5.2562,71.44913,"Chagos",1
+"12","Peuros Banhos","Ile Poule (S2)","Peros BanhosSheltered site 2Sheltered2",5.24672,71.44786,"Chagos",2
+"13","Great Chagos Bank","South Brother (E1)","Great Chagos BankSouth BrotherExposed1",6.1717,71.32919,"Chagos",2
+"14","Great Chagos Bank","South Brother (E2)","Great Chagos BankSouth BrotherExposed2",6.1355,71.32195,"Chagos",2
+"15","Great Chagos Bank","Middle Brother (E3)","Great Chagos BankMiddle BrotherExposed3",6.112,71.31576,"Chagos",2
+"16","Great Chagos Bank","Eagle (S3)","Great Chagos BankEagleSheltered3",6.1216,71.1887,"Chagos",1
+"17","Great Chagos Bank","Eagle (S2)","Great Chagos BankEagleSheltered2",6.9826,71.2128,"Chagos",1
+"18","Great Chagos Bank","Eagle (S1)","Great Chagos BankEagleSheltered1",6.1961,71.19582,"Chagos",1
+"19","Wheeler","Wheeler1","1",-18.47331,147.3133,"GBR",2
+"20","Wheeler","Wheeler2","2",-18.47345,147.3136,"GBR",2
+"21","Wheeler","Wheeler1","1",-18.4816,147.3154,"GBR",2
+"22","Wheeler","Wheeler2","2",-18.4819,147.326,"GBR",2
+"23","Wheeler","Wheeler3","3",-18.47325,147.31384,"GBR",2
+"24","Davies","Davies1","1",-18.4865,147.3929,"GBR",2
+"25","Davies","Davies2","2",-18.4816,147.394,"GBR",2
+"26","Davies","Davies1","1",-18.496,147.39555,"GBR",2
+"27","Davies","Davies2","2",-18.497,147.425,"GBR",2
+"28","Davies","Davies3","3",-18.48374,147.4163,"GBR",2
+"29","Davies","Davies3","3",-18.48129,147.385,"GBR",2
+"30","Wheeler","Wheeler3","3",-18.4859,147.3276,"GBR",2
+"31","John Brewer","John Brewer1","1",-18.38473,147.311,"GBR",3
+"32","John Brewer","John Brewer2","2",-18.38458,147.2562,"GBR",3
+"33","John Brewer","John Brewer3","3",-18.38474,147.2391,"GBR",3
+"34","John Brewer","John Brewer1","1",-18.37345,147.21,"GBR",3
+"35","John Brewer","John Brewer2","2",-18.3742,147.155,"GBR",3
+"36","John Brewer","John Brewer3","3",-18.37438,147.138,"GBR",3
+"37","Trunk","Trunk1","1",-18.2189,146.45566,"GBR",3
+"38","Trunk","Trunk2","2",-18.22354,146.46315,"GBR",3
+"39","Trunk","Trunk3","3",-18.2252,146.46368,"GBR",3
+"40","Trunk","Trunk1","1",-18.24172,146.49525,"GBR",3
+"41","Trunk","Trunk2","2",-18.2434,146.5143,"GBR",3
+"42","Trunk","Trunk3","3",-18.23445,146.5295,"GBR",3
+"43","Rib","Rib1","1",-18.29297,146.5246,"GBR",2
+"44","Rib","Rib2","2",-18.29249,146.52538,"GBR",2
+"45","Rib","Rib3","3",-18.2918,146.52571,"GBR",2
+"46","Rib","Rib1","1",-18.2823,146.52361,"GBR",2
+"47","Rib","Rib2","2",-18.28261,146.52452,"GBR",2
+"48","Rib","Rib3","3",-18.28289,146.52483,"GBR",2
+"49","Huadavoo","Maamendhoo","1",4.3007,73.26708,"Maldives",2
+"50","Huadavoo","Kooddoo","2",4.3803,73.26431,"Maldives",2
+"51","Huadavoo","Dhaandhoo","3",3.7649,73.27806,"Maldives",2
+"52","Huadavoo","Nilandhoo","4",3.8199,73.27205,"Maldives",2
+"53","Huadavoo","Gemanafushi","5",2.7045,73.34389,"Maldives",2
+"54","Huadavoo","Maarehaa","6",2.7898,73.34162,"Maldives",2
+"55","Huadavoo","Kodey","7",2.9802,73.33438,"Maldives",2
+"56","Huadavoo","Mahadhdhoo","8",3.5652,73.30572,"Maldives",2
+"57","Huadavoo","Vodamulaa","9",3.6389,73.29518,"Maldives",2
+"58","Huadavoo","Kuredhdhoo","10",3.9502,73.26642,"Maldives",2
+"59","Huadavoo","Vilingili","11",4.5101,73.26454,"Maldives",2
+"60","Mahe","Cousin Carbonate","Cousin carbonate",-4.332921,55.658746,"Seychelles",3
+"61","Mahe","Cousin Granite","Cousin granite reef",-4.328438,55.66162,"Seychelles",4
+"62","Mahe","Cousin Patch","Cousin Patch reef",-4.332388,55.666324,"Seychelles",1
+"63","Mahe","Mahe E Carbonate","Mahe E carbonate",-4.710589,55.52704,"Seychelles",1
+"64","Mahe","Mahe E Granite","Mahe E granitic reef",-4.734961,55.528958,"Seychelles",3
+"65","Mahe","Mahe E Patch","Mahe E patch reef",-4.703574,55.528198,"Seychelles",1
+"66","Mahe","Mahe NW Carbonate","Mahe NW Carbonate",-4.634994,55.376116,"Seychelles",4
+"67","Mahe","Mahe NW Granite","Mahe NW granitic reef",-4.562673,55.436906,"Seychelles",2
+"68","Mahe","Mahe NW Patch","Mahe NW patch reef",-4.614482,55.41627,"Seychelles",1
+"69","Mahe","Mahe W Carbonate","Mahe W carbonate",-4.669121,55.400252,"Seychelles",4
+"70","Mahe","Mahe W Granite","Mahe W granitic reef",-4.659828,55.360993,"Seychelles",1
+"71","Mahe","Mahe W Patch","Mahe W patch reef",-4.684675,55.434722,"Seychelles",4
+"72","Praslin","Praslin NE Carbonate","Praslin NE carbonate",-4.315847,55.756687,"Seychelles",4
+"73","Praslin","Praslin NE Granite","Praslin NE granitic reef",-4.290079,55.707504,"Seychelles",1
+"74","Praslin","Praslin NE Patch","Praslin NE patch reef",-4.303653,55.746546,"Seychelles",3
+"75","Praslin","Praslin SW Carbonate","Praslin SW carbonate",-4.350873,55.701522,"Seychelles",3
+"76","Praslin","Praslin SW Granite","Praslin SW granitic reef",-4.313662,55.678717,"Seychelles",1
+"77","Praslin","Praslin SW Patch","Praslin SW patch reef",-4.333943,55.692044,"Seychelles",1
+"78","Praslin","Ste Anne Carbonate","Ste Anne carbonate",-4.609864,55.496361,"Seychelles",3
+"79","Praslin","Ste Anne Granite","Ste. Anne granitic reef",-4.605095,55.513525,"Seychelles",1
+"80","Praslin","Ste Anne Patch","Ste. Anne patch reef",-4.618086,55.509399,"Seychelles",4

@@ -60,5 +60,13 @@ knitr::include_graphics("../../figures/FigureS4_scraper_bites.pdf"); i = i + 1
 
 \newpage
 
+```{r, out.width = "480px", echo=F,fig.align='center'}
+knitr::include_graphics("../../figures/FigureS5_evenness.pdf"); i = i + 1
+```
 
-Evenness effect on scraping function
+**Figure S`r i` | Evenness effect on scraping function.** Points are partial residuals from linear mixed effects model for predicted evenness effect while excluding effects from other explanatory covariates (e.g. biomass, size, richness). Black line is fitted to full dataset and grey line is fitted to evenness values > 0.4, with 95% bootstrapped confidence intervals.
+
+
+\newpage
+
+

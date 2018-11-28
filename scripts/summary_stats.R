@@ -97,9 +97,16 @@ m.browse<-lmer(browsing ~ biom + (1 | dataset), h)
 browsers$resid<-resid(m.browse)
 r2marg.browser<-rsquared(m.browse)$Marginal
 
-## doesn't exist yet
-# load("results/models/scraper_function.Rdata")
 
+load("results/models/scraper_function.Rdata")
+scrapers<-h
+scrapers$grazef<-scrapers$scraping
+scrapers$scraping<-NULL
+scrapers$sp <- 'scrapers'
+
+m.scrape<-lmer(scraping ~ biom + (1 | dataset), h)
+scrapers$resid<-resid(m.scrape)
+r2marg.scraper<-rsquared(m.scrape)$Marginal
 
 
 

@@ -20,7 +20,7 @@ p<-p[!p$class == 'global.mean',]
 p<-p[order(p$preds, p$class),]
 
 g1<-ggplot(p, aes(factor(class, levels = rev(levels(class))), median)) + 
-			geom_pointrange(aes(ymin = lower, ymax = upper),col=pal[5]) + 
+			geom_pointrange(aes(ymin = lower, ymax = upper),col=pal[12]) + 
 			coord_flip() + 
 			theme(legend.position = 'NULL') + 
 			labs( x = '', y = expression('Bites minute'^-1), parse=T) + 

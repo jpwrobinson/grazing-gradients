@@ -20,7 +20,7 @@ p<-p[!p$class == 'global.mean',]
 p<-p[order(p$preds, p$class),]
 
 g1<-ggplot(p, aes(factor(class, levels = rev(levels(class))), median)) + 
-			geom_pointrange(aes(ymin = lower, ymax = upper),col=pal[5]) + 
+			geom_pointrange(aes(ymin = lower, ymax = upper),col=pal[18]) + 
 			coord_flip() + 
 			theme(legend.position = 'NULL') + 
 			labs( x = '', y = expression('Bites minute'^-1), parse=T) + 
@@ -37,7 +37,8 @@ g2<-ggplot(h, aes(reorder(reef, browsing, FUN=median), browsing, fill=dataset)) 
 			scale_fill_manual(values = cols.named) +
 			theme(legend.position = c(0.8, 0.2),
 					legend.title=element_blank()) +
-			coord_flip()
+			coord_flip() +
+			scale_y_continuous(labels=comma)
 
 
 pdf(file='figures/FigureS3_browser_bites.pdf', height=5, width=10)
