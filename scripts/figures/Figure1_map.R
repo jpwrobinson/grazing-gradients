@@ -78,7 +78,8 @@ world.plot<-ggplot() + geom_polygon(data = world, aes(x=long, y = lat, group = g
   clip = "on") + 
   labs(x = '', y = '') +
   geom_rect(data = bbox, 
-  	aes(xmin = xmin, xmax = xmax, ymin = ymin, ymax=ymax, group=island), lwd=4, col='red')
+  	aes(xmin = xmin, xmax = xmax, ymin = ymin, ymax=ymax, group=island), fill='transparent',lwd=0.5, col='red') +
+  theme(plot.margin=unit(c(0.1,0,0,0), "mm"))
 
 
 ## seychelles
@@ -86,7 +87,7 @@ sey.plot<-ggplot() + geom_polygon(data = isl, aes(x = long, y = lat, group=group
 	coord_quickmap(xlim = c(55.25, 56), ylim = c(-4.9, -4.2), expand = TRUE,
   	clip = "on") + 
   labs(x = '', y = '') +
-  geom_point(data = sites, aes(x = X, y = Y, col=km.cluster), alpha=0.5, size=2) +
+  geom_point(data = sites, aes(x = X, y = Y, col=km.cluster), alpha=0.8, size=2) +
   theme(plot.margin=unit(c(0,0,0,0), "mm"),
   	legend.position = 'none',
   axis.title=element_blank(),
@@ -99,7 +100,7 @@ mal.plot<-ggplot() + geom_polygon(data = malshp, aes(x = long, y = lat, group=gr
 	coord_quickmap(ylim = c(2.5, 4.6), xlim = c(72.5, 74), expand = TRUE,
   	clip = "on") + 
   labs(x = '', y = '') +
-  geom_point(data = sites, aes(x = X, y = Y, col=km.cluster), alpha=0.5, size=2) +
+  geom_point(data = sites, aes(x = X, y = Y, col=km.cluster), alpha=0.8, size=2) +
   theme(plot.margin=unit(c(0,0,0,0), "mm"),
   	legend.position = 'none',
   axis.title=element_blank(),
@@ -113,7 +114,7 @@ gbr.plot<-ggplot() + geom_polygon(data = gbrshp, aes(x = long, y = lat, group=gr
 	coord_quickmap(ylim = c(-18.8, -18), xlim = c(146, 147.5), expand = TRUE,
   	clip = "on") + 
   labs(x = '', y = '') +
-  geom_point(data = sites, aes(x = X, y = Y, col=km.cluster), alpha=0.5, size=2) +
+  geom_point(data = sites, aes(x = X, y = Y, col=km.cluster), alpha=0.8, size=2) +
   theme(plot.margin=unit(c(0,0,0,0), "mm"),
   	legend.position = 'none',
   axis.title=element_blank(),
@@ -190,5 +191,5 @@ middle<-plot_grid(sey.plot,mal.plot,sey.plot,gbr.plot, nrow=1)
 bm<-plot_grid(middle, bottom, nrow=2, align='h', rel_heights = c(1, 0.7))
 
 pdf(file='figures/Figure1.pdf', height = 7, width =12)
-plot_grid(world.plot, bm, nrow=2, align='v', rel_heights=c(0.8, 1))
+plot_grid(world.plot, bm, nrow=2, align='v', rel_heights=c(0.7, 1))
 dev.off()

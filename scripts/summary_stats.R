@@ -72,6 +72,33 @@ h <- pred %>%
            hard.coral, macroalgae,  rubble, substrate, complexity, fish.biom) %>%
   summarise(biom = mean(biom)) 
 
+# estimate mean biomass per site, all FGs
+h <- pred %>% 
+  ## sum biomass per FG in each transect
+  group_by(dataset, date, reef, site, management, transect, 
+           unique.id, depth) %>%
+  summarise(biom = sum(biomass.kgha)) %>%
+  ## mean FG biomass across transects at each site
+  group_by(dataset, date, reef, site, management, unique.id, depth) %>%
+  summarise(biom = mean(biom)) 
+
+h[which.max(h$biom),]
+h[which.min(h$biom),]
+mean(h$biom)
+
+# estimate mean richness per site, all FGs
+h <- pred %>% 
+  ## sum richness per FG in each transect
+  group_by(dataset, date, reef, site, management, transect, 
+           unique.id, depth) %>%
+  summarise(biom = uniques(species)) %>%
+  ## mean FG biomass across transects at each site
+  group_by(dataset, date, reef, site, management, unique.id, depth) %>%
+  summarise(biom = mean(biom)) 
+
+h[which.max(h$biom),]
+h[which.min(h$biom),]
+
 
 ## function models and data
 

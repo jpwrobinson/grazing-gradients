@@ -1,0 +1,70 @@
+
+library(tidyverse)
+library(cowplot)
+library(ggplot2)
+library(funk)
+library(scales)
+library(here)
+library(piecewiseSEM)
+library(lme4)
+theme_set(theme_sleek())
+setwd(here('grazing-gradients'))
+
+
+# data load
+load("data/wio_herb_benthic_merged.Rdata")
+# estimate mean biomass per site per FG
+h <- pred %>% filter(FG == 'Herbivore Scraper') %>% 
+  ## sum biomass per FG in each transect
+        group_by(dataset, reef, site, transect, 
+                 unique.id, species) %>%
+          summarise(biom = sum(biomass.kgha)) %>%
+  ## mean species biomass across transects at each site
+          group_by(unique.id, species) %>%
+          summarise(biom = mean(biom)) 
+
+# estimate mean biomass per site per FG
+h.sp <- pred %>% filter(FG == 'Herbivore Scraper') %>% 
+  ## sum biomass per FG in each transect
+        group_by(dataset, reef, site, transect, 
+                 unique.id, species) %>%
+          summarise(biom = sum(biomass.kgha)) %>%
+  ## mean species biomass across transects at each site
+          group_by(species) %>%
+          summarise(biom = mean(biom)) 
+
+## change names for colnames
+com.mat<-tidyr::spread(h, species, biom)
+# com.mat<-janitor::clean_names(com.mat)
+rows<-com.mat[,1]
+## drop cols
+com.mat<-com.mat[, -c(1)]
+
+## fill NAs
+com.mat[is.na(com.mat)]<-0
+## matrix format
+com.mat<-as.matrix(com.mat)
+dim(com.mat)
+
+
+## estimate diversity
+library(vegan)
+div<-data.frame(div=diversity(com.mat), 
+				richness=specnumber(com.mat), 
+				unique.id = rows)
+div$J <- div$div/log(div$richness)
+
+
+com.mat.inc<-com.mat
+com.mat.inc[com.mat.inc>0]<-1
+freq<-data.frame(freq=colSums(com.mat.inc), species = colnames(com.mat.inc))
+
+ggplot(freq, aes(reorder(species,freq), freq)) + geom_bar(stat='identity') + coord_flip()
+
+## scraper bite rates
+p<-read.csv(file = 'results/functions/scraper_bites_predicted.csv')
+freq$bite.rate<-p$median[match(freq$species, p$class)]
+freq$biom<-h.sp$biom[match(freq$species, h.sp$species)]
+
+
+ggplot(freq, aes(bite.rate, freq, label=species)) + geom_text()

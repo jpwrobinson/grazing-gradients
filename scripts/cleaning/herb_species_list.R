@@ -24,6 +24,8 @@ species$seychelles<-ifelse(species$species %in% ssp, 'TRUE', 'FALSE')
 
 species$nregions<-rowSums(species[,3:6]==T)
 
+dim(species[species$nregions == 4,1])
+
 ## 14 browsers, 52 grazers, 38 scrapers
 ## 104 species in total
 ## 64 species only appear in 1 dataset
@@ -35,9 +37,4 @@ species$biterates
 
 kable(species, "html") %>%
   kable_styling(bootstrap_options = c("striped", "hover")) %>%
-<<<<<<< HEAD
   cat(., file = 'writing/ms/TableS1_Specieslist.html')
-=======
-  cat(., file = 'writing/ms/TableS1_Specieslist.html')
-
->>>>>>> 51e171eedb753b03082e62045e2bfffd161078f5
