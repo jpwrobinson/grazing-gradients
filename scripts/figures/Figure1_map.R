@@ -21,6 +21,10 @@ load("data/pca_allregions_kmeans4_clusters.Rdata") # pca.kmeans
 ## site lat lons
 sites<-read.csv('data/sites_with_benthic_clusters.csv')
 sites$km.cluster<-as.character(sites$km.cluster)
+# Cluster 1: high rubble
+# Cluster 2: high macroalgae
+# Cluster 3: high substrate
+# Cluster 4: high coral 
 
 # big map
 world <- map_data("world2") 
@@ -29,6 +33,9 @@ world<-fortify(world)
 ## little maps
 # islands<-sf::read_sf(dsn='data/ne_10m_land/ne_10m_land.shp')
 # islands<-fortify(islands)
+
+## chagos
+chashp<-rgdal::readOGR('data/shapes/', 'Chagos_v6.shp')
 
 ## seychelles
 # isl<-sf::st_read("data/shapes/sey/all islands.shp")

@@ -91,7 +91,6 @@ h$biom.scaled <- scale(h$biom)
 m.scrape2<-lmer(scraping ~ biom.scaled + mean.mass.scaled + sp.richness.scaled + evenness.scaled +
           (1 | dataset/reef), h)
 
-
 nd.rich<-data.frame(sp.richness.scaled = seq(min(h$sp.richness.scaled), max(h$sp.richness.scaled), length.out=20),
               sp.richness.raw = seq(min(h$sp.richness), max(h$sp.richness), length.out=20),
                           biom.scaled=0, evenness.scaled = 0, mean.mass.scaled = 0, dataset = 'GBR', reef='1')

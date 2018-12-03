@@ -65,6 +65,8 @@ ggplot(freq, aes(reorder(species,freq), freq)) + geom_bar(stat='identity') + coo
 p<-read.csv(file = 'results/functions/scraper_bites_predicted.csv')
 freq$bite.rate<-p$median[match(freq$species, p$class)]
 freq$biom<-h.sp$biom[match(freq$species, h.sp$species)]
-
+freq$genus<-str_split_fixed(freq$species, '\ ', 2)[,1]
+freq$bite.rate[is.na(freq$bite.rate)]<-p$median[match(freq$genus[is.na(freq$bite.rate)], p$class)]
 
 ggplot(freq, aes(bite.rate, freq, label=species)) + geom_text()
+ggplot(freq, aes(bite.rate, freq, label=species, size=biom)) + geom_text()
