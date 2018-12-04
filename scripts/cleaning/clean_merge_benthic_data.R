@@ -39,6 +39,13 @@ seychelles$site<-str_replace_all(seychelles$site, 'Ste.', 'Ste')
 seychelles$site<-str_replace_all(seychelles$site, 'SteAnne', 'Ste Anne')
 
 seychelles %>% filter(date == 2017 & taxa == 'struc.complexity')
+## complexity doesn't exist for 2017, use data from plan view method
+load("data/raw-data/SEY_UVC_benthicPV_SC_DEPTH_replicates.Rdata")
+seychelles$value[seychelles$taxa == 'struc.complexity' & 
+			seychelles$date == 2017]<- SC.site$complexity[
+			match(seychelles$site[seychelles$taxa == 'struc.complexity' & seychelles$date == 2017],  
+				SC.site$location)]
+
 ## need to group taxa for simpler comparison across datasets + benthic gradients
 benthic.cats<-unique(seychelles$taxa)
 
@@ -452,8 +459,13 @@ pred$date<-str_replace_all(pred$date, '15/03/', '')
 
 
 ## some extra stuff we found during model process
-pred$depth[pred$dataset=='Seychelles']<-10
+
+## adding site depths for Seychelles from the plan view dataset
+SC.site$year.site<-paste(SC.site$year, SC.site$location, sep = '.')
+pred$depth[pred$dataset=='Seychelles']<- SC.site$depth[
+			match(pred$unique.id[pred$dataset == 'Seychelles'], SC.site$year.site)]
 pred$depth[pred$dataset=='GBR']<-10
+
 # drop 3m sites in Chagos with LUDACRIS/Luka Modric biomass
 pred<-pred %>% filter(depth != 3) 
 ## drop flat and crest sites from GBR (~13,300 obs)
