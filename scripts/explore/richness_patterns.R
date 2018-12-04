@@ -46,6 +46,9 @@ com.mat[is.na(com.mat)]<-0
 com.mat<-as.matrix(com.mat)
 dim(com.mat)
 
+## species biomass, including zeroees
+h.sp2<-data.frame(biom=colMeans(com.mat), species= colnames(com.mat))
+
 
 ## estimate diversity
 library(vegan)
@@ -65,8 +68,17 @@ ggplot(freq, aes(reorder(species,freq), freq)) + geom_bar(stat='identity') + coo
 p<-read.csv(file = 'results/functions/scraper_bites_predicted.csv')
 freq$bite.rate<-p$median[match(freq$species, p$class)]
 freq$biom<-h.sp$biom[match(freq$species, h.sp$species)]
+freq$biom2<-h.sp2$biom[match(freq$species, h.sp2$species)]
 freq$genus<-str_split_fixed(freq$species, '\ ', 2)[,1]
 freq$bite.rate[is.na(freq$bite.rate)]<-p$median[match(freq$genus[is.na(freq$bite.rate)], p$class)]
 
+## check biogeogr - add nregions to freq
+regions<-read.csv(file='writing/ms/TableS1_Specieslist.csv')
+freq$nregions<-regions$nregions[match(freq$species, regions$species)]
+
 ggplot(freq, aes(bite.rate, freq, label=species)) + geom_text()
 ggplot(freq, aes(bite.rate, freq, label=species, size=biom)) + geom_text()
+ggplot(freq, aes(bite.rate, freq, label=species, size=biom2)) + geom_text()
+ggplot(freq, aes(bite.rate, biom, label=species, col=freq)) + geom_text() + scale_y_log10()+ scale_colour_gradient(low='red', high='green')
+ggplot(freq, aes(freq, biom, label=species, col=bite.rate)) + geom_text() + scale_y_log10() + scale_colour_gradient(low='red', high='green')
+ggplot(freq, aes(nregions, bite.rate, label=species, col=freq, size=biom)) + geom_text()  + scale_colour_gradient(low='red', high='green')

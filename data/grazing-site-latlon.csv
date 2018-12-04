@@ -1,22 +1,22 @@
 Reef,Site,Unique_site_transect,Y,X,dataset
-Salamon,Isle le Anglaise (S1),SalamonIle AnglaisSheltered1,5.1883,72.13651,Chagos
-Salamon,E4,SalamonSouthExposed6,5.21226,72.14647,Chagos
-Salamon,S3,SalamonIle AnglaisSheltered3,5.2368,72.12827,Chagos
-Salamon,S2,SalamonIle AnglaisSheltered2,5.19861,72.13148,Chagos
-Salamon,E2,SalamonIle TakamakaExposed4,5.2936,72.1667,Chagos
-Salamon,E3,SalamonIle FouquetExposed5,5.2123,72.16738,Chagos
-Peuros Banhos,Petite Coq (E4),Peros BanhosExposed site 1Exposed4,5.2612,71.5888,Chagos
-Peuros Banhos,South Coq (E5),Peros BanhosExposed site 2Exposed5,5.22529,71.58482,Chagos
-Peuros Banhos,South Coq (E6),Peros BanhosExposed site 3Exposed6,5.23286,71.57843,Chagos
-Peuros Banhos,Ile Poule (S1),Peros BanhosIle PouleSheltered1,5.23721,71.4528,Chagos
-Peuros Banhos,S3,Peros BanhosSheltered site 3Sheltered3,5.2562,71.44913,Chagos
-Peuros Banhos,Ile Poule (S2),Peros BanhosSheltered site 2Sheltered2,5.24672,71.44786,Chagos
-Great Chagos Bank,South Brother (E1),Great Chagos BankSouth BrotherExposed1,6.1717,71.32919,Chagos
-Great Chagos Bank,South Brother (E2),Great Chagos BankSouth BrotherExposed2,6.1355,71.32195,Chagos
-Great Chagos Bank,Middle Brother (E3),Great Chagos BankMiddle BrotherExposed3,6.112,71.31576,Chagos
-Great Chagos Bank,Eagle (S3),Great Chagos BankEagleSheltered3,6.1216,71.1887,Chagos
-Great Chagos Bank,Eagle (S2),Great Chagos BankEagleSheltered2,6.9826,71.2128,Chagos
-Great Chagos Bank,Eagle (S1),Great Chagos BankEagleSheltered1,6.1961,71.19582,Chagos
+Salamon,Isle le Anglaise (S1),SalamonIle AnglaisSheltered1,-5.1883,72.13651,Chagos
+Salamon,E4,SalamonSouthExposed6,-5.21226,72.14647,Chagos
+Salamon,S3,SalamonIle AnglaisSheltered3,-5.2368,72.12827,Chagos
+Salamon,S2,SalamonIle AnglaisSheltered2,-5.19861,72.13148,Chagos
+Salamon,E2,SalamonIle TakamakaExposed4,-5.2936,72.1667,Chagos
+Salamon,E3,SalamonIle FouquetExposed5,-5.2123,72.16738,Chagos
+Peuros Banhos,Petite Coq (E4),Peros BanhosExposed site 1Exposed4,-5.2612,71.5888,Chagos
+Peuros Banhos,South Coq (E5),Peros BanhosExposed site 2Exposed5,-5.22529,71.58482,Chagos
+Peuros Banhos,South Coq (E6),Peros BanhosExposed site 3Exposed6,-5.23286,71.57843,Chagos
+Peuros Banhos,Ile Poule (S1),Peros BanhosIle PouleSheltered1,-5.23721,71.4528,Chagos
+Peuros Banhos,S3,Peros BanhosSheltered site 3Sheltered3,-5.2562,71.44913,Chagos
+Peuros Banhos,Ile Poule (S2),Peros BanhosSheltered site 2Sheltered2,-5.24672,71.44786,Chagos
+Great Chagos Bank,South Brother (E1),Great Chagos BankSouth BrotherExposed1,-6.1717,71.32919,Chagos
+Great Chagos Bank,South Brother (E2),Great Chagos BankSouth BrotherExposed2,-6.1355,71.32195,Chagos
+Great Chagos Bank,Middle Brother (E3),Great Chagos BankMiddle BrotherExposed3,-6.112,71.31576,Chagos
+Great Chagos Bank,Eagle (S3),Great Chagos BankEagleSheltered3,-6.1216,71.1887,Chagos
+Great Chagos Bank,Eagle (S2),Great Chagos BankEagleSheltered2,-6.9826,71.2128,Chagos
+Great Chagos Bank,Eagle (S1),Great Chagos BankEagleSheltered1,-6.1961,71.19582,Chagos
 Wheeler,Sheltered,1,-18.47331,147.3133,GBR
 Wheeler,Sheltered,2,-18.47345,147.3136,GBR
 Wheeler,Exposed,1,-18.4816,147.3154,GBR
@@ -47,17 +47,17 @@ Rib,Exposed,3,-18.2918,146.52571,GBR
 Rib,Sheltered,1,-18.2823,146.52361,GBR
 Rib,Sheltered,2,-18.28261,146.52452,GBR
 Rib,Sheltered,3,-18.28289,146.52483,GBR
-Huadavoo,Maamendhoo,1,4.3007,73.26708,Maldives
-Huadavoo,Kooddoo,2,4.3803,73.26431,Maldives
-Huadavoo,Dhaandhoo,3,3.7649,73.27806,Maldives
-Huadavoo,Nilandhoo,4,3.8199,73.27205,Maldives
-Huadavoo,Gemanafushi,5,2.7045,73.34389,Maldives
-Huadavoo,Maarehaa,6,2.7898,73.34162,Maldives
-Huadavoo,Kodey,7,2.9802,73.33438,Maldives
-Huadavoo,Mahadhdhoo,8,3.5652,73.30572,Maldives
-Huadavoo,Vodamulaa,9,3.6389,73.29518,Maldives
-Huadavoo,Kuredhdhoo,10,3.9502,73.26642,Maldives
-Huadavoo,Vilingi,11,4.5101,73.26454,Maldives
+Huadavoo,Maamendhoo,1,0.4301,73.26708,Maldives
+Huadavoo,Kooddoo,2,0.4380,73.26431,Maldives
+Huadavoo,Dhaandhoo,3,0.3765,73.27806,Maldives
+Huadavoo,Nilandhoo,4,0.3820,73.27205,Maldives
+Huadavoo,Gemanafushi,5,0.2705,73.34389,Maldives
+Huadavoo,Maarehaa,6,0.2790,73.34162,Maldives
+Huadavoo,Kodey,7,0.2980,73.33438,Maldives
+Huadavoo,Mahadhdhoo,8,0.3565,73.30572,Maldives
+Huadavoo,Vodamulaa,9,0.3639,73.29518,Maldives
+Huadavoo,Kuredhdhoo,10,0.3950,73.26642,Maldives
+Huadavoo,Vilingi,11,0.4510,73.26454,Maldives
 Mahe,Cousin carbonate,Cousin carbonate,-4.332921,55.658746,Seychelles
 Mahe,Cousin granite reef,Cousin granite reef,-4.328438,55.66162,Seychelles
 Mahe,Cousin Patch reef,Cousin Patch reef,-4.332388,55.666324,Seychelles

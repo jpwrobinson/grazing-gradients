@@ -38,3 +38,7 @@ species$biterates
 kable(species, "html") %>%
   kable_styling(bootstrap_options = c("striped", "hover")) %>%
   cat(., file = 'writing/ms/TableS1_Specieslist.html')
+
+## also save csv
+write.csv(species, file='writing/ms/TableS1_Specieslist.csv')
+

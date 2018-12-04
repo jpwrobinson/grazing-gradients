@@ -87,9 +87,14 @@ h$mean.size.scaled <- scale(h$mean.size)
 h$mean.mass.scaled <- scale(h$mean.mass)
 h$biom.scaled <- scale(h$biom)
 
+ggplot(h, aes(sp.richness, scraping, size=biom)) + geom_point()
+ggplot(h, aes(sp.richness, biom)) + geom_point() + scale_y_log10()
+
 ## new decoupling model to account for div and size structure
 m.scrape2<-lmer(scraping ~ biom.scaled + mean.mass.scaled + sp.richness.scaled + evenness.scaled +
           (1 | dataset/reef), h)
+# m.scrape3<-lmer(scraping ~ biom.scaled *  sp.richness.scaled + mean.mass.scaled + evenness.scaled +
+#           (1 | dataset/reef), h)
 
 nd.rich<-data.frame(sp.richness.scaled = seq(min(h$sp.richness.scaled), max(h$sp.richness.scaled), length.out=20),
               sp.richness.raw = seq(min(h$sp.richness), max(h$sp.richness), length.out=20),

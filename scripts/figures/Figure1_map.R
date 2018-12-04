@@ -35,7 +35,8 @@ world<-fortify(world)
 # islands<-fortify(islands)
 
 ## chagos
-chashp<-rgdal::readOGR('data/shapes/', 'Chagos_v6.shp')
+chashp<-rgdal::readOGR('data/shapes/chagos/Chagos_v6.shp')
+chashp<-fortify(chashp)
 
 ## seychelles
 # isl<-sf::st_read("data/shapes/sey/all islands.shp")
@@ -54,8 +55,8 @@ malshp<-fortify(malshp)
 bbox<-data.frame(island = c('SEY','GBR', 'MAL', 'CHA'),
 					xmin = c(55.25, 146, 72.5, 71),
 					xmax=c(56, 147.5, 74, 72.5),
-					ymin=c(-4.9, -18.8, 2.5, 5),
-					ymax=c(-4.2, -18, 4.6, 7))
+					ymin=c(-4.9, -18.8, 2.5, -5),
+					ymax=c(-4.2, -18, 4.6, -7))
 
 # estimate mean biomass per site per FG
 biom <- pred %>% 
@@ -115,6 +116,18 @@ mal.plot<-ggplot() + geom_polygon(data = malshp, aes(x = long, y = lat, group=gr
   axis.text = element_text(size =6)) + 
   scale_color_manual(values = cols.named)
 
+  ## Chagos
+chagos.plot<-ggplot() + geom_polygon(data = chashp, aes(x = long, y = lat, group=group), fill=alpha('grey', 0.6)) + 
+	coord_quickmap(ylim = c(-5,-7), xlim = c(71, 72.5), expand = TRUE,
+  	clip = "on") + 
+  labs(x = '', y = '') +
+  geom_point(data = sites, aes(x = X, y = Y, col=km.cluster), alpha=0.8, size=2) +
+  theme(plot.margin=unit(c(0,0,0,0), "mm"),
+  	legend.position = 'none',
+  axis.title=element_blank(),
+  axis.ticks=element_blank(),
+  axis.text = element_text(size =6)) + 
+  scale_color_manual(values = cols.named)
 
 ## GBR
 gbr.plot<-ggplot() + geom_polygon(data = gbrshp, aes(x = long, y = lat, group=group), fill=alpha('grey', 0.6)) + 
@@ -194,7 +207,7 @@ gbr.bar<-ggplot(biom[biom$dataset == 'GBR',],
 
 
 bottom<-plot_grid(sey.bar, mal.bar, chag.bar, gbr.bar, nrow=1)
-middle<-plot_grid(sey.plot,mal.plot,sey.plot,gbr.plot, nrow=1)
+middle<-plot_grid(sey.plot,mal.plot,chag.plot,gbr.plot, nrow=1)
 bm<-plot_grid(middle, bottom, nrow=2, align='h', rel_heights = c(1, 0.7))
 
 pdf(file='figures/Figure1.pdf', height = 7, width =12)
