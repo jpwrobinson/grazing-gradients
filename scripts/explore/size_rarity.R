@@ -12,17 +12,29 @@ setwd(here('grazing-gradients'))
 
 
 # data load
-load('results/models/scraper_function.Rdata')
-h <- h %>% filter(FG == 'Herbivore Scraper') %>% 
+load('results/models/scraper_function_species.Rdata')
+scrape <- h 
+
+scrape.prop<-scrape %>% group_by(unique.id) %>% 
+				mutate(total = sum(scraping)) %>%
+				group_by(species, unique.id) %>%
+				mutate(prop = scraping / total) %>%
+				group_by(species) %>%
+				summarise(scrape.contribution = mean(prop))
+
+scrape.sp<-scrape %>% group_by(species) %>% 
+				summarise(scraping = mean(scraping))
+
+load("data/wio_herb_benthic_merged.Rdata")
+# estimate mean biomass per site per FG
+h <- pred %>% filter(FG == 'Herbivore Scraper') %>% 
   ## sum biomass per FG in each transect
         group_by(dataset, reef, site, transect, 
                  unique.id, species) %>%
-          summarise(biom = sum(biomass.kgha), scraping=sum(scraping)) %>%
+          summarise(biom = sum(biomass.kgha)) %>%
   ## mean species biomass across transects at each site
           group_by(unique.id, species) %>%
-          summarise(biom = mean(biom), scraping=mean(scraping)) 
-
-
+          summarise(biom = mean(biom)) 
 
 ## change names for colnames
 com.mat<-tidyr::spread(h, species, biom)
@@ -60,7 +72,21 @@ freq<-data.frame(freq=colSums(com.mat.inc), species = colnames(com.mat.inc))
 freq$biom<-h$biom[match(freq$species, h$species)]
 freq$size.cm<-sizes$size[match(freq$species, sizes$species)]
 freq$size.g<-sizes$mass[match(freq$species, sizes$species)]
-
+freq$scrape.prop<-scrape.prop$scrape.contribution[match(freq$species, scrape.prop$species)]
+freq$scraping<-scrape.sp$scraping[match(freq$species, scrape.sp$species)]
 
 ggplot(freq, aes(reorder(species,freq), freq)) + geom_bar(stat='identity') + coord_flip()
 ggplot(freq, aes(size.g, freq, size=biom))  + scale_x_log10() + geom_text(aes(label=species))
+
+## large species have greater average contribution to scraping 
+ggplot(freq, aes(size.g, scrape.prop, size=freq))  +
+		 scale_x_log10() + 
+		 geom_text(aes(label=species)) + stat_smooth(method = 'lm')
+
+ggplot(freq, aes(size.g, scraping, size=freq))  +
+		 scale_x_log10() + 
+		 geom_text(aes(label=species)) + stat_smooth(method = 'lm')
+
+
+rownames(com.mat[com.mat>0]['scarus_prasiognathus'])
+

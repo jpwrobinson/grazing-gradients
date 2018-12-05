@@ -111,13 +111,19 @@ partials<-visreg::visreg(m.scrape2, 'sp.richness.scaled')
 richness.fit<-data.frame(fit=partials$fit$visregFit, x = partials$fit$sp.richness, 
   richness = seq(min(h$sp.richness), max(h$sp.richness), length.out = 101))
 
-richness.points<-data.frame(x=h$sp.richness, y = partials$res$visregRes, dataset=partials$res$dataset)
+richness.points<-data.frame(x=h$sp.richness, y = partials$res$visregRes, 
+            dataset=h$dataset, management = h$management)
 
 partials<-visreg::visreg(m.scrape2, 'mean.mass.scaled')
 mean.mass.fit<-data.frame(fit=partials$fit$visregFit, x = partials$fit$mean.mass, 
   mean.mass = seq(min(h$mean.mass), max(h$mean.mass), length.out = 101))
 
-mean.mass.points<-data.frame(x=h$mean.mass, y = partials$res$visregRes, dataset=partials$res$dataset)
+mean.mass.points<-data.frame(x=h$mean.mass, y = partials$res$visregRes, 
+            dataset=h$dataset, management = h$management)
+
+
+## add some plotting stuff
+
 
 str(partials)
 pal <- wesanderson::wes_palette("Zissou1", 21, type = "continuous")
@@ -144,4 +150,27 @@ pdf(file='figures/Figure4_scraper_resids.pdf', height = 4, width=9)
 plot_grid(g1, g2, labels=c('a', 'b'))
 dev.off()
 
+
+g1<-ggplot(richness.fit, aes(richness, fit)) + geom_line() + 
+    geom_point(data=richness.points, aes(x, y, shape=dataset, col=management), alpha=0.7)  +
+    labs(y = 'Partial effect on area scraped', x = 'Species richness') +
+    # geom_hline(yintercept=0, linetype=5, col='grey') +
+    theme(legend.title=element_blank(),
+          legend.position = 'none')
+
+
+g2<-ggplot(mean.mass.fit, aes(mean.mass, fit)) + geom_line() + 
+    geom_point(data=mean.mass.points, aes(x, y, shape=dataset, col=management), alpha=0.7)  +
+    labs(y = '', x = 'Mean size (g)') +
+    scale_x_continuous(labels=comma) +
+    # geom_hline(yintercept=0, linetype=5, col='grey') +
+    theme(legend.title=element_blank(),
+          legend.position = 'right')
+
+
+pdf(file='figures/Figure4_scraper_resids_detailed.pdf', height = 4, width=9)
+plot_grid(g1, g2, labels=c('a', 'b'))
+dev.off()
+
+save(richness.fit, richness.points, mean.mass.points, mean.mass.fit, file = 'results/models/scraper_richness_size_effects.Rdata')
 
