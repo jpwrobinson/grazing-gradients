@@ -34,9 +34,17 @@ world<-fortify(world)
 # islands<-sf::read_sf(dsn='data/ne_10m_land/ne_10m_land.shp')
 # islands<-fortify(islands)
 
+
 ## chagos
 chashp<-rgdal::readOGR('data/shapes/chagos/Chagos_v6.shp')
-chashp<-fortify(chashp)
+chagos<-sp::spTransform(chashp, CRS("+proj=longlat +datum=WGS84"))
+
+## separating chashp by bathymetry
+## L4 = subtidal reef flat, drowned pass, drowned rim, drowned patch, land on reef
+chagos.drowned<-chashp[chashp@data$L4_ATTRIB %in% 
+      c('subtidal reef flat', 'drowned pass', 'drowned rim', 'drowned patch'),]
+chagos.land<-chashp[chashp@data$L4_ATTRIB %in% c('land on reef'),]
+chagos.lagoon<-chashp[chashp@data$L4_ATTRIB %in% c('drowned lagoon'),]
 
 ## seychelles
 # isl<-sf::st_read("data/shapes/sey/all islands.shp")
@@ -52,11 +60,12 @@ gbrshp<-fortify(gbrshp)
 malshp<-rgdal::readOGR("data/shapes/mal/MDV_DevInfo_Admin0B.shp")
 malshp<-fortify(malshp)
 
+
 bbox<-data.frame(island = c('SEY','GBR', 'MAL', 'CHA'),
-					xmin = c(55.25, 146, 72.5, 71),
-					xmax=c(56, 147.5, 74, 72.5),
-					ymin=c(-4.9, -18.8, 2.5, -5),
-					ymax=c(-4.2, -18, 4.6, -7))
+					xmin = c(55.25, 146.3, 72.5, 71),
+					xmax=c(56, 148, 74, 72.5),
+					ymin=c(-4.9, -19, 0.25, -5),
+					ymax=c(-4.2, -18.2, 0.46, -7))
 
 # estimate mean biomass per site per FG
 biom <- pred %>% 
@@ -105,7 +114,7 @@ sey.plot<-ggplot() + geom_polygon(data = isl, aes(x = long, y = lat, group=group
 
 ## Maldives
 mal.plot<-ggplot() + geom_polygon(data = malshp, aes(x = long, y = lat, group=group), fill=alpha('grey', 0.6)) + 
-	coord_quickmap(ylim = c(2.5, 4.6), xlim = c(72.5, 74), expand = TRUE,
+	coord_quickmap(ylim = c(0.15, 1), xlim = c(72.75, 73.7), expand = TRUE,
   	clip = "on") + 
   labs(x = '', y = '') +
   geom_point(data = sites, aes(x = X, y = Y, col=km.cluster), alpha=0.8, size=2) +
@@ -116,22 +125,27 @@ mal.plot<-ggplot() + geom_polygon(data = malshp, aes(x = long, y = lat, group=gr
   axis.text = element_text(size =6)) + 
   scale_color_manual(values = cols.named)
 
+
   ## Chagos
-chagos.plot<-ggplot() + geom_polygon(data = chashp, aes(x = long, y = lat, group=group), fill=alpha('grey', 0.6)) + 
-	coord_quickmap(ylim = c(-5,-7), xlim = c(71, 72.5), expand = TRUE,
-  	clip = "on") + 
-  labs(x = '', y = '') +
-  geom_point(data = sites, aes(x = X, y = Y, col=km.cluster), alpha=0.8, size=2) +
-  theme(plot.margin=unit(c(0,0,0,0), "mm"),
+chagos.plot<-ggplot() + 
+            geom_polygon(data = chagos.land, aes(x = long, y = lat, group=group), fill='grey', col='grey') + 
+            geom_polygon(data = chagos.drowned, aes(x = long, y = lat, group=group),fill='grey') + 
+            geom_polygon(data = chagos.lagoon, aes(x = long, y = lat, group=group),fill='white') + 
+            geom_point(data = sites, aes(x = X, y = Y, col=km.cluster), alpha=0.8, size=2) +
+  coord_quickmap(ylim = c(-5.2, -7.5), xlim = c(71, 72.7), expand = TRUE,
+    clip = "on") + 
+  labs(x = '', y = '') + 
+    theme(plot.margin=unit(c(0,0,0,0), "mm"),
   	legend.position = 'none',
   axis.title=element_blank(),
   axis.ticks=element_blank(),
   axis.text = element_text(size =6)) + 
   scale_color_manual(values = cols.named)
+
 
 ## GBR
 gbr.plot<-ggplot() + geom_polygon(data = gbrshp, aes(x = long, y = lat, group=group), fill=alpha('grey', 0.6)) + 
-	coord_quickmap(ylim = c(-18.8, -18), xlim = c(146, 147.5), expand = TRUE,
+	coord_quickmap(ylim = c(-19, -18.2), xlim = c(146.3, 148), expand = TRUE,
   	clip = "on") + 
   labs(x = '', y = '') +
   geom_point(data = sites, aes(x = X, y = Y, col=km.cluster), alpha=0.8, size=2) +
@@ -207,7 +221,7 @@ gbr.bar<-ggplot(biom[biom$dataset == 'GBR',],
 
 
 bottom<-plot_grid(sey.bar, mal.bar, chag.bar, gbr.bar, nrow=1)
-middle<-plot_grid(sey.plot,mal.plot,chag.plot,gbr.plot, nrow=1)
+middle<-plot_grid(sey.plot,mal.plot,chagos.plot,gbr.plot, nrow=1)
 bm<-plot_grid(middle, bottom, nrow=2, align='h', rel_heights = c(1, 0.7))
 
 pdf(file='figures/Figure1.pdf', height = 7, width =12)

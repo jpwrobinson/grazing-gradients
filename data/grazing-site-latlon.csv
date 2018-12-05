@@ -1,81 +1,60 @@
 Reef,Site,Unique_site_transect,Y,X,dataset
-Salamon,Isle le Anglaise (S1),SalamonIle AnglaisSheltered1,-5.1883,72.13651,Chagos
+Salamon,Isle le Anglaise (S1),SalamonIle AnglaisSheltered1,-5.18803,72.13651,Chagos
 Salamon,E4,SalamonSouthExposed6,-5.21226,72.14647,Chagos
-Salamon,S3,SalamonIle AnglaisSheltered3,-5.2368,72.12827,Chagos
+Salamon,S3,SalamonIle AnglaisSheltered3,-5.20368,72.12827,Chagos
 Salamon,S2,SalamonIle AnglaisSheltered2,-5.19861,72.13148,Chagos
-Salamon,E2,SalamonIle TakamakaExposed4,-5.2936,72.1667,Chagos
-Salamon,E3,SalamonIle FouquetExposed5,-5.2123,72.16738,Chagos
-Peuros Banhos,Petite Coq (E4),Peros BanhosExposed site 1Exposed4,-5.2612,71.5888,Chagos
+Salamon,E2,SalamonIle TakamakaExposed4,-5.20936,72.16067,Chagos
+Salamon,E3,SalamonIle FouquetExposed5,-5.20123,72.16738,Chagos
+Peuros Banhos,Petite Coq (E4),Peros BanhosExposed site 1Exposed4,-5.20612,71.58808,Chagos
 Peuros Banhos,South Coq (E5),Peros BanhosExposed site 2Exposed5,-5.22529,71.58482,Chagos
 Peuros Banhos,South Coq (E6),Peros BanhosExposed site 3Exposed6,-5.23286,71.57843,Chagos
-Peuros Banhos,Ile Poule (S1),Peros BanhosIle PouleSheltered1,-5.23721,71.4528,Chagos
-Peuros Banhos,S3,Peros BanhosSheltered site 3Sheltered3,-5.2562,71.44913,Chagos
+Peuros Banhos,Ile Poule (S1),Peros BanhosIle PouleSheltered1,-5.23721,71.45028,Chagos
+Peuros Banhos,S3,Peros BanhosSheltered site 3Sheltered3,-5.25602,71.44913,Chagos
 Peuros Banhos,Ile Poule (S2),Peros BanhosSheltered site 2Sheltered2,-5.24672,71.44786,Chagos
-Great Chagos Bank,South Brother (E1),Great Chagos BankSouth BrotherExposed1,-6.1717,71.32919,Chagos
-Great Chagos Bank,South Brother (E2),Great Chagos BankSouth BrotherExposed2,-6.1355,71.32195,Chagos
-Great Chagos Bank,Middle Brother (E3),Great Chagos BankMiddle BrotherExposed3,-6.112,71.31576,Chagos
-Great Chagos Bank,Eagle (S3),Great Chagos BankEagleSheltered3,-6.1216,71.1887,Chagos
-Great Chagos Bank,Eagle (S2),Great Chagos BankEagleSheltered2,-6.9826,71.2128,Chagos
-Great Chagos Bank,Eagle (S1),Great Chagos BankEagleSheltered1,-6.1961,71.19582,Chagos
+Great Chagos Bank,South Brother (E1),Great Chagos BankSouth BrotherExposed1,-6.10717,71.32919,Chagos
+Great Chagos Bank,South Brother (E2),Great Chagos BankSouth BrotherExposed2,-6.10355,71.32195,Chagos
+Great Chagos Bank,Middle Brother (E3),Great Chagos BankMiddle BrotherExposed3,-6.1012,71.31576,Chagos
+Great Chagos Bank,Eagle (S3),Great Chagos BankEagleSheltered3,-6.12106,71.18807,Chagos
+Great Chagos Bank,Eagle (S2),Great Chagos BankEagleSheltered2,-6.09826,71.20128,Chagos
+Great Chagos Bank,Eagle (S1),Great Chagos BankEagleSheltered1,-6.10961,71.19582,Chagos
 Wheeler,Sheltered,1,-18.47331,147.3133,GBR
-Wheeler,Sheltered,2,-18.47345,147.3136,GBR
-Wheeler,Exposed,1,-18.4816,147.3154,GBR
-Wheeler,Exposed,2,-18.4819,147.326,GBR
+Wheeler,Sheltered,2,-18.47345,147.31306,GBR
+Wheeler,Exposed,1,-18.4816,147.31504,GBR
+Wheeler,Exposed,2,-18.48019,147.3206,GBR
 Wheeler,Sheltered,3,-18.47325,147.31384,GBR
-Davies,Sheltered,1,-18.4865,147.3929,GBR
-Davies,Sheltered,2,-18.4816,147.394,GBR
-Davies,Exposed,1,-18.496,147.39555,GBR
-Davies,Exposed,2,-18.497,147.425,GBR
-Davies,Exposed,3,-18.48374,147.4163,GBR
+Davies,Sheltered,1,-18.48065,147.39209,GBR
+Davies,Sheltered,2,-18.48106,147.3904,GBR
+Davies,Exposed,1,-18.4906,147.39555,GBR
+Davies,Exposed,2,-18.49007,147.40025,GBR
+Davies,Exposed,3,-18.48374,147.40163,GBR
 Davies,Sheltered,3,-18.48129,147.385,GBR
-Wheeler,Exposed,3,-18.4859,147.3276,GBR
-John Brewer,Exposed,1,-18.38473,147.311,GBR
-John Brewer,Exposed,2,-18.38458,147.2562,GBR
-John Brewer,Exposed,3,-18.38474,147.2391,GBR
-John Brewer,Sheltered,1,-18.37345,147.21,GBR
-John Brewer,Sheltered,2,-18.3742,147.155,GBR
-John Brewer,Sheltered,3,-18.37438,147.138,GBR
-Trunk,Sheltered,1,-18.2189,146.45566,GBR
+Wheeler,Exposed,3,-18.48059,147.32076,GBR
+John Brewer,Exposed,1,-18.38473,147.03101,GBR
+John Brewer,Exposed,2,-18.38458,147.02562,GBR
+John Brewer,Exposed,3,-18.38474,147.02391,GBR
+John Brewer,Sheltered,1,-18.37345,147.02001,GBR
+John Brewer,Sheltered,2,-18.37402,147.01505,GBR
+John Brewer,Sheltered,3,-18.37438,147.0138,GBR
+Trunk,Sheltered,1,-18.21089,146.45566,GBR
 Trunk,Sheltered,2,-18.22354,146.46315,GBR
-Trunk,Sheltered,3,-18.2252,146.46368,GBR
+Trunk,Sheltered,3,-18.22502,146.46368,GBR
 Trunk,Exposed,1,-18.24172,146.49525,GBR
-Trunk,Exposed,2,-18.2434,146.5143,GBR
+Trunk,Exposed,2,-18.24034,146.5143,GBR
 Trunk,Exposed,3,-18.23445,146.5295,GBR
 Rib,Exposed,1,-18.29297,146.5246,GBR
 Rib,Exposed,2,-18.29249,146.52538,GBR
 Rib,Exposed,3,-18.2918,146.52571,GBR
-Rib,Sheltered,1,-18.2823,146.52361,GBR
+Rib,Sheltered,1,-18.28203,146.52361,GBR
 Rib,Sheltered,2,-18.28261,146.52452,GBR
 Rib,Sheltered,3,-18.28289,146.52483,GBR
 Huadavoo,Maamendhoo,1,0.4301,73.26708,Maldives
-Huadavoo,Kooddoo,2,0.4380,73.26431,Maldives
+Huadavoo,Kooddoo,2,0.438,73.26431,Maldives
 Huadavoo,Dhaandhoo,3,0.3765,73.27806,Maldives
-Huadavoo,Nilandhoo,4,0.3820,73.27205,Maldives
+Huadavoo,Nilandhoo,4,0.382,73.27205,Maldives
 Huadavoo,Gemanafushi,5,0.2705,73.34389,Maldives
-Huadavoo,Maarehaa,6,0.2790,73.34162,Maldives
-Huadavoo,Kodey,7,0.2980,73.33438,Maldives
+Huadavoo,Maarehaa,6,0.279,73.34162,Maldives
+Huadavoo,Kodey,7,0.298,73.33438,Maldives
 Huadavoo,Mahadhdhoo,8,0.3565,73.30572,Maldives
 Huadavoo,Vodamulaa,9,0.3639,73.29518,Maldives
-Huadavoo,Kuredhdhoo,10,0.3950,73.26642,Maldives
-Huadavoo,Vilingi,11,0.4510,73.26454,Maldives
-Mahe,Cousin carbonate,Cousin carbonate,-4.332921,55.658746,Seychelles
-Mahe,Cousin granite reef,Cousin granite reef,-4.328438,55.66162,Seychelles
-Mahe,Cousin Patch reef,Cousin Patch reef,-4.332388,55.666324,Seychelles
-Mahe,Mahe E carbonate,Mahe E carbonate,-4.710589,55.52704,Seychelles
-Mahe,Mahe E granitic reef,Mahe E granitic reef,-4.734961,55.528958,Seychelles
-Mahe,Mahe E patch reef,Mahe E patch reef,-4.703574,55.528198,Seychelles
-Mahe,Mahe NW Carbonate,Mahe NW Carbonate,-4.634994,55.376116,Seychelles
-Mahe,Mahe NW granitic reef,Mahe NW granitic reef,-4.562673,55.436906,Seychelles
-Mahe,Mahe NW patch reef,Mahe NW patch reef,-4.614482,55.41627,Seychelles
-Mahe,Mahe W carbonate,Mahe W carbonate,-4.669121,55.400252,Seychelles
-Mahe,Mahe W granitic reef,Mahe W granitic reef,-4.659828,55.360993,Seychelles
-Mahe,Mahe W patch reef,Mahe W patch reef,-4.684675,55.434722,Seychelles
-Praslin,Praslin NE carbonate,Praslin NE carbonate,-4.315847,55.756687,Seychelles
-Praslin,Praslin NE granitic reef,Praslin NE granitic reef,-4.290079,55.707504,Seychelles
-Praslin,Praslin NE patch reef,Praslin NE patch reef,-4.303653,55.746546,Seychelles
-Praslin,Praslin SW carbonate,Praslin SW carbonate,-4.350873,55.701522,Seychelles
-Praslin,Praslin SW granitic reef,Praslin SW granitic reef,-4.313662,55.678717,Seychelles
-Praslin,Praslin SW patch reef,Praslin SW patch reef,-4.333943,55.692044,Seychelles
-Praslin,Ste Anne carbonate,Ste Anne carbonate,-4.609864,55.496361,Seychelles
-Praslin,Ste. Anne granitic reef,Ste. Anne granitic reef,-4.605095,55.513525,Seychelles
-Praslin,Ste. Anne patch reef,Ste. Anne patch reef,-4.618086,55.509399,Seychelles
+Huadavoo,Kuredhdhoo,10,0.395,73.26642,Maldives
+Huadavoo,Vilingi,11,0.451,73.26454,Maldives
