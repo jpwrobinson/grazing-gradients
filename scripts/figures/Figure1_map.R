@@ -62,10 +62,10 @@ malshp<-fortify(malshp)
 
 
 bbox<-data.frame(island = c('SEY','GBR', 'MAL', 'CHA'),
-					xmin = c(55.25, 146.3, 72.5, 71),
-					xmax=c(56, 148, 74, 72.5),
-					ymin=c(-4.9, -19, 0.25, -5),
-					ymax=c(-4.2, -18.2, 0.46, -7))
+					xmin = c(55.3, 146.3, 72.5, 71),
+					xmax=c(55.9, 148, 74, 72.5),
+					ymin=c(-4.85, -19, 0.25, -5),
+					ymax=c(-4.25, -18.2, 0.46, -7))
 
 # estimate mean biomass per site per FG
 biom <- pred %>% 
@@ -101,7 +101,7 @@ world.plot<-ggplot() + geom_polygon(data = world, aes(x=long, y = lat, group = g
 
 ## seychelles
 sey.plot<-ggplot() + geom_polygon(data = isl, aes(x = long, y = lat, group=group), fill=alpha('grey', 0.6)) + 
-	coord_quickmap(xlim = c(55.25, 56), ylim = c(-4.9, -4.2), expand = TRUE,
+	coord_quickmap(xlim = c(55.3, 55.9), ylim = c(-4.85, -4.25), expand = TRUE,
   	clip = "on") + 
   labs(x = '', y = '') +
   geom_point(data = sites, aes(x = X, y = Y, col=km.cluster), alpha=0.8, size=2) +

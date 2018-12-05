@@ -463,7 +463,8 @@ g.effects <- ggplot(eff.benthic, aes(var, Estimate, col=model)) +
               scale_color_manual(values = cols.named) +
               # scale_x_discrete(labels = c('Fished', 'Protected', 'Pristine')) +
               labs(x='', y = 'Standardized effect size') +
-              theme(legend.position = 'none') + coord_flip() +
+              theme(legend.position = 'none',
+                plot.margin=unit(c(0,0,0,0), "mm")) + coord_flip() +
               scale_x_discrete(position = "top")
 
 eff$var<-factor(eff$var, levels=c('fish.dummy', 'manage.dummy', 'pristine.dummy'))
@@ -551,22 +552,17 @@ g6 <- ggplot(fish.master, aes(x, 10^y)) +
 #### plot all the models on one graph 
 #bring in all figs in 1 pannel
 
-#grid.arrange(g1, g2, g3, g4)
-
-pdf(file = "figures/figure2_panels.pdf", width=12, height=8)
-
-
-?plot_grid
 top_side<-plot_grid(g1, g2, g3, g4, g5, g6, nrow =2, labels=c('a', 'b', 'c', 'd', 'e', 'f'), align='h')
-bottom_side<-plot_grid(g.cats, g.effects, labels = c('g','h'), nrow=1, ncol=2, label_size=12)
+bottom_side<-plot_grid(g.cats, g.effects, labels = c('a','b'), nrow=1, align='hv', ncol=2, label_size=14)
 
-plot_grid(top_side,bottom_side, ncol = 1, nrow=2, rel_heights=c(1, 1), label_size=12)
-
-
-
-#plot_grid(g.cats, g.effects)
-
+pdf(file = "figures/Figure2_effect_sizes.pdf", width=8, height=6)
+plot_grid(bottom_side, ncol = 1, nrow=1)
 dev.off()
+
+pdf(file = "figures/FigureS5_pred_biomass.pdf", width=12, height=8)
+plot_grid(top_side, ncol = 1, nrow=1)
+dev.off()
+
 
 ## ------------------------------------------------ ##
 

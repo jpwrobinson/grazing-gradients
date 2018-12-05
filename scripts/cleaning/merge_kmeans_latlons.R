@@ -59,6 +59,12 @@ sites$X<-with(sites, X_d + (X_min/60) + (X_sec/3600))
 # change Y back to negative
 sites$Y<-with(sites, ifelse(Y_direction == 'S', Y * -1, Y))
 
+
+## drop deg, min, and merge seychelles
+sites <- sites[, -c(7:13)]
+seychelles<-read.csv('data/sey_latlon.csv')
+sites<-rbind(sites, seychelles)
+
 ## clean sites to match up
 sites$Site<-str_replace_all(sites$Site, 'Vilingi', 'Vilingili')
 sites$Site[sites$dataset=='GBR']<-paste0(sites$Reef[sites$dataset=='GBR'], sites$Unique_site_transect[sites$dataset=='GBR'])
@@ -68,11 +74,6 @@ sites$Site<-str_replace_all(sites$Site, ' patch', ' Patch')
 sites$Site<-str_replace_all(sites$Site, ' granitic', ' Granite')
 sites$Site<-str_replace_all(sites$Site, ' reef', '')
 sites$Site<-str_replace_all(sites$Site, 'Ste. Anne', 'Ste Anne')
-
-## drop deg, min, and merge seychelles
-sites <- sites[, -c(7:13)]
-seychelles<-read.csv('data/sey_latlon.csv')
-sites<-rbind(sites, seychelles)
 
 ## match in clusters
 sites$km.cluster<-pca.kmeans$km.cluster[match(sites$Site, pca.kmeans$site2)]
