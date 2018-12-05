@@ -397,6 +397,34 @@ h <- h %>% group_by(dataset, date, reef, site, management, unique.id, depth, FG,
 
 save(h, file = '../../results/models/scraper_function.Rdata')
 
+## also create species level version for richness analysis
+# estimate mean total scraping function per site, per species
+h.sp <- scrapers.uvc %>% 
+  ## sum scraping in each transect
+        group_by(dataset, date, reef, site, management, transect, 
+                 unique.id, depth, FG, transect.area, species,
+                         hard.coral, macroalgae, rubble, substrate, complexity, fish.biom) %>%
+          summarise(scraping = sum(scraping), biom=sum(biomass.kgha)) %>%
+  ## mean scraping across transects at each site
+          group_by(dataset, date, reef, site, management, unique.id, depth, FG, transect.area, species,
+                         hard.coral, macroalgae,  rubble, substrate, complexity, fish.biom) %>%
+          summarise(scraping = mean(scraping), biom=mean(biom)) 
+
+## correct scraping to per hectare
+## for surveys = 100m2, which is when abundance.500m2 = 5
+h.sp$scraping[which(h.sp$transect.area == 100)] <- h.sp$scraping[which(h.sp$transect.area == 100)]/0.01 
+## for surveys = 250m2, which is when abundance.500m2 = 2
+h.sp$scraping[which(h.sp$transect.area == 250)] <- h.sp$scraping[which(h.sp$transect.area == 250)]/0.025 
+## for surveys = 153.9m2, which is when abundance.500m2 = 3.24806 (Seychelles)
+h.sp$scraping[is.na(h.sp$transect.area)] <- h.sp$scraping[is.na(h.sp$transect.area)]/0.01539 
+
+## sum within unique.id to account for different transect areas in Maldives
+h.sp <- h.sp %>% group_by(dataset, date, reef, site, management, unique.id, depth, FG, species,
+                         hard.coral, macroalgae,  rubble, substrate, complexity, fish.biom) %>%
+          summarise(scraping = sum(scraping), biom=sum(biom)) 
+
+save(h.sp, file = '../../results/models/scraper_function_species.Rdata')
+
 g3<-ggplot(h, aes(reorder(reef, scraping, FUN=median), scraping, fill=dataset)) + geom_boxplot() + xlab('Reef') + ylab('area scraped (m2) per minute per ha') 
 
 g4<-ggplot(h, aes( biom,scraping, col=dataset)) +geom_point() + scale_x_log10() + scale_y_log10() + xlab('Biomass kg/ha)') + ylab('area scraped (m2) per minute per ha') 

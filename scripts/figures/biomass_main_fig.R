@@ -464,8 +464,8 @@ g.effects <- ggplot(eff.benthic, aes(var, Estimate, col=model)) +
               # scale_x_discrete(labels = c('Fished', 'Protected', 'Pristine')) +
               labs(x='', y = 'Standardized effect size') +
               theme(legend.position = 'none',
-                plot.margin=unit(c(0,0,0,0), "mm")) + coord_flip() +
-              scale_x_discrete(position = "top")
+                plot.margin=unit(c(0,0,0,0), "mm")) + coord_flip() #+
+              #scale_x_discrete(position = "top")
 
 eff$var<-factor(eff$var, levels=c('fish.dummy', 'manage.dummy', 'pristine.dummy'))
 ## careful here for legend: colours defined by order of models, but other panels is defined by alphabetical order
