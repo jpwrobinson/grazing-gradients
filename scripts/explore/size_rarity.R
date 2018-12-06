@@ -9,7 +9,7 @@ library(piecewiseSEM)
 library(lme4)
 theme_set(theme_sleek())
 setwd(here('grazing-gradients'))
-# pdf(file='figures/explore/scraping_rarity.pdf', height= 7, width=12)
+pdf(file='figures/explore/scraping_rarity.pdf', height= 7, width=12)
 
 # data load
 load('results/models/scraper_function_species.Rdata')
@@ -43,6 +43,7 @@ com.mat<-com.mat[, -c(1)]
 com.mat[is.na(com.mat)]<-0
 com.mat<-as.matrix(com.mat)
 
+
 ## estimate diversity
 library(vegan)
 div<-data.frame(div=diversity(com.mat), 
@@ -63,8 +64,24 @@ sizes<-pred %>% filter(FG == 'Herbivore Scraper') %>%
 ## create dataframe of species-level metrics - size, scraping, frequency
 com.mat.inc<-com.mat
 com.mat.inc[com.mat.inc>0]<-1
+## measure resident site richness for each species
+sp <- colnames(com.mat)
+rsr<-matrix(NA, nrow=length(sp), ncol=2)
+for(i in 1:dim(com.mat)[2]){
+
+	ind<-which(com.mat.inc[,i]==1)
+	t<-com.mat.inc[ind,]
+	rsr[i,1]<-mean(rowSums(t))
+	rsr[i,2]<-sp[i]
+}
+
+rsr<-data.frame(rsr); colnames(rsr)<-c('mean.richness', 'species')
+rsr$mean.richness<-as.numeric(as.character(rsr$mean.richness))
+
+## create master species level dataframe
 freq<-data.frame(freq=colSums(com.mat.inc), species = colnames(com.mat.inc))
 freq$biom<-h$biom[match(freq$species, h$species)]
+freq$mean.richness<-rsr$mean.richness[match(freq$species, rsr$species)]
 freq$size.cm<-sizes.sp$size[match(freq$species, sizes.sp$species)]
 freq$size.g<-sizes.sp$mass[match(freq$species, sizes.sp$species)]
 freq$scrape.prop<-scrape.prop$scrape.contribution[match(freq$species, scrape.prop$species)]
@@ -85,6 +102,7 @@ ggplot(scrape, aes(richness, size)) + geom_point() + facet_wrap(~species, scales
 
 ggplot(freq, aes(reorder(species,freq), freq)) + geom_bar(stat='identity') + coord_flip()
 ggplot(freq, aes(size.g, freq, size=biom))  + scale_x_log10() + geom_text(aes(label=species))
+
 
 ## large species have greater average contribution to scraping 
 ggplot(freq, aes(size.g, scrape.prop, size=freq))  +
@@ -117,15 +135,47 @@ div$lfi[is.na(div$lfi)]<-0
 ggplot(div, aes(richness, lfi)) + geom_point() + stat_smooth(method = 'lm') +
 		 labs(y = 'biomass proportion of fish > 35cm', title='proportion excavators by species richness')
 
-ggplot(div, aes( lfi, scraping, size=richness)) + geom_point() + stat_smooth(method = 'lm') +
-		 labs(y = 'scraped area',x ='biomass proportion fish > 35cm', title='area scraped by proportion excavators')
-
-
-# dev.off()
 
 load(file = 'results/models/scraper_richness_size_effects.Rdata')
 div$scraping<-h$scraping[match(div$unique.id, h$unique.id	)]
 
+ggplot(div, aes( lfi, scraping, size=richness)) + geom_point() + stat_smooth(method = 'lm') +
+		 labs(y = 'scraped area',x ='biomass proportion fish > 35cm', title='area scraped by proportion excavators')
+
+
+
 ggplot(div, aes(richness, scraping, size=lfi)) + geom_point() + stat_smooth(method = 'lm') +
 		 labs(y = 'scraped area', title='scraping by richness with LFI')
+
+
+## where is s. prasiognathus?
+sprasio<-unique(pred$unique.id[pred$species == 'Scarus prasiognathus'])
+div$sprasio<-ifelse(div$unique.id %in% sprasio, 'YES', 'NO')
+ggplot(div, aes(richness, scraping)) + geom_point(aes(col=sprasio)) + stat_smooth(method = 'lm') +
+		 labs(y = 'scraped area', title='scraping by richness with LFI')
+
+dev.off()
+
+
+### species attributes
+pdf(file='figures/explore/scraping_species_attributes.pdf', height=7, width=14)
+
+inds<-c('freq', 'biom', 'mean.richness', 'scraping', 'scrape.prop', 'size.cm')
+for(i in 1:6){
+	
+	d<-freq	
+	d$species <- factor(d$species, levels=d$species[order(d[,inds[i]],decreasing=F)])
+
+	freq.plot<-gather(d, attribute, value, -species) %>% mutate(value= round(value, 2)) %>%
+				group_by(attribute) %>% mutate(value = rescale(value, to =c(0, 1)))
+
+	freq.plot<-freq.plot[!freq.plot$attribute=='size.g',]
+	g<-ggplot(freq.plot, aes(species, value, fill=value)) + 
+				geom_bar(stat='identity') + 
+				coord_flip() + facet_grid(~attribute, scales='free_x')  + 
+				scale_fill_gradient(low = 'red', high = 'darkgreen')
+	print(g)
+}
+dev.off()
+
 
