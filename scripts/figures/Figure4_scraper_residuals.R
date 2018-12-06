@@ -172,5 +172,10 @@ pdf(file='figures/Figure4_scraper_resids_detailed.pdf', height = 4, width=9)
 plot_grid(g1, g2, labels=c('a', 'b'))
 dev.off()
 
-save(richness.fit, richness.points, mean.mass.points, mean.mass.fit, file = 'results/models/scraper_richness_size_effects.Rdata')
+save(h, richness.fit, richness.points, mean.mass.points, mean.mass.fit, 
+  file = 'results/models/scraper_richness_size_effects.Rdata')
+
+
+
+
 
