@@ -49,8 +49,9 @@ save(sites, com.mat, file='results/scraper_community_matrix.Rdata')
 library(vegan)
 div<-data.frame(div=diversity(com.mat), 
 				richness=specnumber(com.mat), 
-				unique.id = rows)
+				unique.id = sites)
 div$J <- div$div/log(div$richness)
+
 
 # save mean sizes 
 sizes<-pred %>% filter(FG == 'Herbivore Scraper') %>% 

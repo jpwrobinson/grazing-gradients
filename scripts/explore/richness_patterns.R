@@ -38,7 +38,7 @@ com.mat<-tidyr::spread(h, species, biom)
 # com.mat<-janitor::clean_names(com.mat)
 rows<-com.mat[,1]
 ## drop cols
-com.mat<-com.mat[, -c(1)]
+com.mat<-com.mat[, -c(1,2)]
 
 ## fill NAs
 com.mat[is.na(com.mat)]<-0

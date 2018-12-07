@@ -57,7 +57,6 @@ out.ref$outlier<-ifelse(abs(out.ref$diff) > out.ref$sds, 'YES', 'NO')
 outs<-out.ref$unique.id[out.ref$outlier=='YES']
 
 diversity.preds$outlier<-ifelse(diversity.preds$unique.id %in% outs, 'YES', 'NO')
-
 ggplot(diversity.preds, aes(mean.size, mean.biom, col=outlier))+ geom_point()
 ggplot(diversity.preds, aes(lfi, mean.biom, col=outlier))+ geom_point()
 ggplot(diversity.preds, aes(richness, J, col=outlier)) + geom_point()
@@ -66,7 +65,7 @@ load(file='results/scraper_community_matrix.Rdata')
 out.sp<-com.mat[which(sites$unique.id %in% outs), ]
 
 out.sp<- gather(data.frame(out.sp), species, biom)
-out.sp$unique.id<-rep(sites[sites$unique.id %in% outs,]$unique.id, times = 35)
+out.sp$unique.id<-rep(sites[sites$unique.id %in% outs,]$unique.id, times = 32)
 
 ggplot(out.sp, aes(species, log10(biom))) + 
 			geom_bar(stat='identity') + facet_wrap(~unique.id) + coord_flip()
