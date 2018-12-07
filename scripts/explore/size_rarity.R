@@ -87,6 +87,13 @@ freq$size.g<-sizes.sp$mass[match(freq$species, sizes.sp$species)]
 freq$scrape.prop<-scrape.prop$scrape.contribution[match(freq$species, scrape.prop$species)]
 freq$scraping<-scrape.sp$scraping[match(freq$species, scrape.sp$species)]
 
+p<-read.csv(file = 'results/functions/scraper_bites_predicted.csv')
+freq$genus<-str_split_fixed(freq$species, '\ ', 2)[,1]
+freq$bite.rate<-p$median[match(freq$species, p$class)]
+freq$bite.rate[is.na(freq$bite.rate)]<-p$median[match(freq$genus[is.na(freq$bite.rate)], p$class)]
+freq$genus<-NULL
+
+
 ## add site richness to h dataframe
 scrape$richness<-div$richness[match(scrape$unique.id, div$unique.id)]
 scrape$size<-sizes$size[match(scrape$unique.id, sizes$unique.id)]
@@ -160,8 +167,8 @@ dev.off()
 ### species attributes
 pdf(file='figures/explore/scraping_species_attributes.pdf', height=7, width=14)
 
-inds<-c('freq', 'biom', 'mean.richness', 'scraping', 'scrape.prop', 'size.cm')
-for(i in 1:6){
+inds<-c('freq', 'biom', 'mean.richness', 'scraping', 'scrape.prop', 'size.cm', 'bite.rate')
+for(i in 1:7){
 	
 	d<-freq	
 	d$species <- factor(d$species, levels=d$species[order(d[,inds[i]],decreasing=F)])
@@ -176,6 +183,15 @@ for(i in 1:6){
 				scale_fill_gradient(low = 'red', high = 'darkgreen')
 	print(g)
 }
+
+scaled<-scaler(freq,ID = 'species', cats=FALSE)
+pairs2(scaled, 
+	lower.panel = panel.cor, upper.panel = panel.smooth2, diag.panel=panel.hist)
+
 dev.off()
 
+species.attributes<-freq
+diversity.preds<-div
+
+save(species.attributes, diversity.preds, file = 'results/scraper_attributes.Rdata')
 

@@ -93,6 +93,10 @@ ggplot(h, aes(sp.richness, biom)) + geom_point() + scale_y_log10()
 ## new decoupling model to account for div and size structure
 m.scrape2<-lmer(scraping ~ biom.scaled + mean.mass.scaled + sp.richness.scaled + evenness.scaled +
           (1 | dataset/reef), h)
+
+pairs2(h[,str_detect(colnames(h), 'scaled')],
+  lower.panel = panel.cor, upper.panel = panel.smooth2, diag.panel=panel.hist)
+
 # m.scrape3<-lmer(scraping ~ biom.scaled *  sp.richness.scaled + mean.mass.scaled + evenness.scaled +
 #           (1 | dataset/reef), h)
 
