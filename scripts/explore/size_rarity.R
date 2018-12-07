@@ -38,11 +38,12 @@ h <- pred %>% filter(FG == 'Herbivore Scraper') %>%
 
 ## change names for colnames
 com.mat<-tidyr::spread(h, species, biom)
-rows<-com.mat[,1]
+sites<-com.mat[,1]
 com.mat<-com.mat[, -c(1)]
 com.mat[is.na(com.mat)]<-0
 com.mat<-as.matrix(com.mat)
 
+save(sites, com.mat, file='results/scraper_community_matrix.Rdata')
 
 ## estimate diversity
 library(vegan)
@@ -93,6 +94,9 @@ freq$bite.rate<-p$median[match(freq$species, p$class)]
 freq$bite.rate[is.na(freq$bite.rate)]<-p$median[match(freq$genus[is.na(freq$bite.rate)], p$class)]
 freq$genus<-NULL
 
+## add things to div
+div$mean.size<-sizes$size[match(div$unique.id, sizes$unique.id)]
+div$mean.biom<-h$biom[match(div$unique.id, h$unique.id)]
 
 ## add site richness to h dataframe
 scrape$richness<-div$richness[match(scrape$unique.id, div$unique.id)]
@@ -156,10 +160,10 @@ ggplot(div, aes(richness, scraping, size=lfi)) + geom_point() + stat_smooth(meth
 
 
 ## where is s. prasiognathus?
-sprasio<-unique(pred$unique.id[pred$species == 'Scarus prasiognathus'])
-div$sprasio<-ifelse(div$unique.id %in% sprasio, 'YES', 'NO')
-ggplot(div, aes(richness, scraping)) + geom_point(aes(col=sprasio)) + stat_smooth(method = 'lm') +
-		 labs(y = 'scraped area', title='scraping by richness with LFI')
+# sprasio<-unique(pred$unique.id[pred$species == 'Scarus prasiognathus'])
+# # div$sprasio<-ifelse(div$unique.id %in% sprasio, 'YES', 'NO')
+# ggplot(div, aes(richness, scraping)) + geom_point(aes(col=sprasio)) + stat_smooth(method = 'lm') +
+# 		 labs(y = 'scraped area', title='scraping by richness with LFI')
 
 dev.off()
 

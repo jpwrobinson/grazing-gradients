@@ -41,8 +41,8 @@ sizes<-pred %>% filter(FG == 'Herbivore Scraper') %>%
   ## sum biomass per FG in each transect
         group_by(dataset, reef, site, species,
                  unique.id) %>%
-          summarise(size = mean(length.cm), mass= mean(mass.g))
-scrape$mean.species.site.size<-sizes$size[match(scrape$unique.id, sizes$unique.id)]
+          summarise(size = mean(length.cm), mass= mean(mass.g)) 
+scrape$mean.species.site.size<-sizes$size
 
 ## scraping area increases as species richness increases
 ggplot(scrape, aes(site.richness, scraping)) + geom_point(size=2, alpha=0.5, aes(col=dataset)) + facet_wrap(~species, scales='free_y') +
@@ -83,10 +83,10 @@ ggplot(scrape, aes(scraping, log10(biom))) + geom_point(size=2, alpha=0.5, aes(c
 	labs(x = 'log10 biomass', y = 'area scraped', title='Species average size by assemblage richness') +
 	theme(legend.position = c(0.9, 0.05), legend.title=element_blank())
 
-ggplot(scrape, aes(scraping, log10(abund))) + geom_point(size=2, alpha=0.5, aes(col=dataset)) + 
+ggplot(scrape, aes(mean.species.site.size, log10(abund))) + geom_point(size=2, alpha=0.5, aes(col=dataset)) + 
 		facet_wrap(~species, scales='free') +
 	stat_smooth(method='lm') +
-	labs(x = 'log10 abundance', y = 'area scraped', title='Species average size by assemblage richness') +
+	labs(x = 'mean size', y = 'log10 abundance', title='Species average size by assemblage richness') +
 	theme(legend.position = c(0.9, 0.05), legend.title=element_blank())
 
 

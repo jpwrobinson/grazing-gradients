@@ -157,13 +157,19 @@ gbr$species<-as.character(gbr$species)
 maldives$species<-as.character(maldives$species)
 seychelles$species<-as.character(seychelles$species)
 
+
 ### merge and save full dataset for fishable biomass
 herb<-rbind(chagos, gbr, seychelles, maldives)
+### fix some more species names
+herb$species[herb$species == 'Chlorurus stronglyocephalus']<-'Chlorurus stronglycephalus'
+herb$species[herb$species == 'Chlorurus strongylocephalus']<-'Chlorurus stronglycephalus'
+herb$species[herb$species == 'Scarus prasiognathus']<-'Scarus prasiognathos'
+
 save(herb, file='data/wio_gbr_fish_master.Rdata')
 
 ## and drop non-herbivores for grazing models
 herb<-herb[grepl('Herb*', herb$FG),]
-
+unique(herb$species[herb$FG == 'Herbivore Scraper'])
 save(herb, file='data/wio_gbr_herb_master.Rdata')
 
 
