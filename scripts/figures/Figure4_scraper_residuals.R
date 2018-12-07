@@ -85,7 +85,7 @@ h$sp.richness.scaled <- scale(h$sp.richness)
 h$evenness.scaled <- scale(h$evenness)
 h$mean.size.scaled <- scale(h$mean.size)
 h$mean.mass.scaled <- scale(h$mean.mass)
-h$biom.scaled <- scale(h$biom)
+h$biom.scaled <- scale(log10(h$biom))
 
 ggplot(h, aes(sp.richness, scraping, size=biom)) + geom_point()
 ggplot(h, aes(sp.richness, biom)) + geom_point() + scale_y_log10()

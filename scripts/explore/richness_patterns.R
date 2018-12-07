@@ -18,10 +18,10 @@ h <- pred %>% filter(FG == 'Herbivore Scraper') %>%
   ## sum biomass per FG in each transect
         group_by(dataset, reef, site, transect, 
                  unique.id, species) %>%
-          summarise(biom = sum(biomass.kgha)) %>%
+          summarise(biom = sum(biomass.kgha), abund = sum(abundance.500m2)) %>%
   ## mean species biomass across transects at each site
           group_by(unique.id, species) %>%
-          summarise(biom = mean(biom)) 
+          summarise(biom = mean(biom), abund = mean (abund)) 
 
 # estimate mean biomass per site per FG
 h.sp <- pred %>% filter(FG == 'Herbivore Scraper') %>% 

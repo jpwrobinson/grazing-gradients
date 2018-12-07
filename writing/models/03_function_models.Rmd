@@ -340,6 +340,7 @@ scraper.bites<-read.csv(file = '../../results/functions/scraper_bites_predicted.
 scrapers.uvc$biterate[is.na(scrapers.uvc$biterate)]<-scraper.bites$median[match(scrapers.uvc$genus[is.na(scrapers.uvc$biterate)], scraper.bites$class)]
   
 
+
 ## area predictions for body size
 load(file = '../../results/models/area_scrapers.Rdata')
 d.pred <-data.frame(TL=scrapers.uvc$length.cm)
@@ -395,20 +396,20 @@ h <- h %>% group_by(dataset, date, reef, site, management, unique.id, depth, FG,
                          hard.coral, macroalgae,  rubble, substrate, complexity, fish.biom) %>%
           summarise(scraping = sum(scraping), biom=sum(biom)) 
 
-save(h, file = '../../results/models/scraper_function.Rdata')
+## drop annoying dplyr things
+scrapers.uvc$bitearea<-scrapers.uvc$bitearea[,1]
+scrapers.uvc$scraping<-scrapers.uvc$scraping[,1]
+save(scrapers.uvc, h, file = '../../results/models/scraper_function.Rdata')
 
 ## also create species level version for richness analysis
 # estimate mean total scraping function per site, per species
 h.sp <- scrapers.uvc %>% 
   ## sum scraping in each transect
-        group_by(dataset, date, reef, site, management, transect, 
-                 unique.id, depth, FG, transect.area, species,
-                         hard.coral, macroalgae, rubble, substrate, complexity, fish.biom) %>%
-          summarise(scraping = sum(scraping), biom=sum(biomass.kgha)) %>%
+        group_by(dataset, date, reef, site, transect, unique.id, FG, transect.area, species) %>%
+          summarise(scraping = sum(scraping), biom=sum(biomass.kgha), abund=sum(abundance.500m2)) %>%
   ## mean scraping across transects at each site
-          group_by(dataset, date, reef, site, management, unique.id, depth, FG, transect.area, species,
-                         hard.coral, macroalgae,  rubble, substrate, complexity, fish.biom) %>%
-          summarise(scraping = mean(scraping), biom=mean(biom)) 
+          group_by(dataset, date, reef, site, unique.id, FG, transect.area, species) %>%
+          summarise(scraping = mean(scraping), biom=mean(biom), abund = mean(abund)) 
 
 ## correct scraping to per hectare
 ## for surveys = 100m2, which is when abundance.500m2 = 5
@@ -419,9 +420,8 @@ h.sp$scraping[which(h.sp$transect.area == 250)] <- h.sp$scraping[which(h.sp$tran
 h.sp$scraping[is.na(h.sp$transect.area)] <- h.sp$scraping[is.na(h.sp$transect.area)]/0.01539 
 
 ## sum within unique.id to account for different transect areas in Maldives
-h.sp <- h.sp %>% group_by(dataset, date, reef, site, management, unique.id, depth, FG, species,
-                         hard.coral, macroalgae,  rubble, substrate, complexity, fish.biom) %>%
-          summarise(scraping = sum(scraping), biom=sum(biom)) 
+h.sp <- h.sp %>% group_by(dataset, date, reef, site, unique.id, FG, species) %>%
+          summarise(scraping = sum(scraping), biom=sum(biom), abund = sum(abund)) 
 
 save(h.sp, file = '../../results/models/scraper_function_species.Rdata')
 
