@@ -146,3 +146,5 @@ plot_grid(g1, g2, labels=c('a', 'b'))
 dev.off()
 
 
+save(h, richness.fit, richness.points, mean.mass.points, mean.mass.fit, 
+  file = 'results/models/cropper_richness_size_effects.Rdata')

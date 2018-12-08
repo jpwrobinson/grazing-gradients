@@ -99,11 +99,11 @@ h <- grazers %>%
         group_by(dataset, date, reef, site, management, transect, 
                  unique.id, depth, FG, transect.area,
                          hard.coral, macroalgae, rubble, substrate, complexity, fish.biom) %>%
-          summarise(cropping = sum(cropping), biom=sum(biomass.kgha)) %>%
+          summarise(cropping = sum(cropping), biom=sum(biomass.kgha), abund = sum(abundance.500m2)) %>%
   ## mean cropping across transects at each site
           group_by(dataset, date, reef, site, management, unique.id, depth, FG, transect.area,
                          hard.coral, macroalgae,  rubble, substrate, complexity, fish.biom) %>%
-          summarise(cropping.gram.ha = mean(cropping), biom=mean(biom)) 
+          summarise(cropping.gram.ha = mean(cropping), biom=mean(biom), abund = mean(abund)) 
 
 ## correct cropping to per hectare
 ## for surveys = 100m2, which is when abundance.500m2 = 5
@@ -116,9 +116,33 @@ h$cropping.gram.ha[is.na(h$transect.area)] <- h$cropping.gram.ha[is.na(h$transec
 ## sum within unique.id to account for different transect areas in Maldives
 h <- h %>% group_by(dataset, date, reef, site, management, unique.id, depth, FG,
                          hard.coral, macroalgae,  rubble, substrate, complexity, fish.biom) %>%
-          summarise(cropping.gram.ha = sum(cropping.gram.ha), biom=sum(biom)) 
+          summarise(cropping.gram.ha = sum(cropping.gram.ha), biom=sum(biom), abund = sum(abund)) 
 
 save(h, file = '../../results/models/cropper_function.Rdata')
+
+# estimate mean total cropping function per site per species
+h.sp <- grazers %>% 
+  ## sum cropping in each transect
+        group_by(dataset, date, reef, site, management, transect, 
+                 unique.id, depth, FG, transect.area,species) %>%
+          summarise(cropping = sum(cropping), biom=sum(biomass.kgha), abund = sum(abundance.500m2)) %>%
+  ## mean cropping across transects at each site
+          group_by(dataset, date, reef, site, management, unique.id, depth, FG, transect.area,species) %>%
+          summarise(cropping.gram.ha = mean(cropping), biom=mean(biom), abund = mean(abund)) 
+
+## correct cropping to per hectare
+## for surveys = 100m2, which is when abundance.500m2 = 5
+h.sp$cropping.gram.ha[which(h.sp$transect.area == 100)] <- h.sp$cropping.gram.ha[which(h.sp$transect.area == 100)]/0.01 
+## for surveys = 250m2, which is when abundance.500m2 = 2
+h.sp$cropping.gram.ha[which(h.sp$transect.area == 250)] <- h.sp$cropping.gram.ha[which(h.sp$transect.area == 250)]/0.025 
+## for surveys = 153.9m2, which is when abundance.500m2 = 3.24806 (Seychelles)
+h.sp$cropping.gram.ha[is.na(h.sp$transect.area)] <- h.sp$cropping.gram.ha[is.na(h.sp$transect.area)]/0.01539 
+
+## sum within unique.id to account for different transect areas in Maldives
+h.sp <- h.sp %>% group_by(dataset, date, reef, site, management, unique.id, depth, FG,species) %>%
+          summarise(cropping.gram.ha = sum(cropping.gram.ha), biom=sum(biom), abund = sum(abund)) 
+
+save(h.sp, file = '../../results/models/cropper_function_species.Rdata')
 
 g3<-ggplot(h, aes(reorder(reef, cropping.gram.ha, FUN=median), cropping.gram.ha, fill=dataset)) + geom_boxplot() + xlab('Reef') + ylab('algae removed (grams/ha/minute)') 
 
