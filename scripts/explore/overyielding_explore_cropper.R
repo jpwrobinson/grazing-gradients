@@ -179,37 +179,3 @@ ggplot(slopes2, aes(species, slope, label = species, col=sig)) +
 			 annotate('text', x = 37, y = 0.8 , vjust=1.5, size=4,fontface=2, label = 'Scraping area decreases with richness')
 
 dev.off()
-
-# ## 3 species do increase cropping area with richness
-# # - S. tricolor (0.05 - 0.15, all regions)
-# # - S. viridifucatus (0.09 - 0.18 m2, Chagos mainly)
-# # - S. chameleon 
-# ## unlikely that these drive relationships. To test:
-# load('results/models/cropper_function.Rdata')
-# test<-croppers.uvc %>% filter(species != 'Scarus chameleon') %>%
-# 			group_by(dataset, reef, unique.id, transect, transect.area) %>%
-#           summarise(cropping = sum(cropping), biom=sum(biomass.kgha), abund=sum(abundance.500m2)) %>%
-#   ## mean cropping across transects at each site
-# 		group_by(dataset, reef, unique.id, transect.area) %>%
-#           summarise(cropping = mean(cropping), biom=mean(biom), abund = mean(abund)) %>%
-#           ungroup() %>%
-#           mutate(cropping=ifelse(transect.area==100, cropping/0.01, cropping)) %>%
-# 		  mutate(cropping=ifelse(transect.area==250, cropping/0.025, cropping)) %>%
-#           mutate(cropping =ifelse(is.na(transect.area), cropping/0.01539, cropping)) %>% ## sum within unique.id to account for different transect areas in Maldives
-# 		group_by(dataset, reef, unique.id, transect.area) %>%
-# 		summarise(cropping = sum(cropping), biom = sum(biom), abund = sum(abund)) %>%		
-# 			group_by(dataset, reef, unique.id) %>%
-#           summarise(cropping = sum(cropping), biom=sum(biom), abund = sum(abund)) 
-
-# str(croppers.uvc)
-# load('results/models/cropper_richness_size_effects.Rdata')
-# test$sp.richness.scaled<-h$sp.richness.scaled[match(test$unique.id, h$unique.id)]
-# test$mean.size.scaled<-h$mean.size.scaled[match(test$unique.id, h$unique.id)]
-# test$evenness.scaled<-h$evenness.scaled[match(test$unique.id, h$unique.id)]
-
-# m<-lmer(cropping ~ scale(biom) + sp.richness.scaled + evenness.scaled + mean.size.scaled +
-#           (1 | dataset/reef), test)
-# summary(m) ## full richness estimate = 0.133, for excluding following species
-# # - S. tricolor  = 0.12344
-# # - S. viridifucatus = 0.13476
-# # - S. chameleon  = 0.12965
