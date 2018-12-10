@@ -75,6 +75,9 @@ sjPlot::plot_models(m.scrape2)
 rsquared(m.scrape2)
 summary(m.scrape2)
 
+h$r<-resid(m.scrape2)
+ggplot(h, aes(scraping, r, col=dataset)) + geom_point()
+
 pairs2(h[,str_detect(colnames(h), 'scaled')],
   lower.panel = panel.cor, upper.panel = panel.smooth2, diag.panel=panel.hist)
 
