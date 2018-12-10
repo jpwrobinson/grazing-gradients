@@ -92,7 +92,7 @@ ggplot(scrape, aes(mean.species.site.size, log10(abund))) + geom_point(size=2, a
 
 
 ### Plot and save data for scraping contributions
-pdf(file = 'figures/overyielding/scaping_contribution.pdf', height= 7, width=12)
+pdf(file = 'figures/overyielding/scraping_contribution.pdf', height= 7, width=12)
 
 ## scraping contribution declines as species richness increases
 ggplot(scrape, aes(site.richness, scraping.proportion)) + geom_point(size=2, alpha=0.5, aes(col=dataset)) + facet_wrap(~species, scales='free_y') +

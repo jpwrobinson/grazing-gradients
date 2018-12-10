@@ -401,11 +401,11 @@ h <- scrapers.uvc %>%
         group_by(dataset, date, reef, site, management, transect, 
                  unique.id, depth, FG, transect.area,
                          hard.coral, macroalgae, rubble, substrate, complexity, fish.biom) %>%
-          summarise(scraping = sum(scraping), biom=sum(biomass.kgha)) %>%
+          summarise(scraping = sum(scraping), biom=sum(biomass.kgha), abund = sum(abundance.500m2)) %>%
   ## mean scraping across transects at each site
           group_by(dataset, date, reef, site, management, unique.id, depth, FG, transect.area,
                          hard.coral, macroalgae,  rubble, substrate, complexity, fish.biom) %>%
-          summarise(scraping = mean(scraping), biom=mean(biom)) 
+          summarise(scraping = mean(scraping), biom=mean(biom), abund = mean(abund)) 
 
 ## correct scraping to per hectare
 ## for surveys = 100m2, which is when abundance.500m2 = 5
@@ -418,7 +418,7 @@ h$scraping[is.na(h$transect.area)] <- h$scraping[is.na(h$transect.area)]/0.01539
 ## sum within unique.id to account for different transect areas in Maldives
 h <- h %>% group_by(dataset, date, reef, site, management, unique.id, depth, FG,
                          hard.coral, macroalgae,  rubble, substrate, complexity, fish.biom) %>%
-          summarise(scraping = sum(scraping), biom=sum(biom)) 
+          summarise(scraping = sum(scraping), biom=sum(biom), abund = mean(abund)) 
 
 ## drop annoying dplyr things
 scrapers.uvc$bitearea<-scrapers.uvc$bitearea[,1]

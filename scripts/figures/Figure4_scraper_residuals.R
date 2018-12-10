@@ -24,39 +24,9 @@ h <- pred %>% filter(FG == 'Herbivore Scraper') %>%
           group_by(unique.id, species) %>%
           summarise(biom = mean(biom)) 
 
-## change names for colnames
-com.mat<-tidyr::spread(h, species, biom)
-com.mat<-janitor::clean_names(com.mat)
-rows<-com.mat[,1]
-## drop cols
-com.mat<-com.mat[, -c(1)]
-
-## fill NAs
-com.mat[is.na(com.mat)]<-0
-## matrix format
-com.mat<-as.matrix(com.mat)
-dim(com.mat)
-
-
-## estimate diversity
-library(vegan)
-div<-data.frame(div=diversity(com.mat), 
-				richness=specnumber(com.mat), 
-				unique.id = rows)
-div$J <- div$div/log(div$richness)
-
-# save mean sizes 
-sizes<-pred %>% filter(FG == 'Herbivore Scraper') %>% 
-  ## sum biomass per FG in each transect
-        group_by(dataset, reef, site, transect, 
-                 unique.id) %>%
-          summarise(size = mean(length.cm), mass= mean(mass.g)) %>%
-  ## mean species sizeass across transects at each site
-          group_by(unique.id) %>%
-          summarise(size = mean(size), mass=mean(mass)) 
-
-div$mean.size<-sizes$size
-div$mean.mass<-sizes$mass
+## load diversity preds
+load(file = 'results/scraper_attributes.Rdata')
+div<-diversity.preds
 
 ## scraping models
 load("results/models/scraping_model.Rdata")
@@ -70,11 +40,12 @@ m.scrape<-lmer(scraping ~ biom + (1 | dataset), h)
 h$resid<-resid(m.scrape)
 
 ## attach to t
-h$simpson.diversity<-div$div[match(h$unique.id, div$unique_id)] ## simpson is 1 - D. 
-h$sp.richness<-div$richness[match(h$unique.id, div$unique_id)]
-h$evenness<-div$J[match(h$unique.id, div$unique_id)]
-h$mean.size<-div$mean.size[match(h$unique.id, div$unique_id)]
-h$mean.mass<-div$mean.mass[match(h$unique.id, div$unique_id)]
+h$simpson.diversity<-div$div[match(h$unique.id, div$unique.id)] ## simpson is 1 - D. 
+h$sp.richness<-div$richness[match(h$unique.id, div$unique.id)]
+h$evenness<-div$J[match(h$unique.id, div$unique.id)]
+h$mean.size<-div$mean.size[match(h$unique.id, div$unique.id)]
+h$mean.mass<-div$mean.mass[match(h$unique.id, div$unique.id)]
+h$mean.scraping<-div$mean.scraping[match(h$unique.id, div$unique.id)]
 
 ## assign seychelles 2017 with mean complexity values for now - needs fixed
 h$complexity[h$dataset == 'Seychelles' & h$date == 2017] <- mean(h$complexity)
@@ -86,13 +57,23 @@ h$evenness.scaled <- scale(h$evenness)
 h$mean.size.scaled <- scale(h$mean.size)
 h$mean.mass.scaled <- scale(h$mean.mass)
 h$biom.scaled <- scale(log10(h$biom))
+h$abund.scaled <- scale(log10(h$abund))
+h$scraping.scaled <- scale(h$mean.scraping)
 
-ggplot(h, aes(sp.richness, scraping, size=biom)) + geom_point()
+ggplot(h, aes(sp.richness, mean.scraping, size=biom)) + geom_point()
 ggplot(h, aes(sp.richness, biom)) + geom_point() + scale_y_log10()
+ggplot(h, aes(sp.richness, abund)) + geom_point() + scale_y_log10()
+ggplot(h, aes(biom.scaled, abund.scaled)) + geom_point()  + stat_smooth(method='lm')
 
 ## new decoupling model to account for div and size structure
-m.scrape2<-lmer(scraping ~ biom.scaled + mean.mass.scaled + sp.richness.scaled + evenness.scaled +
+m.scrape1<-lmer(scraping ~ biom.scaled + mean.mass.scaled + sp.richness.scaled + evenness.scaled +
           (1 | dataset/reef), h)
+m.scrape2<-glmer(scraping ~ biom.scaled + mean.mass.scaled + sp.richness.scaled + evenness.scaled +
+          (1 | dataset/reef), h, family=Gamma(link = 'log'))
+MuMIn::AICc(m.scrape1, m.scrape2)
+sjPlot::plot_models(m.scrape2)
+rsquared(m.scrape2)
+summary(m.scrape2)
 
 pairs2(h[,str_detect(colnames(h), 'scaled')],
   lower.panel = panel.cor, upper.panel = panel.smooth2, diag.panel=panel.hist)
@@ -103,12 +84,12 @@ pairs2(h[,str_detect(colnames(h), 'scaled')],
 nd.rich<-data.frame(sp.richness.scaled = seq(min(h$sp.richness.scaled), max(h$sp.richness.scaled), length.out=20),
               sp.richness.raw = seq(min(h$sp.richness), max(h$sp.richness), length.out=20),
                           biom.scaled=0, evenness.scaled = 0, mean.mass.scaled = 0, dataset = 'GBR', reef='1')
-nd.rich$pred<-predict(m.scrape2, newdata=nd.rich, re.form=NA)
+nd.rich$pred<-predict(m.scrape2, newdata=nd.rich, re.form=NA, type='response')
 
 nd.size<-data.frame(mean.mass.scaled = seq(min(h$mean.mass.scaled), max(h$mean.mass.scaled), length.out=20),
               mean.mass.raw = seq(min(h$mean.mass), max(h$mean.mass), length.out=20),
                           biom.scaled=0, evenness.scaled = 0, sp.richness.scaled = 0, dataset = 'GBR', reef='1')
-nd.size$pred<-predict(m.scrape2, newdata=nd.size, re.form=NA)
+nd.size$pred<-predict(m.scrape2, newdata=nd.size, re.form=NA, type='response')
 
 
 partials<-visreg::visreg(m.scrape2, 'sp.richness.scaled')
@@ -127,8 +108,6 @@ mean.mass.points<-data.frame(x=h$mean.mass, y = partials$res$visregRes,
 
 
 ## add some plotting stuff
-
-
 str(partials)
 pal <- wesanderson::wes_palette("Zissou1", 21, type = "continuous")
 cols<-c(pal[12])
@@ -178,8 +157,4 @@ dev.off()
 
 save(h, richness.fit, richness.points, mean.mass.points, mean.mass.fit, 
   file = 'results/models/scraper_richness_size_effects.Rdata')
-
-
-
-
 

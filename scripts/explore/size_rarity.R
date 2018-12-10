@@ -96,8 +96,19 @@ freq$bite.rate[is.na(freq$bite.rate)]<-p$median[match(freq$genus[is.na(freq$bite
 freq$genus<-NULL
 
 ## add things to div
-div$mean.size<-sizes$size[match(div$unique.id, sizes$unique.id)]
-div$mean.biom<-h$biom[match(div$unique.id, h$unique.id)]
+load('results/models/scraper_function.Rdata')
+mean.biom<-h %>% group_by(unique.id) %>% summarise(biom = mean(biom))
+mean.abund<-h %>% group_by(unique.id) %>% summarise(abund = mean(abund))
+mean.size<-sizes %>% group_by(unique.id) %>% summarise(size = mean(size))
+mean.mass<-sizes %>% group_by(unique.id) %>% summarise(mass = mean(mass))
+mean.scraping<-h %>% group_by(unique.id) %>% summarise(scraping = mean(scraping))
+
+div$mean.biom<-mean.biom$biom[match(div$unique.id, mean.biom$unique.id)]
+div$mean.abund<-mean.abund$abund[match(div$unique.id, mean.abund$unique.id)]
+div$mean.size<-mean.size$size[match(div$unique.id, mean.size$unique.id)]
+div$mean.mass<-mean.mass$mass[match(div$unique.id, mean.mass$unique.id)]
+div$mean.scraping<-mean.scraping$scraping[match(div$unique.id, mean.scraping$unique.id)]
+
 
 ## add site richness to h dataframe
 scrape$richness<-div$richness[match(scrape$unique.id, div$unique.id)]
