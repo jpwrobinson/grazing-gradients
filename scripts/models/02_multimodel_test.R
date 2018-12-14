@@ -6,7 +6,7 @@ setwd("~/Documents/git_repos/grazing-gradients")
 # package loads
 library(ggplot2); library(visreg); library(lme4); library(dplyr); library(tidyr); library(funk); library('rms')
 theme_set(theme_sleek())
-
+library(piecewiseSEM); library(sjPlot)
 # data load
 load("data/wio_herb_benthic_merged.Rdata")
 
@@ -55,4 +55,40 @@ glm_gam_test(h, exp.names = exp.names, 'browserlog10', family='gaussian')
 mmi_tvalue(h, exp.names = exp.names, 'grazerlog10', family='gaussian') ## hard coral strongest covariate
 mmi_tvalue(h, exp.names = exp.names, 'scraperlog10', family='gaussian') ##  hard coral is strongest covariate
 mmi_tvalue(h, exp.names = exp.names, 'browserlog10', family='gaussian') ## macroalgae is strongest covariate
+
+
+### repeat for functions
+## scraper functions
+load(file = 'results/models/scraper_function.Rdata')
+h$management<-factor(h$management)
+h.pred<-scaler(h, ID=c('date', 'dataset', 'reef', 'site', 'transect', 'unique.id', 'scraping'))
+
+
+glm<-glmer(scraping ~ hard.coral + macroalgae + rubble + substrate + complexity + 
+	fish.biom + Fished.Protected.dummy + Fished.Unfished.dummy + 
+          (1 | dataset/reef) , ## random, nested = reefs within datasets
+                data = h.pred, family='Gamma'(link='log'))
+
+visreg::visreg(glm)
+summary(glm)
+dredge(glm)
+sjPlot::plot_model(glm)
+rsquared(glm)
+
+## grazer functions
+load(file = 'results/models/cropper_function.Rdata')
+h$management<-factor(h$management)
+h.pred<-scaler(h, ID=c('date', 'dataset', 'reef', 'site', 'transect', 'unique.id', 'cropping.gram.ha'))
+
+
+glm<-glmer(cropping.gram.ha ~ hard.coral + macroalgae + rubble + substrate + complexity + 
+	fish.biom + Fished.Protected.dummy + Fished.Unfished.dummy + 
+          (1 | dataset/reef) , ## random, nested = reefs within datasets
+                data = h.pred, family='Gamma'(link='log'), na.action= na.omit)
+
+visreg::visreg(glm)
+summary(glm)
+dredge(glm)
+sjPlot::plot_model(glm)
+rsquared(glm)
 
