@@ -92,8 +92,9 @@ com.mat<-rbind(samples$samples, com.mat)
 temp<-apply(com.mat,2, as.list)
 temp<-lapply(temp,unlist)
 t<-estimateD(temp, datatype='abundance', base='size', level = NULL)
+t<-t %>% filter(order == 0)
 
-
+write.csv(t, file = 'results/rarefied_richness_scrapers.csv')
 
 ## compare to freq divs
 load(file = 'results/scraper_attributes.Rdata')

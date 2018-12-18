@@ -1,5 +1,5 @@
 
-## Script to fit models to biomass patterns for each FG across habitat gradients
+## Script to fit models to function patterns for each FG across habitat gradients
 
 setwd("~/Documents/git_repos/grazing-gradients")
 
@@ -7,64 +7,7 @@ setwd("~/Documents/git_repos/grazing-gradients")
 library(ggplot2); library(visreg); library(lme4); library(dplyr); library(tidyr); library(funk); library('rms')
 theme_set(theme_sleek())
 library(piecewiseSEM); library(sjPlot)
-# data load
-load("data/wio_herb_benthic_merged.Rdata")
 
-
-# estimate mean biomass per site per FG
-h <- pred %>% 
-  ## sum biomass per FG in each transect
-        group_by(dataset, date, reef, site, management, transect, 
-                 unique.id, depth, FG,
-                         hard.coral, macroalgae, complexity, rubble, substrate, fish.biom) %>%
-          summarise(biom = sum(biomass.kgha)) %>%
-  ## mean FG biomass across transects at each site
-          group_by(dataset, date, reef, site, management, unique.id, depth, FG,
-                         hard.coral, macroalgae, complexity, rubble, substrate, fish.biom) %>%
-          summarise(biom = mean(biom)) 
-
-
-h<- spread(h, FG, biom, fill=0)
-colnames(h)[14:16]<-c('browser', 'grazer', 'scraper')
-h<-as.data.frame(h)
-
-# pairs2(data.frame(h$hard.coral, h$macroalgae, h$complexity, h$management), 
-#        lower.panel=panel.smooth2, upper.panel = panel.cor)
-
-##scale vars
-# h$hard.coral <- scale(h$hard.coral)
-# h$macroalgae <- scale(h$macroalgae)
-# h$complexity <- scale(h$complexity)
-h$management<-factor(h$management)
-h.pred<-scaler(h, ID=c('date', 'dataset', 'reef', 'site', 'transect', 'unique.id', 'grazer', 'scraper', 'browser'))
-
-## convert biomass to log10
-h.pred$grazerlog10<-log10(h.pred$grazer+1)
-h.pred$scraperlog10<-log10(h.pred$scraper+1)
-h.pred$browserlog10<-log10(h.pred$browser+1)
-
-## !!! These models don't have random effects !!!
-
-## GAMs supported over GLMs for full model
-exp.names = c('macroalgae','hard.coral',  'complexity', 'management')
-glm_gam_test(h.pred, exp.names = exp.names, 'grazerlog10', family='gaussian')
-glm_gam_test(h.pred, exp.names = exp.names, 'scraperlog10', family='gaussian')
-glm_gam_test(h.pred, exp.names = exp.names, 'browserlog10', family='gaussian')
-
-
-mmi_tvalue(h.pred, exp.names = exp.names, 'grazerlog10', family='gaussian') ## hard coral strongest covariate
-mmi_tvalue(h.pred, exp.names = exp.names, 'scraperlog10', family='gaussian') ##  hard coral is strongest covariate
-mmi_tvalue(h.pred, exp.names = exp.names, 'browserlog10', family='gaussian') ## macroalgae is strongest covariate
-
-options(na.action = "na.fail")
-glm.biom<-glmer(scraper ~ hard.coral + macroalgae + rubble + substrate + complexity + 
-  fish.biom + #Fished.Protected.dummy + Fished.Unfished.dummy + 
-          (1 | dataset/reef) , ## random, nested = reefs within datasets
-                data = h.pred, family='Gamma'(link='log'))
-summary(glm.biom)
-#dredge(glm.biom)
-
-### repeat for functions
 ## scraper functions
 load(file = 'results/models/scraper_function.Rdata')
 h$management<-factor(h$management)
@@ -74,6 +17,9 @@ load(file = 'results/scraper_attributes.Rdata')
 h$site.richness<-diversity.preds$richness[match(h$unique.id, diversity.preds$unique.id)]
 h$site.size<-diversity.preds$mean.size[match(h$unique.id, diversity.preds$unique.id)]
 
+rare<-read.csv(file = 'results/rarefied_richness_scrapers.csv')
+h$site.rarefied<-rare$qD[match(h$unique.id, rare$site)]
+
 h.pred<-scaler(h, ID=c('date', 'dataset', 'reef', 'site', 'transect', 'unique.id', 'scraping'))
 summary(h.pred)
 
@@ -82,26 +28,35 @@ h.pred$r<-resid(resid.glm)
 
 glm<-glmer(scraping ~ hard.coral + macroalgae + rubble + substrate + complexity + 
         	fish.biom + Fished.Protected.dummy + Fished.Unfished.dummy + 
-          site.richness + site.size + #biom +
+          site.rarefied + site.size + #biom +
           (1 | dataset/reef) , ## random, nested = reefs within datasets
                 data = h.pred, family='Gamma'(link='log'))
-glm2<-glmer(scraping ~ hard.coral + macroalgae + rubble + substrate + complexity + 
+glm2<-glmer(scraping ~ #hard.coral + macroalgae + rubble + substrate + complexity + 
           fish.biom + Fished.Protected.dummy + Fished.Unfished.dummy + 
-          site.richness + site.size + biom +
+          site.rarefied + site.size + abund + biom +
           (1 | dataset/reef) , ## random, nested = reefs within datasets
                 data = h.pred, family='Gamma'(link='log'))
-summary(glm)
+summary(glm2)
 
-glm.r<-lmer(r ~ hard.coral + macroalgae + rubble + substrate + complexity + 
-          fish.biom + Fished.Protected.dummy + Fished.Unfished.dummy + 
-          site.richness + site.size +
-          (1 | dataset/reef) , ## random, nested = reefs within datasets
-                data = h.pred)
+# glm.r<-lmer(r ~ hard.coral + macroalgae + rubble + substrate + complexity + 
+#           fish.biom + Fished.Protected.dummy + Fished.Unfished.dummy + 
+#           site.richness + site.size +
+#           (1 | dataset/reef) , ## random, nested = reefs within datasets
+#                 data = h.pred)
 
+# glm.test<-glmer(scraping ~ biom +
+#           (1 | dataset/reef) , ## random, nested = reefs within datasets
+#                 data = h.pred, family='Gamma'(link='log'))
+# glm.test2<-glmer(scraping ~ biom + site.richness +
+#           (1 | dataset/reef) , ## random, nested = reefs within datasets
+#                 data = h.pred, family='Gamma'(link='log'))
+rsquared(glm.test)
+rsquared(glm.test2)
 
+options(na.action = 'na.fail')
 visreg::visreg(glm)
 summary(glm)
-dredge(glm)
+MuMIn::dredge(glm2)
 sjPlot::plot_models(glm, glm2)
 rsquared(glm)
 
