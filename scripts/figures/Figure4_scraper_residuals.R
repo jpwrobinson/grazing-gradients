@@ -74,7 +74,7 @@ m.scrape2<-glmer(scraping ~ biom.scaled + mean.mass.scaled + sp.richness.scaled 
 MuMIn::AICc(m.scrape1, m.scrape2)
 sjPlot::plot_models(m.scrape2)
 rsquared(m.scrape2)
-summary(m.scrape)
+summary(m.scrape2)
 
 h$r<-resid(m.scrape2)
 ggplot(h, aes(scraping, biom.scaled, col=dataset)) + geom_point() + scale_x_log10()
