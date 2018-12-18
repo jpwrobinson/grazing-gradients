@@ -10,7 +10,7 @@ library(lme4)
 
 setwd(here('grazing-gradients'))
 
-pdf(file = "figures/figure3_decoupling.pdf", width=9, height=4)
+pdf(file = "figures/figure3_decoupling.pdf", width=6, height=4)
 
 ## load models and predictions. tidy up to merge
 load("results/models/cropper_function.Rdata")
@@ -59,8 +59,8 @@ theme_set(theme_sleek())
 
 function_names <- list(
   'grazers'=expression(paste("algal consumption g ha"^-1,"min"^-1)),
-  'scrapers'=expression(paste('area grazed m'^2,'ha'^-1, 'min'^-1)),
-  'browsers'="mass-standardized bites"
+  'scrapers'=expression(paste('area grazed m'^2,' ha'^-1, 'min'^-1))
+  #'browsers'="mass-standardized bites"
 )
 
 func.labels <- function(variable,value){
@@ -68,22 +68,27 @@ func.labels <- function(variable,value){
 }
 
 panel_labs <- data.frame(
-  sp=c('grazers','scrapers','browsers'),
-  lab=c('b','c',"a")
+  sp=c('grazers','scrapers'),#,'browsers'),
+  # lab=c('b','c',"a")
+  lab=c('a','b')
 )
+
+## drop browsers
+df<-droplevels(df[!df$sp == 'browsers',])
+r2<-r2[!r2$sp == 'browsers',]
 
 ggplot(df, aes(biom, grazef, col=sp)) + 
         geom_point(alpha=0.5, aes(shape=dataset)) +
         facet_wrap(~ sp, scales= 'free',labeller=func.labels) +
   labs(title = "") +
   scale_color_manual(values = cols.named) +
-  scale_x_log10(label=comma) +
+  #scale_x_log10(label=comma) +
   scale_y_continuous(label=comma) +
-  geom_text(data = panel_labs, aes(x = 0, y = Inf, label=lab),col='black', size=4.5, fontface=2, hjust=-0.8, vjust=1.2) +
+  geom_text(data = panel_labs, aes(x = 0, y = Inf, label=lab),col='black', size=4.5, fontface=2, hjust=0, vjust=1.2) +
   guides(col=F) +
   theme(legend.position ='top', legend.title=element_blank()) +
   xlab(expression(paste("biomass kg ha"^-1))) + ylab("Function")  +
-  geom_text(data=r2, aes(Inf, Inf, label=paste0("R", "^", "2", "==", label)), vjust=4, hjust=4, parse=TRUE) #+
+  geom_text(data=r2, aes(Inf, Inf, label=paste0("R", "^", "2", "==", label)), vjust=2, hjust=2, parse=TRUE) #+
   # geom_text(data=panel_labs, aes(Inf, Inf, label=panel_labs))
 
 dev.off()
