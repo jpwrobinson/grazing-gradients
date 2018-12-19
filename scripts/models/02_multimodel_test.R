@@ -52,6 +52,7 @@ summary(glm2)
 #                 data = h.pred, family='Gamma'(link='log'))
 rsquared(glm.test)
 rsquared(glm.test2)
+AIC(glm.test, glm.test2)
 
 options(na.action = 'na.fail')
 visreg::visreg(glm)
@@ -96,6 +97,16 @@ dredge(glm)
 sjPlot::plot_models(glm, glm1)
 rsquared(glm)
 
+
+glm.test<-glmer(cropping.gram.ha ~ biom +
+          (1 | dataset/reef) , ## random, nested = reefs within datasets
+                data = h.pred, family='Gamma'(link='log'))
+glm.test2<-glmer(cropping.gram.ha ~ biom + site.richness +
+          (1 | dataset/reef) , ## random, nested = reefs within datasets
+                data = h.pred, family='Gamma'(link='log'))
+rsquared(glm.test)
+rsquared(glm.test2)
+AIC(glm.test, glm.test2)
 
 ## test how global means influence function effects
 load(file = 'results/models/cropper_function_subset.Rdata')
