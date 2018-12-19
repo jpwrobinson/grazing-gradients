@@ -10,7 +10,7 @@ library(lme4)
 
 setwd(here('grazing-gradients'))
 
-pdf(file = "figures/figure3_decoupling.pdf", width=6, height=4)
+pdf(file = "figures/figure3_decoupling.pdf", width=8, height=4)
 
 ## load models and predictions. tidy up to merge
 load("results/models/cropper_function.Rdata")
@@ -19,7 +19,7 @@ grazers$grazef<-grazers$cropping.gram.ha
 grazers$cropping.gram.ha<-NULL
 grazers$sp <- 'grazers'
 
-m.graze<-lmer(cropping.gram.ha ~ biom + (1 | dataset/reef), h)
+m.graze<-glmer(cropping.gram.ha ~ scale(biom) + (1 | dataset/reef), h, family='Gamma'(link = 'log'))
 grazers$resid<-resid(m.graze)
 r2marg.grazer<-rsquared(m.graze)$Marginal
 
@@ -29,7 +29,7 @@ scrapers$grazef<-scrapers$scraping
 scrapers$scraping<-NULL
 scrapers$sp <- 'scrapers'
 
-m.scrape<-lmer(scraping ~ biom + (1 | dataset/reef), h)
+m.scrape<-glmer(scraping ~ scale(biom) + (1 | dataset/reef), h, family='Gamma'(link = 'log'))
 scrapers$resid<-resid(m.scrape)
 r2marg.scraper<-rsquared(m.scrape)$Marginal
 
@@ -40,7 +40,7 @@ browsers$grazef<-browsers$browsing
 browsers$browsing<-NULL
 browsers$sp <- 'browsers'
 
-m.browse<-lmer(browsing ~ biom + (1 | dataset/reef), h)
+m.browse<-glmer(browsing ~ biom + (1 | dataset/reef), h, family='Gamma'(link = 'log'))
 browsers$resid<-resid(m.browse)
 r2marg.browser<-rsquared(m.browse)$Marginal
 
@@ -86,7 +86,7 @@ ggplot(df, aes(biom, grazef, col=sp)) +
   scale_y_continuous(label=comma) +
   geom_text(data = panel_labs, aes(x = 0, y = Inf, label=lab),col='black', size=4.5, fontface=2, hjust=0, vjust=1.2) +
   guides(col=F) +
-  theme(legend.position ='top', legend.title=element_blank()) +
+  theme(legend.position =c(0.35, 0.3), legend.title=element_blank()) +
   xlab(expression(paste("biomass kg ha"^-1))) + ylab("Function")  +
   geom_text(data=r2, aes(Inf, Inf, label=paste0("R", "^", "2", "==", label)), vjust=2, hjust=2, parse=TRUE) #+
   # geom_text(data=panel_labs, aes(Inf, Inf, label=panel_labs))

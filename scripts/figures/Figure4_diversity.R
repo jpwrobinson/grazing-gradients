@@ -90,11 +90,11 @@ cols<-c(pal[5], pal[12])
 g1<-ggplot(nd.rich.crop, aes(sp.richness.raw, pred)) + 
     geom_ribbon(aes(ymin = pred - 2*se, ymax = pred + 2*se), alpha=0.1) + 
     geom_line() +
-    geom_point(data=h, aes(site.richness.raw, cropping.gram.ha, shape = dataset), size=3.5, alpha=0.7, col=cols[1])  +
+    geom_point(data=crop, aes(site.richness.raw, cropping.gram.ha, shape = dataset), size=3.5, alpha=0.7, col=cols[1])  +
     labs(y = 'Partial effect on area grazed', x = 'Species richness') +
     # geom_hline(yintercept=0, linetype=5, col='grey') +
     theme(legend.title=element_blank(),
-          legend.position = c(0.8, 0.2)) +
+          legend.position = c(0.2, 0.8)) +
     guides(size = F)
 
 
