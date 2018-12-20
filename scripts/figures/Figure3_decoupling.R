@@ -10,7 +10,7 @@ library(lme4)
 
 setwd(here('grazing-gradients'))
 
-pdf(file = "figures/figure3_decoupling.pdf", width=8, height=4)
+pdf(file = "figures/figure4_decoupling.pdf", width=8, height=4)
 
 ## load models and predictions. tidy up to merge
 load("results/models/cropper_function.Rdata")
@@ -70,7 +70,7 @@ func.labels <- function(variable,value){
 panel_labs <- data.frame(
   sp=c('grazers','scrapers'),#,'browsers'),
   # lab=c('b','c',"a")
-  lab=c('a','b')
+  lab=c('A','B')
 )
 
 ## drop browsers
@@ -84,7 +84,7 @@ ggplot(df, aes(biom, grazef, col=sp)) +
   scale_color_manual(values = cols.named) +
   #scale_x_log10(label=comma) +
   scale_y_continuous(label=comma) +
-  geom_text(data = panel_labs, aes(x = 0, y = Inf, label=lab),col='black', size=4.5, fontface=2, hjust=0, vjust=1.2) +
+  geom_text(data = panel_labs, aes(x = 0, y = Inf, label=lab),col='black', size=4.5, fontface=2, hjust=0.4, vjust=1.4) +
   guides(col=F) +
   theme(legend.position =c(0.35, 0.3), legend.title=element_blank()) +
   xlab(expression(paste("biomass kg ha"^-1))) + ylab("Function")  +

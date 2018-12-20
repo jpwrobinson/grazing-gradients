@@ -38,7 +38,7 @@ pairs2(dplyr::select_if(crop.pred, is.numeric),
   lower.panel = panel.cor, upper.panel = panel.smooth2, diag.panel=panel.hist)
 
 
-debug(mmi_tvalue)
+
 mm.crop<-mmi_tvalue(m.graze, dataset = crop.pred,  
     exp.names = c('biom', 'site.rarefied', 'site.evenness', 'abund'), 
     indicator = 'cropping.gram.ha', 

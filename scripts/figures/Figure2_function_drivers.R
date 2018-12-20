@@ -96,6 +96,11 @@ g.effects <- ggplot(est, aes(Var, RI.t.abs, fill=indicator, col=indicator)) +
               annotate('text', x = 9.35, y = 6.6, label = 'A', fontface='bold', size=5) +
               annotate('text', x = 4.25, y = 6.6, label = 'B', fontface='bold', size=5)
 
+
+ann_text <- data.frame(Var = factor('hard.coral'),RI.t.ratio = 0.99,lab = c("A",'B'),
+                       indicator = factor(c('Croppers', 'Scrapers')))
+
+
 g.rel.effects <- ggplot(est, aes(Var, RI.t.ratio, fill=indicator, col=indicator)) + 
               geom_hline(yintercept=0, linetype='dashed') +
               geom_bar(stat='identity', size=1, position = position_dodge(width=0.4)) +
@@ -107,9 +112,10 @@ g.rel.effects <- ggplot(est, aes(Var, RI.t.ratio, fill=indicator, col=indicator)
               scale_x_discrete(labels = ylab) + coord_flip() +
               theme(legend.position = 'none',
                 legend.title=element_blank()) + 
-              geom_vline(xintercept = 4.5, size=2, col='grey90') #+
-              # annotate('text', x = 9.35, y = 0.9, label = 'A', fontface='bold', size=5) +
-              # annotate('text', x = 4.25, y = 0.9, label = 'B', fontface='bold', size=5)
+              geom_vline(xintercept = 4.5, size=2, col='grey90') +
+              geom_text(data = ann_text,col='black', 
+                aes(label = lab), size=6, vjust=-0.2, fontface='bold')
+
 
 
 pdf(file = "figures/Figure2_effect_sizes_tvalue.pdf", width=6, height=6)
