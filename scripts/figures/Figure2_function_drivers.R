@@ -82,7 +82,8 @@ est$indicator<-ifelse(est$indicator == 'cropping.gram.ha', 'Croppers', 'Scrapers
 ## careful here for legend: colours defined by order of models, but other panels is defined by alphabetical order
 g.effects <- ggplot(est, aes(Var, RI.t.abs, fill=indicator, col=indicator)) + 
               geom_hline(yintercept=0, linetype='dashed') +
-              geom_pointrange(aes(ymin=RI.t.abs-var.t, ymax=RI.t.abs+var.t),size =0.75, position=position_dodge(width=0.4)) +
+              geom_point(size=2, position = position_dodge(width=0.4)) +
+              # geom_pointrange(aes(ymin=RI.t.abs-var.t, ymax=RI.t.abs+var.t),size =0.75, position=position_dodge(width=0.4)) +
               scale_color_manual(values = cols.named) +
               scale_fill_manual(values = cols.named) +
              # scale_shape_manual(values = c(21,20)) + 
@@ -95,9 +96,29 @@ g.effects <- ggplot(est, aes(Var, RI.t.abs, fill=indicator, col=indicator)) +
               annotate('text', x = 9.35, y = 6.6, label = 'A', fontface='bold', size=5) +
               annotate('text', x = 4.25, y = 6.6, label = 'B', fontface='bold', size=5)
 
+g.rel.effects <- ggplot(est, aes(Var, RI.t.ratio, fill=indicator, col=indicator)) + 
+              geom_hline(yintercept=0, linetype='dashed') +
+              geom_bar(stat='identity', size=1, position = position_dodge(width=0.4)) +
+              scale_color_manual(values = cols.named) +
+              scale_fill_manual(values = cols.named) +
+              facet_wrap(~ indicator) +
+              guides(shape = FALSE) +
+              labs(x='', y = 'Relative effect size') +
+              scale_x_discrete(labels = ylab) + coord_flip() +
+              theme(legend.position = 'none',
+                legend.title=element_blank()) + 
+              geom_vline(xintercept = 4.5, size=2, col='grey90') #+
+              # annotate('text', x = 9.35, y = 0.9, label = 'A', fontface='bold', size=5) +
+              # annotate('text', x = 4.25, y = 0.9, label = 'B', fontface='bold', size=5)
+
 
 pdf(file = "figures/Figure2_effect_sizes_tvalue.pdf", width=6, height=6)
 g.effects
+dev.off()
+
+
+pdf(file = "figures/Figure2_rel_effect_sizes_tvalue.pdf", width=10, height=6)
+g.rel.effects
 dev.off()
 
 # pdf(file = "figures/FigureS5_pred_biomass.pdf", width=12, height=8)

@@ -32,10 +32,14 @@ m.full<-glmer(cropping.gram.ha ~ hard.coral + macroalgae + rubble + substrate + 
           (1 | dataset/reef) , ## random, nested = reefs within datasets
                 data = h.pred, family='Gamma'(link='log'))
 
-mm.crop<-mmi_tvalue(m.full, dataset=h.pred, exp.names = c('hard.coral', 'macroalgae', 'rubble', 'substrate', 'complexity', 
+mm.crop<-mmi_tvalue(m.full, dataset=h.pred, t.subset=TRUE, exp.names = c('hard.coral', 'macroalgae', 'rubble', 'substrate', 'complexity', 
           'fish.biom', 'Fished.Protected.dummy', 'Fished.Unfished.dummy', 'site.size' ), 
 		 ranef = c('dataset', 'reef'), indicator = 'cropping.gram.ha', family = 'Gamma')
 save(mm.crop, file = 'results/models/tvalues_croppers.Rdata')
+mm.crop[[1]]
+
+
+
 
 # ## repeat with rarefied richness estimate
 # mm.crop<-mmi_tvalue(m.full, dataset=h.pred, exp.names = c('hard.coral', 'macroalgae', 'rubble', 'substrate', 'complexity', 
