@@ -37,17 +37,30 @@ h.means<-h %>% group_by(dataset, reef) %>%
 
 
 
-## get covariate effect sizes 
-load(file = 'results/models/function_m_croppers.Rdata')
-crop.est<-get_model_data(m.grazer)
-crop.est$model<-'Croppers'
+# ## get covariate effect sizes from full model
+# load(file = 'results/models/function_m_croppers.Rdata')
+# crop.est<-get_model_data(m.grazer)
+# crop.est$model<-'Croppers'
 
-load(file = 'results/models/function_m_scrapers.Rdata')
-scrape.est<-get_model_data(m.scraper)
-scrape.est$model<-'Scrapers'
+# load(file = 'results/models/function_m_scrapers.Rdata')
+# scrape.est<-get_model_data(m.scraper)
+# scrape.est$model<-'Scrapers'
 
-est<-data.frame(rbind(crop.est, scrape.est))
+# est<-data.frame(rbind(crop.est, scrape.est))
 
+## load t values
+load(file = 'results/models/tvalues_croppers.Rdata'); crop<-mm.crop[[1]]
+load(file = 'results/models/tvalues_scrapers.Rdata'); scrape<-mm.scrape[[1]]
+
+est<-rbind(crop, scrape)
+
+## load rarefied estimates
+load(file = 'results/models/tvalues_croppers_rarefied.Rdata'); crop<-mm.crop[[1]]
+load(file = 'results/models/tvalues_scrapers_rarefied.Rdata'); scrape<-mm.scrape[[1]]
+
+est2<-rbind(crop,scrape)
+est2 <- est2 %>% filter(Var == 'site.rarefied')
+est2$indicator<-ifelse(est2$indicator == 'cropping.gram.ha', 'Croppers', 'Scrapers')
 ## -------------- ## ## -------------- ## ## -------------- ## ## -------------- ##
           ## ------------ NOW PLOTTING FIGURES -------------- ## 
 ## -------------- ## ## -------------- ## ## -------------- ## ## -------------- ##
@@ -63,28 +76,36 @@ ylab<-rev(c('Hard coral', 'Available\nsubstrate', 'Rubble', 'Macroalgae', 'Habit
         'Fishable\nbiomass', 'Fished reef', 'Pristine reef', 'Mean size','Species richness'))
 
 ## reorder factor levels here - careful this is manual, check plot is ok
+## for full model plot
 est$term<-factor(est$term, levels=levels(est$term)[rev(c(7,1,4,6,10,9,8,5,2,3))])
+## for t value plot
+est$Var<-factor(est$Var)
+est$Var<-factor(est$Var, levels=levels(est$Var)[rev(c(5,10,7,6,3,4,1,2,9,8))])
+est$indicator<-ifelse(est$indicator == 'cropping.gram.ha', 'Croppers', 'Scrapers')
 
 ## add var identifying strong and weak effects
-est$effect<-ifelse(est$p.value < 0.05, 'STRONG', 'WEAK')
+#est$effect<-ifelse(est$p.value < 0.05, 'STRONG', 'WEAK')
 
 ## careful here for legend: colours defined by order of models, but other panels is defined by alphabetical order
-g.effects <- ggplot(est, aes(term, estimate, fill=model, col=model)) + 
+g.effects <- ggplot(est, aes(Var, RI.t.abs, fill=indicator, col=indicator)) + 
               geom_hline(yintercept=0, linetype='dashed') +
-              geom_pointrange(aes(ymin=conf.low, ymax=conf.high,shape=effect),size =0.75, position=position_dodge(width=0.4)) +
+              geom_pointrange(aes(ymin=RI.t.abs-var.t, ymax=RI.t.abs+var.t),size =0.75, position=position_dodge(width=0.4)) +
+              geom_pointrange(data = est2, aes(Var, RI.t.abs, ymin=RI.t.abs-var.t, ymax=RI.t.abs+var.t),size =0.75, position=position_dodge(width=0.4)) +
               scale_color_manual(values = cols.named) +
               scale_fill_manual(values = cols.named) +
-              scale_shape_manual(values = c(21,20)) + 
+             # scale_shape_manual(values = c(21,20)) + 
               guides(shape = FALSE) +
               labs(x='', y = 'Standardized effect size') +
               scale_x_discrete(labels = ylab) +
               theme(legend.position = c(0.8, 0.8),
                 legend.title=element_blank()) + coord_flip() +
               geom_vline(xintercept = 5.5, size=2, col='grey90') +
-              geom_vline(xintercept = 1.5, size=2, col='grey90')
+              geom_vline(xintercept = 1.5, size=2, col='grey90') #+
+              # annotate('text', x = 10.25, y = 7, label = 'Benthic drivers') +
+              # annotate('text', x = 5.25, y = 7, label = 'Fishing drivers')
 
 
-pdf(file = "figures/Figure2_effect_sizes.pdf", width=6, height=6)
+pdf(file = "figures/Figure2_effect_sizes_tvalue.pdf", width=6, height=6)
 g.effects
 dev.off()
 

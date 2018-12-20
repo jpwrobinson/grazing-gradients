@@ -186,7 +186,7 @@ sey.bar<-ggplot(biom[biom$dataset == 'Seychelles',],
 			axis.ticks.x=element_blank(),
 			legend.position = 'none') +
 		scale_x_discrete(labels=c('Cropper', 'Scraper')) +
-		lims(y = c(0.1, max(biom$biom)+350))  
+		lims(y = c(0, max(biom$biom)+350))  
 
 mal.bar<-ggplot(biom[biom$dataset == 'Maldives',], 
 	aes(FG, biom, fill = FG)) + 
@@ -200,7 +200,7 @@ mal.bar<-ggplot(biom[biom$dataset == 'Maldives',],
 			axis.ticks.x=element_blank(),
 			legend.position = 'none') +
 		scale_x_discrete(labels=c('Cropper', 'Scraper')) +
-		lims(y = c(0.1, max(biom$biom)+350)) 
+		lims(y = c(0, max(biom$biom)+350)) 
 
 chag.bar<-ggplot(biom[biom$dataset == 'Chagos',], 
 	aes(FG, biom, fill = FG)) + 
@@ -214,7 +214,7 @@ chag.bar<-ggplot(biom[biom$dataset == 'Chagos',],
 			axis.ticks.x=element_blank(),
 			legend.position = 'none') +
 		scale_x_discrete(labels=c('Cropper', 'Scraper')) +
-		lims(y = c(0.1, max(biom$biom)+350)) 
+		lims(y = c(0, max(biom$biom)+350)) 
 
 gbr.bar<-ggplot(biom[biom$dataset == 'GBR',], 
 	aes(FG, biom, fill = FG)) + 

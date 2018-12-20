@@ -94,8 +94,6 @@ temp<-lapply(temp,unlist)
 t<-estimateD(temp, datatype='abundance', base='size', level = NULL)
 t<-t %>% filter(order == 0)
 
-write.csv(t, file = 'results/rarefied_richness_scrapers.csv')
-
 ## compare to freq divs
 load(file = 'results/scraper_attributes.Rdata')
 diversity.preds$estimated<-t$qD[match(diversity.preds$unique.id, t$site)]
