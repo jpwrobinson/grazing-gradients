@@ -54,13 +54,6 @@ load(file = 'results/models/tvalues_scrapers.Rdata'); scrape<-mm.scrape[[1]]
 
 est<-rbind(crop, scrape)
 
-## load rarefied estimates
-load(file = 'results/models/tvalues_croppers_rarefied.Rdata'); crop<-mm.crop[[1]]
-load(file = 'results/models/tvalues_scrapers_rarefied.Rdata'); scrape<-mm.scrape[[1]]
-
-est2<-rbind(crop,scrape)
-est2 <- est2 %>% filter(Var == 'site.rarefied')
-est2$indicator<-ifelse(est2$indicator == 'cropping.gram.ha', 'Croppers', 'Scrapers')
 ## -------------- ## ## -------------- ## ## -------------- ## ## -------------- ##
           ## ------------ NOW PLOTTING FIGURES -------------- ## 
 ## -------------- ## ## -------------- ## ## -------------- ## ## -------------- ##
@@ -73,14 +66,14 @@ cols<-c(pal[5], pal[12], pal[18])
 cols.named<-c('Croppers' = pal[5], 'Scrapers' = pal[12])
 theme_set(theme_sleek())
 ylab<-rev(c('Hard coral', 'Available\nsubstrate', 'Rubble', 'Macroalgae', 'Habitat\ncomplexity',
-        'Fishable\nbiomass', 'Fished reef', 'Pristine reef', 'Mean size','Species richness'))
+        'Fishable\nbiomass', 'Fished reef', 'Pristine reef', 'Mean size'))#,'Species richness'))
 
 ## reorder factor levels here - careful this is manual, check plot is ok
 ## for full model plot
-est$term<-factor(est$term, levels=levels(est$term)[rev(c(7,1,4,6,10,9,8,5,2,3))])
+# est$term<-factor(est$term, levels=levels(est$term)[rev(c(7,1,4,6,10,9,8,5,2,3))])
 ## for t value plot
 est$Var<-factor(est$Var)
-est$Var<-factor(est$Var, levels=levels(est$Var)[rev(c(5,10,7,6,3,4,1,2,9,8))])
+est$Var<-factor(est$Var, levels=levels(est$Var)[rev(c(5,9,7,6,3,4,1,2,8))])
 est$indicator<-ifelse(est$indicator == 'cropping.gram.ha', 'Croppers', 'Scrapers')
 
 ## add var identifying strong and weak effects
@@ -90,7 +83,6 @@ est$indicator<-ifelse(est$indicator == 'cropping.gram.ha', 'Croppers', 'Scrapers
 g.effects <- ggplot(est, aes(Var, RI.t.abs, fill=indicator, col=indicator)) + 
               geom_hline(yintercept=0, linetype='dashed') +
               geom_pointrange(aes(ymin=RI.t.abs-var.t, ymax=RI.t.abs+var.t),size =0.75, position=position_dodge(width=0.4)) +
-              geom_pointrange(data = est2, aes(Var, RI.t.abs, ymin=RI.t.abs-var.t, ymax=RI.t.abs+var.t),size =0.75, position=position_dodge(width=0.4)) +
               scale_color_manual(values = cols.named) +
               scale_fill_manual(values = cols.named) +
              # scale_shape_manual(values = c(21,20)) + 
@@ -99,10 +91,9 @@ g.effects <- ggplot(est, aes(Var, RI.t.abs, fill=indicator, col=indicator)) +
               scale_x_discrete(labels = ylab) +
               theme(legend.position = c(0.8, 0.8),
                 legend.title=element_blank()) + coord_flip() +
-              geom_vline(xintercept = 5.5, size=2, col='grey90') +
-              geom_vline(xintercept = 1.5, size=2, col='grey90') #+
-              # annotate('text', x = 10.25, y = 7, label = 'Benthic drivers') +
-              # annotate('text', x = 5.25, y = 7, label = 'Fishing drivers')
+              geom_vline(xintercept = 4.5, size=2, col='grey90') +
+              annotate('text', x = 9.35, y = 6.6, label = 'A', fontface='bold', size=5) +
+              annotate('text', x = 4.25, y = 6.6, label = 'B', fontface='bold', size=5)
 
 
 pdf(file = "figures/Figure2_effect_sizes_tvalue.pdf", width=6, height=6)

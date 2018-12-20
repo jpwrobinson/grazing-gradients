@@ -27,17 +27,21 @@ h$site.rarefied<-rare$qD[match(h$unique.id, rare$site)]
 
 h.pred<-scaler(h, ID=c('date', 'dataset', 'reef', 'site', 'transect', 'unique.id', 'cropping.gram.ha'))
 
+m.full<-glmer(cropping.gram.ha ~ hard.coral + macroalgae + rubble + substrate + complexity + 
+        	fish.biom + Fished.Protected.dummy + Fished.Unfished.dummy  + site.size + #biom +
+          (1 | dataset/reef) , ## random, nested = reefs within datasets
+                data = h.pred, family='Gamma'(link='log'))
 
-mm.crop<-mmi_tvalue(h.pred, exp.names = c('hard.coral', 'macroalgae', 'rubble', 'substrate', 'complexity', 
-          'fish.biom', 'Fished.Protected.dummy', 'Fished.Unfished.dummy', 
-          'site.richness', 'site.size' ), indicator = 'cropping.gram.ha', family = 'Gamma')
+mm.crop<-mmi_tvalue(m.full, dataset=h.pred, exp.names = c('hard.coral', 'macroalgae', 'rubble', 'substrate', 'complexity', 
+          'fish.biom', 'Fished.Protected.dummy', 'Fished.Unfished.dummy', 'site.size' ), 
+		 ranef = c('dataset', 'reef'), indicator = 'cropping.gram.ha', family = 'Gamma')
 save(mm.crop, file = 'results/models/tvalues_croppers.Rdata')
 
-## repeat with rarefied richness estimate
-mm.crop<-mmi_tvalue(h.pred, exp.names = c('hard.coral', 'macroalgae', 'rubble', 'substrate', 'complexity', 
-          'fish.biom', 'Fished.Protected.dummy', 'Fished.Unfished.dummy', 
-          'site.rarefied', 'site.size' ), indicator = 'cropping.gram.ha', family = 'Gamma')
-save(mm.crop, file = 'results/models/tvalues_croppers_rarefied.Rdata')
+# ## repeat with rarefied richness estimate
+# mm.crop<-mmi_tvalue(m.full, dataset=h.pred, exp.names = c('hard.coral', 'macroalgae', 'rubble', 'substrate', 'complexity', 
+#           'fish.biom', 'Fished.Protected.dummy', 'Fished.Unfished.dummy',  'site.size' ),
+#             ranef = c('dataset', 'reef'), indicator = 'cropping.gram.ha', family = 'Gamma')
+# save(mm.crop, file = 'results/models/tvalues_croppers_rarefied.Rdata')
 
 
 ## now scrapers
@@ -52,13 +56,17 @@ h$site.rarefied<-rare$qD[match(h$unique.id, rare$site)]
 
 h.pred<-scaler(h, ID=c('date', 'dataset', 'reef', 'site', 'transect', 'unique.id', 'scraping'))
 
+m.full<-glmer(scraping ~ hard.coral + macroalgae + rubble + substrate + complexity + 
+        	fish.biom + Fished.Protected.dummy + Fished.Unfished.dummy  + site.size + #biom +
+          (1 | dataset/reef) , ## random, nested = reefs within datasets
+                data = h.pred, family='Gamma'(link='log'))
 
-mm.scrape<-mmi_tvalue(h.pred, exp.names = c('hard.coral', 'macroalgae', 'rubble', 'substrate', 'complexity', 
-          'fish.biom', 'Fished.Protected.dummy', 'Fished.Unfished.dummy', 
-          'site.richness', 'site.size' ), indicator = 'scraping', family = 'Gamma')
+mm.scrape<-mmi_tvalue(m.full, dataset=h.pred, exp.names = c('hard.coral', 'macroalgae', 'rubble', 'substrate', 'complexity', 
+          'fish.biom', 'Fished.Protected.dummy', 'Fished.Unfished.dummy', 'site.size' ), 
+		 ranef = c('dataset', 'reef'), indicator = 'scraping', family = 'Gamma')
 save(mm.scrape, file = 'results/models/tvalues_scrapers.Rdata')
 
-mm.scrape<-mmi_tvalue(h.pred, exp.names = c('hard.coral', 'macroalgae', 'rubble', 'substrate', 'complexity', 
-          'fish.biom', 'Fished.Protected.dummy', 'Fished.Unfished.dummy', 
-          'site.rarefied', 'site.size' ), indicator = 'scraping', family = 'Gamma')
-save(mm.scrape, file = 'results/models/tvalues_scrapers_rarefied.Rdata')
+# mm.scrape<-mmi_tvalue(m.full, dataset=h.pred, exp.names = c('hard.coral', 'macroalgae', 'rubble', 'substrate', 'complexity', 
+#           'fish.biom', 'Fished.Protected.dummy', 'Fished.Unfished.dummy', 'site.rarefied', 'site.size' ),
+#             ranef = c('dataset', 'reef'), indicator = 'scraping', family = 'Gamma')
+# save(mm.scrape, file = 'results/models/tvalues_scrapers_rarefied.Rdata')
