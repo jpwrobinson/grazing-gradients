@@ -26,6 +26,8 @@ h.means.scrap<-h %>% group_by(dataset, reef) %>%
 scrape.raw<-h
 
 load(file = 'results/models/cropper_function.Rdata')
+load(file = 'results/cropper_attributes.Rdata')
+h$site.size<-diversity.preds$mean.size[match(h$unique.id, diversity.preds$unique.id)]
 ## get mean reef values for overlaying figure points
 h.means.crop<-h %>% group_by(dataset, reef) %>% 
   summarise(cropping.gram.ha=mean(cropping.gram.ha), hard.coral=mean(hard.coral),
@@ -46,27 +48,29 @@ scrape.var<-mm.scrape[[4]]
 
 
 ## plor cropper benthic effects
-plot.pred<-crop.pred %>% select(substrate, macroalgae) %>% gather(var, pred)
+plot.pred<-crop.pred %>% select(substrate, macroalgae, site.size) %>% gather(var, pred)
 
 sub.seq<-with(crop.raw, seq(min(substrate), max(substrate), length.out=100))
 ma.seq<-with(crop.raw, seq(min(macroalgae), max(macroalgae), length.out=100))
+size.seq<-with(crop.raw, seq(min(site.size), max(site.size), length.out=100))
 
 sub.var<-data.frame(mm.crop[[3]]['substrate'] - mm.crop[[4]]['substrate'], 
 	mm.crop[[3]]['substrate'] + mm.crop[[4]]['substrate'], 'substrate')
-colnames(sub.var)<-c('lwr', 'upr', 'var')
 
 ma.var<-data.frame(mm.crop[[3]]['macroalgae'] - mm.crop[[4]]['macroalgae'], 
 	mm.crop[[3]]['macroalgae'] + mm.crop[[4]]['macroalgae'], 'macroalgae')
-colnames(sub.var)<-c('lwr', 'upr', 'var')
 
-plot.pred$seq<-c(sub.seq, ma.seq)
-plot.pred$lwr<-c(sub.var[,1], ma.var[,1])
-plot.pred$upr<-c(sub.var[,2], ma.var[,2])
+size.var<-data.frame(mm.crop[[3]]['site.size'] - mm.crop[[4]]['site.size'], 
+	mm.crop[[3]]['site.size'] + mm.crop[[4]]['site.size'], 'site.size')
+
+plot.pred$seq<-c(sub.seq, ma.seq, size.seq)
+plot.pred$lwr<-c(sub.var[,1], ma.var[,1], size.var[,1])
+plot.pred$upr<-c(sub.var[,2], ma.var[,2], size.var[,2])
 
 pal <- wesanderson::wes_palette("Zissou1", 21, type = "continuous")
 cols<-c(pal[5], pal[12], pal[18])
 
-g1<-ggplot(plot.pred, aes(seq, pred, fill=var)) + 
+g1<-ggplot(plot.pred[plot.pred$var != 'site.size',], aes(seq, pred, fill=var)) + 
 		geom_line(lwd=1.2, aes(col=var, linetype=var)) +
 		scale_color_manual(values = c(cols[1], cols[1])) +
 		scale_fill_manual(values = c(cols[1], cols[1])) +
@@ -76,6 +80,17 @@ g1<-ggplot(plot.pred, aes(seq, pred, fill=var)) +
 			legend.title = element_blank()) +
 		annotate('text', x = 43, y = 1, label='Macroalgae') +
 		annotate('text', x = 56, y = 2.8, label='Available substrate') 
+
+
+## size effect for croppers
+g3<-ggplot(plot.pred[plot.pred$var == 'site.size',], aes(seq, pred, fill=var)) + 
+		geom_line(lwd=1.2, aes(col=var, linetype=var)) +
+		scale_color_manual(values = c(cols[1], cols[1])) +
+		scale_fill_manual(values = c(cols[1], cols[1])) +
+		geom_ribbon(aes(ymin = lwr, ymax = upr), alpha=0.2) +
+		labs(x = 'Mean size (cm)', y = expression(paste("algal consumption, g ha"^-1,"min"^-1))) +
+		theme(legend.position = 'none', 
+			legend.title = element_blank()) 
 
 
 ## plot complexity effects
@@ -136,11 +151,12 @@ preds$upr<-with(preds, pred + var)
 preds$cov<-factor(c('Fished', 'Protected', 'Pristine'))
 preds$cov<-factor(preds$cov, levels = levels(preds$cov)[c(1,3,2)])
 
-g3<-ggplot(preds, aes(cov, pred)) + geom_pointrange(aes(ymin= lwr, ymax = upr)) +
+g4<-ggplot(preds, aes(cov, pred)) + geom_pointrange(col=cols[2], aes(ymin= lwr, ymax = upr)) +
 	labs(x = '', y = expression(paste('area grazed m'^2,'ha'^-1, 'min'^-1))) +
 	theme(legend.position = 'none')
 
 
 pdf(file = 'figures/Figure3_predicted_effects.pdf', height = 6, width = 12)
-plot_grid(g1, g2, g3, nrow=1, labels=c('A', 'B', 'C'))
+left<-plot_grid(g1, g3, nrow=2, rel_heights= c(0.6, 0.4), labels=c('B', 'C'))
+plot_grid(left, g2, g4, nrow=1, labels=c('A', '', 'D'))
 dev.off()
