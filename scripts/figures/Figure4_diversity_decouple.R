@@ -37,12 +37,19 @@ colnames(m.graze)
 pairs2(dplyr::select_if(crop.pred, is.numeric), 
   lower.panel = panel.cor, upper.panel = panel.smooth2, diag.panel=panel.hist)
 
+m.table<-dredge(m.graze)
+tab<-data.frame(m.table)
+tab[is.na(tab)]<-0
 
-## MMI for decoupling
+write.csv(tab, 'results/tables/cropper_div_AICtable.csv')
+
+# ## MMI for decoupling
 # mm.crop<-mmi_tvalue(m.graze, dataset = crop.pred,  
 #     exp.names = c('biom', 'site.rarefied', 'site.evenness', 'abund'), 
 #     indicator = 'cropping.gram.ha', 
 #     ranef = c('dataset', 'reef'), family='Gamma')
+# r<-mm.crop[[2]]
+# r2 top model = 0.8600610 marg,  0.8680170 cond
 
 ## top model is:
 crop.top<-glmer(cropping.gram.ha ~ biom +
@@ -73,6 +80,12 @@ m.graze<-glmer(scraping ~ biom +
 colnames(m.graze)
 pairs2(dplyr::select_if(scrap.pred, is.numeric), 
   lower.panel = panel.cor, upper.panel = panel.smooth2, diag.panel=panel.hist)
+
+m.table<-dredge(m.graze)
+tab<-data.frame(m.table)
+tab[is.na(tab)]<-0
+
+write.csv(tab, 'results/tables/scraper_div_AICtable.csv')
 
 ## MMI for decopuling
 # mm.scrap<-mmi_tvalue(m.graze, dataset = scrap.pred,  
