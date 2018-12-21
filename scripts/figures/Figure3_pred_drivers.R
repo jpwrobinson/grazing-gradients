@@ -70,27 +70,37 @@ plot.pred$upr<-c(sub.var[,2], ma.var[,2], size.var[,2])
 pal <- wesanderson::wes_palette("Zissou1", 21, type = "continuous")
 cols<-c(pal[5], pal[12], pal[18])
 
-g1<-ggplot(plot.pred[plot.pred$var != 'site.size',], aes(seq, pred, fill=var)) + 
+## deciles for plot rugs
+deciles<-data.frame(
+  macroalgae = quantile(h$macroalgae, prob=seq(0, 1, length.out=11)),
+  substrate = quantile(h$substrate, prob=seq(0, 1, length.out=11)),
+  complexity = quantile(h$complexity, prob=seq(0, 1, length.out=11)),
+  site.size = quantile(h$site.size, prob=seq(0, 1, length.out=11)))
+
+
+g1<-ggplot(plot.pred[plot.pred$var != 'site.size',], aes(seq, pred)) + 
 		geom_line(lwd=1.2, aes(col=var, linetype=var)) +
 		scale_color_manual(values = c(cols[1], cols[1])) +
 		scale_fill_manual(values = c(cols[1], cols[1])) +
-		geom_ribbon(aes(ymin = lwr, ymax = upr), alpha=0.2) +
+		geom_ribbon(aes(ymin = lwr, ymax = upr, fill=var), alpha=0.2) +
 		labs(x = 'Cover (%)', y = expression(paste("algal consumption, g ha"^-1,"min"^-1))) +
 		theme(legend.position = 'none', 
 			legend.title = element_blank()) +
-		annotate('text', x = 43, y = 1, label='Macroalgae') +
-		annotate('text', x = 56, y = 2.8, label='Available substrate') 
-
+		annotate('text', x = 49, y = 1, label='Macroalgae') +
+		annotate('text', x = 56, y = 2.7, label='Available substrate')  +
+		geom_rug(data=deciles, aes(macroalgae, 0.5), sides='b', alpha=1, col='grey50',size=1) +
+		geom_rug(data=deciles, aes(substrate, 0.5), sides='t', alpha=1, col='grey50',size=1)
 
 ## size effect for croppers
-g3<-ggplot(plot.pred[plot.pred$var == 'site.size',], aes(seq, pred, fill=var)) + 
+g3<-ggplot(plot.pred[plot.pred$var == 'site.size',], aes(seq, pred)) + 
 		geom_line(lwd=1.2, aes(col=var, linetype=var)) +
 		scale_color_manual(values = c(cols[1], cols[1])) +
 		scale_fill_manual(values = c(cols[1], cols[1])) +
-		geom_ribbon(aes(ymin = lwr, ymax = upr), alpha=0.2) +
+		geom_ribbon(aes(ymin = lwr, ymax = upr, fill=var), alpha=0.2) +
 		labs(x = 'Mean size (cm)', y = expression(paste("algal consumption, g ha"^-1,"min"^-1))) +
 		theme(legend.position = 'none', 
-			legend.title = element_blank()) 
+			legend.title = element_blank()) +
+		geom_rug(data=deciles, aes(site.size, 0.8), sides='b', alpha=1, col='grey50',size=1)
 
 
 ## plot complexity effects
@@ -118,9 +128,9 @@ pal <- wesanderson::wes_palette("Zissou1", 21, type = "continuous")
 cols<-c(pal[5], pal[12], pal[18])
 cols.named<-c('crop' = pal[5], 'scrape' = pal[12])
 
-g2<-ggplot(plot.pred, aes(seq, pred, fill=var)) + 
+g2<-ggplot(plot.pred, aes(seq, pred)) + 
 		geom_line(lwd=1.2, aes(col=var)) +
-		geom_ribbon(aes(ymin = lwr, ymax = upr), alpha=0.2) +
+		geom_ribbon(aes(ymin = lwr, ymax = upr,fill=var), alpha=0.2) +
 		scale_color_manual(values = cols.named) +
 		scale_fill_manual(values = cols.named) +
 		labs(x = 'Habitat complexity') +
@@ -132,7 +142,8 @@ g2<-ggplot(plot.pred, aes(seq, pred, fill=var)) +
 			 strip.position = "left", 
 			labeller = as_labeller(c(crop = expression(paste("algal consumption, g ha"^-1,"min"^-1)),
 				 scrape = expression(paste('area grazed m'^2,'ha'^-1, 'min'^-1))) ) ) +
-		ylab(NULL)
+		ylab(NULL) +
+		geom_rug(data=deciles, aes(complexity, 0.3), sides='b', alpha=1, col='grey50',size=1)
 
 ### plot fishing effects for scrapers
 
@@ -151,12 +162,12 @@ preds$upr<-with(preds, pred + var)
 preds$cov<-factor(c('Fished', 'Protected', 'Pristine'))
 preds$cov<-factor(preds$cov, levels = levels(preds$cov)[c(1,3,2)])
 
-g4<-ggplot(preds, aes(cov, pred)) + geom_pointrange(col=cols[2], aes(ymin= lwr, ymax = upr)) +
+g4<-ggplot(preds, aes(cov, pred)) + geom_pointrange(col=cols[2],size=1.25, aes(ymin= lwr, ymax = upr)) +
 	labs(x = '', y = expression(paste('area grazed m'^2,'ha'^-1, 'min'^-1))) +
 	theme(legend.position = 'none')
 
 
 pdf(file = 'figures/Figure3_predicted_effects.pdf', height = 6, width = 12)
-left<-plot_grid(g1, g3, nrow=2, rel_heights= c(0.6, 0.4), labels=c('B', 'C'))
-plot_grid(left, g2, g4, nrow=1, labels=c('A', '', 'D'))
+left<-plot_grid(g1, g3, nrow=2, rel_heights= c(0.5, 0.5), labels=c('A', 'B'))
+plot_grid(left, g2, g4, nrow=1, labels=c('', 'C', 'D'))
 dev.off()

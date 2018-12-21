@@ -88,7 +88,7 @@ ggplot(df, aes(biom, grazef, col=sp)) +
   guides(col=F) +
   theme(legend.position =c(0.35, 0.3), legend.title=element_blank()) +
   xlab(expression(paste("biomass kg ha"^-1))) + ylab("Function")  +
-  geom_text(data=r2, aes(Inf, Inf, label=paste0("R", "^", "2", "==", label)), vjust=2, hjust=2, parse=TRUE) #+
+  geom_text(data=r2, aes(Inf, Inf, label=paste0("R", "^", "2", "==", label)), vjust=2, hjust=2, parse=TRUE) 
   # geom_text(data=panel_labs, aes(Inf, Inf, label=panel_labs))
 
 dev.off()

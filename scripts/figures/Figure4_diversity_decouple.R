@@ -37,7 +37,7 @@ colnames(m.graze)
 pairs2(dplyr::select_if(crop.pred, is.numeric), 
   lower.panel = panel.cor, upper.panel = panel.smooth2, diag.panel=panel.hist)
 
-m.table<-dredge(m.graze)
+# m.table<-dredge(m.graze)
 tab<-data.frame(m.table)
 tab[is.na(tab)]<-0
 
@@ -81,7 +81,7 @@ colnames(m.graze)
 pairs2(dplyr::select_if(scrap.pred, is.numeric), 
   lower.panel = panel.cor, upper.panel = panel.smooth2, diag.panel=panel.hist)
 
-m.table<-dredge(m.graze)
+# m.table<-dredge(m.graze)
 tab<-data.frame(m.table)
 tab[is.na(tab)]<-0
 
