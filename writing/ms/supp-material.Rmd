@@ -55,29 +55,15 @@ knitr::include_graphics("../../figures/FigureS2_cropper_bites.pdf"); i = i + 1
 
 \newpage
 
-```{r, out.width = "480px", echo=F,fig.align='center'}
-knitr::include_graphics("../../figures/FigureS3_browser_bites.pdf"); i = i + 1
-```
-
-**Figure S`r i` | Browser bite rate predictions (A) and observed browser function in UVC (B)** Predicted bite rates are median posterior predictions with 95% certainty intervals (A), and boxplots are site-level observed browsing function for each reef, coloured by UVC region.
-
-\newpage
 
 ```{r, out.width = "480px", echo=F,fig.align='center'}
-knitr::include_graphics("../../figures/FigureS4_scraper_bites.pdf"); i = i + 1
+knitr::include_graphics("../../figures/FigureS3_scraper_bites.pdf"); i = i + 1
 ```
 
 **Figure S`r i` | Scraper bite rate predictions (A) and observed scraping function in UVC (B)** Predicted bite rates are median posterior predictions with 95% certainty intervals (A), and boxplots are site-level observed scraping function for each reef, coloured by UVC region.
 
 \newpage
 
-```{r, out.width = "480px", echo=F,fig.align='center'}
-knitr::include_graphics("../../figures/FigureS5_evenness.pdf"); i = i + 1
-```
 
-**Figure S`r i` | Evenness effect on scraping function.** Points are partial residuals from linear mixed effects model for predicted evenness effect while excluding effects from other explanatory covariates (e.g. biomass, size, richness). Black line is fitted to full dataset and grey line is fitted to evenness values > 0.4, with 95% bootstrapped confidence intervals.
-
-
-\newpage
 
 

@@ -1,0 +1,160 @@
+---
+title: "Models 5 - Herbivore function linear models"
+output:
+  html_document:
+    df_print: paged
+    fig_width: 7
+    fig_height: 6
+    fig_caption: true
+    css: style.css
+    theme: sandstone
+  html_notebook: default
+  pdf_document: default
+---
+
+```{r global_options, include=FALSE}
+knitr::opts_chunk$set(fig.pos = 'H')  ## Hold figure positions
+
+## scraper functions
+load(file = '../../results/models/scraper_function.Rdata'); scrape<-h
+
+## grazer functions
+load(file = '../../results/models/cropper_function.Rdata'); crop<-h
+
+library(ggplot2); library(visreg); library(lme4); library(tidyverse); library(scales); library(sjPlot); 
+library(funk); library(cowplot)
+theme_set(theme_sleek())
+options(scipen=999)
+library(wesanderson); pal <- wes_palette("Zissou1", 21, type = "continuous")
+cols<-c(pal[5], pal[12], pal[18], pal[1], pal[15],pal[21] )
+
+```
+
+This document loads grazing function estimates for croppers and scrapers, then fits linear mixed effects models that measure the relative effects of benthic and fishing covariates (the same as 01_biomass_models.Rmd).
+
+function ~ fixed(hard.coral + macroalgae + complexity + substrate + rubble + fishbiom + fished + pristine) + random(dataset/reef)
+
+<br><br>
+
+\newpage
+
+#### Croppers
+
+<br><br>
+
+```{r, include=FALSE}
+
+## scale vars to keep covariate means = 0. This is helpful for comparing effect sizes when covariates are on different scales.
+h<-crop
+h$hard.coral <- scale(h$hard.coral)
+h$macroalgae <- scale(h$macroalgae)
+h$complexity <- scale(h$complexity)
+h$rubble <- scale(h$rubble)
+h$substrate <- scale(h$substrate)
+h$fish.biom <- scale(h$fish.biom)
+
+## make dummy variables
+h$fish.dummy<-ifelse(h$management=='Fished', 1, 0)
+h$pristine.dummy<-ifelse(h$management=='Unfished', 1, 0)
+# we use 2 dummy variables for 3 levels
+
+## match in site level diversity/size predictors
+load(file = '../../results/cropper_attributes.Rdata')
+h$site.richness<-scale(diversity.preds$richness[match(h$unique.id, diversity.preds$unique.id)])
+h$site.size<-scale(diversity.preds$mean.size[match(h$unique.id, diversity.preds$unique.id)])
+
+
+## drop 0 grazer site
+#h<-h[h$grazer > 0,]
+
+m.grazer<-glmer(cropping.gram.ha ~ hard.coral + macroalgae + rubble + substrate + complexity + fish.biom + fish.dummy + pristine.dummy + ## fixed
+  site.richness + site.size +
+          (1 | dataset/reef) , ## random, nested = reefs within datasets
+                data = h, family='Gamma'(link='log'))
+
+# save modelled dataframe as 'focal'
+focal<-h
+
+save(focal, m.grazer, file = '../../results/models/function_m_croppers.Rdata')
+
+```
+
+```{r, echo=FALSE, include=TRUE, messages=FALSE, fig.align = 'center', fig.cap='Figure 1: Cropper model diagnostics - residuals and fitted values'}
+print(summary(m.grazer),  digits = 2, signif.stars = FALSE)
+
+print(paste('R-squared = ', piecewiseSEM::rsquared(m.grazer)))
+
+## model diagnostic plots - grazer biomass
+par(mfrow=c(2,2), mar=c(5,4,2,2))
+hist(resid(m.grazer), main = 'model residuals', xlab='Residuals', cex.main=0.8)
+plot(resid(m.grazer), fitted(m.grazer), xlab='Residuals', ylab= 'Fitted values', pch=16,col=alpha('black', 0.5), cex.main=0.8)
+plot(resid(m.grazer), h$cropping.gram.ha, xlab='Residuals', ylab= 'Observed function', pch=16,col=alpha('black', 0.5), cex.main=0.8)
+plot(predict(m.grazer, type='response'), h$cropping.gram.ha, xlab='Predicted function', ylab='Observed function', pch=16, col=alpha('black', 0.5), cex.main=0.8)
+```
+
+<br><br>
+<br><br>
+
+```{r, echo=FALSE, include=TRUE, messages=FALSE, fig.align = 'center', fig.cap='Figure 2: Cropper model predictions'}
+plot_models(m.grazer)
+```
+
+
+\newpage
+
+#### Scrapers
+<br><br>
+
+```{r, include=FALSE}
+
+## scale vars to keep covariate means = 0. This is helpful for comparing effect sizes when covariates are on different scales.
+h<-scrape
+h$hard.coral <- scale(h$hard.coral)
+h$macroalgae <- scale(h$macroalgae)
+h$complexity <- scale(h$complexity)
+h$rubble <- scale(h$rubble)
+h$substrate <- scale(h$substrate)
+h$fish.biom <- scale(h$fish.biom)
+
+## make dummy variables
+h$fish.dummy<-ifelse(h$management=='Fished', 1, 0)
+h$pristine.dummy<-ifelse(h$management=='Unfished', 1, 0)
+# we use 2 dummy variables for 3 levels
+
+## match in site level diversity/size predictors
+load(file = '../../results/scraper_attributes.Rdata')
+h$site.richness<-scale(diversity.preds$richness[match(h$unique.id, diversity.preds$unique.id)])
+h$site.size<-scale(diversity.preds$mean.size[match(h$unique.id, diversity.preds$unique.id)])
+
+
+## drop 0 grazer site
+#h<-h[h$grazer > 0,]
+
+m.scraper<-glmer(scraping ~ hard.coral + macroalgae + rubble + substrate + complexity + fish.biom + fish.dummy + pristine.dummy + ## fixed
+  site.richness + site.size +
+          (1 | dataset/reef) , ## random, nested = reefs within datasets
+                data = h, family='Gamma'(link='log'))
+
+# save modelled dataframe as 'focal'
+focal<-h
+
+save(focal, m.scraper, file = '../../results/models/function_m_scrapers.Rdata')
+
+```
+
+```{r, echo=FALSE, include=TRUE, messages=FALSE, fig.align = 'center', fig.cap='Figure 3: Scraping model diagnostics - residuals and fitted values'}
+print(summary(m.scraper),  digits = 2, signif.stars = FALSE)
+
+print(paste('R-squared = ', piecewiseSEM::rsquared(m.scraper)))
+
+## model diagnostic plots - scraper biomass
+par(mfrow=c(2,2), mar=c(5,4,2,2))
+hist(resid(m.scraper), main = 'model residuals', xlab='Residuals', cex.main=0.8)
+plot(resid(m.scraper), fitted(m.scraper), xlab='Residuals', ylab= 'Fitted values', pch=16,col=alpha('black', 0.5), cex.main=0.8)
+plot(resid(m.scraper), h$scraping, xlab='Residuals', ylab= 'Observed function', pch=16,col=alpha('black', 0.5), cex.main=0.8)
+plot(predict(m.scraper, type='response'), h$scraping, xlab='Predicted function', ylab='Observed function', pch=16, col=alpha('black', 0.5), cex.main=0.8)
+```
+
+```{r, echo=FALSE, include=TRUE, messages=FALSE, fig.align = 'center', fig.cap='Figure 4: Scraping model predictions'}
+plot_models(m.scraper)
+```

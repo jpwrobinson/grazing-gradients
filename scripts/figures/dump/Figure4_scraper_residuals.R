@@ -42,6 +42,7 @@ h$resid<-resid(m.scrape)
 ## attach to t
 h$simpson.diversity<-div$div[match(h$unique.id, div$unique.id)] ## simpson is 1 - D. 
 h$sp.richness<-div$richness[match(h$unique.id, div$unique.id)]
+# h$sp.richness2<-diversity.preds$estimated[match(h$unique.id, diversity.preds$unique.id)]
 h$evenness<-div$J[match(h$unique.id, div$unique.id)]
 h$mean.size<-div$mean.size[match(h$unique.id, div$unique.id)]
 h$mean.mass<-div$mean.mass[match(h$unique.id, div$unique.id)]
@@ -76,7 +77,7 @@ rsquared(m.scrape2)
 summary(m.scrape2)
 
 h$r<-resid(m.scrape2)
-ggplot(h, aes(scraping, r, col=dataset)) + geom_point()
+ggplot(h, aes(scraping, biom.scaled, col=dataset)) + geom_point() + scale_x_log10()
 
 pairs2(h[,str_detect(colnames(h), 'scaled')],
   lower.panel = panel.cor, upper.panel = panel.smooth2, diag.panel=panel.hist)
