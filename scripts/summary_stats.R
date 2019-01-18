@@ -34,16 +34,16 @@ rsquared(m.scraper)
 load("results/models/browser_function.Rdata")
 load("results/models/scraper_function.Rdata")
 load("results/models/cropper_function.Rdata")
-rsquared(m.browse)
+rsquared(m.browser)
 #   Response   family     link method  Marginal Conditional
 # 1 browsing gaussian identity   none 0.9979434   0.9979434
 
-rsquared(m.graze)
+rsquared(m.grazer)
 #           Response   family     link method  Marginal Conditional
 # 1 cropping.gram.ha gaussian identity   none 0.9466518   0.9567969
 
 
-rsquared(m.scrape)
+rsquared(m.scraper)
 #   Response   family     link method  Marginal Conditional
 # 1 scraping gaussian identity   none 0.4094991    0.759337
 
@@ -147,3 +147,6 @@ table5  <- aggregate( fish.biom  ~ reef, pred, mean )
 table6 <- aggregate( substrate ~ reef, pred, mean )
 table <- do.call("cbind", list(table, table1, table2, table3, table4, table5, table6))
 table <- table[, !duplicated(colnames(table))]
+
+
+write.csv(table, "summary_stats.csv")

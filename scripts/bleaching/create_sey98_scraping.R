@@ -73,18 +73,16 @@ h <- sey %>%
                  unique.id, depth, FG) %>%
           summarise(scraping = sum(scraping), biom=sum(biomass.kgha), abund = sum(abundance.500m2)) %>%
   ## mean scraping across transects at each site
-          group_by(dataset, date, reef, site, management, unique.id, depth, FG) %>%
+          group_by(dataset, date, reef, site, management, depth, FG) %>%
           summarise(scraping = mean(scraping), biom=mean(biom), abund = mean(abund)) 
 
 ## correct scraping to per hectare
 ## for surveys = 153.9m2, which is when abundance.500m2 = 3.24806 (Seychelles)
 h$scraping <- h$scraping/0.01539 
 
-## sum within unique.id to account for different transect areas in Maldives
-h <- h %>% group_by(dataset, date, reef, site, management, unique.id, depth, FG) %>%
-          summarise(scraping = sum(scraping), biom=sum(biom), abund = mean(abund)) 
-
 ## drop annoying dplyr things
 sey$bitearea<-sey$bitearea[,1]
 sey$scraping<-sey$scraping[,1]
 save(sey, h, file = 'results/bleaching/scraper_function_seychelles.Rdata')
+
+
