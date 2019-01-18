@@ -1,6 +1,7 @@
 
 rm(list=ls())
 setwd('/Users/robins64/Documents/git_repos/grazing-gradients')
+setwd('C:/Users/jan/Box Sync/PhD Feedbacks/Git Repository/grazing-gradients')
 library(tidyverse); library(funk)
 theme_set(theme_sleek()); library(knitr); library(kableExtra)
 
