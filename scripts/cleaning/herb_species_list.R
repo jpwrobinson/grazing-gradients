@@ -40,6 +40,10 @@ kable(species, "html") %>%
   kable_styling(bootstrap_options = c("striped", "hover")) %>%
   cat(., file = 'writing/ms/TableS1_Specieslist.html')
 
+## drop browsers, drop 'herbivore' from FG
+species <- species %>% filter(FG != 'Herbivore Browser')
+species$FG <- str_replace_all(species$FG, 'Herbivore', '')
+
 ## also save csv
 write.csv(species, file='writing/ms/TableS1_Specieslist.csv')
 

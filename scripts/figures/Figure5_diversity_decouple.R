@@ -22,7 +22,12 @@ croppers$sp <- 'croppers'
 load(file = 'results/cropper_attributes.Rdata')
 croppers$site.richness<-diversity.preds$richness[match(croppers$unique.id, diversity.preds$unique.id)]
 croppers$site.evenness<-diversity.preds$J[match(croppers$unique.id, diversity.preds$unique.id)]
-croppers$site.evenness[is.na(croppers$site.evenness)]<-0
+
+## NOTE - site with 1 species dropped from analysis
+# croppers$site.evenness[is.na(croppers$site.evenness)]<-1
+croppers<- croppers[!is.na(croppers$site.evenness),]
+
+## add rarefied vals
 rare<-read.csv(file = 'results/rarefied_richness_croppers.csv')
 croppers$site.rarefied<-rare$qD[match(croppers$unique.id, rare$site)]
 
@@ -33,23 +38,23 @@ m.graze<-glmer(cropping.gram.ha ~ biom +
                    site.evenness +
                    abund +
                    (1 | dataset/reef), crop.pred, family='Gamma'(link = 'log'))
-colnames(m.graze)
+
 pairs2(dplyr::select_if(crop.pred, is.numeric), 
   lower.panel = panel.cor, upper.panel = panel.smooth2, diag.panel=panel.hist)
 
 # m.table<-dredge(m.graze)
 tab<-data.frame(m.table)
 tab[is.na(tab)]<-0
-
 write.csv(tab, 'results/tables/cropper_div_AICtable.csv')
 
-# ## MMI for decoupling
+## MMI for decoupling
 # mm.crop<-mmi_tvalue(m.graze, dataset = crop.pred,  
 #     exp.names = c('biom', 'site.rarefied', 'site.evenness', 'abund'), 
 #     indicator = 'cropping.gram.ha', 
 #     ranef = c('dataset', 'reef'), family='Gamma')
-# r<-mm.crop[[2]]
-# r2 top model = 0.8600610 marg,  0.8680170 cond
+r<-mm.crop[[2]]
+r
+# r2 top model = 0.86 marg,  0.86 cond
 
 ## top model is:
 crop.top<-glmer(cropping.gram.ha ~ biom +
@@ -77,7 +82,7 @@ m.graze<-glmer(scraping ~ biom +
                    site.evenness +
                    abund +
                    (1 | dataset/reef), scrap.pred, family='Gamma'(link = 'log'))
-colnames(m.graze)
+
 pairs2(dplyr::select_if(scrap.pred, is.numeric), 
   lower.panel = panel.cor, upper.panel = panel.smooth2, diag.panel=panel.hist)
 
@@ -146,8 +151,12 @@ g1<-ggplot(nd.even.crop) +
      x = 'Species evenness') +
     # geom_hline(yintercept=0, linetype=5, col='grey') +
     theme(legend.title=element_blank(),
-          legend.position = c(0.2, 0.8)) +
-    guides(size = F) +
+          legend.position = c(0.62, 0.95),
+          legend.spacing.x = unit(0, 'cm'),
+          legend.spacing.y = unit(0, 'cm'),
+          # legend.box.background = element_rect(colour = "black"),
+           legend.text=element_text(size=8)) +
+    guides(size = F, shape=guide_legend(nrow=1,byrow=TRUE)) +
     geom_point(data=croppers, col=cols[1], aes(site.evenness, cropping.gram.ha, shape=dataset))
 
 
@@ -180,7 +189,5 @@ g3<-ggplot(nd.even.scrape) +
 pdf(file='figures/Figure5_diversity.pdf', height = 3, width=12)
 plot_grid(g1, g2, g3, labels=c('A', 'B', 'C'), nrow=1)
 dev.off()
-
-
 
 
