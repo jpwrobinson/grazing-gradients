@@ -12,6 +12,9 @@ setwd(here('grazing-gradients'))
 library(MuMIn); options(na.action = 'na.fail')
 
 
+th<-theme(axis.text=element_text(size=12),
+                axis.title=element_text(size=12))
+
 # data load
 
 ## cropper data
@@ -39,8 +42,8 @@ m.graze<-glmer(cropping.gram.ha ~ biom +
                    abund +
                    (1 | dataset/reef), crop.pred, family='Gamma'(link = 'log'))
 
-pairs2(dplyr::select_if(crop.pred, is.numeric), 
-  lower.panel = panel.cor, upper.panel = panel.smooth2, diag.panel=panel.hist)
+# pairs2(dplyr::select_if(crop.pred, is.numeric), 
+#   lower.panel = panel.cor, upper.panel = panel.smooth2, diag.panel=panel.hist)
 
 # m.table<-dredge(m.graze)
 tab<-data.frame(m.table)
@@ -147,41 +150,42 @@ cols<-c(pal[5], pal[12])
 g1<-ggplot(nd.even.crop) + 
     geom_ribbon(aes(site.evenness.raw, pred, ymin = pred - 2*se, ymax = pred + 2*se), alpha=0.1, fill=cols[1]) + 
     geom_line(aes(site.evenness.raw, pred), col=cols[1]) +
-    labs(y = expression(paste("algal consumption g ha"^-1,"min"^-1)),
+    labs(y = expression(paste("g ha"^-1,"min"^-1)),
      x = 'Species evenness') +
     # geom_hline(yintercept=0, linetype=5, col='grey') +
     theme(legend.title=element_blank(),
           legend.position = c(0.62, 0.95),
-          legend.spacing.x = unit(0, 'cm'),
-          legend.spacing.y = unit(0, 'cm'),
+          # legend.spacing.x = unit(0, 'cm'),
+          # legend.spacing.y = unit(0, 'cm'),
+          legend.key.size = unit(0.5, "cm"),
           # legend.box.background = element_rect(colour = "black"),
-           legend.text=element_text(size=8)) +
-    guides(size = F, shape=guide_legend(nrow=1,byrow=TRUE)) +
-    geom_point(data=croppers, col=cols[1], aes(site.evenness, cropping.gram.ha, shape=dataset))
+           legend.text=element_text(size=9)) +
+    guides(size = F, shape=guide_legend(nrow=1,byrow=TRUE,override.aes = list(col='grey', size=2))) +
+    geom_point(data=croppers, size=3, col=cols[1], aes(site.evenness, cropping.gram.ha, shape=dataset)) +th
 
 
 g2<-ggplot(nd.rich.scrape) + 
     geom_ribbon(aes(site.rarefied.raw, pred, ymin = pred - 2*se, ymax = pred + 2*se), alpha=0.1,fill=cols[2]) + 
     geom_line(aes(site.rarefied.raw, pred), col=cols[2]) +
     # geom_point(data=h, aes(site.rarefied, scraping, shape = dataset), size=3.5, alpha=0.7, col=cols[2])  +
-    labs(y = expression(paste('area grazed m'^2,' ha'^-1, 'min'^-1)),
+    labs(y = expression(paste('m'^2,' ha'^-1, 'min'^-1)),
      x = 'Species richness (rarefied)') +
     # geom_hline(yintercept=0, linetype=5, col='grey') +
     theme(legend.title=element_blank(),
           legend.position = 'none') +
-    geom_point(data=scrapers, col=cols[2],aes(site.rarefied, scraping, shape=dataset))
+    geom_point(data=scrapers,  size=3, col=cols[2],aes(site.rarefied, scraping, shape=dataset)) +th
 
 
 g3<-ggplot(nd.even.scrape) + 
     geom_ribbon(aes(site.evenness.raw, pred, ymin = pred - 2*se, ymax = pred + 2*se), alpha=0.1,fill=cols[2]) + 
     geom_line(aes(site.evenness.raw, pred), col=cols[2]) +
     # geom_point(data=h, aes(site.rarefied, scraping, shape = dataset), size=3.5, alpha=0.7, col=cols[2])  +
-    labs(y = expression(paste('area grazed m'^2,' ha'^-1, 'min'^-1)),
+    labs(y = expression(paste('m'^2,' ha'^-1, 'min'^-1)),
      x = 'Species evenness') +
     # geom_hline(yintercept=0, linetype=5, col='grey') +
     theme(legend.title=element_blank(),
           legend.position = 'none') +
-    geom_point(data=scrapers, col=cols[2],aes(site.evenness, scraping, shape=dataset))
+    geom_point(data=scrapers, size=3,  col=cols[2],aes(site.evenness, scraping, shape=dataset)) +th
 
 
 

@@ -66,7 +66,7 @@ cols<-c(pal[5], pal[12], pal[18])
 cols.named<-c('Croppers' = pal[5], 'Scrapers' = pal[12])
 theme_set(theme_sleek())
 ylab<-rev(c('Hard coral', 'Available\nsubstrate', 'Rubble', 'Macroalgae', 'Habitat\ncomplexity',
-        'Fishable\nbiomass', 'Fished reef', 'Pristine reef', 'Mean size'))#,'Species richness'))
+        'Fishable\nbiomass', 'Fished reef', 'Pristine reef', 'Mean length'))#,'Species richness'))
 
 ## reorder factor levels here - careful this is manual, check plot is ok
 ## for full model plot
@@ -91,7 +91,8 @@ g.effects <- ggplot(est, aes(Var, RI.t.abs, fill=indicator, col=indicator)) +
               labs(x='', y = 'Standardized effect size') +
               scale_x_discrete(labels = ylab) +
               theme(legend.position = c(0.8, 0.8),
-                legend.title=element_blank()) + coord_flip() +
+                legend.title=element_blank(),
+                strip.text.x=element_text(size=14)) + coord_flip() +
               geom_vline(xintercept = 4.5, size=2, col='grey90') +
               annotate('text', x = 9.35, y = 6.6, label = 'A', fontface='bold', size=5) +
               annotate('text', x = 4.25, y = 6.6, label = 'B', fontface='bold', size=5)
@@ -111,7 +112,10 @@ g.rel.effects <- ggplot(est, aes(Var, RI.t.ratio, fill=indicator, col=indicator)
               labs(x='', y = 'Relative effect size') +
               scale_x_discrete(labels = ylab) + coord_flip() +
               theme(legend.position = 'none',
-                legend.title=element_blank()) + 
+                legend.title=element_blank(),
+                axis.text=element_text(size=14),
+                axis.title.x=element_text(size=18),
+                strip.text.x=element_text(size=14)) + 
               geom_vline(xintercept = 4.5, size=2, col='grey90') +
               geom_text(data = ann_text,col='black', 
                 aes(label = lab), size=6, vjust=-0.2, fontface='bold')
@@ -123,7 +127,7 @@ g.effects
 dev.off()
 
 
-pdf(file = "figures/Figure2_rel_effect_sizes_tvalue.pdf", width=10, height=6)
+pdf(file = "figures/Figure2_rel_effect_sizes_tvalue.pdf", width=12, height=6)
 g.rel.effects
 dev.off()
 

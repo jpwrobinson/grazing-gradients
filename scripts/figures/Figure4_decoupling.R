@@ -58,8 +58,8 @@ cols.named<-c('grazers' = pal[5], 'scrapers' = pal[12], 'browsers' = pal[18])
 theme_set(theme_sleek())
 
 function_names <- list(
-  'grazers'=expression(paste("algal consumption g ha"^-1,"min"^-1)),
-  'scrapers'=expression(paste('area grazed m'^2,' ha'^-1, 'min'^-1))
+  'grazers'=expression(paste("Algal consumption (g ha"^-1,"min"^-1, ')')),
+  'scrapers'=expression(paste('Area grazed (m'^2,' ha'^-1, 'min'^-1, ')'))
   #'browsers'="mass-standardized bites"
 )
 
@@ -78,17 +78,20 @@ df<-droplevels(df[!df$sp == 'browsers',])
 r2<-r2[!r2$sp == 'browsers',]
 
 ggplot(df, aes(biom, grazef, col=sp)) + 
-        geom_point(alpha=0.5, aes(shape=dataset)) +
+        geom_point(alpha=0.5, size=3,aes(shape=dataset)) +
         facet_wrap(~ sp, scales= 'free',labeller=func.labels) +
   labs(title = "") +
   scale_color_manual(values = cols.named) +
-  #scale_x_log10(label=comma) +
+  scale_x_continuous(label=comma) +
   scale_y_continuous(label=comma) +
-  geom_text(data = panel_labs, aes(x = 0, y = Inf, label=lab),col='black', size=4.5, fontface=2, hjust=0.4, vjust=1.4) +
+  geom_text(data = panel_labs, aes(x = 0, y = Inf, label=lab),col='black', size=5.5, fontface=2, hjust=0.4, vjust=1.4) +
   guides(col=F) +
-  theme(legend.position =c(0.35, 0.3), legend.title=element_blank()) +
+  theme(legend.position =c(0.35, 0.3), legend.title=element_blank(),
+    strip.text.x = element_text(size=12),
+    axis.text=element_text(size=14),
+                axis.title=element_text(size=14)) +
   xlab(expression(paste("biomass kg ha"^-1))) + ylab("Function")  +
-  geom_text(data=r2, aes(Inf, Inf, label=paste0("R", "^", "2", "==", label)), vjust=2, hjust=2, parse=TRUE) 
+  geom_text(data=r2, aes(Inf, Inf, label=paste0("R", "^", "2", "==", label)), fontface=2,vjust=2, hjust=2, parse=TRUE) 
   # geom_text(data=panel_labs, aes(Inf, Inf, label=panel_labs))
 
 dev.off()
