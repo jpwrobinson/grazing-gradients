@@ -154,13 +154,13 @@ g1<-ggplot(nd.even.crop) +
      x = 'Species evenness') +
     # geom_hline(yintercept=0, linetype=5, col='grey') +
     theme(legend.title=element_blank(),
-          legend.position = c(0.62, 0.95),
+          legend.position = c(0.58, 0.95),
           # legend.spacing.x = unit(0, 'cm'),
           # legend.spacing.y = unit(0, 'cm'),
           legend.key.size = unit(0.5, "cm"),
           # legend.box.background = element_rect(colour = "black"),
            legend.text=element_text(size=9)) +
-    guides(size = F, shape=guide_legend(nrow=1,byrow=TRUE,override.aes = list(col='grey', size=2))) +
+    guides(size = F, shape=guide_legend(nrow=1,byrow=TRUE,override.aes = list(col='black', size=2))) +
     geom_point(data=croppers, size=3, col=cols[1], aes(site.evenness, cropping.gram.ha, shape=dataset)) +th
 
 
