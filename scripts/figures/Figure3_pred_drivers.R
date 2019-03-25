@@ -80,7 +80,6 @@ deciles<-data.frame(
   complexity = quantile(h$complexity, prob=seq(0, 1, length.out=11)),
   site.size = quantile(h$site.size, prob=seq(0, 1, length.out=11)))
 
-
 g1<-ggplot(plot.pred[plot.pred$var != 'site.size',], aes(seq, pred)) + 
 		geom_line(lwd=1.2, aes(col=var, linetype=var)) +
 		scale_color_manual(values = c(cols[1], cols[1])) +
@@ -136,13 +135,15 @@ plot.pred$var.lab <- factor(plot.pred$var,
                         labels=c( expression(paste("g ha"^-1,"min"^-1)),
 			 	 expression(paste('m'^2,'ha'^-1, 'min'^-1))))
 
+deciles$var.lab <- unique(plot.pred$var.lab)[2]
+
 
 g2<-ggplot(plot.pred, aes(seq, pred)) + 
 		geom_line(lwd=1.2, aes(col=var)) +
 		geom_ribbon(aes(ymin = lwr, ymax = upr,fill=var), alpha=0.2) +
 		scale_color_manual(values = cols.named) +
 		scale_fill_manual(values = cols.named) +
-		labs(x = 'Habitat complexity') +
+		labs(x = 'Structural complexity') +
 		theme(legend.position = 'none', 
 			legend.title = element_blank(),
 			strip.text=element_text(size=14),
@@ -152,8 +153,9 @@ g2<-ggplot(plot.pred, aes(seq, pred)) +
 			 strip.position = "left", 
 			labeller = label_parsed) +
 		ylab(NULL) +
-		geom_rug(data=deciles, aes(complexity, 0.3), sides='b', alpha=1, col='grey50',size=1) + th
+		geom_rug(data=deciles, aes(complexity, 0.4), sides='b', alpha=1, col='grey50',size=1) + th
 
+g2
 ### plot fishing effects for scrapers
 
 fished<-mm.scrape[[3]]['Fished.Protected.dummy'][1,]

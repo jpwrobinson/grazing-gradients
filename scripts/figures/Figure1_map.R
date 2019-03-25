@@ -28,7 +28,11 @@ sites$km.cluster<-as.character(sites$km.cluster)
 sites$cluster.type<-as.factor(sites$km.cluster)
 sites$cluster.type<-plyr::revalue(sites$cluster.type, 
         c('1' = 'Rubble', '2' = 'Macroalgae', '3' = 'Substrate', '4' = 'Coral'))
-table(sites$cluster.type)
+ table(sites$cluster.type)
+
+
+t<-pred %>% filter(site == 'John Brewer1')
+
 
 # # big map
 # world <- map_data("world2") 
