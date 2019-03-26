@@ -22,7 +22,7 @@ h <- pred %>%
           summarise(abund = sum(abundance.500m2)) %>%
   ## mean FG biomass across transects at each site
           group_by(dataset, reef, site, unique.id, FG, species) %>%
-          summarise(abund = mean(abund))# %>%
+          summarise(abund = mean(abund)) #%>%
 		### change to presence absence
 		# mutate(abund = ifelse(abund > 0, 1, 0)) #%>% 
 

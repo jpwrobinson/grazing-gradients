@@ -155,7 +155,7 @@ g2<-ggplot(plot.pred, aes(seq, pred)) +
 		ylab(NULL) +
 		geom_rug(data=deciles, aes(complexity, 0.4), sides='b', alpha=1, col='grey50',size=1) + th
 
-g2
+
 ### plot fishing effects for scrapers
 
 fished<-mm.scrape[[3]]['Fished.Protected.dummy'][1,]

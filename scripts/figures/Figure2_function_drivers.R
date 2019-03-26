@@ -65,7 +65,7 @@ pal <- wesanderson::wes_palette("Zissou1", 21, type = "continuous")
 cols<-c(pal[5], pal[12], pal[18])
 cols.named<-c('Croppers' = pal[5], 'Scrapers' = pal[12])
 theme_set(theme_sleek())
-ylab<-rev(c('Hard coral', 'Available\nsubstrate', 'Rubble', 'Macroalgae', 'Habitat\ncomplexity',
+ylab<-rev(c('Hard coral', 'Available\nsubstrate', 'Rubble', 'Macroalgae', 'Structural\ncomplexity',
         'Fishable\nbiomass', 'Fished reef', 'Pristine reef', 'Mean length'))#,'Species richness'))
 
 ## reorder factor levels here - careful this is manual, check plot is ok

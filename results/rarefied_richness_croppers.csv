@@ -1,132 +1,132 @@
 "","site","m","method","order","SC","qD","qD.LCL","qD.UCL"
-"1","2008.Cousin Carbonate",2,"interpolated",0,0.267,1.855,1.835,1.875
-"2","2008.Cousin Granite",2,"interpolated",0,0.404,1.762,1.708,1.816
-"3","2008.Cousin Patch",2,"interpolated",0,0.374,1.782,1.74,1.824
-"4","2008.Mahe E Carbonate",2,"interpolated",0,0.468,1.702,1.643,1.76
-"5","2008.Mahe E Granite",2,"interpolated",0,0.342,1.807,1.772,1.842
-"6","2008.Mahe E Patch",2,"interpolated",0,0.33,1.812,1.774,1.849
-"7","2008.Mahe NW Carbonate",2,"interpolated",0,0.453,1.728,1.682,1.773
-"8","2008.Mahe NW Granite",2,"interpolated",0,0.241,1.868,1.843,1.893
-"9","2008.Mahe NW Patch",2,"interpolated",0,0.351,1.8,1.758,1.842
-"10","2008.Mahe W Carbonate",2,"interpolated",0,0.352,1.799,1.765,1.832
-"11","2008.Mahe W Granite",2,"interpolated",0,0.276,1.842,1.801,1.883
-"12","2008.Mahe W Patch",2,"interpolated",0,0.291,1.838,1.788,1.887
-"13","2008.Praslin NE Carbonate",2,"interpolated",0,0.291,1.837,1.751,1.924
-"14","2008.Praslin NE Granite",2,"interpolated",0,0.249,1.863,1.836,1.89
-"15","2008.Praslin NE Patch",2,"interpolated",0,0.329,1.816,1.786,1.846
-"16","2008.Praslin SW Carbonate",2,"interpolated",0,0.267,1.867,1.635,2.098
-"17","2008.Praslin SW Granite",2,"interpolated",0,0.297,1.836,1.81,1.861
-"18","2008.Praslin SW Patch",2,"interpolated",0,0.628,1.548,1.498,1.597
-"19","2008.Ste Anne Carbonate",2,"interpolated",0,0.549,1.653,1.602,1.704
-"20","2008.Ste Anne Granite",2,"interpolated",0,0.222,1.882,1.869,1.894
-"21","2008.Ste Anne Patch",2,"interpolated",0,0.589,1.61,1.532,1.688
-"22","2011.Cousin Carbonate",2,"interpolated",0,0.434,1.744,1.666,1.823
-"23","2011.Cousin Granite",2,"interpolated",0,0.238,1.873,1.833,1.913
-"24","2011.Cousin Patch",2,"interpolated",0,0.48,1.703,1.656,1.75
-"25","2011.Mahe E Carbonate",2,"interpolated",0,0.568,1.622,1.499,1.745
-"26","2011.Mahe E Granite",2,"interpolated",0,0.429,1.744,1.66,1.827
-"27","2011.Mahe E Patch",2,"interpolated",0,0.271,1.852,1.804,1.9
-"28","2011.Mahe NW Carbonate",2,"interpolated",0,0.458,1.722,1.657,1.787
-"29","2011.Mahe NW Granite",2,"interpolated",0,0.303,1.833,1.802,1.864
-"30","2011.Mahe NW Patch",2,"interpolated",0,0.473,1.714,1.579,1.849
-"31","2011.Mahe W Carbonate",2,"interpolated",0,0.339,1.807,1.746,1.868
-"32","2011.Mahe W Granite",2,"interpolated",0,0.324,1.819,1.773,1.865
-"33","2011.Mahe W Patch",2,"interpolated",0,0.496,1.688,1.594,1.782
-"34","2011.Praslin NE Carbonate",2,"observed",0,0.667,2,1.039,2.961
-"35","2011.Praslin NE Granite",2,"interpolated",0,0.319,1.819,1.778,1.859
-"36","2011.Praslin NE Patch",2,"interpolated",0,0.341,1.804,1.725,1.883
-"37","2011.Praslin SW Granite",2,"interpolated",0,0.299,1.832,1.792,1.871
-"38","2011.Praslin SW Patch",2,"interpolated",0,0.738,1.42,1.358,1.481
-"39","2011.Ste Anne Carbonate",2,"interpolated",0,0.78,1.364,1.268,1.461
-"40","2011.Ste Anne Granite",2,"interpolated",0,0.256,1.859,1.822,1.896
-"41","2011.Ste Anne Patch",2,"interpolated",0,0.694,1.494,1.446,1.542
-"42","2014.Cousin Carbonate",2,"interpolated",0,0.389,1.783,1.723,1.844
-"43","2014.Cousin Granite",2,"interpolated",0,0.296,1.839,1.8,1.877
-"44","2014.Cousin Patch",2,"interpolated",0,0.622,1.578,1.534,1.622
-"45","2014.Mahe E Carbonate",2,"interpolated",0,0.405,1.764,1.714,1.815
-"46","2014.Mahe E Granite",2,"interpolated",0,0.381,1.783,1.702,1.864
-"47","2014.Mahe E Patch",2,"interpolated",0,0.321,1.822,1.769,1.876
-"48","2014.Mahe NW Carbonate",2,"interpolated",0,0.44,1.737,1.693,1.781
-"49","2014.Mahe NW Granite",2,"interpolated",0,0.316,1.822,1.766,1.878
-"50","2014.Mahe NW Patch",2,"interpolated",0,0.253,1.863,1.82,1.906
-"51","2014.Mahe W Carbonate",2,"interpolated",0,0.423,1.75,1.701,1.798
-"52","2014.Mahe W Granite",2,"interpolated",0,0.25,1.863,1.822,1.904
-"53","2014.Mahe W Patch",2,"interpolated",0,0.521,1.665,1.597,1.734
-"54","2014.Praslin NE Carbonate",2,"interpolated",0,0.352,1.81,1.539,2.08
-"55","2014.Praslin NE Granite",2,"interpolated",0,0.33,1.809,1.762,1.856
-"56","2014.Praslin NE Patch",2,"interpolated",0,0.296,1.837,1.789,1.886
-"57","2014.Praslin SW Carbonate",2,"interpolated",0,0.311,1.829,1.743,1.914
-"58","2014.Praslin SW Granite",2,"interpolated",0,0.322,1.813,1.76,1.866
-"59","2014.Praslin SW Patch",2,"interpolated",0,0.766,1.399,1.333,1.465
-"60","2014.Ste Anne Carbonate",2,"interpolated",0,0.812,1.316,1.196,1.437
-"61","2014.Ste Anne Granite",2,"interpolated",0,0.222,1.882,1.855,1.909
-"62","2014.Ste Anne Patch",2,"interpolated",0,0.697,1.54,1.502,1.578
-"63","2017.Mahe E Carbonate",2,"interpolated",0,0.513,1.676,1.558,1.794
-"64","2017.Mahe E Granite",2,"interpolated",0,0.485,1.705,1.558,1.852
-"65","2017.Mahe E Patch",2,"interpolated",0,0.293,1.839,1.781,1.897
-"66","2017.Mahe NW Carbonate",2,"interpolated",0,0.462,1.7,1.627,1.772
-"67","2017.Mahe NW Granite",2,"interpolated",0,0.315,1.826,1.786,1.865
-"68","2017.Mahe NW Patch",2,"interpolated",0,0.28,1.846,1.817,1.876
-"69","2017.Mahe W Carbonate",2,"interpolated",0,0.503,1.673,1.615,1.731
-"70","2017.Mahe W Granite",2,"interpolated",0,0.306,1.83,1.795,1.866
-"71","2017.Mahe W Patch",2,"interpolated",0,0.711,1.456,1.374,1.538
-"72","2017.Praslin NE Carbonate",2,"interpolated",0,0.48,1.719,1.623,1.815
-"73","2017.Praslin NE Granite",2,"interpolated",0,0.248,1.862,1.823,1.901
-"74","2017.Praslin NE Patch",2,"interpolated",0,0.382,1.778,1.692,1.865
-"75","2017.Praslin SW Carbonate",2,"interpolated",0,0.284,1.848,1.779,1.917
-"76","2017.Praslin SW Granite",2,"interpolated",0,0.244,1.867,1.835,1.899
-"77","2017.Praslin SW Patch",2,"interpolated",0,0.486,1.696,1.636,1.756
-"78","2017.Ste Anne Carbonate",2,"interpolated",0,0.629,1.577,1.401,1.753
-"79","2017.Ste Anne Granite",2,"interpolated",0,0.176,1.907,1.883,1.931
-"80","2017.Ste Anne Patch",2,"interpolated",0,0.755,1.419,1.337,1.5
-"81","Davies1.Davies",2,"interpolated",0,0.358,1.796,1.756,1.835
-"82","Davies2.Davies",2,"interpolated",0,0.298,1.831,1.779,1.883
-"83","Davies3.Davies",2,"interpolated",0,0.329,1.813,1.768,1.857
-"84","Dhaandhoo.Huvadhoo",2,"interpolated",0,0.296,1.831,1.761,1.9
-"85","Diego Garcia.Barton Point east",2,"interpolated",0,0.492,1.693,1.615,1.771
-"86","Diego Garcia.Barton Point west",2,"interpolated",0,0.325,1.813,1.716,1.909
-"87","Diego Garcia.Cannon Point",2,"interpolated",0,0.582,1.626,1.544,1.708
-"88","Diego Garcia.Cannon Point 2",2,"interpolated",0,0.399,1.764,1.686,1.843
-"89","Diego Garcia.East side",2,"interpolated",0,0.478,1.7,1.593,1.807
-"90","Diego Garcia.Middle Island",2,"interpolated",0,0.52,1.657,1.536,1.778
-"91","Gemanafushi.Huvadhoo",2,"interpolated",0,0.357,1.796,1.739,1.852
-"92","Great Chagos Bank.Eagle (S1)",2,"interpolated",0,0.412,1.749,1.687,1.812
-"93","Great Chagos Bank.Eagle (S2)",2,"interpolated",0,0.379,1.78,1.738,1.821
-"94","Great Chagos Bank.Eagle (S3)",2,"interpolated",0,0.251,1.863,1.835,1.89
-"95","Great Chagos Bank.Middle Brother (E3)",2,"interpolated",0,0.701,1.464,1.277,1.651
-"96","Great Chagos Bank.South Brother (E1)",2,"interpolated",0,0.636,1.53,1.399,1.662
-"97","Great Chagos Bank.South Brother (E2)",2,"interpolated",0,0.4,1.767,1.698,1.837
-"98","John Brewer1.John Brewer",2,"interpolated",0,0.211,1.882,1.827,1.936
-"99","John Brewer2.John Brewer",2,"interpolated",0,0.238,1.869,1.829,1.909
-"100","John Brewer3.John Brewer",2,"interpolated",0,0.241,1.868,1.831,1.905
-"101","Kodey.Huvadhoo",2,"interpolated",0,0.596,1.593,1.465,1.722
-"102","Kooddoo.Huvadhoo",2,"interpolated",0,0.599,1.569,1.455,1.684
-"103","Kuredhdhoo.Huvadhoo",2,"interpolated",0,0.694,1.481,1.393,1.57
-"104","Maamendhoo.Huvadhoo",2,"interpolated",0,0.425,1.745,1.684,1.806
-"105","Maarehaa.Huvadhoo",2,"interpolated",0,0.624,1.601,1.548,1.654
-"106","Mahadhdhoo.Huvadhoo",2,"interpolated",0,0.276,1.849,1.809,1.889
-"107","Nilandhoo.Huvadhoo",2,"interpolated",0,0.351,1.795,1.74,1.85
-"108","Peros Banhos.Ile Poule (S1)",2,"interpolated",0,0.494,1.676,1.555,1.798
-"109","Peros Banhos.Ile Poule (S2)",2,"interpolated",0,0.356,1.794,1.737,1.85
-"110","Peros Banhos.North Diamont",2,"interpolated",0,0.519,1.651,1.526,1.776
-"111","Peros Banhos.Petite Coq (E4)",2,"interpolated",0,0.533,1.65,1.527,1.773
-"112","Peros Banhos.S3",2,"interpolated",0,0.487,1.687,1.607,1.767
-"113","Peros Banhos.South Coq (E5)",2,"interpolated",0,0.434,1.745,1.682,1.809
-"114","Peros Banhos.South Coq (E6)",2,"interpolated",0,0.573,1.62,1.52,1.72
-"115","Rib1.Rib",2,"interpolated",0,0.246,1.866,1.842,1.889
-"116","Rib2.Rib",2,"interpolated",0,0.258,1.856,1.817,1.896
-"117","Rib3.Rib",2,"interpolated",0,0.301,1.831,1.806,1.855
-"118","Salamon.E2",2,"interpolated",0,0.494,1.695,1.605,1.785
-"119","Salamon.E3",2,"interpolated",0,0.506,1.681,1.589,1.773
-"120","Salamon.E4",2,"interpolated",0,0.693,1.475,1.308,1.643
-"121","Salamon.Isle le Anglaise (S1)",2,"interpolated",0,0.453,1.716,1.632,1.799
+"1","2008.Cousin Carbonate",7,"interpolated",0,0.644,4.643,4.442,4.844
+"2","2008.Cousin Granite",5,"interpolated",0,0.666,3.232,2.948,3.516
+"3","2008.Cousin Patch",6,"interpolated",0,0.675,3.725,3.452,3.998
+"4","2008.Mahe E Carbonate",5,"interpolated",0,0.681,3.028,2.809,3.247
+"5","2008.Mahe E Granite",6,"interpolated",0,0.678,3.839,3.617,4.061
+"6","2008.Mahe E Patch",7,"interpolated",0,0.682,4.296,4.013,4.578
+"7","2008.Mahe NW Carbonate",4,"interpolated",0,0.656,2.7,2.54,2.859
+"8","2008.Mahe NW Granite",10,"interpolated",0,0.678,6.06,5.686,6.434
+"9","2008.Mahe NW Patch",6,"interpolated",0,0.679,3.803,3.56,4.046
+"10","2008.Mahe W Carbonate",6,"interpolated",0,0.666,3.817,3.535,4.099
+"11","2008.Mahe W Granite",10,"interpolated",0,0.666,5.904,5.426,6.381
+"12","2008.Mahe W Patch",8,"interpolated",0,0.682,4.892,4.452,5.333
+"13","2008.Praslin NE Carbonate",8,"interpolated",0,0.663,4.92,4.083,5.757
+"14","2008.Praslin NE Granite",9,"interpolated",0,0.656,5.636,5.309,5.964
+"15","2008.Praslin NE Patch",6,"interpolated",0,0.668,3.896,3.643,4.149
+"16","2008.Praslin SW Carbonate",4,"interpolated",0,0.533,3.2,2.401,3.999
+"17","2008.Praslin SW Granite",7,"interpolated",0,0.669,4.457,4.215,4.699
+"18","2008.Praslin SW Patch",2,"interpolated",0,0.628,1.548,1.502,1.594
+"19","2008.Ste Anne Carbonate",3,"interpolated",0,0.669,2.104,1.977,2.232
+"20","2008.Ste Anne Granite",9,"interpolated",0,0.66,5.785,5.532,6.037
+"21","2008.Ste Anne Patch",3,"interpolated",0,0.696,2.021,1.863,2.18
+"22","2011.Cousin Carbonate",4,"interpolated",0,0.652,2.75,2.442,3.058
+"23","2011.Cousin Granite",8,"interpolated",0,0.665,5.208,4.805,5.611
+"24","2011.Cousin Patch",4,"interpolated",0,0.675,2.625,2.471,2.778
+"25","2011.Mahe E Carbonate",3,"interpolated",0,0.671,2.054,1.821,2.286
+"26","2011.Mahe E Granite",5,"interpolated",0,0.694,3.135,2.749,3.52
+"27","2011.Mahe E Patch",8,"interpolated",0,0.684,4.985,4.525,5.446
+"28","2011.Mahe NW Carbonate",4,"interpolated",0,0.655,2.688,2.464,2.912
+"29","2011.Mahe NW Granite",7,"interpolated",0,0.685,4.405,4.115,4.694
+"30","2011.Mahe NW Patch",4,"interpolated",0,0.675,2.645,2.176,3.115
+"31","2011.Mahe W Carbonate",6,"interpolated",0,0.664,3.872,3.536,4.208
+"32","2011.Mahe W Granite",6,"interpolated",0,0.657,3.931,3.582,4.28
+"33","2011.Mahe W Patch",4,"interpolated",0,0.684,2.582,2.28,2.883
+"34","2011.Praslin NE Carbonate",2,"observed",0,0.667,2,1.073,2.927
+"35","2011.Praslin NE Granite",7,"interpolated",0,0.662,4.374,3.997,4.751
+"36","2011.Praslin NE Patch",6,"interpolated",0,0.645,3.889,3.46,4.319
+"37","2011.Praslin SW Granite",7,"interpolated",0,0.648,4.497,4.158,4.836
+"38","2011.Praslin SW Patch",1,"interpolated",0,0.58,1,1,1
+"39","2011.Ste Anne Carbonate",1,"interpolated",0,0.636,1,1,1
+"40","2011.Ste Anne Granite",9,"interpolated",0,0.667,5.557,5.112,6.002
+"41","2011.Ste Anne Patch",2,"interpolated",0,0.694,1.494,1.437,1.551
+"42","2014.Cousin Carbonate",4,"interpolated",0,0.63,2.871,2.629,3.112
+"43","2014.Cousin Granite",6,"interpolated",0,0.641,4.057,3.742,4.371
+"44","2014.Cousin Patch",2,"interpolated",0,0.622,1.578,1.535,1.622
+"45","2014.Mahe E Carbonate",5,"interpolated",0,0.681,3.218,2.964,3.472
+"46","2014.Mahe E Granite",5,"interpolated",0,0.665,3.303,2.844,3.763
+"47","2014.Mahe E Patch",6,"interpolated",0,0.665,3.932,3.568,4.297
+"48","2014.Mahe NW Carbonate",4,"interpolated",0,0.643,2.736,2.57,2.901
+"49","2014.Mahe NW Granite",7,"interpolated",0,0.671,4.378,3.975,4.781
+"50","2014.Mahe NW Patch",8,"interpolated",0,0.649,5.165,4.679,5.652
+"51","2014.Mahe W Carbonate",5,"interpolated",0,0.684,3.16,2.882,3.439
+"52","2014.Mahe W Granite",9,"interpolated",0,0.669,5.587,5.061,6.113
+"53","2014.Mahe W Patch",3,"interpolated",0,0.63,2.145,2.009,2.281
+"54","2014.Praslin NE Carbonate",5,"interpolated",0,0.667,3.381,2.2,4.562
+"55","2014.Praslin NE Granite",8,"interpolated",0,0.668,4.732,4.236,5.227
+"56","2014.Praslin NE Patch",7,"interpolated",0,0.684,4.438,4.01,4.867
+"57","2014.Praslin SW Carbonate",6,"interpolated",0,0.66,3.976,3.379,4.573
+"58","2014.Praslin SW Granite",8,"interpolated",0,0.677,4.76,4.34,5.181
+"59","2014.Praslin SW Patch",1,"interpolated",0,0.601,1,1,1
+"60","2014.Ste Anne Carbonate",1,"interpolated",0,0.684,1,1,1
+"61","2014.Ste Anne Granite",9,"interpolated",0,0.667,5.76,5.334,6.186
+"62","2014.Ste Anne Patch",2,"interpolated",0,0.697,1.54,1.503,1.576
+"63","2017.Mahe E Carbonate",3,"interpolated",0,0.628,2.163,1.933,2.393
+"64","2017.Mahe E Granite",4,"interpolated",0,0.687,2.612,2.145,3.079
+"65","2017.Mahe E Patch",7,"interpolated",0,0.676,4.469,4.01,4.928
+"66","2017.Mahe NW Carbonate",6,"interpolated",0,0.68,3.422,3.108,3.736
+"67","2017.Mahe NW Granite",6,"interpolated",0,0.658,3.961,3.668,4.255
+"68","2017.Mahe NW Patch",7,"interpolated",0,0.658,4.556,4.283,4.83
+"69","2017.Mahe W Carbonate",4,"interpolated",0,0.666,2.566,2.392,2.741
+"70","2017.Mahe W Granite",7,"interpolated",0,0.683,4.388,4.029,4.748
+"71","2017.Mahe W Patch",2,"interpolated",0,0.711,1.456,1.376,1.536
+"72","2017.Praslin NE Carbonate",3,"interpolated",0,0.62,2.239,2.033,2.446
+"73","2017.Praslin NE Granite",11,"interpolated",0,0.67,6.489,5.96,7.019
+"74","2017.Praslin NE Patch",5,"interpolated",0,0.651,3.31,2.91,3.71
+"75","2017.Praslin SW Carbonate",6,"interpolated",0,0.653,4.085,3.532,4.638
+"76","2017.Praslin SW Granite",9,"interpolated",0,0.665,5.629,5.191,6.067
+"77","2017.Praslin SW Patch",4,"interpolated",0,0.67,2.611,2.411,2.81
+"78","2017.Ste Anne Carbonate",2,"interpolated",0,0.629,1.577,1.383,1.771
+"79","2017.Ste Anne Granite",12,"interpolated",0,0.66,7.548,6.966,8.131
+"80","2017.Ste Anne Patch",1,"interpolated",0,0.581,1,1,1
+"81","Davies1.Davies",6,"interpolated",0,0.675,3.779,3.493,4.066
+"82","Davies2.Davies",8,"interpolated",0,0.655,4.913,4.368,5.457
+"83","Davies3.Davies",7,"interpolated",0,0.678,4.3,3.899,4.7
+"84","Dhaandhoo.Huvadhoo",8,"interpolated",0,0.652,4.955,4.398,5.512
+"85","Diego Garcia.Barton Point east",4,"interpolated",0,0.683,2.593,2.37,2.815
+"86","Diego Garcia.Barton Point west",8,"interpolated",0,0.681,4.728,3.872,5.584
+"87","Diego Garcia.Cannon Point",3,"interpolated",0,0.701,2.043,1.873,2.213
+"88","Diego Garcia.Cannon Point 2",5,"interpolated",0,0.652,3.259,2.861,3.657
+"89","Diego Garcia.East side",4,"interpolated",0,0.657,2.636,2.321,2.95
+"90","Diego Garcia.Middle Island",4,"interpolated",0,0.673,2.521,2.125,2.918
+"91","Gemanafushi.Huvadhoo",6,"interpolated",0,0.678,3.782,3.454,4.11
+"92","Great Chagos Bank.Eagle (S1)",5,"interpolated",0,0.649,3.224,2.952,3.496
+"93","Great Chagos Bank.Eagle (S2)",5,"interpolated",0,0.643,3.326,3.105,3.546
+"94","Great Chagos Bank.Eagle (S3)",9,"interpolated",0,0.671,5.567,5.211,5.923
+"95","Great Chagos Bank.Middle Brother (E3)",2,"interpolated",0,0.701,1.464,1.286,1.642
+"96","Great Chagos Bank.South Brother (E1)",2,"interpolated",0,0.636,1.53,1.409,1.652
+"97","Great Chagos Bank.South Brother (E2)",5,"interpolated",0,0.671,3.239,2.864,3.614
+"98","John Brewer1.John Brewer",17,"interpolated",0,0.667,9.527,8.351,10.703
+"99","John Brewer2.John Brewer",11,"interpolated",0,0.673,6.519,5.884,7.154
+"100","John Brewer3.John Brewer",11,"interpolated",0,0.675,6.483,5.803,7.163
+"101","Kodey.Huvadhoo",3,"interpolated",0,0.691,1.997,1.757,2.237
+"102","Kooddoo.Huvadhoo",3,"interpolated",0,0.671,1.97,1.746,2.194
+"103","Kuredhdhoo.Huvadhoo",2,"interpolated",0,0.694,1.481,1.394,1.568
+"104","Maamendhoo.Huvadhoo",5,"interpolated",0,0.682,3.155,2.877,3.432
+"105","Maarehaa.Huvadhoo",2,"interpolated",0,0.624,1.601,1.545,1.656
+"106","Mahadhdhoo.Huvadhoo",7,"interpolated",0,0.648,4.593,4.229,4.958
+"107","Nilandhoo.Huvadhoo",7,"interpolated",0,0.683,4.208,3.825,4.591
+"108","Peros Banhos.Ile Poule (S1)",5,"interpolated",0,0.684,2.948,2.471,3.425
+"109","Peros Banhos.Ile Poule (S2)",6,"interpolated",0,0.653,3.819,3.434,4.204
+"110","Peros Banhos.North Diamont",4,"interpolated",0,0.658,2.525,2.183,2.866
+"111","Peros Banhos.Petite Coq (E4)",3,"interpolated",0,0.634,2.117,1.856,2.379
+"112","Peros Banhos.S3",4,"interpolated",0,0.651,2.611,2.371,2.851
+"113","Peros Banhos.South Coq (E5)",4,"interpolated",0,0.654,2.749,2.534,2.965
+"114","Peros Banhos.South Coq (E6)",3,"interpolated",0,0.676,2.046,1.84,2.253
+"115","Rib1.Rib",9,"interpolated",0,0.654,5.652,5.332,5.972
+"116","Rib2.Rib",11,"interpolated",0,0.672,6.376,5.808,6.943
+"117","Rib3.Rib",7,"interpolated",0,0.652,4.475,4.239,4.712
+"118","Salamon.E2",4,"interpolated",0,0.695,2.587,2.266,2.909
+"119","Salamon.E3",4,"interpolated",0,0.693,2.556,2.296,2.816
+"120","Salamon.E4",2,"interpolated",0,0.693,1.475,1.317,1.634
+"121","Salamon.Isle le Anglaise (S1)",5,"interpolated",0,0.671,3.082,2.743,3.421
 "122","Salamon.Isle le Anglaise (S3)",2,"interpolated",0,0.718,1.443,1.33,1.557
-"123","Salamon.S2",2,"interpolated",0,0.563,1.649,1.599,1.699
-"124","Trunk1.Trunk",2,"interpolated",0,0.221,1.881,1.865,1.897
-"125","Trunk2.Trunk",2,"interpolated",0,0.301,1.827,1.793,1.861
-"126","Trunk3.Trunk",2,"interpolated",0,0.14,1.927,1.913,1.941
-"127","Vilingili.Huvadhoo",2,"interpolated",0,0.435,1.747,1.712,1.781
-"128","Vodamulaa.Huvadhoo",2,"interpolated",0,0.397,1.766,1.693,1.839
-"129","Wheeler1.Wheeler",2,"interpolated",0,0.291,1.83,1.786,1.874
-"130","Wheeler2.Wheeler",2,"interpolated",0,0.312,1.815,1.76,1.87
-"131","Wheeler3.Wheeler",2,"interpolated",0,0.19,1.898,1.88,1.916
+"123","Salamon.S2",3,"interpolated",0,0.692,2.086,1.976,2.197
+"124","Trunk1.Trunk",10,"interpolated",0,0.671,6.209,5.891,6.526
+"125","Trunk2.Trunk",9,"interpolated",0,0.669,5.303,4.908,5.697
+"126","Trunk3.Trunk",16,"interpolated",0,0.673,9.809,9.257,10.361
+"127","Vilingili.Huvadhoo",4,"interpolated",0,0.658,2.747,2.604,2.89
+"128","Vodamulaa.Huvadhoo",5,"interpolated",0,0.659,3.26,2.938,3.582
+"129","Wheeler1.Wheeler",11,"interpolated",0,0.661,6.258,5.739,6.777
+"130","Wheeler2.Wheeler",11,"interpolated",0,0.663,6.114,5.581,6.647
+"131","Wheeler3.Wheeler",13,"interpolated",0,0.67,7.826,7.366,8.286
