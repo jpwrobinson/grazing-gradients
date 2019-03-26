@@ -50,7 +50,8 @@ decomp$part
 #        5. Total richness/abundance diff. div. (or nestedness)/Total beta div. 0.37%
 g.diversity <-data.frame(site = graze.sites,
                                   beta_rich = LCBD.comp(decomp$rich)$LCBD,
-                                  beta_repl = LCBD.comp(decomp$repl)$LCBD)
+                                  beta_repl = LCBD.comp(decomp$repl)$LCBD, 
+                                  beta = LCBD.comp(decomp$D)$LCBD)
 
 
 decomp <- beta.div.comp(scrape.mat,coef="BS", quant=TRUE)
@@ -65,7 +66,8 @@ decomp$part # 60/40 richenss vs replacement
 
 s.diversity <-data.frame(site = scrape.sites,
                                   beta_rich = LCBD.comp(decomp$rich)$LCBD,
-                                  beta_repl = LCBD.comp(decomp$repl)$LCBD)
+                                  beta_repl = LCBD.comp(decomp$repl)$LCBD,
+                                  beta = LCBD.comp(decomp$D)$LCBD)
 
 save(graze.mat, scrape.mat, g.diversity, s.diversity, file = 'results/graze_beta_estimates.Rdata')
 
@@ -106,6 +108,20 @@ g4<-ggplot(s.diversity, aes(beta_rich, beta_repl, col = dataset)) +
 		geom_point() + theme(legend.position='none') +
 		labs(title = 'Scrapers')
 cowplot::plot_grid(g3, g4, nrow=2)
+
+g3<-ggplot(g.diversity, aes(beta_rich, beta, col = dataset)) + 
+		geom_point() + theme(legend.position='none') +
+		labs(title = 'Grazers')
+g4<-ggplot(g.diversity, aes(beta_repl, beta, col = dataset)) + 
+		geom_point() + theme(legend.position='none') +
+		labs(title = 'Grazers')
+g5<-ggplot(s.diversity, aes(beta_rich, beta, col = dataset)) + 
+		geom_point() + theme(legend.position='none') +
+		labs(title = 'Scrapers')
+g6<-ggplot(s.diversity, aes(beta_repl, beta, col = dataset)) + 
+		geom_point() + theme(legend.position='none') +
+		labs(title = 'Scrapers')
+cowplot::plot_grid(g3, g4,g5,g6, nrow=2)
 
 
 dev.off()

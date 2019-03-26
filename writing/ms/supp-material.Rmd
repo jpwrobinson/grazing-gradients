@@ -15,9 +15,11 @@ fontsize: 12pt
 
 ---
 
-## TITLE
+## Habitat, fishing and biodiversity controls on coral reef grazing function
 
-*Authors*
+
+James PW Robinson, Jamie M McDevitt-Irwin, Jan-Claas Dajka, Jeneen Hadj-Hammou, Samantha Howlett, Alexia Graba-Landry, Andrew S Hoey, Nicholas AJ Graham
+
 
 ```{r, echo=F}
 ## set up figcounter
@@ -38,6 +40,14 @@ In Australia, five reefs were surveyed on the central Great Barrier Reef in 2010
 
 
 &nbsp;
+
+```{r, out.width = "480px", echo=F,fig.align='center'}
+knitr::include_graphics("../../figures/Figure1.pdf"); i = i + 1
+```
+
+**Figure S`r i` | Map of study sites with benthic habitat regime (B) and herbivore biomass levels (C).** Survey sites are coloured by regimes identified in k-cluster analysis (rubble = yellow, macroalgae = green, substrate = blue, coral = red), and bar plots show mean grazing biomass (± 2 standard errors).
+
+\newpage
 
 ```{r, out.width = "480px", echo=F,fig.align='center'}
 knitr::include_graphics("../../figures/FigureS1_scrape_size.pdf"); i = i + 1
