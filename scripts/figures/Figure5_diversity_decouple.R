@@ -45,11 +45,12 @@ crop.pred<-scaler(croppers, ID=c('date', 'dataset', 'reef', 'site', 'transect', 
 
 m.graze<-glmer(cropping.gram.ha ~ biom +
                    site.rarefied +
-                   site.evenness +
-                   # site.beta.repl +
+                   # site.evenness +
+                   site.beta.repl +
                    site.beta.rich +
                    abund +
                    (1 | dataset/reef), crop.pred, family='Gamma'(link = 'log'))
+car::vif(m.graze)
 
 pairs2(dplyr::select_if(crop.pred, is.numeric), 
   lower.panel = panel.cor, upper.panel = panel.smooth2, diag.panel=panel.hist)
@@ -102,7 +103,7 @@ m.scrape<-glmer(scraping ~ biom +
                    # site.beta.repl +
                    abund +
                    (1 | dataset/reef), scrap.pred, family='Gamma'(link = 'log'))
-
+car::vif(m.scrape)
 pairs2(dplyr::select_if(scrap.pred, is.numeric), 
   lower.panel = panel.cor, upper.panel = panel.smooth2, diag.panel=panel.hist)
 
@@ -347,7 +348,8 @@ g5<-ggplot(nd.beta.scrape) +
 
 
 pdf(file='figures/Figure5_diversity_alt.pdf', height = 5, width=11)
-plot_grid(g0, g1, g2, g3, g4, g5, labels=c('A', 'B', 'C', 'D' ,'E', 'F'), nrow=2)
+# plot_grid(g0, g1, g2, g3, g4, g5, labels=c('A', 'B', 'C', 'D' ,'E', 'F'), nrow=2)
+plot_grid(g0, g2, g3, g5, labels=c('A', 'B', 'C', 'D'), nrow=2)
 dev.off()
 
 

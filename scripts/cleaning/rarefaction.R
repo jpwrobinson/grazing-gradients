@@ -43,7 +43,7 @@ rownames(com.mat)<-NULL
 com.mat<-rbind(samples$samples, com.mat)
 temp<-apply(com.mat,2, as.list)
 temp<-lapply(temp,unlist)
-t<-estimateD(temp, datatype='abundance', base='size', level = NULL)
+t<-estimateD(temp, datatype='abundance', base='coverage', level = NULL)
 t<-t %>% filter(order == 0)
 
 write.csv(t, file = 'results/rarefied_richness_scrapers.csv')
