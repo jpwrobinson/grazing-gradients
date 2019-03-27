@@ -150,3 +150,13 @@ table <- table[, !duplicated(colnames(table))]
 
 
 write.csv(table, "summary_stats.csv")
+
+
+
+## decoupling , biodiv effects
+with(rich.crop.fit, (max(visregFit)-min(visregFit))/min(visregFit)*100)
+with(beta.crop.fit, (max(visregFit)-min(visregFit))/min(visregFit)*100)
+
+with(rich.scrape.fit, (max(visregFit)-min(visregFit))/min(visregFit)*100)
+with(beta.scrape.fit, (max(visregFit)-min(visregFit))/min(visregFit)*100)
+

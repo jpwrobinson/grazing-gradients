@@ -38,6 +38,10 @@ In Maldives, 11 reefs were surveyed on one atoll (Huvadhoo) in 2013 (Fig. 1c). S
 
 In Australia, five reefs were surveyed on the central Great Barrier Reef in 2010 and 2011 (Wheeler, Davies, Rib, Trunk, John Brewer) (Graham et al. 2014) (Fig. 1e). Reefs were stratified to include 3 wave exposed and 3 wave sheltered locations (6 per reef), which were further divided into reef slope (7-9 m depth), reef crest (2-3 m depth), and reef flat (100 m distance from crest). Each location and habitat type was surveyed with four replicate transects. We used data for surveys conducted on the reef slope, which produced a dataset of 24 transects per reef and 120 transects in total. All reefs were categorised as protected from fishing, as herbivore species are not commonly targeted by GBR fisheries (Graham et al. 2014). 
 
+*Benthic categories*
+
+Across all reefs, we detected four benthic regimes characterised by 1) hard coral dominance, 2) macroalgal dominance, 3) high availability of bare substrate, and 4) rubble reefs (Fig. S1B). Coral dominance was the most common regime, detected at 41 reefs across all four regions, whereas bare substrate regimes were only present in Seychelles (9) and Chagos (6). Macroalgal dominance was detected on five Seychelles reefs and nine GBR reefs, while rubble reefs were only present in Seychelles (6 reefs).
+
 
 &nbsp;
 

@@ -139,6 +139,7 @@ scrap.top<-glmer(scraping ~ biom +
                    abund +
                    (1 | dataset/reef), scrap.pred, family='Gamma'(link = 'log'))
 
+save(scrap.top, crop.top, file = 'results/models/decouple_biodiv_mods.Rdata')
 
 ## cropping richness
 nd.rich.crop<-data.frame(site.rarefied = seq(min(crop.pred$site.rarefied), max(crop.pred$site.rarefied), length.out=20),
@@ -251,6 +252,12 @@ beta.scrape.res$x<-beta.scrape.res$site.beta * sd(scrapers$site.beta) + mean(scr
 scrap.raw.beta<-scrapers %>% group_by(reef, dataset) %>% summarise(x = mean(site.beta), y = mean(scraping)) 
 
 
+save(
+  rich.crop.fit,
+  beta.crop.fit,
+  rich.scrape.fit,
+  beta.scrape.fit, 
+  file = 'results/models/decouple_biodiv_preds.Rdata')
 
 ## add some plotting stuff
 pal <- wesanderson::wes_palette("Zissou1", 21, type = "continuous")
@@ -422,7 +429,7 @@ g2<-ggplot(beta.crop.fit) +
 g3<-ggplot(rich.scrape.fit) + 
     geom_ribbon(aes(x, visregFit, ymin = visregLwr, ymax = visregUpr), alpha=0.1,fill=cols[2]) + 
     geom_line(aes(x, visregFit), col=cols[2]) +
-    scale_x_continuous(breaks=seq(3, 12, 4)) +
+    scale_x_continuous(breaks=seq(3, 12, 3)) +
     # geom_point(data=h, aes(site.rarefied, scraping, shape = dataset), size=2.5, alpha=0.7, col=cols[2])  +
     labs(y = expression(paste('m'^2,' ha'^-1, 'min'^-1)),
      x = 'Species richness') +
