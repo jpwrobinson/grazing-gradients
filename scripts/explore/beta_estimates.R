@@ -35,10 +35,6 @@ graze.sites<-graze.mat$unique.id
 graze.mat <- graze.mat[, -c(1:5)]
 
 
-scrape.mat<-data.frame(spread(h[h$FG == 'Herbivore Scraper',], species, abund, fill=0))
-scrape.sites<-scrape.mat$unique.id
-scrape.mat <- scrape.mat[, -c(1:5)]
-
 decomp <- beta.div.comp(graze.mat,coef="BS", quant=TRUE)
 
 decomp$part 
@@ -53,6 +49,10 @@ g.diversity <-data.frame(site = graze.sites,
                                   beta_repl = LCBD.comp(decomp$repl)$LCBD, 
                                   beta = LCBD.comp(decomp$D)$LCBD)
 
+
+scrape.mat<-data.frame(spread(h[h$FG == 'Herbivore Scraper',], species, abund, fill=0))
+scrape.sites<-scrape.mat$unique.id
+scrape.mat <- scrape.mat[, -c(1:5)]
 
 decomp <- beta.div.comp(scrape.mat,coef="BS", quant=TRUE)
 

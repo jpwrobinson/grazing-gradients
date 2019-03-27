@@ -154,6 +154,7 @@ write.csv(table, "summary_stats.csv")
 
 
 ## decoupling , biodiv effects
+load(file = 'results/models/decouple_biodiv_preds.Rdata')
 with(rich.crop.fit, (max(visregFit)-min(visregFit))/min(visregFit)*100)
 with(beta.crop.fit, (max(visregFit)-min(visregFit))/min(visregFit)*100)
 

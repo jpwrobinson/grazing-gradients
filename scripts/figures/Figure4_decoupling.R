@@ -7,6 +7,7 @@
   library(here)
   library(piecewiseSEM)
   library(lme4)
+  theme_set(theme_sleek())
 
   setwd(here('grazing-gradients'))
 
@@ -88,9 +89,11 @@
     scale_y_continuous(label=comma) +
       coord_cartesian(clip = "off") +
     # geom_text(data = panel_labs, aes(x = 0, y = Inf, label=lab),col='black', size=5.5, fontface=2, hjust=0.4, vjust=1.4) +
-    guides(col=F) +
-    theme(legend.position =c(0.35, 0.3), legend.title=element_blank(),
+    guides(col=F,shape=guide_legend(nrow=4,byrow=TRUE,override.aes = list(alpha=0.5, col='black', size=3))) +
+    theme(legend.position =c(0.92, 0.3), legend.title=element_blank(),
       strip.text.x = element_text(size=12),
+      legend.text=element_text(size=12, colour='black'),
+      legend.key.size = unit(0.5, "cm"),
       axis.text=element_text(size=14),
                   axis.title=element_text(size=14)) +
     xlab(expression(paste("biomass, kg ha"^-1))) + ylab("Grazing rate")  +

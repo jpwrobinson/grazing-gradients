@@ -139,7 +139,8 @@ scrap.top<-glmer(scraping ~ biom +
                    abund +
                    (1 | dataset/reef), scrap.pred, family='Gamma'(link = 'log'))
 
-save(scrap.top, crop.top, file = 'results/models/decouple_biodiv_mods.Rdata')
+# save(scrap.top, crop.top,   scrap.pred, crop.pred, file = 'results/models/decouple_biodiv_mods.Rdata')
+load(file = 'results/models/decouple_biodiv_mods.Rdata')
 
 ## cropping richness
 nd.rich.crop<-data.frame(site.rarefied = seq(min(crop.pred$site.rarefied), max(crop.pred$site.rarefied), length.out=20),
@@ -156,7 +157,7 @@ rich.crop.fit<-pm$fit
 rich.crop.res<-pm$res
 rich.crop.fit$x<-rich.crop.fit$site.rarefied * sd(croppers$site.rarefied) + mean(croppers$site.rarefied)
 rich.crop.res$x<-rich.crop.res$site.rarefied * sd(croppers$site.rarefied) + mean(croppers$site.rarefied)
-
+rich.crop.res$dataset_real<-crop.pred$dataset
 
 
 ## cropping evenness
@@ -192,7 +193,7 @@ beta.crop.fit<-pm$fit
 beta.crop.res<-pm$res
 beta.crop.fit$x<-beta.crop.fit$site.beta * sd(scrapers$site.beta) + mean(scrapers$site.beta)
 beta.crop.res$x<-beta.crop.res$site.beta * sd(scrapers$site.beta) + mean(scrapers$site.beta)
-
+beta.crop.res$dataset_real<-crop.pred$dataset
 
 crop.raw.beta<-croppers %>% group_by(reef, dataset) %>% summarise(x = mean(site.beta), y = mean(cropping.gram.ha)) 
 
@@ -211,7 +212,7 @@ rich.scrape.fit<-pm$fit
 rich.scrape.res<-pm$res
 rich.scrape.fit$x<-rich.scrape.fit$site.rarefied * sd(scrapers$site.rarefied) + mean(scrapers$site.rarefied)
 rich.scrape.res$x<-rich.scrape.res$site.rarefied * sd(scrapers$site.rarefied) + mean(scrapers$site.rarefied)
-
+rich.scrape.res$dataset_real<-scrap.pred$dataset
 
 scrap.raw.rich<-scrapers %>% group_by(reef, dataset) %>% summarise(x = mean(site.rarefied), y = mean(scraping)) 
 
@@ -247,7 +248,7 @@ beta.scrape.fit<-pm$fit
 beta.scrape.res<-pm$res
 beta.scrape.fit$x<-beta.scrape.fit$site.beta * sd(scrapers$site.beta) + mean(scrapers$site.beta)
 beta.scrape.res$x<-beta.scrape.res$site.beta * sd(scrapers$site.beta) + mean(scrapers$site.beta)
-
+beta.scrape.res$dataset_real<-scrap.pred$dataset
 
 scrap.raw.beta<-scrapers %>% group_by(reef, dataset) %>% summarise(x = mean(site.beta), y = mean(scraping)) 
 
@@ -256,7 +257,11 @@ save(
   rich.crop.fit,
   beta.crop.fit,
   rich.scrape.fit,
-  beta.scrape.fit, 
+  beta.scrape.fit,
+  rich.crop.res,
+  beta.crop.res,
+  rich.scrape.res,
+  beta.scrape.res, 
   file = 'results/models/decouple_biodiv_preds.Rdata')
 
 ## add some plotting stuff
@@ -379,15 +384,15 @@ g0<-ggplot(rich.crop.fit) +
     scale_x_continuous(breaks=seq(2,10, 2)) +
     # geom_hline(yintercept=0, linetype=5, col='grey') +
     theme(legend.title=element_blank(),
-          legend.position = 'none',
-          # legend.spacing.x = unit(0, 'cm'),
-          # legend.spacing.y = unit(0, 'cm'),
-          legend.key.size = unit(0.5, "cm"),
+          legend.position =c(0.85, 0.2),
+          legend.spacing.x = unit(0, 'cm'),
+          legend.spacing.y = unit(0, 'cm'),
+          legend.key.size = unit(0.3, "cm"),
           plot.margin = unit(c(0.25, 0.25, 0, 0.25), "cm"),
           # legend.box.background = element_rect(colour = "black"),
            legend.text=element_text(size=9)) +
-    guides(size = F, shape=guide_legend(nrow=1,byrow=TRUE,override.aes = list(col='black', size=2))) +
-    geom_point(data=rich.crop.res, size=2,  col=cols[1],aes(x, visregRes, shape=dataset)) +th
+    guides(size = F, shape=guide_legend(nrow=4,byrow=TRUE,override.aes = list(alpha=0.5, col='black', size=2))) +
+    geom_point(data=rich.crop.res, size=2,  col=cols[1],aes(x, visregRes, shape=dataset_real)) +th
 
 
 g1<-ggplot(even.crop.fit) + 
@@ -405,7 +410,7 @@ g1<-ggplot(even.crop.fit) +
           # legend.box.background = element_rect(colour = "black"),
            legend.text=element_text(size=9)) +
     guides(size = F, shape=guide_legend(nrow=1,byrow=TRUE,override.aes = list(col='black', size=2))) +
-    geom_point(data=even.crop.res, size=2,  col=cols[1],aes(x, visregRes, shape=dataset)) +th
+    geom_point(data=even.crop.res, size=2,  col=cols[1],aes(x, visregRes, shape=dataset_real)) +th
 
 
 g2<-ggplot(beta.crop.fit) + 
@@ -422,7 +427,7 @@ g2<-ggplot(beta.crop.fit) +
           # legend.box.background = element_rect(colour = "black"),
            legend.text=element_text(size=9)) +
     guides(size = F, shape=guide_legend(nrow=1,byrow=TRUE,override.aes = list(col='black', size=2))) +
-    geom_point(data=beta.crop.res, size=2,  col=cols[1],aes(x, visregRes, shape=dataset)) +th
+    geom_point(data=beta.crop.res, size=2,  col=cols[1],aes(x, visregRes, shape=dataset_real)) +th
 
 
 
@@ -430,27 +435,27 @@ g3<-ggplot(rich.scrape.fit) +
     geom_ribbon(aes(x, visregFit, ymin = visregLwr, ymax = visregUpr), alpha=0.1,fill=cols[2]) + 
     geom_line(aes(x, visregFit), col=cols[2]) +
     scale_x_continuous(breaks=seq(3, 12, 3)) +
-    # geom_point(data=h, aes(site.rarefied, scraping, shape = dataset), size=2.5, alpha=0.7, col=cols[2])  +
+    # geom_point(data=h, aes(site.rarefied, scraping, shape = dataset_real), size=2.5, alpha=0.7, col=cols[2])  +
     labs(y = expression(paste('m'^2,' ha'^-1, 'min'^-1)),
      x = 'Species richness') +
     # geom_hline(yintercept=0, linetype=5, col='grey') +
     theme(legend.title=element_blank(),
       plot.margin = unit(c(0, 0.25, 0.25, 0.25), "cm"),
           legend.position = 'none') +
-    geom_point(data=rich.scrape.res, size=2,  col=cols[2],aes(x, visregRes, shape=dataset)) +th
+    geom_point(data=rich.scrape.res, size=2,  col=cols[2],aes(x, visregRes, shape=dataset_real)) +th
 
 
 g4<-ggplot(even.scrape.fit) + 
     geom_ribbon(aes(x, visregFit, ymin = visregLwr, ymax = visregUpr), alpha=0.1,fill=cols[2]) + 
     geom_line(aes(x, visregFit), col=cols[2]) +
-    # geom_point(data=h, aes(site.rarefied, scraping, shape = dataset), size=2.5, alpha=0.7, col=cols[2])  +
+    # geom_point(data=h, aes(site.rarefied, scraping, shape = dataset_real), size=2.5, alpha=0.7, col=cols[2])  +
     labs(y = '',
      x = 'Species evenness') +
     # geom_hline(yintercept=0, linetype=5, col='grey') +
     theme(legend.title=element_blank(),
       plot.margin = unit(c(0, 0.25, 0.25, 0.25), "cm"),
           legend.position = 'none') +
-    geom_point(data=even.scrape.res, size=2,  col=cols[2],aes(x, visregRes, shape=dataset)) +th
+    geom_point(data=even.scrape.res, size=2,  col=cols[2],aes(x, visregRes, shape=dataset_real)) +th
 
 g5<-ggplot(beta.scrape.fit) + 
     geom_ribbon(aes(x, visregFit, ymin = visregLwr, ymax = visregUpr), alpha=0.1,fill=cols[2]) + 
@@ -467,7 +472,7 @@ g5<-ggplot(beta.scrape.fit) +
           # legend.box.background = element_rect(colour = "black"),
            legend.text=element_text(size=9)) +
     guides(size = F, shape=guide_legend(nrow=4,byrow=TRUE,override.aes = list(col='black', size=2))) +
-    geom_point(data=beta.scrape.res, size=2,  col=cols[2],aes(x, visregRes, shape=dataset)) +th
+    geom_point(data=beta.scrape.res, size=2,  col=cols[2],aes(x, visregRes, shape=dataset_real)) +th
 
 
 
