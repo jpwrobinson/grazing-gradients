@@ -134,7 +134,7 @@ plot(1:k.max, wss,
 set.seed(2) # the clustering changes each time you do it
 km <- kmeans(pred[-1], 4,nstart=25) # make sure to save this so you are using the same object for everything
 print(km)
-autoplot(km, loadings=TRUE, loadings.label=TRUE, data = pred, # 4 means because we have four island groups 
+autoplot(km, loadings=TRUE, loadings.label=TRUE, data = pred, # 4 means because it seems like the best from the previous plot
          label = FALSE, label.size = 4, frame = TRUE) + theme
 ggsave(file='figures/explore/benthic_pca_kmeans.pdf', height=10, width=13)
 
@@ -154,6 +154,31 @@ pred[-1] %>%
 # Cluster 2: high macroalgae
 # Cluster 3: high substrate
 # Cluster 4: high coral 
+
+# Test out 3 clusters (April 9, 2019)
+set.seed(3) # the clustering changes each time you do it
+km <- kmeans(pred[-1], 3,nstart=25) # make sure to save this so you are using the same object for everything
+print(km)
+autoplot(km, loadings=TRUE, loadings.label=TRUE, data = pred, # try 3 means
+         label = FALSE, label.size = 4, frame = TRUE) + theme
+ggsave(file='figures/explore/benthic_pca_kmeans_3clusters.pdf', height=10, width=13)
+
+# Save clusters to a dataframe
+pca.kmeans <- data.frame(km$cluster)
+head(pca.kmeans)
+save(pca.kmeans, file="data/pca_allregions_kmeans3_clusters.Rdata")
+
+# What do these clusters represent? 
+pred[-1] %>%
+  mutate(Cluster = km$cluster) %>%
+  group_by(Cluster) %>%
+  summarise_all("mean")
+
+# Cluster 1: high rubble
+# Cluster 2: high coral
+# Cluster 3: high substrate
+
+# macroalgae is similar across all 3 
 ############################################################
 
 
