@@ -12,7 +12,7 @@ setwd(here('grazing-gradients'))
 load("data/wio_herb_benthic_merged.Rdata")
 
 # benthic regimes 
-load("data/pca_allregions_kmeans4_clusters.Rdata") # pca.kmeans
+load("data/pca_allregions_kmeans3_clusters.Rdata") # pca.kmeans
 pca.kmeans$site<-rownames(pca.kmeans)
 pca.kmeans$dataset<-pred$dataset[match(pca.kmeans$site, pred$unique.id)]
 pca.kmeans$date<-pred$date[match(pca.kmeans$site, pred$unique.id)]

@@ -22,12 +22,11 @@ load("data/pca_allregions_kmeans4_clusters.Rdata") # pca.kmeans
 sites<-read.csv('data/sites_with_benthic_clusters.csv')
 sites$km.cluster<-as.character(sites$km.cluster)
 # Cluster 1: high rubble
-# Cluster 2: high macroalgae
+# Cluster 2: high coral
 # Cluster 3: high substrate
-# Cluster 4: high coral 
 sites$cluster.type<-as.factor(sites$km.cluster)
 sites$cluster.type<-plyr::revalue(sites$cluster.type, 
-        c('1' = 'Rubble', '2' = 'Macroalgae', '3' = 'Substrate', '4' = 'Coral'))
+        c('1' = 'Rubble', '2' = 'Hard coral', '3' = 'Substrate'))
  table(sites$cluster.type)
 
 
@@ -35,38 +34,38 @@ t<-pred %>% filter(site == 'John Brewer1')
 
 
 # # big map
-# world <- map_data("world2") 
-# world<-fortify(world)
+world <- map_data("world2") 
+world<-fortify(world)
 
-# ## little maps
-# # islands<-sf::read_sf(dsn='data/ne_10m_land/ne_10m_land.shp')
-# # islands<-fortify(islands)
+## little maps
+# islands<-sf::read_sf(dsn='data/ne_10m_land/ne_10m_land.shp')
+# islands<-fortify(islands)
 
 
-# ## chagos
-# chashp<-rgdal::readOGR('data/shapes/chagos/Chagos_v6.shp')
-# chagos<-sp::spTransform(chashp, CRS("+proj=longlat +datum=WGS84"))
+## chagos
+chashp<-rgdal::readOGR('data/shapes/chagos/Chagos_v6.shp')
+chagos<-sp::spTransform(chashp, CRS("+proj=longlat +datum=WGS84"))
 
-# ## separating chashp by bathymetry
-# ## L4 = subtidal reef flat, drowned pass, drowned rim, drowned patch, land on reef
-# chagos.drowned<-chashp[chashp@data$L4_ATTRIB %in% 
-#       c('subtidal reef flat', 'drowned pass', 'drowned rim', 'drowned patch'),]
-# chagos.land<-chashp[chashp@data$L4_ATTRIB %in% c('land on reef'),]
-# chagos.lagoon<-chashp[chashp@data$L4_ATTRIB %in% c('drowned lagoon'),]
+## separating chashp by bathymetry
+## L4 = subtidal reef flat, drowned pass, drowned rim, drowned patch, land on reef
+chagos.drowned<-chashp[chashp@data$L4_ATTRIB %in% 
+      c('subtidal reef flat', 'drowned pass', 'drowned rim', 'drowned patch'),]
+chagos.land<-chashp[chashp@data$L4_ATTRIB %in% c('land on reef'),]
+chagos.lagoon<-chashp[chashp@data$L4_ATTRIB %in% c('drowned lagoon'),]
 
-# ## seychelles
-# # isl<-sf::st_read("data/shapes/sey/all islands.shp")
-# isl<-rgdal::readOGR("data/shapes/sey/all islands.shp")
-# isl<-fortify(isl)
+## seychelles
+# isl<-sf::st_read("data/shapes/sey/all islands.shp")
+isl<-rgdal::readOGR("data/shapes/sey/all islands.shp")
+isl<-fortify(isl)
 
-# ## GBR
-# # isl<-sf::st_read("data/shapes/sey/all islands.shp")
-# gbrshp<-rgdal::readOGR("data/shapes/gbr/Great_Barrier_Reef_Features.shp")
-# gbrshp<-fortify(gbrshp)
+## GBR
+# isl<-sf::st_read("data/shapes/sey/all islands.shp")
+gbrshp<-rgdal::readOGR("data/shapes/gbr/Great_Barrier_Reef_Features.shp")
+gbrshp<-fortify(gbrshp)
 
-# ## Maldives
-# malshp<-rgdal::readOGR("data/shapes/mal/MDV_DevInfo_Admin0B.shp")
-# malshp<-fortify(malshp)
+## Maldives
+malshp<-rgdal::readOGR("data/shapes/mal/MDV_DevInfo_Admin0B.shp")
+malshp<-fortify(malshp)
 
 
 bbox<-data.frame(island = c('SEY','GBR', 'MAL', 'CHA'),
@@ -95,8 +94,8 @@ biom <- pred %>%
 #------------------------#
 
 pal <- wesanderson::wes_palette("Rushmore1", 4, type = "continuous")
-cols.named<-c('1' = pal[1], '2' = pal[2],'3' = pal[3],'4' = pal[4])
-cols.vals<-c('Rubble', 'Macroalgae', 'Substrate', 'Coral')
+cols.named<-c('1' = pal[1], '2' = pal[3],'3' = pal[4])#,'4' = pal[4])
+cols.vals<-c('Rubble',  'Hard coral', 'Available substrate')
 
 ## world
 world.plot<-ggplot() + geom_polygon(data = world, aes(x=long, y = lat, group = group)) + 
