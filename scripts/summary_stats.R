@@ -10,7 +10,17 @@ library(lme4)
 
 setwd(here('grazing-gradients'))
 
+## bayesian models
+load('results/models/bites_grazers.Rdata')
+crop<-as.data.frame(rethinking::precis(graze.m, 1)@output)
+crop$FG<-'Cropping'
 
+load('results/models/bites_scrapers.Rdata')
+scrape<-as.data.frame(rethinking::precis(scrape.m, 1)@output)
+scrape$FG<-'Scraping'
+
+df<-rbind(crop, scrape)
+write.csv(df, file = 'results/models/bite_model_precis.csv')
 
 ## biomass models and predictions
 load("results/models/biomass_m.browsers.Rdata")
