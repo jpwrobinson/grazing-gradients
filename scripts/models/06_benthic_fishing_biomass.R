@@ -93,7 +93,7 @@ h$site.rarefied<-rare$qD[match(h$unique.id, rare$site)]
 load('results/graze_beta_estimates.Rdata')
 h$site.beta<-s.diversity$beta[match(h$unique.id, s.diversity$site)]
 
-h.pred<-scaler(h, ID=c('date', 'dataset', 'reef', 'site', 'transect', 'unique.id','scraping', 'biom', 'site.rarefied', 'site.beta'))
+h.pred<-scaler(h, ID=c('date', 'dataset', 'reef', 'site', 'transect', 'unique.id','scraping', 'biom', 'site.rarefied', 'site.beta', 'abund'))
 summary(h.pred)
 
 ## check collinearity
@@ -102,10 +102,11 @@ mat<-h.pred %>% select(hard.coral, macroalgae, rubble, substrate, complexity,
 pairs2(mat, diag.panel = panel.hist, upper.panel=panel.cor, lower.panel=panel.smooth2)
 
 ## scraper BIOMASS
-m.full<-lmer(log(biom) ~ hard.coral + macroalgae + rubble + substrate + complexity + 
-          fish.biom + Fished.Protected.dummy + Fished.Unfished.dummy  + site.size + #biom +
+m.full<-glmer(biom ~ hard.coral + macroalgae + rubble + substrate + complexity + 
+          fish.biom + Fished.Protected.dummy + Fished.Unfished.dummy  + #site.size + #biom +
           (1 | dataset/reef) , ## random, nested = reefs within datasets
-                data = h.pred,  na.action = na.fail)#, family='Gamma'(link='log'), na.action = na.fail)
+                data = h.pred, family='Gamma'(link='log'), na.action = na.fail)
+summary(m.full)
 
 # rscrap<-data.frame(r2beta(m.full, method = 'nsj', partial = TRUE))
 # rscrap$response<-'biom'
@@ -122,7 +123,7 @@ m.full<-lmer(site.rarefied ~ hard.coral + macroalgae + rubble + substrate + comp
           fish.biom + Fished.Protected.dummy + Fished.Unfished.dummy  + site.size + #biom +
           (1 | dataset/reef) , ## random, nested = reefs within datasets
                 data = h.pred, na.action = na.fail)
-
+summary(m.full)
 # t<-data.frame(r2beta(m.full, method = 'nsj', partial = TRUE)); t$response <- 'site.rarefied'
 # rscrap<-rbind(rscrap, t)
 

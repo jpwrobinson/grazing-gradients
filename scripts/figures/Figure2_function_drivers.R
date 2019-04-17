@@ -66,7 +66,7 @@ cols<-c(pal[5], pal[12], pal[18])
 cols.named<-c('Croppers' = pal[5], 'Scrapers' = pal[12])
 theme_set(theme_sleek())
 ylab<-rev(c('Hard coral', 'Available\nsubstrate', 'Rubble', 'Macroalgae', 'Structural\ncomplexity',
-        'Fishable\nbiomass', 'Fished reef', 'Pristine reef', 'Mean length'))#,'Species richness'))
+        'Fishable\nbiomass', 'No-take reef', 'Pristine reef', 'Mean length'))#,'Species richness'))
 
 ## reorder factor levels here - careful this is manual, check plot is ok
 ## for full model plot
@@ -89,6 +89,7 @@ g.effects <- ggplot(est, aes(Var, RI.t.abs, fill=indicator, col=indicator)) +
              # scale_shape_manual(values = c(21,20)) + 
               guides(shape = FALSE) +
               labs(x='', y = 'Standardized effect size') +
+              scale_y_continuous(breaks=seq(0, 1, 0.25), labels=c(0, 0.25, 0.5, 0.75, 1)) +
               scale_x_discrete(labels = ylab) +
               theme(legend.position = c(0.8, 0.8),
                 legend.title=element_blank(),
@@ -110,6 +111,7 @@ g.rel.effects <- ggplot(est, aes(Var, RI.t.ratio, fill=indicator, col=indicator)
               facet_wrap(~ indicator) +
               guides(shape = FALSE) +
               labs(x='', y = 'Relative effect size') +
+              scale_y_continuous(breaks=seq(0, 1, 0.25), labels=c(0, 0.25, 0.5, 0.75, 1)) +
               scale_x_discrete(labels = ylab) + coord_flip() +
               theme(legend.position = 'none',
                 legend.title=element_blank(),
@@ -122,7 +124,7 @@ g.rel.effects <- ggplot(est, aes(Var, RI.t.ratio, fill=indicator, col=indicator)
 
 
 
-pdf(file = "figures/Figure2_effect_sizes_tvalue.pdf", width=6, height=6)
+pdf(file = "figures/dump/Figure2_effect_sizes_tvalue.pdf", width=6, height=6)
 g.effects
 dev.off()
 
