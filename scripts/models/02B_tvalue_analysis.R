@@ -27,11 +27,11 @@ h$site.rarefied<-rare$qD[match(h$unique.id, rare$site)]
 
 h.pred<-scaler(h, ID=c('date', 'dataset', 'reef', 'site', 'transect', 'unique.id', 'cropping.gram.ha'))
 
-m.full<-glmer(cropping.gram.ha ~ hard.coral + macroalgae + rubble + substrate + complexity + 
+m.full<-glmer(cropping.gram.ha ~  hard.coral + macroalgae + rubble + substrate + complexity + 
         	fish.biom + Fished.Protected.dummy + Fished.Unfished.dummy  + site.size + #biom +
           (1 | dataset/reef) , ## random, nested = reefs within datasets
                 data = h.pred, family='Gamma'(link='log'))
-
+summary(m.)
 ## save AIC scores from top 7 models
 # m.table<-dredge(m.full)
 tab<-subset(m.table, delta < 7)
