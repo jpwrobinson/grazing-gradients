@@ -21,11 +21,20 @@ grazers$grazef<-grazers$cropping.gram.ha
 grazers$cropping.gram.ha<-NULL
 grazers$sp <- 'grazers'
 
-m.graze<-glmer(cropping.gram.ha ~ scale(biom) + (1 | dataset/reef), h, family='Gamma'(link = 'log'))
-grazers$resid<-resid(m.graze)
+
+load(file = 'results/cropper_attributes.Rdata')
+## match in site level predictors
+grazers$site.richness<-diversity.preds$richness[match(grazers$unique.id, diversity.preds$unique.id)]
+grazers$site.size<-diversity.preds$mean.size[match(grazers$unique.id, diversity.preds$unique.id)]
+grazers$site.lfi<-diversity.preds$mean.lfi[match(grazers$unique.id, diversity.preds$unique.id)]*100
+grazers$log_biom<-log(grazers$biom)
+
+# focal<-funk::scaler(grazers, ID = c('dataset', 'reef', 'site', 'grazef','FG', 'unique.id', 'sp', 'date'), cats = TRUE)
+m.graze<-glmer(grazef ~ log_biom + site.lfi + (1 | dataset/reef), grazers, family='Gamma'(link = 'log'))
+hist(resid(m.graze))
 r2marg.grazer<-rsquared(m.graze)$Marginal
 
-save(grazers, file= 'results/models/cropper_function_resid.Rdata')
+# save(grazers, file= 'results/models/cropper_function_resid.Rdata')
 
 load("results/models/scraper_function.Rdata")
 scrapers<-h
@@ -37,57 +46,70 @@ load(file = 'results/scraper_attributes.Rdata')
 ## match in site level predictors
 scrapers$site.richness<-diversity.preds$richness[match(scrapers$unique.id, diversity.preds$unique.id)]
 scrapers$site.size<-diversity.preds$mean.size[match(scrapers$unique.id, diversity.preds$unique.id)]
-scrapers$site.lfi<-diversity.preds$mean.lfi[match(scrapers$unique.id, diversity.preds$unique.id)]
-# # data load
-# load('results/models/scraper_function_species.Rdata')
-# scrape <- h.sp %>% group_by(unique.id) %>% mutate(tot.abund = sum(abund))
-# load(file = 'results/scraper_attributes.Rdata')
-# ## match in species level predictors/info
-# scrape$mean.species.size.cm<-species.attributes$size.cm[match(scrape$species, species.attributes$species)]
-# scrape<-scrape %>% group_by(unique.id) %>% summarise(size = mean(mean.species.size.cm), size.prop = mean((mean.species.size.cm*abund)/tot.abund))
-# h$sp.size<-scrape$size[match(h$unique.id, scrape$unique.id)]
-median(scrapers$site.size)
-scrapers$size_cat<-ifelse(scrapers$site.size >= median(scrapers$site.size), 'Large', 'Small')
+scrapers$site.lfi<-diversity.preds$mean.lfi[match(scrapers$unique.id, diversity.preds$unique.id)]*100
 
 scrapers$log_biom<-log(scrapers$biom)
 focal<-funk::scaler(scrapers, ID = c('dataset', 'reef', 'site', 'grazef','FG', 'unique.id', 'sp', 'date'), cats = TRUE)
 
-m.scrape<-glmer(grazef ~ log_biom + site.lfi + (1 | dataset/reef), focal, family='Gamma'(link = 'log'))
+## check collinearity
+mat<-focal %>% select(log_biom, site.lfi) 
+pairs2(mat, diag.panel = panel.hist, upper.panel=panel.cor, lower.panel=panel.smooth2)
+
+
+m.scrape<-glmer(grazef ~ log_biom + site.lfi + (1 | dataset/reef), scrapers, family='Gamma'(link = 'log'))
 # scrapers$resid<-resid(m.scrape)
 r2marg.scraper<-rsquared(m.scrape)$Marginal
 summary(m.scrape)
 
+# save(scrapers, file= 'results/models/scraper_function_resid.Rdata')
+
+
+### Now predict biomass and LFI effects
+
+### CROPPERS
+t<-data.frame(r2beta(m.graze, method = 'nsj', partial = TRUE)); t
+pred<-expand.grid(site.lfi = c(0), log_biom = seq(min(grazers$log_biom), max(grazers$log_biom), length.out=300), dataset='Chagos', reef='Diego Garcia')
+pred$pred<-predict(m.graze, newdata = pred, re.form = NA, type='response', se.fit=TRUE)$fit
+pred$se<-predict(m.graze, newdata = pred, re.form = NA, type='response', se.fit=TRUE)$se.fit
+pred$upper<-with(pred, pred + 2 * se)
+pred$lower<-with(pred, pred - 2 * se)
+
+ggplot() + geom_line(data=pred, aes(log_biom, pred, group=site.lfi)) + 
+  geom_ribbon(data=pred, aes(log_biom, pred, ymax = upper, ymin = lower, group=site.lfi), alpha=0.2) +
+  geom_point(data = grazers, aes(log_biom, grazef))
+
+## SCRAPERS
 t<-data.frame(r2beta(m.scrape, method = 'nsj', partial = TRUE)); t
-pred<-expand.grid(site.lfi = 0, log_biom = seq(min(focal$log_biom), max(focal$log_biom), length.out=300), dataset='Chagos', reef='Diego Garcia')
+pred<-expand.grid(site.lfi = c(25, 75), log_biom = seq(min(scrapers$log_biom), max(scrapers$log_biom), length.out=300), dataset='Chagos', reef='Diego Garcia')
 pred$pred<-predict(m.scrape, newdata = pred, re.form = NA, type='response', se.fit=TRUE)$fit
 pred$se<-predict(m.scrape, newdata = pred, re.form = NA, type='response', se.fit=TRUE)$se.fit
 pred$upper<-with(pred, pred + 2 * se)
 pred$lower<-with(pred, pred - 2 * se)
 
-ggplot() + geom_line(data=pred, aes(log_biom, pred)) + 
-  geom_ribbon(data=pred, aes(log_biom, pred, ymax = upper, ymin = lower), alpha=0.2) +
-  geom_point(data = focal, aes(log_biom, grazef))
-
-visreg::visreg(m.scrape, 'site.lfi')
-
-
-save(scrapers, file= 'results/models/scraper_function_resid.Rdata')
+ggplot() + geom_line(data=pred, aes(log_biom, pred, group=site.lfi)) + 
+  geom_ribbon(data=pred, aes(log_biom, pred, ymax = upper, ymin = lower, group=site.lfi), alpha=0.2) +
+  geom_point(data = scrapers, aes(log_biom, grazef, col=site.lfi)) +
+  labs(color= 'Proportion of fish > 30 cm') +
+  scale_colour_continuous() +
+  theme(legend.position = c(0.2, 0.8))
 
 
-load("results/models/browser_function.Rdata")
-browsers<-h
-browsers$grazef<-browsers$browsing
-browsers$browsing<-NULL
-browsers$sp <- 'browsers'
 
-m.browse<-glmer(browsing ~ biom + (1 | dataset/reef), h, family='Gamma'(link = 'log'))
-browsers$resid<-resid(m.browse)
-r2marg.browser<-rsquared(m.browse)$Marginal
 
-df<-rbind(grazers, scrapers, browsers)
-r2<-data.frame(label = c(r2marg.grazer, r2marg.scraper, r2marg.browser), sp = c('grazers','scrapers', 'browsers'))
-#r2$lab<-paste(expression(paste('R'^2,' = ', round(r2$label, 2))))
-r2$label<-round(r2$label, 2)
+# load("results/models/browser_function.Rdata")
+# browsers<-h
+# browsers$grazef<-browsers$browsing
+# browsers$browsing<-NULL
+# browsers$sp <- 'browsers'
+
+# m.browse<-glmer(browsing ~ biom + (1 | dataset/reef), h, family='Gamma'(link = 'log'))
+# browsers$resid<-resid(m.browse)
+# r2marg.browser<-rsquared(m.browse)$Marginal
+
+# df<-rbind(grazers, scrapers, browsers)
+# r2<-data.frame(label = c(r2marg.grazer, r2marg.scraper, r2marg.browser), sp = c('grazers','scrapers', 'browsers'))
+# #r2$lab<-paste(expression(paste('R'^2,' = ', round(r2$label, 2))))
+# r2$label<-round(r2$label, 2)
 
 
 ## setup formatting information
