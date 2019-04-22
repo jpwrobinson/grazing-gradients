@@ -33,7 +33,7 @@ m.full<-glmer(cropping.gram.ha ~  hard.coral + macroalgae + rubble + substrate +
                 data = h.pred, family='Gamma'(link='log'))
 summary(m.)
 ## save AIC scores from top 7 models
-# m.table<-dredge(m.full)
+m.table<-dredge(m.full)
 tab<-subset(m.table, delta < 7)
 tab<-data.frame(tab)
 tab[is.na(tab)]<-0
@@ -73,9 +73,10 @@ m.full<-glmer(scraping ~ hard.coral + macroalgae + rubble + substrate + complexi
         	fish.biom + Fished.Protected.dummy + Fished.Unfished.dummy  + site.size + #biom +
           (1 | dataset/reef) , ## random, nested = reefs within datasets
                 data = h.pred, family='Gamma'(link='log'))
+data.frame(r2beta(m.full, method = 'nsj', partial = TRUE))
 
 ## save AIC scores from top 7 models
-# m.table<-dredge(m.full)
+m.table<-dredge(m.full)
 tab<-subset(m.table, delta < 7)
 tab<-data.frame(tab)
 tab[is.na(tab)]<-0

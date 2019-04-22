@@ -112,7 +112,7 @@ m.scrape<-glmer(scraping ~ biom +
 car::vif(m.scrape)
 pairs2(dplyr::select_if(scrap.pred, is.numeric), 
   lower.panel = panel.cor, upper.panel = panel.smooth2, diag.panel=panel.hist)
-
+with(scrap.pred, cor(log(biom+1), abund))
 m.table<-dredge(m.scrape)
 tab<-data.frame(m.table)
 tab[is.na(tab)]<-0

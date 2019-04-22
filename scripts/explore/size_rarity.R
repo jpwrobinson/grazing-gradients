@@ -56,12 +56,31 @@ div$J <- div$div/log(div$richness)
 # save mean sizes 
 sizes<-pred %>% filter(FG == 'Herbivore Scraper') %>% 
   ## sum biomass per FG in each transect
+        group_by(dataset, reef, site, transect,
+                 unique.id) %>%
+          summarise(size = mean(length.cm), mass= mean(mass.g)) %>% 
+          group_by(dataset, reef, site, unique.id) %>%
+          summarise(size = mean(size), mass= mean(mass))
+
+  ## mean species sizes across transects at each site
+ sizes.sp<- pred %>% filter(FG == 'Herbivore Scraper') %>% 
+  ## sum biomass per FG in each transect
         group_by(dataset, reef, site, transect, species,
                  unique.id) %>%
-          summarise(size = mean(length.cm), mass= mean(mass.g))
-  ## mean species sizes across transects at each site
- sizes.sp<- sizes %>%   group_by(species) %>%
-          summarise(size = mean(size), mass=mean(mass)) 
+          summarise(size = mean(length.cm), mass= mean(mass.g)) %>%
+          group_by(species) %>%
+			summarise(size = mean(size), mass= mean(mass))
+
+# save mean sizes 
+lfi<-pred %>% filter(FG == 'Herbivore Scraper') %>% 
+  ## sum biomass per FG in each transect
+        group_by(dataset, reef, site, transect,
+                 unique.id) %>%
+          summarise(large = sum(biomass.kgha[length.cm >= 30]), biom = sum(biomass.kgha)) %>% 
+          mutate(lfi = large / biom) %>%
+          group_by(dataset, reef, site, unique.id) %>%
+          summarise(lfi = mean(lfi))
+
 
 ## create dataframe of species-level metrics - size, scraping, frequency
 com.mat.inc<-com.mat
@@ -100,12 +119,14 @@ load('results/models/scraper_function.Rdata')
 mean.biom<-h %>% group_by(unique.id) %>% summarise(biom = mean(biom))
 mean.abund<-h %>% group_by(unique.id) %>% summarise(abund = mean(abund))
 mean.size<-sizes %>% group_by(unique.id) %>% summarise(size = mean(size))
+mean.lfi<-lfi %>% group_by(unique.id) %>% summarise(lfi = mean(lfi))
 mean.mass<-sizes %>% group_by(unique.id) %>% summarise(mass = mean(mass))
 mean.scraping<-h %>% group_by(unique.id) %>% summarise(scraping = mean(scraping))
 
 div$mean.biom<-mean.biom$biom[match(div$unique.id, mean.biom$unique.id)]
 div$mean.abund<-mean.abund$abund[match(div$unique.id, mean.abund$unique.id)]
 div$mean.size<-mean.size$size[match(div$unique.id, mean.size$unique.id)]
+div$mean.lfi<-mean.lfi$lfi[match(div$unique.id, mean.lfi$unique.id)]
 div$mean.mass<-mean.mass$mass[match(div$unique.id, mean.mass$unique.id)]
 div$mean.scraping<-mean.scraping$scraping[match(div$unique.id, mean.scraping$unique.id)]
 
@@ -113,6 +134,8 @@ div$mean.scraping<-mean.scraping$scraping[match(div$unique.id, mean.scraping$uni
 ## add site richness to h dataframe
 scrape$richness<-div$richness[match(scrape$unique.id, div$unique.id)]
 scrape$size<-sizes$size[match(scrape$unique.id, sizes$unique.id)]
+scrape$lfi<-lfi$lfi[match(scrape$unique.id, sizes$unique.id)]
+
 ggplot(scrape, aes(richness, scraping, size=biom)) + geom_point() + facet_wrap(~species, scales='free_y') +
 	stat_smooth(method='lm') +
 	labs(y = 'area scraped', title='Species scraping area by assemblage richness')
@@ -138,22 +161,22 @@ ggplot(freq, aes(size.g, scraping, size=freq))  +
 		 geom_text(aes(label=species)) + stat_smooth(method = 'lm') +
 		 labs(y = 'mean scraped area per site', title='Species scraping by average size')
 
-## calculate LFI for each site
-lfi <- pred %>% filter(FG == 'Herbivore Scraper') %>% 
-	mutate(large = ifelse(length.cm > 35, 'large', 'small')) %>%
-	 group_by(dataset, reef, site, transect, 
-                 unique.id) %>%
-          mutate(biom = sum(biomass.kgha)) %>%
-          group_by(dataset, reef, site, transect, 
-                 unique.id, large) %>%
-          summarise(lfi = sum(biomass.kgha)/unique(biom)) %>%
-  ## mean species biomass across transects at each site
-          group_by(unique.id, large) %>%
-          summarise(lfi = mean(lfi))  %>% filter(large == 'large')
+# ## calculate LFI for each site
+# lfi <- pred %>% filter(FG == 'Herbivore Scraper') %>% 
+# 	mutate(large = ifelse(length.cm > 35, 'large', 'small')) %>%
+# 	 group_by(dataset, reef, site, transect, 
+#                  unique.id) %>%
+#           mutate(biom = sum(biomass.kgha)) %>%
+#           group_by(dataset, reef, site, transect, 
+#                  unique.id, large) %>%
+#           summarise(lfi = sum(biomass.kgha)/unique(biom)) %>%
+#   ## mean species biomass across transects at each site
+#           group_by(unique.id, large) %>%
+#           summarise(lfi = mean(lfi))  %>% filter(large == 'large')
 
-### compare with richness
-div$lfi<-lfi$lfi[match(div$unique.id, lfi$unique.id)]
-div$lfi[is.na(div$lfi)]<-0
+# ### compare with richness
+# div$lfi<-lfi$lfi[match(div$unique.id, lfi$unique.id)]
+# div$lfi[is.na(div$lfi)]<-0
 
 ggplot(div, aes(richness, lfi)) + geom_point() + stat_smooth(method = 'lm') +
 		 labs(y = 'biomass proportion of fish > 35cm', title='proportion excavators by species richness')

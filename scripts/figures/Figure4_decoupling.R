@@ -4,6 +4,7 @@ library(cowplot)
 library(ggplot2)
 library(funk)
 library(scales)
+library(r2glmm)
 library(here)
 library(piecewiseSEM)
 library(lme4)
@@ -32,9 +33,43 @@ scrapers$grazef<-scrapers$scraping
 scrapers$scraping<-NULL
 scrapers$sp <- 'scrapers'
 
-m.scrape<-glmer(scraping ~ scale(biom) + (1 | dataset/reef), h, family='Gamma'(link = 'log'))
-scrapers$resid<-resid(m.scrape)
+load(file = 'results/scraper_attributes.Rdata')
+## match in site level predictors
+scrapers$site.richness<-diversity.preds$richness[match(scrapers$unique.id, diversity.preds$unique.id)]
+scrapers$site.size<-diversity.preds$mean.size[match(scrapers$unique.id, diversity.preds$unique.id)]
+scrapers$site.lfi<-diversity.preds$mean.lfi[match(scrapers$unique.id, diversity.preds$unique.id)]
+# # data load
+# load('results/models/scraper_function_species.Rdata')
+# scrape <- h.sp %>% group_by(unique.id) %>% mutate(tot.abund = sum(abund))
+# load(file = 'results/scraper_attributes.Rdata')
+# ## match in species level predictors/info
+# scrape$mean.species.size.cm<-species.attributes$size.cm[match(scrape$species, species.attributes$species)]
+# scrape<-scrape %>% group_by(unique.id) %>% summarise(size = mean(mean.species.size.cm), size.prop = mean((mean.species.size.cm*abund)/tot.abund))
+# h$sp.size<-scrape$size[match(h$unique.id, scrape$unique.id)]
+median(scrapers$site.size)
+scrapers$size_cat<-ifelse(scrapers$site.size >= median(scrapers$site.size), 'Large', 'Small')
+
+scrapers$log_biom<-log(scrapers$biom)
+focal<-funk::scaler(scrapers, ID = c('dataset', 'reef', 'site', 'grazef','FG', 'unique.id', 'sp', 'date'), cats = TRUE)
+
+m.scrape<-glmer(grazef ~ log_biom + site.lfi + (1 | dataset/reef), focal, family='Gamma'(link = 'log'))
+# scrapers$resid<-resid(m.scrape)
 r2marg.scraper<-rsquared(m.scrape)$Marginal
+summary(m.scrape)
+
+t<-data.frame(r2beta(m.scrape, method = 'nsj', partial = TRUE)); t
+pred<-expand.grid(site.lfi = 0, log_biom = seq(min(focal$log_biom), max(focal$log_biom), length.out=300), dataset='Chagos', reef='Diego Garcia')
+pred$pred<-predict(m.scrape, newdata = pred, re.form = NA, type='response', se.fit=TRUE)$fit
+pred$se<-predict(m.scrape, newdata = pred, re.form = NA, type='response', se.fit=TRUE)$se.fit
+pred$upper<-with(pred, pred + 2 * se)
+pred$lower<-with(pred, pred - 2 * se)
+
+ggplot() + geom_line(data=pred, aes(log_biom, pred)) + 
+  geom_ribbon(data=pred, aes(log_biom, pred, ymax = upper, ymin = lower), alpha=0.2) +
+  geom_point(data = focal, aes(log_biom, grazef))
+
+visreg::visreg(m.scrape, 'site.lfi')
+
 
 save(scrapers, file= 'results/models/scraper_function_resid.Rdata')
 

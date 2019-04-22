@@ -53,15 +53,35 @@ div<-data.frame(div=diversity(com.mat),
 div$J <- div$div/log(div$richness)
 
 
+
 # save mean sizes 
 sizes<-pred %>% filter(FG == 'Herbivore Grazer') %>% 
   ## sum biomass per FG in each transect
+        group_by(dataset, reef, site, transect,
+                 unique.id) %>%
+          summarise(size = mean(length.cm), mass= mean(mass.g)) %>% 
+          group_by(dataset, reef, site, unique.id) %>%
+          summarise(size = mean(size), mass= mean(mass))
+          
+  ## mean species sizes across transects at each site
+ sizes.sp<- pred %>% filter(FG == 'Herbivore Grazer') %>% 
+  ## sum biomass per FG in each transect
         group_by(dataset, reef, site, transect, species,
                  unique.id) %>%
-          summarise(size = mean(length.cm), mass= mean(mass.g))
-  ## mean species sizes across transects at each site
- sizes.sp<- sizes %>%   group_by(species) %>%
-          summarise(size = mean(size), mass=mean(mass)) 
+          summarise(size = mean(length.cm), mass= mean(mass.g)) %>%
+          group_by(species) %>%
+			summarise(size = mean(size), mass= mean(mass))
+
+
+# save mean sizes 
+lfi<-pred %>% filter(FG == 'Herbivore Scraper') %>% 
+  ## sum biomass per FG in each transect
+        group_by(dataset, reef, site, transect,
+                 unique.id) %>%
+          summarise(large = sum(biomass.kgha[length.cm >= 30]), biom = sum(biomass.kgha)) %>% 
+          mutate(lfi = large / biom) %>%
+          group_by(dataset, reef, site, unique.id) %>%
+          summarise(lfi = mean(lfi))
 
 ## create dataframe of species-level metrics - size, cropping, frequency
 com.mat.inc<-com.mat
@@ -100,10 +120,13 @@ freq$genus<-NULL
 ## add things to div
 div$mean.size<-sizes$size[match(div$unique.id, sizes$unique.id)]
 div$mean.biom<-h$biom[match(div$unique.id, h$unique.id)]
+div$mean.lfi<-lfi$lfi[match(div$unique.id, lfi$unique.id)]
 
 ## add site richness to h dataframe
 cropper$richness<-div$richness[match(cropper$unique.id, div$unique.id)]
 cropper$size<-sizes$size[match(cropper$unique.id, sizes$unique.id)]
+cropper$lfi<-lfi$lfi[match(cropper$unique.id, sizes$unique.id)]
+
 ggplot(cropper, aes(richness, cropping.gram.ha, size=biom)) + geom_point() + facet_wrap(~species, scales='free_y') +
 	stat_smooth(method='lm') +
 	labs(y = 'area cropped', title='Species cropping area by assemblage richness')
@@ -129,22 +152,22 @@ ggplot(freq, aes(size.g, cropping, size=freq))  +
 		 geom_text(aes(label=species)) + stat_smooth(method = 'lm') +
 		 labs(y = 'mean cropped area per site', title='Species cropping by average size')
 
-## calculate LFI for each site
-lfi <- pred %>% filter(FG == 'Herbivore Grazer') %>% 
-	mutate(large = ifelse(length.cm > 15, 'large', 'small')) %>%
-	 group_by(dataset, reef, site, transect, 
-                 unique.id) %>%
-          mutate(biom = sum(biomass.kgha)) %>%
-          group_by(dataset, reef, site, transect, 
-                 unique.id, large) %>%
-          summarise(lfi = sum(biomass.kgha)/unique(biom)) %>%
-  ## mean species biomass across transects at each site
-          group_by(unique.id, large) %>%
-          summarise(lfi = mean(lfi))  %>% filter(large == 'large')
+# ## calculate LFI for each site
+# lfi <- pred %>% filter(FG == 'Herbivore Grazer') %>% 
+# 	mutate(large = ifelse(length.cm > 15, 'large', 'small')) %>%
+# 	 group_by(dataset, reef, site, transect, 
+#                  unique.id) %>%
+#           mutate(biom = sum(biomass.kgha)) %>%
+#           group_by(dataset, reef, site, transect, 
+#                  unique.id, large) %>%
+#           summarise(lfi = sum(biomass.kgha)/unique(biom)) %>%
+#   ## mean species biomass across transects at each site
+#           group_by(unique.id, large) %>%
+#           summarise(lfi = mean(lfi))  %>% filter(large == 'large')
 
-### compare with richness
-div$lfi<-lfi$lfi[match(div$unique.id, lfi$unique.id)]
-div$lfi[is.na(div$lfi)]<-0
+# ### compare with richness
+# div$lfi<-lfi$lfi[match(div$unique.id, lfi$unique.id)]
+# div$lfi[is.na(div$lfi)]<-0
 
 ggplot(div, aes(richness, lfi)) + geom_point() + stat_smooth(method = 'lm') +
 		 labs(y = 'biomass proportion of fish > 15cm', title='proportion large croppers by species richness')
