@@ -78,7 +78,7 @@ lfi<-pred %>% filter(FG == 'Herbivore Scraper') %>%
   ## sum biomass per FG in each transect
         group_by(dataset, reef, site, transect,
                  unique.id) %>%
-          summarise(large = sum(biomass.kgha[length.cm >= 30]), biom = sum(biomass.kgha)) %>% 
+          summarise(large = sum(abundance.500m2[length.cm >= 30]), biom = sum(abundance.500m2)) %>% 
           mutate(lfi = large / biom) %>%
           group_by(dataset, reef, site, unique.id) %>%
           summarise(lfi = mean(lfi))

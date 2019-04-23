@@ -12,7 +12,6 @@ theme_set(theme_sleek())
 
 setwd(here('grazing-gradients'))
 
-pdf(file = "figures/figure4_decoupling.pdf", width=8, height=4)
 
 ## load models and predictions. tidy up to merge
 load("results/models/cropper_function.Rdata")
@@ -27,13 +26,18 @@ load(file = 'results/cropper_attributes.Rdata')
 grazers$site.richness<-diversity.preds$richness[match(grazers$unique.id, diversity.preds$unique.id)]
 grazers$site.size<-diversity.preds$mean.size[match(grazers$unique.id, diversity.preds$unique.id)]
 grazers$site.lfi<-diversity.preds$mean.lfi[match(grazers$unique.id, diversity.preds$unique.id)]*100
-grazers$log_biom<-log(grazers$biom)
+grazers$log_biom<-log10(grazers$biom)
 
-# focal<-funk::scaler(grazers, ID = c('dataset', 'reef', 'site', 'grazef','FG', 'unique.id', 'sp', 'date'), cats = TRUE)
-m.graze<-glmer(grazef ~ log_biom + site.lfi + (1 | dataset/reef), grazers, family='Gamma'(link = 'log'))
+
+focal.crop<-funk::scaler(grazers, ID = c('dataset', 'reef', 'site', 'grazef','FG', 'unique.id', 'sp', 'date'), cats = TRUE)
+m.graze<-glmer(grazef ~ log_biom * site.lfi + (1 | dataset/reef), focal.crop, 
+      family='Gamma'(link = 'log'),
+        na.action = na.fail)
 hist(resid(m.graze))
+summary(m.graze)
+MuMIn::dredge(m.graze)
 r2marg.grazer<-rsquared(m.graze)$Marginal
-
+car::vif(m.graze)
 # save(grazers, file= 'results/models/cropper_function_resid.Rdata')
 
 load("results/models/scraper_function.Rdata")
@@ -48,18 +52,22 @@ scrapers$site.richness<-diversity.preds$richness[match(scrapers$unique.id, diver
 scrapers$site.size<-diversity.preds$mean.size[match(scrapers$unique.id, diversity.preds$unique.id)]
 scrapers$site.lfi<-diversity.preds$mean.lfi[match(scrapers$unique.id, diversity.preds$unique.id)]*100
 
-scrapers$log_biom<-log(scrapers$biom)
-focal<-funk::scaler(scrapers, ID = c('dataset', 'reef', 'site', 'grazef','FG', 'unique.id', 'sp', 'date'), cats = TRUE)
+scrapers$log_biom<-log10(scrapers$biom)
+focal.scrape<-funk::scaler(scrapers, ID = c('dataset', 'reef', 'site', 'grazef','FG', 'unique.id', 'sp', 'date'), cats = TRUE)
 
 ## check collinearity
-mat<-focal %>% select(log_biom, site.lfi) 
+mat<-focal.scrape %>% select(log_biom, site.lfi) 
 pairs2(mat, diag.panel = panel.hist, upper.panel=panel.cor, lower.panel=panel.smooth2)
 
 
-m.scrape<-glmer(grazef ~ log_biom + site.lfi + (1 | dataset/reef), scrapers, family='Gamma'(link = 'log'))
+m.scrape<-glmer(grazef ~ log_biom * site.lfi + (1 | dataset/reef), focal.scrape, 
+      family='Gamma'(link = 'log'),
+        na.action = na.fail)
+MuMIn::dredge(m.scrape)
 # scrapers$resid<-resid(m.scrape)
 r2marg.scraper<-rsquared(m.scrape)$Marginal
 summary(m.scrape)
+hist(resid(m.scrape))
 
 # save(scrapers, file= 'results/models/scraper_function_resid.Rdata')
 
@@ -67,49 +75,48 @@ summary(m.scrape)
 ### Now predict biomass and LFI effects
 
 ### CROPPERS
-t<-data.frame(r2beta(m.graze, method = 'nsj', partial = TRUE)); t
-pred<-expand.grid(site.lfi = c(0), log_biom = seq(min(grazers$log_biom), max(grazers$log_biom), length.out=300), dataset='Chagos', reef='Diego Garcia')
-pred$pred<-predict(m.graze, newdata = pred, re.form = NA, type='response', se.fit=TRUE)$fit
-pred$se<-predict(m.graze, newdata = pred, re.form = NA, type='response', se.fit=TRUE)$se.fit
-pred$upper<-with(pred, pred + 2 * se)
-pred$lower<-with(pred, pred - 2 * se)
+r2<-data.frame(r2beta(m.graze, method = 'nsj', partial = TRUE))
 
-ggplot() + geom_line(data=pred, aes(log_biom, pred, group=site.lfi)) + 
-  geom_ribbon(data=pred, aes(log_biom, pred, ymax = upper, ymin = lower, group=site.lfi), alpha=0.2) +
+lim25<-(25 - mean(grazers$site.lfi)) / sd(grazers$site.lfi) 
+lim75<-(75 - mean(grazers$site.lfi)) / sd(grazers$site.lfi) 
+
+pred.c<-data.frame(site.lfi_raw = c(25, 75), site.lfi = c(lim25, lim75),
+     log_biom = seq(min(focal.crop$log_biom), max(focal.crop$log_biom), length.out=300),
+     log_biom_raw = seq(min(grazers$log_biom), max(grazers$log_biom), length.out=300),
+     biom_raw = seq(min(grazers$biom), max(grazers$biom), length.out=300),
+     dataset='Chagos', reef='Diego Garcia', fg = 'Croppers')
+pred.c$pred.c<-predict(m.graze, newdata = pred.c, re.form = NA, type='response', se.fit=TRUE)$fit
+pred.c$se<-predict(m.graze, newdata = pred.c, re.form = NA, type='response', se.fit=TRUE)$se.fit
+pred.c$upper<-with(pred.c, pred.c + 2 * se)
+pred.c$lower<-with(pred.c, pred.c - 2 * se)
+
+ggplot() + geom_line(data=pred.c, aes(log_biom_raw, pred.c, group=site.lfi)) + 
+  geom_ribbon(data=pred.c, aes(log_biom_raw, pred.c, ymax = upper, ymin = lower, group=site.lfi), alpha=0.2) +
   geom_point(data = grazers, aes(log_biom, grazef))
 
 ## SCRAPERS
-t<-data.frame(r2beta(m.scrape, method = 'nsj', partial = TRUE)); t
-pred<-expand.grid(site.lfi = c(25, 75), log_biom = seq(min(scrapers$log_biom), max(scrapers$log_biom), length.out=300), dataset='Chagos', reef='Diego Garcia')
-pred$pred<-predict(m.scrape, newdata = pred, re.form = NA, type='response', se.fit=TRUE)$fit
-pred$se<-predict(m.scrape, newdata = pred, re.form = NA, type='response', se.fit=TRUE)$se.fit
-pred$upper<-with(pred, pred + 2 * se)
-pred$lower<-with(pred, pred - 2 * se)
+r2<-rbind(r2, data.frame(r2beta(m.scrape, method = 'nsj', partial = TRUE)))
 
-ggplot() + geom_line(data=pred, aes(log_biom, pred, group=site.lfi)) + 
-  geom_ribbon(data=pred, aes(log_biom, pred, ymax = upper, ymin = lower, group=site.lfi), alpha=0.2) +
+## get scaled LFI vals for 25% and 75% LFI
+lim25<-(25 - mean(scrapers$site.lfi)) / sd(scrapers$site.lfi) 
+lim75<-(75 - mean(scrapers$site.lfi)) / sd(scrapers$site.lfi) 
+
+pred.s<-data.frame(site.lfi_raw = c(25, 75), site.lfi = c(lim25, lim75),
+  log_biom = seq(min(focal.scrape$log_biom), max(focal.scrape$log_biom), length.out=300),
+  log_biom_raw = seq(min(scrapers$log_biom), max(scrapers$log_biom), length.out=300),
+  biom_raw = seq(min(scrapers$biom), max(scrapers$biom), length.out=300),
+     dataset='Chagos', reef='Diego Garcia', fg = 'Scrapers')
+pred.s$pred.s<-predict(m.scrape, newdata = pred.s, re.form = NA, type='response', se.fit=TRUE)$fit
+pred.s$se<-predict(m.scrape, newdata = pred.s, re.form = NA, type='response', se.fit=TRUE)$se.fit
+pred.s$upper<-with(pred.s, pred.s + 2 * se)
+pred.s$lower<-with(pred.s, pred.s - 2 * se)
+
+ggplot() + geom_line(data=pred.s, aes(log_biom_raw, pred.s, group=site.lfi)) + 
+  geom_ribbon(data=pred.s, aes(log_biom_raw, pred.s, ymax = upper, ymin = lower, group=site.lfi), alpha=0.2) +
   geom_point(data = scrapers, aes(log_biom, grazef, col=site.lfi)) +
   labs(color= 'Proportion of fish > 30 cm') +
   scale_colour_continuous() +
   theme(legend.position = c(0.2, 0.8))
-
-
-
-
-# load("results/models/browser_function.Rdata")
-# browsers<-h
-# browsers$grazef<-browsers$browsing
-# browsers$browsing<-NULL
-# browsers$sp <- 'browsers'
-
-# m.browse<-glmer(browsing ~ biom + (1 | dataset/reef), h, family='Gamma'(link = 'log'))
-# browsers$resid<-resid(m.browse)
-# r2marg.browser<-rsquared(m.browse)$Marginal
-
-# df<-rbind(grazers, scrapers, browsers)
-# r2<-data.frame(label = c(r2marg.grazer, r2marg.scraper, r2marg.browser), sp = c('grazers','scrapers', 'browsers'))
-# #r2$lab<-paste(expression(paste('R'^2,' = ', round(r2$label, 2))))
-# r2$label<-round(r2$label, 2)
 
 
 ## setup formatting information
@@ -135,30 +142,73 @@ panel_labs <- data.frame(
   lab=c('A','B')
 )
 
-## drop browsers
-df<-droplevels(df[!df$sp == 'browsers',])
-r2<-r2[!r2$sp == 'browsers',]
+df<-rbind(pred.c, pred.s)
+r2$fg<-c(rep('Croppers', 4), rep('Scrapers', 4))
+r2<-r2[r2$Effect == 'Model',]
+r2$label<-round(r2$Rsq, 2)
 
-ggplot(df, aes(biom, grazef, col=sp)) + 
-        geom_point(alpha=0.5, size=3,aes(shape=dataset)) +
-        facet_wrap(~ sp, scales= 'free',labeller=func.labels) +
-  labs(title = "") +
-  annotate("text", x = -Inf, y = Inf,hjust=1,vjust = -1.5, fontface=2, label = c("A", ""),size=6) +
-  annotate("text", x = -Inf, y = Inf,hjust=1,vjust = -1.5, fontface=2, label = c("", "B"),size=6) +
-  scale_color_manual(values = cols.named) +
-  scale_x_continuous(label=comma) +
-  scale_y_continuous(label=comma) +
-    coord_cartesian(clip = "off") +
-  # geom_text(data = panel_labs, aes(x = 0, y = Inf, label=lab),col='black', size=5.5, fontface=2, hjust=0.4, vjust=1.4) +
-  guides(col=F,shape=guide_legend(nrow=4,byrow=TRUE,override.aes = list(alpha=0.5, col='black', size=3))) +
-  theme(legend.position =c(0.92, 0.3), legend.title=element_blank(),
+
+
+left<-ggplot() + geom_point(data = grazers, aes(log_biom, grazef, col=site.lfi)) +
+  geom_line(data=pred.c, aes(log_biom_raw, pred.c, group=site.lfi, linetype=factor(site.lfi))) + 
+  geom_ribbon(data=pred.c, aes(log_biom_raw, pred.c, ymax = upper, ymin = lower, group=site.lfi), alpha=0.2) +
+  # labs(linetype= 'Fish > 30 cm') +
+  # scale_linetype_manual(values = c(1,2), labels = c('25%', '75%')) +
+  # facet_wrap(~ fg, scales= 'free') +
+scale_colour_gradientn(colors = myPalette(10), breaks = c(0, 25, 50, 75, 100), labels = c('0%', '25%', '50%', '75%', '100%')) +
+  scale_x_continuous(breaks = seq(1, 3, by = 1),
+    labels = 10^seq(1, 3, by = 1)) +
+  theme(legend.position = 'none',
     strip.text.x = element_text(size=12),
     legend.text=element_text(size=12, colour='black'),
+    plot.margin = unit(c(0.25, 0.25, 0.25, 0.25), "cm"),
     legend.key.size = unit(0.5, "cm"),
     axis.text=element_text(size=14),
                 axis.title=element_text(size=14)) +
-  xlab(expression(paste("biomass, kg ha"^-1))) + ylab("Grazing rate")  +
-  geom_text(data=r2, aes(Inf, Inf, label=paste0("R", "^", "2", "==", label)), size=5, fontface=2,vjust=2, hjust=2, parse=TRUE) 
-  # geom_text(data=panel_labs, aes(Inf, Inf, label=panel_labs))
+  xlab(expression(paste("biomass, kg ha"^-1))) + ylab(expression(paste("g ha"^-1,"min"^-1)))  #+
+  # geom_text(data=r2[r2$fg == 'Croppers',], aes(Inf, Inf, 
+  #     label=paste0("R", "^", "2", "==", label)), size=5, fontface=2,vjust=2, hjust=2, parse=TRUE) 
 
+
+myPalette <- colorRampPalette(rev(RColorBrewer::brewer.pal(10, "BrBG")))
+
+right<-ggplot() + geom_point(data = scrapers, aes(log_biom, grazef, col=site.lfi)) +
+  geom_line(data=pred.s, aes(log_biom_raw, pred.s, group=site.lfi, linetype=factor(site.lfi))) + 
+  geom_ribbon(data=pred.s, aes(log_biom_raw, pred.s, ymax = upper, ymin = lower, group=site.lfi), alpha=0.2) +
+  labs(color= 'Fish > 30 cm', linetype='') +
+  scale_colour_gradientn(colors = myPalette(10), breaks = c(0, 25, 50, 75, 100), labels = c('0%', '25%', '50%', '75%', '100%')) +
+  scale_linetype_manual(values = c(1,2), labels = c('25%', '75%')) +
+  guides(linetype=F) +
+  scale_x_continuous(breaks = seq(1, 3, by = 1),
+    labels = 10^seq(1, 3, by = 1)) +
+  theme(legend.position = 'none',
+    legend.key.size = unit(0.4, "cm"),
+          plot.margin = unit(c(0.25, 0.25, 0.25, 0.25), "cm"),
+    strip.text.x = element_text(size=12),
+    legend.text=element_text(size=10, colour='black'),
+    axis.text=element_text(size=14),
+                axis.title=element_text(size=14),
+                legend.title=element_text(size=10)) +
+  xlab(expression(paste("biomass, kg ha"^-1))) + ylab(expression(paste('m'^2,' ha'^-1, 'min'^-1))) # +
+  # geom_text(data=r2[r2$fg == 'Scrapers',], aes(Inf, Inf, 
+  #     label=paste0("R", "^", "2", "==", label)), size=5, fontface=2,vjust=2, hjust=2, parse=TRUE) 
+
+leg<-ggplot() + 
+  geom_line(data=pred.s, aes(log_biom_raw, pred.s, group=site.lfi, linetype=factor(site.lfi))) + 
+  scale_linetype_manual(values = c(1,2), labels = c('25%', '75%')) +
+  labs(linetype =  '') +
+  theme(legend.key.size = unit(0.6, 'cm'))
+legend1 <- lemon::g_legend(leg)
+
+leg<-ggplot() + 
+  geom_point(data = scrapers, aes(log_biom, grazef, col=site.lfi)) +
+  scale_colour_gradientn(colors = myPalette(10), breaks = c(0, 25, 50, 75, 100), labels = c('0%', '25%', '50%', '75%', '100%')) +
+  labs(colour =  'Fish > 30 cm')  +
+  theme(legend.title=element_text(size=11, colour='black'),legend.text=element_text(size=10))
+legend2 <- lemon::g_legend(leg)
+
+pdf(file = "figures/figure4_decoupling_lfi.pdf", width=8, height=4)
+left<-left + annotation_custom(grob = legend1, xmin = log10(80), xmax = log10(100), ymin = 7, ymax = 7) +
+            annotation_custom(grob = legend2, xmin = log10(10), xmax = log10(50), ymin = 6.1, ymax = 7) 
+cowplot::plot_grid(left, right, labels=c('A', 'B'), align= 'hv')
 dev.off()
