@@ -90,6 +90,13 @@ pred.c$se<-predict(m.graze, newdata = pred.c, re.form = NA, type='response', se.
 pred.c$upper<-with(pred.c, pred.c + 2 * se)
 pred.c$lower<-with(pred.c, pred.c - 2 * se)
 
+## truncate predicted lines to max observed
+little.lim<-max(grazers$log_biom[grazers$site.lfi <= 25])
+big.lim<-max(grazers$log_biom[grazers$site.lfi >= 75])
+pred.c<-pred.c[!(pred.c$site.lfi_raw == 25 & pred.c$log_biom > little.lim),]
+pred.c<-pred.c[!(pred.c$site.lfi_raw == 75 & pred.c$log_biom > big.lim),]
+
+
 ggplot() + geom_line(data=pred.c, aes(log_biom_raw, pred.c, group=site.lfi)) + 
   geom_ribbon(data=pred.c, aes(log_biom_raw, pred.c, ymax = upper, ymin = lower, group=site.lfi), alpha=0.2) +
   geom_point(data = grazers, aes(log_biom, grazef))
@@ -111,6 +118,13 @@ pred.s$se<-predict(m.scrape, newdata = pred.s, re.form = NA, type='response', se
 pred.s$upper<-with(pred.s, pred.s + 2 * se)
 pred.s$lower<-with(pred.s, pred.s - 2 * se)
 
+## truncate predicted lines to max observed
+little.lim<-max(scrapers$log_biom[scrapers$site.lfi <= 25])
+big.lim<-max(scrapers$log_biom[scrapers$site.lfi >= 75])
+pred.s<-pred.s[!(pred.s$site.lfi_raw == 25 & pred.s$log_biom > little.lim),]
+pred.s<-pred.s[!(pred.s$site.lfi_raw == 75 & pred.s$log_biom > big.lim),]
+
+
 ggplot() + geom_line(data=pred.s, aes(log_biom_raw, pred.s, group=site.lfi)) + 
   geom_ribbon(data=pred.s, aes(log_biom_raw, pred.s, ymax = upper, ymin = lower, group=site.lfi), alpha=0.2) +
   geom_point(data = scrapers, aes(log_biom, grazef, col=site.lfi)) +
@@ -118,6 +132,12 @@ ggplot() + geom_line(data=pred.s, aes(log_biom_raw, pred.s, group=site.lfi)) +
   scale_colour_continuous() +
   theme(legend.position = c(0.2, 0.8))
 
+## summary stat for scrapers
+p<-predict(m.scrape, newdata = data.frame(
+      log_biom = log10(mean(scrapers$biom)),
+      site.lfi = c(lim25, lim75),
+      dataset = 'Chagos', reef = 'Diego Garcia'), re.form=NA)
+(p[1]-p[2])/p[2]*100
 
 ## setup formatting information
 linewidth = 4
@@ -149,7 +169,7 @@ r2$label<-round(r2$Rsq, 2)
 
 
 
-left<-ggplot() + geom_point(data = grazers, aes(log_biom, grazef, col=site.lfi)) +
+left<-ggplot() + geom_point(data = grazers, aes(log_biom, grazef, col=site.lfi), alpha=0.8, size=2) +
   geom_line(data=pred.c, aes(log_biom_raw, pred.c, group=site.lfi, linetype=factor(site.lfi))) + 
   geom_ribbon(data=pred.c, aes(log_biom_raw, pred.c, ymax = upper, ymin = lower, group=site.lfi), alpha=0.2) +
   # labs(linetype= 'Fish > 30 cm') +
@@ -172,7 +192,7 @@ scale_colour_gradientn(colors = myPalette(10), breaks = c(0, 25, 50, 75, 100), l
 
 myPalette <- colorRampPalette(rev(RColorBrewer::brewer.pal(10, "BrBG")))
 
-right<-ggplot() + geom_point(data = scrapers, aes(log_biom, grazef, col=site.lfi)) +
+right<-ggplot() + geom_point(data = scrapers, aes(log_biom, grazef, col=site.lfi), alpha=0.8, size=2) +
   geom_line(data=pred.s, aes(log_biom_raw, pred.s, group=site.lfi, linetype=factor(site.lfi))) + 
   geom_ribbon(data=pred.s, aes(log_biom_raw, pred.s, ymax = upper, ymin = lower, group=site.lfi), alpha=0.2) +
   labs(color= 'Fish > 30 cm', linetype='') +
