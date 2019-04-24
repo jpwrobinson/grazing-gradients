@@ -117,7 +117,7 @@ g.rel.effects <- ggplot(est, aes(Var, RI.t.ratio, fill=indicator, col=indicator)
                 legend.title=element_blank(),
                 axis.text=element_text(size=14),
                 axis.title.x=element_text(size=18),
-                strip.text.x=element_text(size=14)) + 
+                strip.text.x=element_text(color = 'black', size=18)) + 
               geom_vline(xintercept = 4.5, size=2, col='grey90') #+
               # geom_text(data = ann_text,col='black', 
               #   aes(label = lab), size=6, vjust=-0.2, fontface='bold')

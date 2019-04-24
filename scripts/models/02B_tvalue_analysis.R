@@ -72,7 +72,7 @@ h.pred<-scaler(h, ID=c('date', 'dataset', 'reef', 'site', 'transect', 'unique.id
 m.full<-glmer(scraping ~ hard.coral + macroalgae + rubble + substrate + complexity + 
         	fish.biom + Fished.Protected.dummy + Fished.Unfished.dummy  + site.size + #biom +
           (1 | dataset/reef) , ## random, nested = reefs within datasets
-                data = h.pred, family='Gamma'(link='log'))
+                data = h.pred, family='Gamma'(link='log'), na.action = na.fail)
 data.frame(r2beta(m.full, method = 'nsj', partial = TRUE))
 
 ## save AIC scores from top 7 models

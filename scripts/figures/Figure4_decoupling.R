@@ -38,6 +38,11 @@ summary(m.graze)
 MuMIn::dredge(m.graze)
 r2marg.grazer<-rsquared(m.graze)$Marginal
 car::vif(m.graze)
+
+## refit top model
+m.graze<-glmer(grazef ~ log_biom + site.lfi + (1 | dataset/reef), focal.crop, 
+      family='Gamma'(link = 'log'),
+        na.action = na.fail)
 # save(grazers, file= 'results/models/cropper_function_resid.Rdata')
 
 load("results/models/scraper_function.Rdata")
@@ -185,7 +190,7 @@ scale_colour_gradientn(colors = myPalette(10), breaks = c(0, 25, 50, 75, 100), l
     legend.key.size = unit(0.5, "cm"),
     axis.text=element_text(size=14),
                 axis.title=element_text(size=14),
-                plot.title=element_text(size = 14, color = 'black', hjust=0.5)) +
+                plot.title=element_text(size = 12, color = 'black', hjust=0.5)) +
   xlab(expression(paste("biomass, kg ha"^-1))) + ylab(expression(paste("g ha"^-1,"min"^-1)))  +
   labs(title='Croppers')
   # geom_text(data=r2[r2$fg == 'Croppers',], aes(Inf, Inf, 
@@ -209,7 +214,7 @@ right<-ggplot() + geom_point(data = scrapers, aes(log_biom, grazef, col=site.lfi
     axis.text=element_text(size=14),
                 axis.title=element_text(size=14),
                 legend.title=element_text(size=10),
-                plot.title=element_text(size = 14, color = 'black', hjust=0.5)) +
+                plot.title=element_text(size = 12, color = 'black', hjust=0.5)) +
   xlab(expression(paste("biomass, kg ha"^-1))) + ylab(expression(paste('m'^2,' ha'^-1, 'min'^-1)))  +
   labs(title='Scrapers')
   # geom_text(data=r2[r2$fg == 'Scrapers',], aes(Inf, Inf, 
@@ -224,13 +229,13 @@ legend1 <- lemon::g_legend(leg)
 
 leg<-ggplot() + 
   geom_point(data = scrapers, aes(log_biom, grazef, col=site.lfi)) +
-  scale_colour_gradientn(colors = myPalette(10), breaks = c(0, 25, 50, 75, 100), labels = c('0%', '25%', '50%', '75%', '100%')) +
-  labs(colour =  'Fish > 30 cm')  +
+  scale_colour_gradientn(colors = myPalette(10), breaks = c(0, 25, 50, 75, 100)) +#, labels = c('0%', '25%', '50%', '75%', '100%')) +
+  labs(colour =  '% Large fish')  +
   theme(legend.title=element_text(size=11, colour='black'),legend.text=element_text(size=10))
 legend2 <- lemon::g_legend(leg)
 
 pdf(file = "figures/figure4_decoupling_lfi.pdf", width=8, height=4)
-left<-left + annotation_custom(grob = legend1, xmin = log10(80), xmax = log10(100), ymin = 6, ymax = 6) +
-            annotation_custom(grob = legend2, xmin = log10(10), xmax = log10(50), ymin = 5, ymax = 6) 
+left<-left + annotation_custom(grob = legend1, xmin = log10(80), xmax = log10(100), ymin = 5.5, ymax = 5.5) +
+            annotation_custom(grob = legend2, xmin = log10(10), xmax = log10(50), ymin = 4, ymax = 5.5) 
 cowplot::plot_grid(left, right, labels=c('A', 'B'), align= 'hv')
 dev.off()
