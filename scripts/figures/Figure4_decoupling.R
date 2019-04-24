@@ -6,6 +6,7 @@ library(funk)
 library(scales)
 library(r2glmm)
 library(here)
+library(MuMIn)
 library(piecewiseSEM)
 library(lme4)
 theme_set(theme_sleek())
@@ -35,15 +36,24 @@ m.graze<-glmer(grazef ~ log_biom * site.lfi + (1 | dataset/reef), focal.crop,
         na.action = na.fail)
 hist(resid(m.graze))
 summary(m.graze)
-MuMIn::dredge(m.graze)
+dredge(m.graze)
 r2marg.grazer<-rsquared(m.graze)$Marginal
 car::vif(m.graze)
+
+## save AIC scores from top 7 models
+m.table<-dredge(m.graze)
+tab<-data.frame(m.table)
+tab[is.na(tab)]<-0
+tab$r2<-r2marg.grazer
+write.csv(tab, 'results/tables/croppers_lfi_AICtable.csv')
 
 ## refit top model
 m.graze<-glmer(grazef ~ log_biom + site.lfi + (1 | dataset/reef), focal.crop, 
       family='Gamma'(link = 'log'),
         na.action = na.fail)
 # save(grazers, file= 'results/models/cropper_function_resid.Rdata')
+
+
 
 load("results/models/scraper_function.Rdata")
 scrapers<-h
@@ -68,7 +78,7 @@ pairs2(mat, diag.panel = panel.hist, upper.panel=panel.cor, lower.panel=panel.sm
 m.scrape<-glmer(grazef ~ log_biom * site.lfi + (1 | dataset/reef), focal.scrape, 
       family='Gamma'(link = 'log'),
         na.action = na.fail)
-MuMIn::dredge(m.scrape)
+dredge(m.scrape)
 # scrapers$resid<-resid(m.scrape)
 r2marg.scraper<-rsquared(m.scrape)$Marginal
 summary(m.scrape)
@@ -76,6 +86,12 @@ hist(resid(m.scrape))
 
 # save(scrapers, file= 'results/models/scraper_function_resid.Rdata')
 
+## save AIC scores from top 7 models
+m.table<-dredge(m.scrape)
+tab<-data.frame(m.table)
+tab[is.na(tab)]<-0
+tab$r2<-r2marg.scraper
+write.csv(tab, 'results/tables/scrapers_lfi_AICtable.csv')
 
 ### Now predict biomass and LFI effects
 
@@ -136,6 +152,13 @@ ggplot() + geom_line(data=pred.s, aes(log_biom_raw, pred.s, group=site.lfi)) +
   labs(color= 'Proportion of fish > 30 cm') +
   scale_colour_continuous() +
   theme(legend.position = c(0.2, 0.8))
+
+## summary stat for croppers
+p<-predict(m.graze, newdata = data.frame(
+      log_biom = log10(mean(grazers$biom)),
+      site.lfi = c(lim25, lim75),
+      dataset = 'Chagos', reef = 'Diego Garcia'), re.form=NA)
+(p[1]-p[2])/p[2]*100
 
 ## summary stat for scrapers
 p<-predict(m.scrape, newdata = data.frame(
