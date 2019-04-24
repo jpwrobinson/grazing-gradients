@@ -67,6 +67,16 @@ rsquared(m.scraper)
 ## raw dataset
 load("data/wio_herb_benthic_merged.Rdata")
 
+## check LFI stuff
+## grazers with high LFI (>90%)
+#                               unique.id
+# 1 Great Chagos Bank.Middle Brother (E3)
+# 2  Great Chagos Bank.South Brother (E1)
+# 3          Peros Banhos.Petite Coq (E4)
+# 4                       Peros Banhos.S3
+
+pred[pred$FG == 'Herbivore Grazers' & ]
+
 ## assign seychelles 2017 with mean complexity values for now - needs fixed
 pred$complexity[pred$dataset == 'Seychelles' & pred$date == 2017] <- mean(pred$complexity)
 

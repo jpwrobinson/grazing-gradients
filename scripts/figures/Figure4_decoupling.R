@@ -91,10 +91,10 @@ pred.c$upper<-with(pred.c, pred.c + 2 * se)
 pred.c$lower<-with(pred.c, pred.c - 2 * se)
 
 ## truncate predicted lines to max observed
-little.lim<-max(grazers$log_biom[grazers$site.lfi <= 25])
-big.lim<-max(grazers$log_biom[grazers$site.lfi >= 75])
-pred.c<-pred.c[!(pred.c$site.lfi_raw == 25 & pred.c$log_biom > little.lim),]
-pred.c<-pred.c[!(pred.c$site.lfi_raw == 75 & pred.c$log_biom > big.lim),]
+little.lim<-max(grazers$log_biom[grazers$site.lfi <= 35])
+big.lim<-max(grazers$log_biom[grazers$site.lfi >= 50])
+pred.c<-pred.c[!(pred.c$site.lfi_raw == 25 & pred.c$log_biom_raw > little.lim),]
+pred.c<-pred.c[!(pred.c$site.lfi_raw == 75 & pred.c$log_biom_raw > big.lim),]
 
 
 ggplot() + geom_line(data=pred.c, aes(log_biom_raw, pred.c, group=site.lfi)) + 
@@ -119,10 +119,10 @@ pred.s$upper<-with(pred.s, pred.s + 2 * se)
 pred.s$lower<-with(pred.s, pred.s - 2 * se)
 
 ## truncate predicted lines to max observed
-little.lim<-max(scrapers$log_biom[scrapers$site.lfi <= 25])
+little.lim<-max(scrapers$log_biom[scrapers$site.lfi <= 35])
 big.lim<-max(scrapers$log_biom[scrapers$site.lfi >= 75])
-pred.s<-pred.s[!(pred.s$site.lfi_raw == 25 & pred.s$log_biom > little.lim),]
-pred.s<-pred.s[!(pred.s$site.lfi_raw == 75 & pred.s$log_biom > big.lim),]
+pred.s<-pred.s[!(pred.s$site.lfi_raw == 25 & pred.s$log_biom_raw > little.lim),]
+pred.s<-pred.s[!(pred.s$site.lfi_raw == 75 & pred.s$log_biom_raw > big.lim),]
 
 
 ggplot() + geom_line(data=pred.s, aes(log_biom_raw, pred.s, group=site.lfi)) + 
@@ -167,7 +167,7 @@ r2$fg<-c(rep('Croppers', 4), rep('Scrapers', 4))
 r2<-r2[r2$Effect == 'Model',]
 r2$label<-round(r2$Rsq, 2)
 
-
+myPalette <- colorRampPalette(rev(RColorBrewer::brewer.pal(10, "BrBG")))
 
 left<-ggplot() + geom_point(data = grazers, aes(log_biom, grazef, col=site.lfi), alpha=0.8, size=2) +
   geom_line(data=pred.c, aes(log_biom_raw, pred.c, group=site.lfi, linetype=factor(site.lfi))) + 
@@ -184,13 +184,13 @@ scale_colour_gradientn(colors = myPalette(10), breaks = c(0, 25, 50, 75, 100), l
     plot.margin = unit(c(0.25, 0.25, 0.25, 0.25), "cm"),
     legend.key.size = unit(0.5, "cm"),
     axis.text=element_text(size=14),
-                axis.title=element_text(size=14)) +
-  xlab(expression(paste("biomass, kg ha"^-1))) + ylab(expression(paste("g ha"^-1,"min"^-1)))  #+
+                axis.title=element_text(size=14),
+                plot.title=element_text(size = 14, color = 'black', hjust=0.5)) +
+  xlab(expression(paste("biomass, kg ha"^-1))) + ylab(expression(paste("g ha"^-1,"min"^-1)))  +
+  labs(title='Croppers')
   # geom_text(data=r2[r2$fg == 'Croppers',], aes(Inf, Inf, 
   #     label=paste0("R", "^", "2", "==", label)), size=5, fontface=2,vjust=2, hjust=2, parse=TRUE) 
 
-
-myPalette <- colorRampPalette(rev(RColorBrewer::brewer.pal(10, "BrBG")))
 
 right<-ggplot() + geom_point(data = scrapers, aes(log_biom, grazef, col=site.lfi), alpha=0.8, size=2) +
   geom_line(data=pred.s, aes(log_biom_raw, pred.s, group=site.lfi, linetype=factor(site.lfi))) + 
@@ -208,8 +208,10 @@ right<-ggplot() + geom_point(data = scrapers, aes(log_biom, grazef, col=site.lfi
     legend.text=element_text(size=10, colour='black'),
     axis.text=element_text(size=14),
                 axis.title=element_text(size=14),
-                legend.title=element_text(size=10)) +
-  xlab(expression(paste("biomass, kg ha"^-1))) + ylab(expression(paste('m'^2,' ha'^-1, 'min'^-1))) # +
+                legend.title=element_text(size=10),
+                plot.title=element_text(size = 14, color = 'black', hjust=0.5)) +
+  xlab(expression(paste("biomass, kg ha"^-1))) + ylab(expression(paste('m'^2,' ha'^-1, 'min'^-1)))  +
+  labs(title='Scrapers')
   # geom_text(data=r2[r2$fg == 'Scrapers',], aes(Inf, Inf, 
   #     label=paste0("R", "^", "2", "==", label)), size=5, fontface=2,vjust=2, hjust=2, parse=TRUE) 
 
@@ -228,7 +230,7 @@ leg<-ggplot() +
 legend2 <- lemon::g_legend(leg)
 
 pdf(file = "figures/figure4_decoupling_lfi.pdf", width=8, height=4)
-left<-left + annotation_custom(grob = legend1, xmin = log10(80), xmax = log10(100), ymin = 7, ymax = 7) +
-            annotation_custom(grob = legend2, xmin = log10(10), xmax = log10(50), ymin = 6.1, ymax = 7) 
+left<-left + annotation_custom(grob = legend1, xmin = log10(80), xmax = log10(100), ymin = 6, ymax = 6) +
+            annotation_custom(grob = legend2, xmin = log10(10), xmax = log10(50), ymin = 5, ymax = 6) 
 cowplot::plot_grid(left, right, labels=c('A', 'B'), align= 'hv')
 dev.off()
