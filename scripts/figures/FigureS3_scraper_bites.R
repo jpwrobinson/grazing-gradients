@@ -41,5 +41,5 @@ g2<-ggplot(h, aes(reorder(reef, scraping, FUN=median), scraping, fill=dataset)) 
 
 
 pdf(file='figures/FigureS3_scraper_bites.pdf', height=5, width=10)
-plot_grid(g1, g2, labels=c('a', 'b'), nrow=1)
+plot_grid(g1, g2, labels=c('A', 'B'), nrow=1)
 dev.off()

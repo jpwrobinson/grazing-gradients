@@ -51,6 +51,7 @@ write.csv(tab, 'results/tables/croppers_lfi_AICtable.csv')
 m.graze<-glmer(grazef ~ log_biom + site.lfi + (1 | dataset/reef), focal.crop, 
       family='Gamma'(link = 'log'),
         na.action = na.fail)
+summary(m.graze)
 # save(grazers, file= 'results/models/cropper_function_resid.Rdata')
 
 
@@ -141,7 +142,7 @@ pred.s$lower<-with(pred.s, pred.s - 2 * se)
 
 ## truncate predicted lines to max observed
 little.lim<-max(scrapers$log_biom[scrapers$site.lfi <= 35])
-big.lim<-max(scrapers$log_biom[scrapers$site.lfi >= 75])
+big.lim<-max(scrapers$log_biom[scrapers$site.lfi >= 75 & scrapers$biom < 3000])
 pred.s<-pred.s[!(pred.s$site.lfi_raw == 25 & pred.s$log_biom_raw > little.lim),]
 pred.s<-pred.s[!(pred.s$site.lfi_raw == 75 & pred.s$log_biom_raw > big.lim),]
 
@@ -220,7 +221,7 @@ scale_colour_gradientn(colors = myPalette(10), breaks = c(0, 25, 50, 75, 100), l
   #     label=paste0("R", "^", "2", "==", label)), size=5, fontface=2,vjust=2, hjust=2, parse=TRUE) 
 
 
-right<-ggplot() + geom_point(data = scrapers, aes(log_biom, grazef, col=site.lfi), alpha=0.8, size=2) +
+right<-ggplot() + geom_point(data = scrapers[-which.max(scrapers$log_biom),], aes(log_biom, grazef, col=site.lfi), alpha=0.8, size=2) +
   geom_line(data=pred.s, aes(log_biom_raw, pred.s, group=site.lfi, linetype=factor(site.lfi))) + 
   geom_ribbon(data=pred.s, aes(log_biom_raw, pred.s, ymax = upper, ymin = lower, group=site.lfi), alpha=0.2) +
   labs(color= 'Fish > 30 cm', linetype='') +

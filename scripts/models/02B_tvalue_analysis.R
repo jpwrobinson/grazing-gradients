@@ -17,7 +17,14 @@ library(scales)
 
 ## croppers
 load(file = 'results/models/cropper_function.Rdata')
+# fix management cats
+h$management[h$dataset == 'GBR']<-'Fished'
+h$management[h$reef == 'Diego Garcia']<-'Fished'
+h$management[h$reef == 'Wheeler']<-'Protected'
 h$management<-factor(h$management)
+
+
+
 load(file = 'results/cropper_attributes.Rdata')
 ## match in site level predictors
 h$site.richness<-diversity.preds$richness[match(h$unique.id, diversity.preds$unique.id)]
@@ -59,7 +66,12 @@ save(mm.crop, file = 'results/models/tvalues_croppers.Rdata')
 
 ## now scrapers
 load(file = 'results/models/scraper_function.Rdata')
+# fix management cats
+h$management[h$dataset == 'GBR']<-'Fished'
+h$management[h$reef == 'Diego Garcia']<-'Fished'
+h$management[h$reef == 'Wheeler']<-'Protected'
 h$management<-factor(h$management)
+
 load(file = 'results/scraper_attributes.Rdata')
 ## match in site level predictors
 h$site.richness<-diversity.preds$richness[match(h$unique.id, diversity.preds$unique.id)]
@@ -76,14 +88,14 @@ m.full<-glmer(scraping ~ hard.coral + macroalgae + rubble + substrate + complexi
 data.frame(r2beta(m.full, method = 'nsj', partial = TRUE))
 
 ## save AIC scores from top 7 models
-m.table<-dredge(m.full)
-tab<-subset(m.table, delta < 7)
-tab<-data.frame(tab)
-tab[is.na(tab)]<-0
-#recalc model weights for the top model set
-top.weights <- tab$weight/sum(m.table$weight[1:dim(tab)[1]])
-tab$weight<-top.weights
-write.csv(tab, 'results/tables/scrapers_AICtable.csv')
+# m.table<-dredge(m.full)
+# tab<-subset(m.table, delta < 7)
+# tab<-data.frame(tab)
+# tab[is.na(tab)]<-0
+# #recalc model weights for the top model set
+# top.weights <- tab$weight/sum(m.table$weight[1:dim(tab)[1]])
+# tab$weight<-top.weights
+# write.csv(tab, 'results/tables/scrapers_AICtable.csv')
 
 
 ## estimated weight t values and predictions

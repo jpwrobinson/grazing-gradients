@@ -59,5 +59,5 @@ g2<-ggplot(pred.mean.size, aes(TL, median)) +
       theme(legend.position='none')
 
 pdf(file='figures/FigureS1_scrape_size.pdf', height=5, width=10)
-cowplot::plot_grid(g1, g2, labels=c('a', 'b'))
+cowplot::plot_grid(g1, g2, labels=c('A', 'B'))
 dev.off()

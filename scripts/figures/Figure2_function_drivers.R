@@ -66,7 +66,7 @@ cols<-c(pal[5], pal[12], pal[18])
 cols.named<-c('Croppers' = pal[5], 'Scrapers' = pal[12])
 theme_set(theme_sleek())
 ylab<-rev(c('Hard coral', 'Available\nsubstrate', 'Rubble', 'Macroalgae', 'Structural\ncomplexity',
-        'Fishable\nbiomass', 'No-take reef', 'Pristine reef', 'Mean length'))#,'Species richness'))
+        'Fishable\nbiomass', 'No-take reef', 'Remote reef', 'Mean length'))#,'Species richness'))
 
 ## reorder factor levels here - careful this is manual, check plot is ok
 ## for full model plot

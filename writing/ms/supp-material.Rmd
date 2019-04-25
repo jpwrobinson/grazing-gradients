@@ -30,13 +30,13 @@ i = 0
 
 *Region details*
 
-In Seychelles, 21 reefs were surveyed in 2008, 2014, and 2017 on two inhabited islands (Mahe, Praslin). Surveys were conducted on the reef slope at 9-12 m depth, and stratified to include carbonate fringing reefs, granitic rocky reefs with coral growth, and patch reef habitats on a sand, rubble, or rock base (Fig. 1b). Surveys were repeated for either 8 (2008) or 16 (2011, 2014, 2017) replicates at each reef, which were located at least 15 m away from each other. To ensure that survey effort was comparable among Seychelles reefs, we only considered surveys from the first 8 replicates (per site per survey year).  Overall, the surveys covered up to 0.5 km of reef front and 2,500 m2 of reef habitat, including 672 point counts over 4 surveyed years. Reefs were categorised by their exploitation status, with 9 sites in small protected areas and 12 sites supporting artisanal fisheries.
+In Seychelles, 21 reefs were surveyed in 2008, 2014, and 2017 on two inhabited islands (Mahe, Praslin). Surveys were conducted on the reef slope at 9-12 m depth, and stratified to include carbonate fringing reefs, granitic rocky reefs with coral growth, and patch reef habitats on a sand, rubble, or rock base (Fig. S1B). Surveys were repeated for either 8 (2008) or 16 (2011, 2014, 2017) replicates at each reef, which were located at least 15 m away from each other. To ensure that survey effort was comparable among Seychelles reefs, we only considered surveys from the first 8 replicates (per site per survey year).  Overall, the surveys covered up to 0.5 km of reef front and 2,500 m2 of reef habitat, including 672 point counts over 4 surveyed years. Reefs were categorised by their exploitation status, with 9 sites in small protected areas and 12 sites supporting artisanal fisheries.
 
-In Chagos archipelago, 25 reefs were surveyed on four uninhabited atolls in 2010 (Fig. 1d). Surveys were stratified to include sheltered (9) and exposed (9) habitats, and four replicate transects were conducted at each site, resulting in 100 total transects. All reefs were categorised as pristine. 
+In the Chagos archipelago, 25 reefs were surveyed on four uninhabited atolls in 2010 (Fig. S1B). Surveys were stratified to include sheltered (9) and exposed (9) habitats, and four replicate transects were conducted at each site, resulting in 100 total transects. All reefs were categorised as remote. 
 
-In Maldives, 11 reefs were surveyed on one atoll (Huvadhoo) in 2013 (Fig. 1c). Surveys were conducted on the reef slope for 4 replicates per reef, resulting in 44 total transects.
+In Maldives, 11 reefs were surveyed on one atoll (Huvadhoo) in 2013 (Fig. S1B). Surveys were conducted on the reef slope for 4 replicates per reef, resulting in 44 total transects. All reefs were categorised as fished.
 
-In Australia, five reefs were surveyed on the central Great Barrier Reef in 2010 and 2011 (Wheeler, Davies, Rib, Trunk, John Brewer) (Graham et al. 2014) (Fig. 1e). Reefs were stratified to include 3 wave exposed and 3 wave sheltered locations (6 per reef), which were further divided into reef slope (7-9 m depth), reef crest (2-3 m depth), and reef flat (100 m distance from crest). Each location and habitat type was surveyed with four replicate transects. We used data for surveys conducted on the reef slope, which produced a dataset of 24 transects per reef and 120 transects in total. All reefs were categorised as protected from fishing, as herbivore species are not commonly targeted by GBR fisheries (Graham et al. 2014). 
+In Australia, five reefs were surveyed on the central Great Barrier Reef in 2010 and 2011 (Wheeler, Davies, Rib, Trunk, John Brewer) (Graham et al. 2014) (Fig. S1B). Reefs were stratified to include 3 wave exposed and 3 wave sheltered locations (6 per reef), which were further divided into reef slope (7-9 m depth), reef crest (2-3 m depth), and reef flat (100 m distance from crest). Each location and habitat type was surveyed with four replicate transects. We used data for surveys conducted on the reef slope, which produced a dataset of 24 transects per reef and 120 transects in total. Davies, Rib, Trunk and John Brewer were categorised as fished, and Wheeler was categorised as protected (no-take zone).
 
 *Benthic categories*
 
@@ -49,7 +49,7 @@ Across all reefs, we detected four benthic regimes characterised by 1) hard cora
 knitr::include_graphics("../../figures/Figure1.pdf"); i = i + 1
 ```
 
-**Figure S`r i` | Map of study sites with benthic habitat regime (B) and herbivore biomass levels (C).** Survey sites are coloured by regimes identified in k-cluster analysis (rubble = yellow, macroalgae = green, substrate = blue, coral = red), and bar plots show mean grazing biomass (± 2 standard errors).
+**Figure S`r i` | Map of study sites with benthic habitat regimes (B) and herbivore biomass levels (C).** Survey sites are coloured by regimes identified in k-cluster analysis (rubble = yellow, macroalgae = green, substrate = blue, coral = red), and bar plots show mean grazing biomass (± 2 standard errors) for croppers and scrapers.
 
 \newpage
 
