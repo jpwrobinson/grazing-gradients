@@ -19,8 +19,13 @@ load('results/models/bites_scrapers.Rdata')
 scrape<-as.data.frame(rethinking::precis(scrape.m, 1)@output)
 scrape$FG<-'Scraping'
 
-df<-rbind(crop, scrape)
+load('results/models/area_scrapers.Rdata')
+scrape2<-rethinking::precis(scrape.m2, 1)@output
+scrape2$FG<-'Scraping.area'
+
+df<-rbind(crop, scrape, scrape2)
 write.csv(df, file = 'results/models/bite_model_precis.csv')
+
 
 ## biomass models and predictions
 load("results/models/biomass_m.browsers.Rdata")
@@ -75,7 +80,7 @@ load("data/wio_herb_benthic_merged.Rdata")
 # 3          Peros Banhos.Petite Coq (E4)
 # 4                       Peros Banhos.S3
 
-pred[pred$FG == 'Herbivore Grazers' & ]
+pred[pred$FG == 'Herbivore Grazer' & pred$unique.id == 'Great Chagos Bank.Middle Brother (E3)',]
 
 ## assign seychelles 2017 with mean complexity values for now - needs fixed
 pred$complexity[pred$dataset == 'Seychelles' & pred$date == 2017] <- mean(pred$complexity)
