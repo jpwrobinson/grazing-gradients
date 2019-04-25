@@ -18,7 +18,7 @@ fontsize: 12pt
 ## Habitat, fishing and biodiversity controls on coral reef grazing function
 
 
-James PW Robinson, Jamie M McDevitt-Irwin, Jan-Claas Dajka, Jeneen Hadj-Hammou, Samantha Howlett, Alexia Graba-Landry, Andrew S Hoey, Nicholas AJ Graham
+James PW Robinson, Jamie M McDevitt-Irwin, Jan-Claas Dajka, Jeneen Hadj-Hammou, Samantha Howlett, Alexia Graba-Landry, Andrew S Hoey, Kirsty L Nash, Shaun K Wilson, Nicholas AJ Graham
 
 
 ```{r, echo=F}
