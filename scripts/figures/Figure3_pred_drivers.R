@@ -85,11 +85,11 @@ g1<-ggplot(plot.pred[plot.pred$var != 'site.size',], aes(seq, pred)) +
 		scale_color_manual(values = c(cols[1], cols[1])) +
 		scale_fill_manual(values = c(cols[1], cols[1])) +
 		geom_ribbon(aes(ymin = lwr, ymax = upr, fill=var), alpha=0.2) +
-		labs(x = 'Cover (%)', y = expression(paste("g ha"^-1,"min"^-1))) +
+		labs(x = '', y = expression(paste("g ha"^-1,"min"^-1))) +
 		theme(legend.position = 'none', 
 			legend.title = element_blank()) +
 		annotate('text', x = 49, y = 1, label='Macroalgae') +
-		annotate('text', x = 56, y = 2.7, label='Available substrate')  +
+		annotate('text', x = 46, y = 2.5, label='Available substrate')  +
 		geom_rug(data=deciles, aes(macroalgae, 0.5), sides='b', alpha=1, col='grey50',size=1) +
 		geom_rug(data=deciles, aes(substrate, 0.5), sides='t', alpha=1, col='grey50',size=1) + th
 
@@ -99,10 +99,10 @@ g3<-ggplot(plot.pred[plot.pred$var == 'site.size',], aes(seq, pred)) +
 		scale_color_manual(values = c(cols[1], cols[1])) +
 		scale_fill_manual(values = c(cols[1], cols[1])) +
 		geom_ribbon(aes(ymin = lwr, ymax = upr, fill=var), alpha=0.2) +
-		labs(x = 'Mean length (cm)', y = expression(paste("g ha"^-1,"min"^-1))) +
+		labs(x = 'Mean length, cm', y = '') +
 		theme(legend.position = 'none', 
 			legend.title = element_blank()) +
-		geom_rug(data=deciles, aes(site.size, 0.8), sides='b', alpha=1, col='grey50',size=1) + th
+		geom_rug(data=deciles, aes(site.size, 1), sides='b', alpha=1, col='grey50',size=1) + th
 
 
 ## plot complexity effects
@@ -138,22 +138,51 @@ plot.pred$var.lab <- factor(plot.pred$var,
 deciles$var.lab <- unique(plot.pred$var.lab)[2]
 
 
-g2<-ggplot(plot.pred, aes(seq, pred)) + 
+g2A<-ggplot(plot.pred[plot.pred$var == 'crop',], aes(seq, pred)) + 
+		geom_line(lwd=1.2, aes(col=var)) +
+		geom_ribbon(aes(ymin = lwr, ymax = upr,fill=var), alpha=0.2) +
+		scale_color_manual(values = cols.named) +
+		scale_fill_manual(values = cols.named) +
+		labs(x = '') +
+		theme(legend.position = 'none', 
+			legend.title = element_blank()) + 
+		ylab(NULL) + th
+
+g2B<-ggplot(plot.pred[plot.pred$var == 'scrape',], aes(seq, pred)) + 
 		geom_line(lwd=1.2, aes(col=var)) +
 		geom_ribbon(aes(ymin = lwr, ymax = upr,fill=var), alpha=0.2) +
 		scale_color_manual(values = cols.named) +
 		scale_fill_manual(values = cols.named) +
 		labs(x = 'Structural complexity') +
 		theme(legend.position = 'none', 
-			legend.title = element_blank(),
-			strip.text=element_text(size=14),
-			strip.background = element_blank(),
-			strip.placement='outside') + 
-		facet_wrap(~ var.lab, nrow = 2, scales='free_y',
-			 strip.position = "left", 
-			labeller = label_parsed) +
+			legend.title = element_blank()) + 
+		scale_y_continuous(breaks=seq(0.5, 0.7, 0.05), labels = scales::number_format(accuracy = 0.1)) +
 		ylab(NULL) +
-		geom_rug(data=deciles, aes(complexity, 0.4), sides='b', alpha=1, col='grey50',size=1) + th
+		geom_rug(data=deciles, aes(complexity, 0.5), sides='b', alpha=1, col='grey50',size=1) + th
+
+
+## plot substrate effects for scrapers
+plot.pred<-scrape.pred %>% select(substrate) %>% gather(var, pred)
+sub.seq<-with(scrape.raw, seq(min(substrate), max(substrate), length.out=100))
+sub.var<-data.frame(mm.scrape[[3]]['substrate'] - mm.scrape[[4]]['substrate'], 
+	mm.scrape[[3]]['substrate'] + mm.scrape[[4]]['substrate'], 'substrate')
+
+plot.pred$seq<-c(sub.seq)
+plot.pred$lwr<-c(sub.var[,1])
+plot.pred$upr<-c(sub.var[,2])
+
+
+g5<-ggplot(plot.pred, aes(seq, pred)) + 
+		geom_line(lwd=1.2, col=cols[2], linetype=2) +
+		geom_ribbon(aes(ymin = lwr, ymax = upr), fill=cols[2], alpha=0.2) +
+		labs(x = '% cover', y = expression(paste('m'^2,'ha'^-1, 'min'^-1))) +
+		theme(legend.position = 'none', 
+			legend.title = element_blank()) +
+		# annotate('text', x = 49, y = 1, label='Macroalgae') +
+		annotate('text', x = 45, y = 0.7, label='Available substrate')  +
+		scale_y_continuous(breaks=seq(0.5, 0.7, 0.05), labels = scales::number_format(accuracy = 0.1)) +
+		# geom_rug(data=deciles, aes(macroalgae, 0.5), sides='b', alpha=1, col='grey50',size=1) +
+		geom_rug(data=deciles, aes(substrate, 0.55), sides='b', alpha=1, col='grey50',size=1) + th
 
 
 ### plot fishing effects for scrapers
@@ -170,15 +199,19 @@ pristine.var<-mm.scrape[[4]]['Fished.Unfished.dummy'][100,]
 preds<-data.frame(pred = c(fished, protected, pristine), var = c(fished.var, protected.var, pristine.var))
 preds$lwr<-with(preds, pred - var)
 preds$upr<-with(preds, pred + var)
-preds$cov<-factor(c('Fished', 'Protected', 'Pristine'))
-preds$cov<-factor(preds$cov, levels = levels(preds$cov)[c(1,3,2)])
+preds$cov<-factor(c('Fished', 'No-take', 'Remote'))
+# preds$cov<-factor(preds$cov, levels = levels(preds$cov)[c(1,3,2)])
 
 g4<-ggplot(preds, aes(cov, pred)) + geom_pointrange(col=cols[2],size=1.25, aes(ymin= lwr, ymax = upr)) +
-	labs(x = '', y = expression(paste('m'^2,'ha'^-1, 'min'^-1))) +
+	labs(x = '', y = '') +
+	lims(y = c(0.55, 1.2)) +
 	theme(legend.position = 'none') + th
 
 
 pdf(file = 'figures/Figure3_predicted_effects.pdf', height = 6, width = 12)
-left<-plot_grid(g1, g3, nrow=2, rel_heights= c(0.5, 0.5), labels=c('A', 'B'),label_size=16)
-plot_grid(left, g2, g4, nrow=1, labels=c('', 'C', 'D'), label_size=16)
+left<-plot_grid(g1, g5, nrow=2, align = 'hv', rel_heights= c(0.5, 0.5), labels=c('A', 'D'),label_size=16)
+mid<-plot_grid(g2A, g2B, nrow=2, align = 'hv', rel_heights= c(0.5, 0.5), labels=c('B', 'E'),label_size=16)
+right<-plot_grid(g3, g4, nrow=2, align = 'hv', rel_heights=c(0.5, 0.5), labels=c('C', 'F'), label_size = 16)
+plot_grid(left, mid, right, nrow=1, labels=c('', '', ''), label_size=0)
+
 dev.off()

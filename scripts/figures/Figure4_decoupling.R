@@ -198,7 +198,7 @@ r2$label<-round(r2$Rsq, 2)
 
 myPalette <- colorRampPalette(rev(RColorBrewer::brewer.pal(10, "BrBG")))
 
-left<-ggplot() + geom_point(data = grazers, aes(log_biom, grazef, col=site.lfi), alpha=0.8, size=2) +
+left<-ggplot() + geom_point(data = grazers[-which.max(grazers$log_biom),], aes(log_biom, grazef, col=site.lfi), alpha=0.8, size=2) +
   geom_line(data=pred.c, aes(log_biom_raw, pred.c, group=site.lfi, linetype=factor(site.lfi))) + 
   geom_ribbon(data=pred.c, aes(log_biom_raw, pred.c, ymax = upper, ymin = lower, group=site.lfi), alpha=0.2) +
   # labs(linetype= 'Fish > 30 cm') +
@@ -259,7 +259,7 @@ leg<-ggplot() +
 legend2 <- lemon::g_legend(leg)
 
 pdf(file = "figures/figure4_decoupling_lfi.pdf", width=8, height=4)
-left<-left + annotation_custom(grob = legend1, xmin = log10(80), xmax = log10(100), ymin = 5.5, ymax = 5.5) +
-            annotation_custom(grob = legend2, xmin = log10(10), xmax = log10(50), ymin = 4, ymax = 5.5) 
+left<-left + annotation_custom(grob = legend1, xmin = log10(80), xmax = log10(100), ymin = 4.5, ymax = 4.5) +
+            annotation_custom(grob = legend2, xmin = log10(10), xmax = log10(50), ymin = 3, ymax = 4.5) 
 cowplot::plot_grid(left, right, labels=c('A', 'B'), align= 'hv')
 dev.off()
