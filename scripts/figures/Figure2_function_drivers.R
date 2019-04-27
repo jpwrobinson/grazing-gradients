@@ -75,28 +75,34 @@ ylab<-rev(c('Hard coral', 'Available\nsubstrate', 'Rubble', 'Macroalgae', 'Struc
 est$Var<-factor(est$Var)
 est$Var<-factor(est$Var, levels=levels(est$Var)[rev(c(5,9,7,6,3,4,1,2,8))])
 est$indicator<-ifelse(est$indicator == 'cropping.gram.ha', 'Croppers', 'Scrapers')
+est$sign<-'Positive'
+est$sign[est$Var == 'hard.coral' & est$indicator == 'Croppers']<-'Mixed'
+est$sign[est$Var == 'macroalgae' & est$indicator == 'Croppers']<-'Negative'
+est$sign[est$Var == 'hard.coral' & est$indicator == 'Scrapers']<-'Mixed'
+est$sign[est$Var == 'macroalgae' & est$indicator == 'Scrapers']<-'Mixed'
+est$sign[est$Var == 'fish.biom' & est$indicator == 'Scrapers']<-'Mixed'
 
+cols.named2<-c('Positive' = '#67a9cf', 'Mixed' = '#999999', 'Negative' = '#ef8a62')
 ## add var identifying strong and weak effects
 #est$effect<-ifelse(est$p.value < 0.05, 'STRONG', 'WEAK')
 
 ## careful here for legend: colours defined by order of models, but other panels is defined by alphabetical order
-g.effects <- ggplot(est, aes(Var, RI.t.abs, fill=indicator, col=indicator)) + 
-              geom_hline(yintercept=0, linetype='dashed') +
-              geom_point(size=2, position = position_dodge(width=0.4)) +
+g.effects <- ggplot(est, aes(Var, RI.t.abs)) + 
+              geom_hline(yintercept=0,size=0.25, linetype='dashed') +
+              geom_point(aes(col = sign), size=2, position = position_dodge(width=0.4)) +
               # geom_pointrange(aes(ymin=RI.t.abs-var.t, ymax=RI.t.abs+var.t),size =0.75, position=position_dodge(width=0.4)) +
-              scale_color_manual(values = cols.named) +
-              scale_fill_manual(values = cols.named) +
-             # scale_shape_manual(values = c(21,20)) + 
-              guides(shape = FALSE) +
-              labs(x='', y = 'Standardized effect size') +
-              scale_y_continuous(breaks=seq(0, 1, 0.25), labels=c(0, 0.25, 0.5, 0.75, 1)) +
+              scale_color_manual(values = cols.named2) +
+              labs(x='', y = 'Standardized t-value') +
+              scale_y_continuous(breaks=seq(0, 16, 2)) +
               scale_x_discrete(labels = ylab) +
               theme(legend.position = c(0.8, 0.8),
+                legend.box.background = element_rect(colour='grey90'),
                 legend.title=element_blank(),
                 strip.text.x=element_text(size=14)) + coord_flip() +
-              geom_vline(xintercept = 4.5, size=2, col='grey90') +
-              annotate('text', x = 9.35, y = 6.6, label = 'A', fontface='bold', size=5) +
-              annotate('text', x = 4.25, y = 6.6, label = 'B', fontface='bold', size=5)
+              geom_vline(xintercept = 4.5, size=1, col='grey90') +
+              facet_wrap(~ indicator) #+
+              # annotate('text', x = 9.35, y = 6.6, label = 'A', fontface='bold', size=5) +
+              # annotate('text', x = 4.25, y = 6.6, label = 'B', fontface='bold', size=5)
 
 
 ann_text <- data.frame(Var = factor('hard.coral'),RI.t.ratio = 0.99,lab = c("A",'B'),

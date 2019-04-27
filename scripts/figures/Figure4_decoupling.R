@@ -54,7 +54,7 @@ m.graze<-glmer(grazef ~ log_biom + site.lfi + (1 | dataset/reef), focal.crop,
 summary(m.graze)
 # save(grazers, file= 'results/models/cropper_function_resid.Rdata')
 
-
+  
 
 load("results/models/scraper_function.Rdata")
 scrapers<-h
