@@ -215,7 +215,7 @@ scale_colour_gradientn(colors = myPalette(10), breaks = c(0, 25, 50, 75, 100), l
     axis.text=element_text(size=14),
                 axis.title=element_text(size=14),
                 plot.title=element_text(size = 12, color = 'black', hjust=0.5)) +
-  xlab(expression(paste("biomass, kg ha"^-1))) + ylab(expression(paste("g ha"^-1,"min"^-1)))  +
+  xlab(expression(paste("biomass, kg ha"^-1))) + ylab(expression(paste("g C ha"^-1,"min"^-1)))  +
   labs(title='Croppers')
   # geom_text(data=r2[r2$fg == 'Croppers',], aes(Inf, Inf, 
   #     label=paste0("R", "^", "2", "==", label)), size=5, fontface=2,vjust=2, hjust=2, parse=TRUE) 

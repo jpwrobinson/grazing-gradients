@@ -85,7 +85,7 @@ g1<-ggplot(plot.pred[plot.pred$var != 'site.size',], aes(seq, pred)) +
 		scale_color_manual(values = c(cols[1], cols[1])) +
 		scale_fill_manual(values = c(cols[1], cols[1])) +
 		geom_ribbon(aes(ymin = lwr, ymax = upr, fill=var), alpha=0.2) +
-		labs(x = '', y = expression(paste("g ha"^-1,"min"^-1))) +
+		labs(x = '', y = expression(paste("g C ha"^-1,"min"^-1))) +
 		theme(legend.position = 'none', 
 			legend.title = element_blank()) +
 		annotate('text', x = 49, y = 1, label='Macroalgae') +

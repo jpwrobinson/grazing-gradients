@@ -33,7 +33,7 @@ load(file = 'results/models/cropper_function.Rdata')
 g2<-ggplot(h, aes(reorder(reef, cropping.gram.ha, FUN=median), cropping.gram.ha, fill=dataset)) + 
 			geom_boxplot() + 
 			xlab('') + 
-			ylab(expression(paste("algal consumption, g ha"^-1,"min"^-1))) +
+			ylab(expression(paste("algal consumption, g C ha"^-1,"min"^-1))) +
 			scale_fill_manual(values = cols.named) +
 			theme(legend.position = c(0.8, 0.2),
 					legend.title=element_blank()) +

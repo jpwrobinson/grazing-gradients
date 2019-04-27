@@ -24,6 +24,12 @@ h$management[h$reef == 'Wheeler']<-'Protected'
 h$management<-factor(h$management)
 
 
+ggplot(h, aes(site.lfi, site.size, size = biom)) + geom_point()
+ggplot(h, aes(site.lfi, cropping.gram.ha, size = site.size)) + geom_point()
+ggplot(h, aes(site.size, cropping.gram.ha, size = biom)) + geom_point()
+ggplot(h, aes(site.lfi, cropping.gram.ha, size = biom)) + geom_point()
+ggplot(h, aes(biom, cropping.gram.ha, size = site.size)) + geom_point() + scale_x_log10()
+
 
 load(file = 'results/cropper_attributes.Rdata')
 ## match in site level predictors
@@ -88,14 +94,14 @@ m.full<-glmer(scraping ~ hard.coral + macroalgae + rubble + substrate + complexi
 data.frame(r2beta(m.full, method = 'nsj', partial = TRUE))
 
 ## save AIC scores from top 7 models
-# m.table<-dredge(m.full)
-# tab<-subset(m.table, delta < 7)
-# tab<-data.frame(tab)
-# tab[is.na(tab)]<-0
-# #recalc model weights for the top model set
-# top.weights <- tab$weight/sum(m.table$weight[1:dim(tab)[1]])
-# tab$weight<-top.weights
-# write.csv(tab, 'results/tables/scrapers_AICtable.csv')
+m.table<-dredge(m.full)
+tab<-subset(m.table, delta < 7)
+tab<-data.frame(tab)
+tab[is.na(tab)]<-0
+#recalc model weights for the top model set
+top.weights <- tab$weight/sum(m.table$weight[1:dim(tab)[1]])
+tab$weight<-top.weights
+write.csv(tab, 'results/tables/scrapers_AICtable.csv')
 
 
 ## estimated weight t values and predictions
