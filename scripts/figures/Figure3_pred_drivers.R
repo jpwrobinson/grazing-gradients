@@ -85,9 +85,9 @@ g1<-ggplot(plot.pred[plot.pred$var != 'site.size',], aes(seq, pred)) +
 		scale_color_manual(values = c(cols[1], cols[1])) +
 		scale_fill_manual(values = c(cols[1], cols[1])) +
 		geom_ribbon(aes(ymin = lwr, ymax = upr, fill=var), alpha=0.2) +
-		labs(x = '', y = expression(paste("g C ha"^-1,"min"^-1))) +
+		labs(x = '', y = expression(paste("g C ha"^-1,"min"^-1)), title='') +
 		theme(legend.position = 'none', 
-			legend.title = element_blank()) +
+			plot.title = element_text(size=12, color='transparent')) +
 		annotate('text', x = 49, y = 1, label='Macroalgae') +
 		annotate('text', x = 46, y = 2.5, label='Available substrate')  +
 		geom_rug(data=deciles, aes(macroalgae, 0.5), sides='b', alpha=1, col='grey50',size=1) +
@@ -99,9 +99,9 @@ g3<-ggplot(plot.pred[plot.pred$var == 'site.size',], aes(seq, pred)) +
 		scale_color_manual(values = c(cols[1], cols[1])) +
 		scale_fill_manual(values = c(cols[1], cols[1])) +
 		geom_ribbon(aes(ymin = lwr, ymax = upr, fill=var), alpha=0.2) +
-		labs(x = 'Mean length, cm', y = '') +
+		labs(x = 'Mean length, cm', y = '', title='') +
 		theme(legend.position = 'none', 
-			legend.title = element_blank()) +
+			plot.title = element_text(size=12, color='transparent')) +
 		geom_rug(data=deciles, aes(site.size, 1), sides='b', alpha=1, col='grey50',size=1) + th
 
 
@@ -143,9 +143,9 @@ g2A<-ggplot(plot.pred[plot.pred$var == 'crop',], aes(seq, pred)) +
 		geom_ribbon(aes(ymin = lwr, ymax = upr,fill=var), alpha=0.2) +
 		scale_color_manual(values = cols.named) +
 		scale_fill_manual(values = cols.named) +
-		labs(x = '') +
+		labs(x = '', title = 'Croppers') +
 		theme(legend.position = 'none', 
-			legend.title = element_blank()) + 
+			plot.title = element_text(size=14, vjust = 3,hjust =0.5, face='bold', color='black')) + 
 		ylab(NULL) + th
 
 g2B<-ggplot(plot.pred[plot.pred$var == 'scrape',], aes(seq, pred)) + 
@@ -153,9 +153,9 @@ g2B<-ggplot(plot.pred[plot.pred$var == 'scrape',], aes(seq, pred)) +
 		geom_ribbon(aes(ymin = lwr, ymax = upr,fill=var), alpha=0.2) +
 		scale_color_manual(values = cols.named) +
 		scale_fill_manual(values = cols.named) +
-		labs(x = 'Structural complexity') +
+		labs(x = 'Structural complexity', title = 'Scrapers') +
 		theme(legend.position = 'none', 
-			legend.title = element_blank()) + 
+			plot.title = element_text(size=14, vjust = 3,hjust =0.5, face='bold', color='black')) + 
 		scale_y_continuous(breaks=seq(0.5, 0.7, 0.05), labels = scales::number_format(accuracy = 0.1)) +
 		ylab(NULL) +
 		geom_rug(data=deciles, aes(complexity, 0.5), sides='b', alpha=1, col='grey50',size=1) + th
@@ -175,9 +175,9 @@ plot.pred$upr<-c(sub.var[,2])
 g5<-ggplot(plot.pred, aes(seq, pred)) + 
 		geom_line(lwd=1.2, col=cols[2], linetype=2) +
 		geom_ribbon(aes(ymin = lwr, ymax = upr), fill=cols[2], alpha=0.2) +
-		labs(x = '% cover', y = expression(paste('m'^2,'ha'^-1, 'min'^-1))) +
+		labs(x = '% cover', y = expression(paste('m'^2,'ha'^-1, 'min'^-1)), title='') +
 		theme(legend.position = 'none', 
-			legend.title = element_blank()) +
+			plot.title = element_text(size=12, color='transparent')) +
 		# annotate('text', x = 49, y = 1, label='Macroalgae') +
 		annotate('text', x = 45, y = 0.7, label='Available substrate')  +
 		scale_y_continuous(breaks=seq(0.5, 0.7, 0.05), labels = scales::number_format(accuracy = 0.1)) +
@@ -203,15 +203,15 @@ preds$cov<-factor(c('Fished', 'No-take', 'Remote'))
 # preds$cov<-factor(preds$cov, levels = levels(preds$cov)[c(1,3,2)])
 
 g4<-ggplot(preds, aes(cov, pred)) + geom_pointrange(col=cols[2],size=1.25, aes(ymin= lwr, ymax = upr)) +
-	labs(x = '', y = '') +
+	labs(x = '', y = '', title='') +
 	lims(y = c(0.55, 1.2)) +
 	theme(legend.position = 'none') + th
 
 
 pdf(file = 'figures/Figure3_predicted_effects.pdf', height = 6, width = 12)
-left<-plot_grid(g1, g5, nrow=2, align = 'hv', rel_heights= c(0.5, 0.5), labels=c('A', 'D'),label_size=16)
-mid<-plot_grid(g2A, g2B, nrow=2, align = 'hv', rel_heights= c(0.5, 0.5), labels=c('B', 'E'),label_size=16)
-right<-plot_grid(g3, g4, nrow=2, align = 'hv', rel_heights=c(0.5, 0.5), labels=c('C', 'F'), label_size = 16)
+left<-plot_grid(g1, g5, nrow=2, align = 'hv', rel_heights= c(0.5, 0.5), vjust=2,labels=c('A', 'D'),label_size=16)
+mid<-plot_grid(g2A, g2B, nrow=2, align = 'hv', rel_heights= c(0.5, 0.5), vjust=2,labels=c('B', 'E'),label_size=16)
+right<-plot_grid(g3, g4, nrow=2, align = 'hv', rel_heights=c(0.5, 0.5), vjust=2,labels=c('C', 'F'), label_size = 16)
 plot_grid(left, mid, right, nrow=1, labels=c('', '', ''), label_size=0)
 
 dev.off()
