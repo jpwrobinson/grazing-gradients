@@ -40,7 +40,7 @@ In Australia, five reefs were surveyed on the central Great Barrier Reef in 2010
 
 *Benthic categories*
 
-Across all reefs, we detected four benthic regimes characterised by 1) hard coral dominance, 2) macroalgal dominance, 3) high availability of bare substrate, and 4) rubble reefs (Fig. S1B). Coral dominance was the most common regime, detected at 41 reefs across all four regions, whereas bare substrate regimes were only present in Seychelles (9) and Chagos (6). Macroalgal dominance was detected on five Seychelles reefs and nine GBR reefs, while rubble reefs were only present in Seychelles (6 reefs).
+Across all reefs, we detected three benthic regimes characterised by 1) hard coral dominance, 2) high availability of bare substrate, and 3) rubble reefs (Fig. S1B). Coral dominance was the most common regime, detected at 53 reefs across all four regions, whereas bare substrate regimes were only present in Seychelles (14) and Chagos (7). Rubble reefs were only present in Seychelles (6 reefs).
 
 
 &nbsp;
@@ -49,7 +49,7 @@ Across all reefs, we detected four benthic regimes characterised by 1) hard cora
 knitr::include_graphics("../../figures/Figure1.pdf"); i = i + 1
 ```
 
-**Figure S`r i` | Map of study sites with benthic habitat regimes (B) and herbivore biomass levels (C).** Survey sites are coloured by regimes identified in k-cluster analysis (rubble = yellow, macroalgae = green, substrate = blue, coral = red), and bar plots show mean grazing biomass (± 2 standard errors) for croppers and scrapers.
+**Figure S`r i` | Map of study sites with benthic habitat regimes (B) and herbivore biomass levels (C).** Survey sites are coloured by regimes identified in k-cluster analysis (coral = blue, substrate = red, rubble = yellow), and bar plots show mean grazing biomass (± 2 standard errors) for croppers and scrapers.
 
 \newpage
 
