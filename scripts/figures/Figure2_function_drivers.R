@@ -66,14 +66,15 @@ cols<-c(pal[5], pal[12], pal[18])
 cols.named<-c('Croppers' = pal[5], 'Scrapers' = pal[12])
 theme_set(theme_sleek())
 ylab<-rev(c('Hard coral', 'Available\nsubstrate', 'Rubble', 'Macroalgae', 'Structural\ncomplexity',
-        'Fishable\nbiomass', 'No-take reef', 'Remote reef', 'Mean length'))#,'Species richness'))
+        'Fishable\nbiomass', 'No-take reef', 'Remote reef'))#,'Species richness'))
 
 ## reorder factor levels here - careful this is manual, check plot is ok
 ## for full model plot
 # est$term<-factor(est$term, levels=levels(est$term)[rev(c(7,1,4,6,10,9,8,5,2,3))])
 ## for t value plot
 est$Var<-factor(est$Var)
-est$Var<-factor(est$Var, levels=levels(est$Var)[rev(c(5,9,7,6,3,4,1,2,8))])
+
+est$Var<-factor(est$Var, levels=levels(est$Var)[rev(c(5,8,7,6,3,4,1,2))])
 est$indicator<-ifelse(est$indicator == 'cropping.gram.ha', 'Croppers', 'Scrapers')
 est$sign<-'Positive'
 est$sign[est$Var == 'hard.coral' & est$indicator == 'Croppers']<-'Mixed'
@@ -124,7 +125,7 @@ g.rel.effects <- ggplot(est, aes(Var, RI.t.ratio, fill=indicator, col=indicator)
                 axis.text=element_text(size=14),
                 axis.title.x=element_text(size=18),
                 strip.text.x=element_text(color = 'black', size=18)) + 
-              geom_vline(xintercept = 4.5, size=2, col='grey90') #+
+              geom_vline(xintercept = 3.5, size=2, col='grey90') #+
               # geom_text(data = ann_text,col='black', 
               #   aes(label = lab), size=6, vjust=-0.2, fontface='bold')
 

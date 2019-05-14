@@ -51,11 +51,11 @@ scrape.var<-mm.scrape[[4]]
 
 
 ## plor cropper benthic effects
-plot.pred<-crop.pred %>% select(substrate, macroalgae, site.size) %>% gather(var, pred)
+plot.pred<-crop.pred %>% select(substrate, macroalgae) %>% gather(var, pred)
 
 sub.seq<-with(crop.raw, seq(min(substrate), max(substrate), length.out=100))
 ma.seq<-with(crop.raw, seq(min(macroalgae), max(macroalgae), length.out=100))
-size.seq<-with(crop.raw, seq(min(site.size), max(site.size), length.out=100))
+# size.seq<-with(crop.raw, seq(min(site.size), max(site.size), length.out=100))
 
 sub.var<-data.frame(mm.crop[[3]]['substrate'] - mm.crop[[4]]['substrate'], 
 	mm.crop[[3]]['substrate'] + mm.crop[[4]]['substrate'], 'substrate')
@@ -63,12 +63,12 @@ sub.var<-data.frame(mm.crop[[3]]['substrate'] - mm.crop[[4]]['substrate'],
 ma.var<-data.frame(mm.crop[[3]]['macroalgae'] - mm.crop[[4]]['macroalgae'], 
 	mm.crop[[3]]['macroalgae'] + mm.crop[[4]]['macroalgae'], 'macroalgae')
 
-size.var<-data.frame(mm.crop[[3]]['site.size'] - mm.crop[[4]]['site.size'], 
-	mm.crop[[3]]['site.size'] + mm.crop[[4]]['site.size'], 'site.size')
+# size.var<-data.frame(mm.crop[[3]]['site.size'] - mm.crop[[4]]['site.size'], 
+# 	mm.crop[[3]]['site.size'] + mm.crop[[4]]['site.size'], 'site.size')
 
-plot.pred$seq<-c(sub.seq, ma.seq, size.seq)
-plot.pred$lwr<-c(sub.var[,1], ma.var[,1], size.var[,1])
-plot.pred$upr<-c(sub.var[,2], ma.var[,2], size.var[,2])
+plot.pred$seq<-c(sub.seq, ma.seq)
+plot.pred$lwr<-c(sub.var[,1], ma.var[,1])
+plot.pred$upr<-c(sub.var[,2], ma.var[,2])
 
 pal <- wesanderson::wes_palette("Zissou1", 21, type = "continuous")
 cols<-c(pal[5], pal[12], pal[18])
@@ -80,29 +80,57 @@ deciles<-data.frame(
   complexity = quantile(h$complexity, prob=seq(0, 1, length.out=11)),
   site.size = quantile(h$site.size, prob=seq(0, 1, length.out=11)))
 
-g1<-ggplot(plot.pred[plot.pred$var != 'site.size',], aes(seq, pred)) + 
-		geom_line(lwd=1.2, aes(col=var, linetype=var)) +
-		scale_color_manual(values = c(cols[1], cols[1])) +
-		scale_fill_manual(values = c(cols[1], cols[1])) +
-		geom_ribbon(aes(ymin = lwr, ymax = upr, fill=var), alpha=0.2) +
-		labs(x = '', y = expression(paste("g C ha"^-1,"min"^-1)), title='') +
-		theme(legend.position = 'none', 
-			plot.title = element_text(size=12, color='transparent')) +
-		annotate('text', x = 49, y = 1, label='Macroalgae') +
-		annotate('text', x = 46, y = 2.5, label='Available substrate')  +
-		geom_rug(data=deciles, aes(macroalgae, 0.5), sides='b', alpha=1, col='grey50',size=1) +
-		geom_rug(data=deciles, aes(substrate, 0.5), sides='t', alpha=1, col='grey50',size=1) + th
+# g1<-ggplot(plot.pred[plot.pred$var != 'site.size',], aes(seq, pred)) + 
+# 		geom_line(lwd=1.2, aes(col=var, linetype=var)) +
+# 		scale_color_manual(values = c(cols[1], cols[1])) +
+# 		scale_fill_manual(values = c(cols[1], cols[1])) +
+# 		geom_ribbon(aes(ymin = lwr, ymax = upr, fill=var), alpha=0.2) +
+# 		labs(x = '', y = expression(paste("g C ha"^-1,"min"^-1)), title='') +
+# 		theme(legend.position = 'none', 
+# 			plot.title = element_text(size=12, color='transparent')) +
+# 		annotate('text', x = 49, y = 1, label='Macroalgae') +
+# 		annotate('text', x = 46, y = 2.5, label='Available substrate')  +
+# 		geom_rug(data=deciles, aes(macroalgae, 0.5), sides='b', alpha=1, col='grey50',size=1) +
+# 		geom_rug(data=deciles, aes(substrate, 0.5), sides='t', alpha=1, col='grey50',size=1) + th
 
-## size effect for croppers
-g3<-ggplot(plot.pred[plot.pred$var == 'site.size',], aes(seq, pred)) + 
-		geom_line(lwd=1.2, aes(col=var, linetype=var)) +
+g1<-ggplot(plot.pred[!(plot.pred$var %in% c('macroalgae')),], aes(seq, pred)) + 
+		geom_line(lwd=1.2, aes(col=var)) +
 		scale_color_manual(values = c(cols[1], cols[1])) +
 		scale_fill_manual(values = c(cols[1], cols[1])) +
 		geom_ribbon(aes(ymin = lwr, ymax = upr, fill=var), alpha=0.2) +
-		labs(x = 'Mean length, cm', y = '', title='') +
+		labs(x = '% cover', y = expression(paste("g C ha"^-1,"min"^-1)), title='') +
 		theme(legend.position = 'none', 
 			plot.title = element_text(size=12, color='transparent')) +
-		geom_rug(data=deciles, aes(site.size, 1), sides='b', alpha=1, col='grey50',size=1) + th
+		# annotate('text', x = 49, y = 1, label='Macroalgae') +
+		annotate('text', x = 46, y = 2.5, label='Available substrate')  +
+		# geom_rug(data=deciles, aes(macroalgae, 0.5), sides='b', alpha=1, col='grey50',size=1) +
+		geom_rug(data=deciles, aes(substrate, 0.55), sides='b', alpha=1, col='grey50',size=1) + th
+
+g3<-ggplot(plot.pred[!(plot.pred$var %in% c('substrate')),], aes(seq, pred)) + 
+		geom_line(lwd=1.2, aes(col=var)) +
+		scale_color_manual(values = c(cols[1], cols[1])) +
+		scale_fill_manual(values = c(cols[1], cols[1])) +
+		geom_ribbon(aes(ymin = lwr, ymax = upr, fill=var), alpha=0.2) +
+		labs(x = '% cover', y = '', title='') +
+		theme(legend.position = 'none', 
+			plot.title = element_text(size=12, color='transparent')) +
+		annotate('text', x = 40, y = 1, label='Macroalgae') +
+		# annotate('text', x = 46, y = 2.5, label='Available substrate')  +
+		geom_rug(data=deciles, aes(macroalgae, 0.5), sides='b', alpha=1, col='grey50',size=1) +
+		# geom_rug(data=deciles, aes(substrate, 0.5), sides='t', alpha=1, col='grey50',size=1) + 
+		th
+
+
+# ## size effect for croppers
+# g3<-ggplot(plot.pred[plot.pred$var == 'site.size',], aes(seq, pred)) + 
+# 		geom_line(lwd=1.2, aes(col=var, linetype=var)) +
+# 		scale_color_manual(values = c(cols[1], cols[1])) +
+# 		scale_fill_manual(values = c(cols[1], cols[1])) +
+# 		geom_ribbon(aes(ymin = lwr, ymax = upr, fill=var), alpha=0.2) +
+# 		labs(x = 'Mean length, cm', y = '', title='') +
+# 		theme(legend.position = 'none', 
+# 			plot.title = element_text(size=12, color='transparent')) +
+# 		geom_rug(data=deciles, aes(site.size, 1), sides='b', alpha=1, col='grey50',size=1) + th
 
 
 ## plot complexity effects
@@ -145,7 +173,7 @@ g2A<-ggplot(plot.pred[plot.pred$var == 'crop',], aes(seq, pred)) +
 		scale_fill_manual(values = cols.named) +
 		labs(x = '', title = 'Croppers') +
 		theme(legend.position = 'none', 
-			plot.title = element_text(size=14, vjust = 3,hjust =0.5, face='bold', color='black')) + 
+			plot.title = element_text(size=14, vjust = 3,hjust =0.5,  color='black')) + 
 		ylab(NULL) + th
 
 g2B<-ggplot(plot.pred[plot.pred$var == 'scrape',], aes(seq, pred)) + 
@@ -155,7 +183,7 @@ g2B<-ggplot(plot.pred[plot.pred$var == 'scrape',], aes(seq, pred)) +
 		scale_fill_manual(values = cols.named) +
 		labs(x = 'Structural complexity', title = 'Scrapers') +
 		theme(legend.position = 'none', 
-			plot.title = element_text(size=14, vjust = 3,hjust =0.5, face='bold', color='black')) + 
+			plot.title = element_text(size=14, vjust = 3,hjust =0.5,  color='black')) + 
 		scale_y_continuous(breaks=seq(0.5, 0.7, 0.05), labels = scales::number_format(accuracy = 0.1)) +
 		ylab(NULL) +
 		geom_rug(data=deciles, aes(complexity, 0.5), sides='b', alpha=1, col='grey50',size=1) + th

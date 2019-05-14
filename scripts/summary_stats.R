@@ -20,6 +20,7 @@ scrape<-as.data.frame(rethinking::precis(scrape.m, 1)@output)
 scrape$FG<-'Scraping'
 
 load('results/models/area_scrapers.Rdata')
+cor(area$TL, area$bitearea)
 scrape2<-rethinking::precis(scrape.m2, 1)@output
 scrape2$FG<-'Scraping.area'
 
@@ -123,6 +124,7 @@ h <- pred %>%
 
 h[which.max(h$biom),]
 h[which.min(h$biom),]
+
 
 
 ## function models and data
