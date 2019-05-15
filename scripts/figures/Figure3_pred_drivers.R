@@ -232,7 +232,7 @@ preds$cov<-factor(c('Fished', 'No-take', 'Remote'))
 
 g4<-ggplot(preds, aes(cov, pred)) + geom_pointrange(col=cols[2],size=1.25, aes(ymin= lwr, ymax = upr)) +
 	labs(x = '', y = '', title='') +
-	lims(y = c(0.55, 1.2)) +
+	lims(y = c(0.55, 1.25)) +
 	theme(legend.position = 'none') + th
 
 
