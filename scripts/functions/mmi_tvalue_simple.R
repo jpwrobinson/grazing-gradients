@@ -33,7 +33,6 @@ mmi_tvalue_simp<-function(M_FULL, dataset, indicator, t.subset=FALSE){
   M_FULL_SET<-dredge(M_FULL, rank="AICc")
   print(head(M_FULL_SET))
 
-  ## if variance estimates are problematic (i.e. big effects scoop up variation in models with low numbers of covariates), then
   ## extract models with AIC < 7
   if(t.subset == TRUE){
     M_FULL_SET<-subset(M_FULL_SET, delta<7)}

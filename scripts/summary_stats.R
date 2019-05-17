@@ -16,6 +16,7 @@ crop<-as.data.frame(rethinking::precis(graze.m, 1)@output)
 crop$FG<-'Cropping'
 
 load('results/models/bites_scrapers.Rdata')
+cor(scrapers$TL, scrapers$biterate)
 scrape<-as.data.frame(rethinking::precis(scrape.m, 1)@output)
 scrape$FG<-'Scraping'
 

@@ -202,7 +202,7 @@ plot.pred$upr<-c(sub.var[,2])
 
 
 g5<-ggplot(plot.pred, aes(seq, pred)) + 
-		geom_line(lwd=1.2, col=cols[2], linetype=2) +
+		geom_line(lwd=1.2, col=cols[2], linetype=1) +
 		geom_ribbon(aes(ymin = lwr, ymax = upr), fill=cols[2], alpha=0.2) +
 		labs(x = '% cover', y = expression(paste('m'^2,'ha'^-1, 'min'^-1)), title='Scrapers') +
 		theme(legend.position = 'none', 

@@ -33,7 +33,7 @@ theme_set(theme_sleek())
 options(mc.cores = parallel::detectCores())
 
 # data load
-bite<-read.csv("../../data/bite-rates/bite_rate_clean.csv")
+bite<-read.csv("bite_rate_clean.csv")
 
 ```
 

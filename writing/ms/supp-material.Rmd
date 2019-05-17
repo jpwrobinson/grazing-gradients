@@ -40,10 +40,50 @@ In Australia, five reefs were surveyed on the central Great Barrier Reef in 2010
 
 *Benthic categories*
 
-Across all reefs, we detected three benthic regimes characterised by 1) hard coral dominance, 2) high availability of bare substrate, and 3) rubble reefs (Fig. S1B). Coral dominance was the most common regime, detected at 53 reefs across all four regions, whereas bare substrate regimes were only present in Seychelles (14) and Chagos (7). Rubble reefs were only present in Seychelles (6 reefs).
+To understand the range of benthic habitat types across the dataset, we categorised reefs according to their benthic regime, using a correlation-based PCA and K-means clustering (Jouffray et al. 2015). The optimal number of clusters was found using an elbow method with k = 2-15 range, and then applied to the K-means clustering. For reefs in Seychelles which were surveyed in multiple years, we estimated regimes at each site by averaging cover values over time. Across all reefs, we detected three benthic regimes characterised by 1) hard coral dominance, 2) high availability of bare substrate, and 3) rubble reefs (Fig. S1B). Coral dominance was the most common regime, detected at 53 reefs across all four regions, whereas bare substrate regimes were only present in Seychelles (14) and Chagos (7). Rubble reefs were only present in Seychelles (6 reefs).
+
+*Bite rate models*
+
+Cropper function was quantified in terms of potential feeding intensity, the total number of bites per minute, and derived from a predictive model which accounted for species- and genera-specific bite rates (Eqs. 1,2). In our cropper feeding data, bite rates were only weakly correlated with TL (Pearson’s r = -0.18), and so we assumed bite rates were unrelated to body size. 
+
+$biterate = Gamma(\mu, \theta)$ \hfill Eq. 1
+
+$log(\mu) = \beta_0 + species_i + genus_j + dataset_k$ \hfill Eq. 2
+  
+From this model, we generated species- and genera-level posterior predictions of grazing rates and assigned to each individual cropping fish observed in UVCs. Fish belonging to genera which were not present in the feeding observation dataset were assigned average feeding rates irrespective of species and genera (i.e. the model intercept, ```\beta_0```). Following Van Rooij et al. (1998), daily carbon intake was linked to body mass (M, grams) as
+
+$gC = 0.0342.M^{0.816}$ \hfill Eq.3
+
+which we then divided by the predicted number of bites per day to produce an estimate of grams carbon consumed per minute by each individual cropping fish. Our approach accounts for bite size increasing with body size, meaning that larger fish will have greater carbon intakes (Marshell & Mumby 2015). We summed estimates within UVC replicates (i.e. point count or transect) and averaged across replicates to give site-level estimates of potential cropping function.
+
+Scraping function was quantified terms of potential area of substrata cleared per minute. Feeding observations provided estimates of bite rates, which we modelled as a function of body size (TL, cm; *r* = -0.43) according to species- and genera-specific grazing rates, for gamma distributed errors (Eqs. 4, 5). 
+
+$biterate = Gamma(\mu, \theta)$ \hfill Eq. 4
+
+$log(\mu) = \beta_0 + \beta_1*TL + species_i + genus_j + dataset_k$ \hfill Eq. 5
+
+To account for potential differences in scraping action among species and across body sizes, we used a second underwater feeding observation dataset of scraper bite areas. Bite scar area (cm^2^) was modelled as a function of body size (TL, cm; *r* = 0.83), for Gamma distributed errors (Eqs. 6,7). 
+
+$scarsize = Gamma(\mu, \theta)$ \hfill Eq. 6
+
+$log(\mu) = \beta_0 + \beta_1*TL$ \hfill Eq. 7
+
+By including size (TL) as an explanatory covariate, models accounted for scar area increasing with body size (Fig. S2A) and bite rates decreasing with body size (Fig. S2B). For each observed scraper in the UVC dataset, we generated posterior predictions for bite rate and scar size according to its species identity and body size. Species which were not observed in feeding observations were assigned genera-level bite rates. These predictions were converted to area scraped per minute (bite rate x scar size = area scraped) (m^2^ ha^-1^ min^-1^), summed within surveys and averaged to give site-level estimates of potential scraping function.
+
+All models fitted to feeding data were fitted with weakly informative priors (Table S2) using Markov Chain Monte Carlo sampling implemented in Stan. We sampled three chains of 3,000 iterations (warmup = 1,500) each for model checks, and one long chain of 5,000 iterations (warmup =1,500) for generating grazing predictions. Model convergence was assessed by inspecting posterior predictions, Gelman-Rubin diagnostic (Rhat), and the number of effective samples (Table S2).
 
 
 &nbsp;
+
+#### References
+
+Graham, N. A. J., Chong-Seng, K. M., Huchery, C., Januchowski-Hartley, F. A., & Nash, K. L. (2014). Coral reef community composition in the context of disturbance history on the Great Barrier Reef, Australia. PloS One, 9(7), e101204.
+
+Jouffray, J.-B., Nyström, M., Norström, A. V., Williams, I. D., Wedding, L. M., Kittinger, J. N., & Williams, G. J. (2015). Identifying multiple coral reef regimes and their drivers across the Hawaiian archipelago. Proceedings of the Royal Society B: Biological Sciences, 370(1659), 20130268.
+
+Marshell, A., & Mumby, P. J. (2015). The role of surgeonfish (Acanthuridae) in maintaining algal turf biomass on coral reefs. Journal of Experimental Marine Biology and Ecology, 473, 152–160.
+
+Van Rooij, J. M., Videler, J. J., & Bruggemann, J. H. (1998). High biomass and production but low energy transfer effciency of Caribbean parrotfish: implications for trophic models of coral reefs. Journal of Fish Biology, 53(sA), 154–178.
 
 ```{r, out.width = "480px", echo=F,fig.align='center'}
 knitr::include_graphics("../../figures/Figure1.pdf"); i = i + 1
