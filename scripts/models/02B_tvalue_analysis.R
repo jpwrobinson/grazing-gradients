@@ -40,12 +40,17 @@ rare<-read.csv(file = 'results/rarefied_richness_croppers.csv')
 h$site.rarefied<-rare$qD[match(h$unique.id, rare$site)]
 
 h.pred<-scaler(h, ID=c('date', 'dataset', 'reef', 'site', 'transect', 'unique.id', 'cropping.gram.ha'))
+pairs2(h.pred %>% select(hard.coral, macroalgae, rubble, substrate, complexity, 
+          fish.biom, Fished.Protected.dummy, Fished.Unfished.dummy))
+cor(h.pred$fish.biom, h.pred$biom)
 
 m.full<-glmer(cropping.gram.ha ~  hard.coral + macroalgae + rubble + substrate + complexity + 
         	fish.biom + Fished.Protected.dummy + Fished.Unfished.dummy  + #biom +
           (1 | dataset/reef) , ## random, nested = reefs within datasets
                 data = h.pred, family='Gamma'(link='log'), na.action = na.fail)
 summary(m.full)
+car::vif(m.full)
+
 ## save AIC scores from top 7 models
 m.table<-dredge(m.full)
 tab<-subset(m.table, delta < 7)
@@ -87,13 +92,14 @@ rare<-read.csv(file = 'results/rarefied_richness_scrapers.csv')
 h$site.rarefied<-rare$qD[match(h$unique.id, rare$site)]
 
 h.pred<-scaler(h, ID=c('date', 'dataset', 'reef', 'site', 'transect', 'unique.id', 'scraping'))
+cor(h.pred$fish.biom, h.pred$biom)
 
 m.full<-glmer(scraping ~ hard.coral + macroalgae + rubble + substrate + complexity + 
         	fish.biom + Fished.Protected.dummy + Fished.Unfished.dummy  + #biom +
           (1 | dataset/reef) , ## random, nested = reefs within datasets
                 data = h.pred, family='Gamma'(link='log'), na.action = na.fail)
 data.frame(r2beta(m.full, method = 'nsj', partial = TRUE))
-
+car::vif(m.full)
 ## save AIC scores from top 7 models
 m.table<-dredge(m.full)
 tab<-subset(m.table, delta < 7)
