@@ -167,6 +167,13 @@ herb$species[herb$species == 'Scarus prasiognathus']<-'Scarus prasiognathos'
 
 save(herb, file='data/wio_gbr_fish_master.Rdata')
 
+## save region files as csv
+write.csv(herb, file = 'data/clean-to-share/wio_gbr_fish_master.csv',rownames=FALSE)
+write.csv(herb %>% filter(dataset=='Maldives'), file = 'data/clean-to-share/maldives_fish_uvc.csv',rownames=FALSE)
+write.csv(herb %>% filter(dataset=='Chagos'), file = 'data/clean-to-share/chagos_fish_uvc.csv',rownames=FALSE)
+write.csv(herb %>% filter(dataset=='GBR'), file = 'data/clean-to-share/gbr_fish_uvc.csv',rownames=FALSE)
+write.csv(herb %>% filter(dataset=='Seychelles'), file = 'data/clean-to-share/seychelles_fish_uvc.csv',rownames=FALSE)
+
 ## and drop non-herbivores for grazing models
 herb<-herb[grepl('Herb*', herb$FG),]
 unique(herb$species[herb$FG == 'Herbivore Scraper'])
