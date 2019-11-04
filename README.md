@@ -1,6 +1,10 @@
 # grazing-gradients
 
-Manuscript: https://docs.google.com/document/d/1tb6VC_f5-vY-EGtT6cK-yS3qhgAKeosXyyYHGxyzNtA/edit?usp=sharing
+This is the archive of LECReefs collaborative grazing project, learning Rmd and Git through writing a scientific paper.
+
+Read the published paper: https://besjournals.onlinelibrary.wiley.com/doi/10.1111/1365-2435.13457
+
+Reproduce the manuscript from code: https://github.com/jpwrobinson/grazing-grads
 
 ## Meeting 7 - 14th November 2018
 
